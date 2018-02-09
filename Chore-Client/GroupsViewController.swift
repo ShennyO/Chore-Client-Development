@@ -8,28 +8,41 @@
 
 import UIKit
 
-class GroupsViewController: UIViewController {
+class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+   
+    
+    
 
+    @IBOutlet weak var groupsTableView: UITableView!
+    
+    var groups: [Group]!
+    var requests: [Request]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return self.requests.count
+        } else {
+            return self.groups.count
+        }
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell!
+        if indexPath.section == 0 {
+            cell = self.groupsTableView.dequeueReusableCell(withIdentifier: "requestCell")
+        } else {
+            cell = self.groupsTableView.dequeueReusableCell(withIdentifier: "groupCell")
+        }
+        return cell
     }
-    */
+    
+   
 
 }

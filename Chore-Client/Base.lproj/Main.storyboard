@@ -110,7 +110,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="4Vt-PL-rMY" customClass="FriendRequestTableViewCell" customModule="Chore_Client" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="requestCell" rowHeight="70" id="4Vt-PL-rMY" customClass="FriendRequestTableViewCell" customModule="Chore_Client" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4Vt-PL-rMY" id="i2L-SJ-rca">
@@ -148,7 +148,7 @@
                                             <outlet property="friendRequestLabel" destination="uZK-ow-jOA" id="KEz-mi-xef"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="cs4-fg-NzE" customClass="GroupTableViewCell" customModule="Chore_Client" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="70" id="cs4-fg-NzE" customClass="GroupTableViewCell" customModule="Chore_Client" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="98" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cs4-fg-NzE" id="N1X-6Y-CRe">
@@ -181,6 +181,9 @@
                         <viewLayoutGuide key="safeArea" id="wzi-uU-uHj"/>
                     </view>
                     <navigationItem key="navigationItem" title="Groups" id="mmD-JU-nHQ"/>
+                    <connections>
+                        <outlet property="groupsTableView" destination="5vJ-Is-NfE" id="QDA-pB-2an"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zao-Jo-w9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -263,6 +266,7 @@
                         <viewLayoutGuide key="safeArea" id="dQg-TB-gw7"/>
                     </view>
                     <navigationItem key="navigationItem" title="Personal" id="MuI-0Q-BPK">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="f5r-wt-jut"/>
                         <barButtonItem key="rightBarButtonItem" title="Chores" id="kAc-26-Jdq">
                             <connections>
                                 <segue destination="yIn-Te-tY7" kind="show" id="R6b-3E-uhH"/>

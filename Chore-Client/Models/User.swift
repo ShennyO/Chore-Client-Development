@@ -14,4 +14,6 @@ struct User: Codable {
     let email: String
     let password: String
     let id: Int
+    let chores: [Chore]
+    let groups: [Group]
 }
