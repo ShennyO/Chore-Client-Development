@@ -217,14 +217,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JdV-rP-4qE">
-                                <rect key="frame" x="144.66666666666666" y="140" width="124.99999999999997" height="125"/>
+                                <rect key="frame" x="144.66666666666666" y="114" width="124.99999999999997" height="125"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="125" id="XLh-6p-491"/>
                                     <constraint firstAttribute="width" secondItem="JdV-rP-4qE" secondAttribute="height" multiplier="1:1" id="itN-dt-UD8"/>
                                 </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9k-s8-MTC">
-                                <rect key="frame" x="0.0" y="290" width="414" height="397"/>
+                                <rect key="frame" x="0.0" y="264" width="414" height="423"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="eRc-fc-Wwl">
@@ -257,7 +257,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="L9k-s8-MTC" firstAttribute="leading" secondItem="dQg-TB-gw7" secondAttribute="leading" id="9En-in-g98"/>
-                            <constraint firstItem="JdV-rP-4qE" firstAttribute="top" secondItem="dQg-TB-gw7" secondAttribute="top" constant="76" id="OME-mT-Hck"/>
+                            <constraint firstItem="JdV-rP-4qE" firstAttribute="top" secondItem="dQg-TB-gw7" secondAttribute="top" constant="50" id="OME-mT-Hck"/>
                             <constraint firstItem="dQg-TB-gw7" firstAttribute="trailing" secondItem="L9k-s8-MTC" secondAttribute="trailing" id="W4i-UI-cvj"/>
                             <constraint firstItem="L9k-s8-MTC" firstAttribute="top" secondItem="JdV-rP-4qE" secondAttribute="bottom" constant="25" id="fwg-iZ-5hX"/>
                             <constraint firstItem="JdV-rP-4qE" firstAttribute="centerX" secondItem="fck-50-SvO" secondAttribute="centerX" id="hD5-0f-HkX"/>
