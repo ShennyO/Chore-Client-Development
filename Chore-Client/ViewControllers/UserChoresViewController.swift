@@ -8,16 +8,47 @@
 
 import UIKit
 
-class UserChoresViewController: UIViewController {
+class UserChoresViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
 
     @IBOutlet weak var choresTableView: UITableView!
+    var userChores: [Chore] = []
+   
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        //in here we want to perform the GET requests for all of the current user's chores
-        
-        // Do any additional setup after loading the view.
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        getUserChores {
+            DispatchQueue.main.async {
+                self.choresTableView.reloadData()
+            }
+        }
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.userChores.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.choresTableView.dequeueReusableCell(withIdentifier: "userChoreCell") as! UserChoreTableViewCell
+        cell.choreNameLabel.text = self.userChores[indexPath.row].name
+        cell.chorePenaltyLabel.text = self.userChores[indexPath.row].penalty
+        cell.choreDescriptionLabel.text = self.userChores[indexPath.row].due_date
+        return cell
+    }
+    
 
     
+}
+
+extension UserChoresViewController {
+    func getUserChores(completion: @escaping ()->()) {
+        Network.instance.fetch(route: .getUserChores) { (data) in
+            let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)
+            if let chores = jsonChores {
+                self.userChores = chores
+                completion()
+            }
+        }
+    }
 }
