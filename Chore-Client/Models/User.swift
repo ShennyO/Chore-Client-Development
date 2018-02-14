@@ -7,13 +7,26 @@
 //
 
 import Foundation
+import UIKit
 
-struct User: Codable {
-    let firstName: String
-    let lastName: String
-    let email: String
-    let password: String
-    let id: Int
-    let chores: [Chore]
-    let groups: [Group]
+class User: Codable {
+    var first_name: String
+    var last_name: String
+    var email: String
+    var username: String
+    var id: Int
+    var authentication_token: String
+
+    
+    init(firstName: String, lastName: String, email: String, username: String, id: Int, authentication_token: String) {
+        self.first_name = firstName
+        self.last_name = lastName
+        self.email = email
+        self.username = username
+        self.id = id
+        self.authentication_token = authentication_token
+    }
+    
+    
 }
+

@@ -88,12 +88,18 @@ enum Route {
     }
     
     func headers() -> [String: String] {
-        let keychain = KeychainSwift()
-        let token = keychain.get("token")
-        let email = keychain.get("email")
-        return ["Content-Type": "application/json",
-                "Authorization": "\(token!)",
-                "Email": email!]
+        switch self {
+        case .loginUser:
+            return ["Content-Type": "application/json"]
+        default:
+            let keychain = KeychainSwift()
+            let token = keychain.get("token")
+            let email = keychain.get("email")
+            return ["Content-Type": "application/json",
+                    "x-User-Token": "\(token!)",
+                "x-User-Email": email!]
+        }
+        
     }
     
 }
@@ -101,24 +107,25 @@ enum Route {
 class Network {
     static let instance = Network()
     
-    let baseURL = "localhost:3000/v1/"
+    let baseURL = "http://0.0.0.0:3000/v1/"
     //    let baseURL = "http://127.0.0.1:5000/"
     
     let session = URLSession.shared
     
-    func fetch(route: Route, token: String, completion: @escaping (Data) -> Void) {
+    func fetch(route: Route, completion: @escaping (Data) -> Void) {
         let fullPath = baseURL + route.path()
         
         let pathURL = URL(string: fullPath)
         let fullPathURL = pathURL?.appendingQueryParameters(route.Parameters())
         var request = URLRequest(url: fullPathURL!)
         request.httpMethod = route.method()
-//        request.allHTTPHeaderFields = route.headers(authorization: token)
+        request.allHTTPHeaderFields = route.headers()
         request.httpBody = route.body()
         
         session.dataTask(with: request) { (data, resp, err) in
             
             if let data = data {
+                
                 completion(data)
             }
             

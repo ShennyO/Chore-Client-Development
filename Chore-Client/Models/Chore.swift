@@ -9,13 +9,13 @@
 import Foundation
 
 struct Chore: Codable {
-    let name: String
     let id: Int
-    let user_id: String
-    let due_date: String
+    let name: String
     let penalty: String
+    let due_date: String
     let reward: String
-    let assigned: Bool
     let completed: Bool
-    let group_id: String
+    let assigned: Bool
+    let user_id: Int
+    
 }

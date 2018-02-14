@@ -8,10 +8,14 @@
 
 import Foundation
 
+struct Groups: Codable {
+    let groups: [Group]
+}
+
 struct Group: Codable {
     let name: String
-    let users: [User]
-    let chores: [Chore]?
+    let members: [Member]
+    let chores: [Chore]
     let id: Int
     
 }
