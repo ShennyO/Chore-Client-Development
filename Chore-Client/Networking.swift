@@ -20,12 +20,13 @@ enum Route {
     case createChore(name: String, due_date: String, penalty: String, reward: String, id: Int)
     case getGroupChores(chore_type: String, id: Int)
     case getUserChores
+    case getGroupRequests
     
     func method() -> String {
         switch self {
         case .loginUser, .createUser, .createGroup, .createChore:
             return "POST"
-        case .getUserGroups, .getGroupChores, .getUserChores:
+        case .getUserGroups, .getGroupChores, .getUserChores, .getGroupRequests:
             return "GET"
         case .logoutUser:
             return "DELETE"
@@ -46,6 +47,8 @@ enum Route {
             return "groups/\(id)/chores"
         case .getUserChores:
             return "chores/user"
+        case .getGroupRequests:
+            return "requests"
         }
     }
     
@@ -100,7 +103,7 @@ enum Route {
             let email = keychain.get("email")
             return ["Content-Type": "application/json",
                     "x-User-Token": "\(token!)",
-                "x-User-Email": email!]
+                    "x-User-Email": email!]
         }
         
     }

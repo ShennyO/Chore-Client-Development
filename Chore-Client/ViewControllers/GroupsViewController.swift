@@ -21,9 +21,13 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.getGroups {
-            DispatchQueue.main.async {
-                self.groupsTableView.reloadData()
+            
+            self.getRequests {
+                DispatchQueue.main.async {
+                    self.groupsTableView.reloadData()
+                }
             }
+           
         }
     }
     
@@ -56,6 +60,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if indexPath.section == 0 {
             let cell = self.groupsTableView.dequeueReusableCell(withIdentifier: "requestCell") as! FriendRequestTableViewCell
+            cell.friendRequestLabel.text = " You have been invited to: \(self.requests[indexPath.row].group_name)"
             return cell
         } else {
             let cell = self.groupsTableView.dequeueReusableCell(withIdentifier: "groupCell") as! GroupTableViewCell
@@ -75,6 +80,16 @@ extension GroupsViewController {
             let jsonGroups = try? JSONDecoder().decode(Groups.self, from: data)
             if let groups = jsonGroups?.groups {
                 self.groups = groups
+                completion()
+            }
+        }
+    }
+    
+    func getRequests(completion: @escaping ()->()) {
+        Network.instance.fetch(route: Route.getGroupRequests) { (data) in
+            let jsonRequests = try? JSONDecoder().decode([Request].self, from: data)
+            if let requests = jsonRequests {
+                self.requests = requests
                 completion()
             }
         }
