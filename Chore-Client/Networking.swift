@@ -22,6 +22,7 @@ enum Route {
     case getUserChores
     case getGroupRequests
     
+    
     func method() -> String {
         switch self {
         case .loginUser, .createUser, .createGroup, .createChore:

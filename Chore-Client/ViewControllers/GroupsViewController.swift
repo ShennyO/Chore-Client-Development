@@ -70,6 +70,16 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "toGroupDetail" {
+                let groupDetailVC = segue.destination as! GroupDetailViewController
+                let index = self.groupsTableView.indexPathForSelectedRow!
+                groupDetailVC.group = self.groups[index.row]
+            }
+        }
+    }
+    
    
 
 }

@@ -27,6 +27,8 @@
 		84DEEDEA2033BD7600FAAA6B /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDE92033BD7600FAAA6B /* NewGroupViewController.swift */; };
 		84DEEDEC2034014400FAAA6B /* UserChoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDEB2034014400FAAA6B /* UserChoresViewController.swift */; };
 		84DEEDEE203402F300FAAA6B /* UserChoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDED203402F300FAAA6B /* UserChoreTableViewCell.swift */; };
+		84DEEDF02034F16C00FAAA6B /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDEF2034F16C00FAAA6B /* GroupDetailViewController.swift */; };
+		84DEEDF22034F34D00FAAA6B /* GroupChoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDF12034F34D00FAAA6B /* GroupChoreTableViewCell.swift */; };
 		9A3C5CD16C306D1C14BB9D59 /* Pods_Chore_ClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 380F1B8917556C1E547BAA4C /* Pods_Chore_ClientTests.framework */; };
 		E5492477C675BFFA058151A7 /* Pods_Chore_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEAD19F591532395304131E /* Pods_Chore_Client.framework */; };
 /* End PBXBuildFile section */
@@ -82,6 +84,8 @@
 		84DEEDE92033BD7600FAAA6B /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		84DEEDEB2034014400FAAA6B /* UserChoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChoresViewController.swift; sourceTree = "<group>"; };
 		84DEEDED203402F300FAAA6B /* UserChoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChoreTableViewCell.swift; sourceTree = "<group>"; };
+		84DEEDEF2034F16C00FAAA6B /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
+		84DEEDF12034F34D00FAAA6B /* GroupChoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChoreTableViewCell.swift; sourceTree = "<group>"; };
 		E0C26C00269B500A0053DF20 /* Pods-Chore-ClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-ClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-ClientTests/Pods-Chore-ClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -197,6 +201,7 @@
 				84906436202CD570008BFDF7 /* GroupTableViewCell.swift */,
 				84906438202CD5C6008BFDF7 /* FriendRequestTableViewCell.swift */,
 				84DEEDED203402F300FAAA6B /* UserChoreTableViewCell.swift */,
+				84DEEDF12034F34D00FAAA6B /* GroupChoreTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 				84906433202CD538008BFDF7 /* GroupsViewController.swift */,
 				84DEEDE92033BD7600FAAA6B /* NewGroupViewController.swift */,
 				84DEEDEB2034014400FAAA6B /* UserChoresViewController.swift */,
+				84DEEDEF2034F16C00FAAA6B /* GroupDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -527,6 +533,8 @@
 				8490637B202BAA28008BFDF7 /* LoginViewController.swift in Sources */,
 				84906377202A859C008BFDF7 /* Request.swift in Sources */,
 				84906437202CD570008BFDF7 /* GroupTableViewCell.swift in Sources */,
+				84DEEDF22034F34D00FAAA6B /* GroupChoreTableViewCell.swift in Sources */,
+				84DEEDF02034F16C00FAAA6B /* GroupDetailViewController.swift in Sources */,
 				84906342202A3AE7008BFDF7 /* AppDelegate.swift in Sources */,
 				84906375202A84C8008BFDF7 /* Chore.swift in Sources */,
 				84906371202A8287008BFDF7 /* User.swift in Sources */,

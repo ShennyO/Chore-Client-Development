@@ -175,7 +175,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="groupNameLabel" destination="S8Q-N9-aT0" id="afz-Zm-NMW"/>
-                                            <segue destination="sPM-2H-Wo2" kind="show" id="Cu5-fV-GuO"/>
+                                            <segue destination="sPM-2H-Wo2" kind="show" identifier="toGroupDetail" id="Cu5-fV-GuO"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -256,10 +256,10 @@
             </objects>
             <point key="canvasLocation" x="3187" y="-21"/>
         </scene>
-        <!--View Controller-->
+        <!--Group Detail View Controller-->
         <scene sceneID="nxm-fm-TAz">
             <objects>
-                <viewController id="sPM-2H-Wo2" sceneMemberID="viewController">
+                <viewController id="sPM-2H-Wo2" customClass="GroupDetailViewController" customModule="Chore_Client" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iij-o6-kR4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -304,16 +304,8 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="34" id="umZ-Gi-Lsa">
-                                        <rect key="frame" x="0.0" y="199" width="414" height="34"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="umZ-Gi-Lsa" id="Orn-Li-GjA">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="33.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="99" id="ofG-r8-6M1">
-                                        <rect key="frame" x="0.0" y="233" width="414" height="99"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupChoreCell" rowHeight="99" id="ofG-r8-6M1" customClass="GroupChoreTableViewCell" customModule="Chore_Client" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="199" width="414" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ofG-r8-6M1" id="aSx-6D-ASc">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="98.666666666666671"/>
@@ -342,8 +334,8 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J2T-UR-iBh">
                                                             <rect key="frame" x="275.66666666666669" y="0.0" width="118.33333333333331" height="88.666666666666671"/>
                                                             <subviews>
-                                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t5T-DH-QCM">
-                                                                    <rect key="frame" x="-285.66666666666669" y="0.0" width="0.0" height="88.666666666666671"/>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="t5T-DH-QCM">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="118.33333333333333" height="88.666666666666671"/>
                                                                 </imageView>
                                                             </subviews>
                                                         </stackView>
@@ -360,8 +352,16 @@
                                                 <constraint firstAttribute="bottom" secondItem="mYg-f4-ZyF" secondAttribute="bottom" constant="10" id="ygN-OH-ld6"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="choreNameLabel" destination="gIJ-9i-2yI" id="H8V-WJ-uJS"/>
+                                            <outlet property="dueDateLabel" destination="qUu-GC-tMh" id="cjE-XK-B62"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="sPM-2H-Wo2" id="kOo-Ol-V3s"/>
+                                    <outlet property="delegate" destination="sPM-2H-Wo2" id="nkl-Lo-Mmo"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -373,10 +373,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PD7-iA-6hE"/>
                     </view>
+                    <connections>
+                        <outlet property="groupDetailTableView" destination="HJL-AP-f6K" id="AEv-Hy-2gT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mh9-t9-zzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3187" y="725"/>
+            <point key="canvasLocation" x="3186.9565217391305" y="724.72826086956525"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6GG-a4-jnu">
