@@ -11,7 +11,7 @@ import UIKit
 class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
-    var users: [Member] = []
+    var users: [User] = []
     var chores: [Chore] = []
     var group: Group!
     @IBOutlet weak var groupDetailTableView: UITableView!

@@ -21,13 +21,14 @@ enum Route {
     case getGroupChores(chore_type: String, id: Int)
     case getUserChores
     case getGroupRequests
+    case getUser(username: String)
     
     
     func method() -> String {
         switch self {
         case .loginUser, .createUser, .createGroup, .createChore:
             return "POST"
-        case .getUserGroups, .getGroupChores, .getUserChores, .getGroupRequests:
+        case .getUserGroups, .getGroupChores, .getUserChores, .getGroupRequests, .getUser:
             return "GET"
         case .logoutUser:
             return "DELETE"
@@ -36,7 +37,7 @@ enum Route {
     
     func path() -> String {
         switch self {
-        case .loginUser, .logoutUser:
+        case .loginUser, .logoutUser, .getUser:
             return "sessions"
         case .getUserGroups, .createGroup:
             return "groups"
@@ -89,6 +90,8 @@ enum Route {
         switch self {
         case let .getGroupChores(chore_type, _):
             return ["chore_type": chore_type]
+        case let .getUser(username):
+            return ["username": username]
         default:
             return [:]
         }
