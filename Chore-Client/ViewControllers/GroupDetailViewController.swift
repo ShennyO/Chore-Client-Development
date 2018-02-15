@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GroupDetailViewController: UIViewController, UITableViewDataSource {
+class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     
     var users: [Member] = []
@@ -23,6 +23,10 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource {
                 self.groupDetailTableView.reloadData()
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
