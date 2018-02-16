@@ -16,6 +16,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var group: Group!
     @IBOutlet weak var groupDetailTableView: UITableView!
     
+    @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.getGroupChores {

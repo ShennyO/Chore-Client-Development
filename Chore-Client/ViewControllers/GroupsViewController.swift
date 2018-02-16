@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KeychainSwift
 
 class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
    
@@ -76,6 +77,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let groupDetailVC = segue.destination as! GroupDetailViewController
                 let index = self.groupsTableView.indexPathForSelectedRow!
                 groupDetailVC.group = self.groups[index.row]
+                KeychainSwift().set(String(self.groups[index.row].id), forKey: "groupID")
             }
         }
     }
