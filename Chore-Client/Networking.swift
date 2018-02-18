@@ -14,7 +14,7 @@ enum Route {
     
     case loginUser(email: String, password: String)
     case logoutUser
-    case createUser(firstName: String, lastName: String, email: String, password: String, username: String)
+    case createUser(firstName: String, lastName: String, email: String, password: String, confirmation: String, username: String)
     case getUserGroups
     case createGroup(name: String)
     case createChore(name: String, due_date: String, penalty: String, reward: String, id: Int)
@@ -66,9 +66,9 @@ enum Route {
             let result = try? encoder.encode(body)
             return result!
         
-        case let .createUser(firstName, lastName, email, password, username):
+        case let .createUser(firstName, lastName, email, password, confirmation, username):
             let encoder = JSONEncoder()
-            let body: [String: String] = ["first_name": firstName, "last_name": lastName, "email": email, "password": password, "username": username]
+            let body: [String: String] = ["first_name": firstName, "last_name": lastName, "email": email, "password": password, "confirmation": confirmation, "username": username]
             let result = try? encoder.encode(body)
             return result!
             

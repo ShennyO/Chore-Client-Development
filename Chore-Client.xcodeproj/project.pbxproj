@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		36E1D0B3109AD2C802BF79B2 /* Pods_Chore_ClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738E6384CFDCCD20836F4D77 /* Pods_Chore_ClientUITests.framework */; };
 		84576D6720390FCC0014DDD4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84576D6620390FCC0014DDD4 /* Response.swift */; };
+		84576D6920394EE70014DDD4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84576D6820394EE70014DDD4 /* RegisterViewController.swift */; };
 		84906342202A3AE7008BFDF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906341202A3AE7008BFDF7 /* AppDelegate.swift */; };
 		84906347202A3AE7008BFDF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84906345202A3AE7008BFDF7 /* Main.storyboard */; };
 		84906349202A3AE7008BFDF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84906348202A3AE7008BFDF7 /* Assets.xcassets */; };
@@ -63,6 +64,7 @@
 		738E6384CFDCCD20836F4D77 /* Pods_Chore_ClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chore_ClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		841F29657676D2B99D41653F /* Pods-Chore-Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-Client.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-Client/Pods-Chore-Client.release.xcconfig"; sourceTree = "<group>"; };
 		84576D6620390FCC0014DDD4 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		84576D6820394EE70014DDD4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8490633E202A3AE7008BFDF7 /* Chore-Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chore-Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84906341202A3AE7008BFDF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84906346202A3AE7008BFDF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				84DEEDEF2034F16C00FAAA6B /* GroupDetailViewController.swift */,
 				84DEEDF5203647FA00FAAA6B /* UserViewController.swift */,
 				84DEEDF7203667B400FAAA6B /* NewChoreViewController.swift */,
+				84576D6820394EE70014DDD4 /* RegisterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				8490637B202BAA28008BFDF7 /* LoginViewController.swift in Sources */,
 				84906377202A859C008BFDF7 /* Request.swift in Sources */,
 				84906437202CD570008BFDF7 /* GroupTableViewCell.swift in Sources */,
+				84576D6920394EE70014DDD4 /* RegisterViewController.swift in Sources */,
 				84DEEDF22034F34D00FAAA6B /* GroupChoreTableViewCell.swift in Sources */,
 				84DEEDF02034F16C00FAAA6B /* GroupDetailViewController.swift in Sources */,
 				84906342202A3AE7008BFDF7 /* AppDelegate.swift in Sources */,
