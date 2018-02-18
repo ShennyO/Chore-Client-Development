@@ -85,7 +85,7 @@ enum Route {
             return result!
         case let .requestResponse(response, group_id, _):
             let encoder = JSONEncoder()
-            let body: [String: Any] = ["response": response, "group_id": group_id]
+            let body = Response(response: response, group_id: group_id)
             let result = try? encoder.encode(body)
             return result!
             

@@ -88,10 +88,13 @@ extension GroupsViewController {
         let requestID = self.requests[indexPath.row].id
         Network.instance.fetch(route: .requestResponse(response: answer, group_id: groupID, request_id: requestID!)) { (data) in
             print("accepted Request")
-            DispatchQueue.main.async {
-                self.groupsTableView.reloadData()
+            self.getGroups {
+                self.getRequests {
+                    DispatchQueue.main.async {
+                        self.groupsTableView.reloadData()
+                    }
+                }
             }
-            
         }
     }
     
