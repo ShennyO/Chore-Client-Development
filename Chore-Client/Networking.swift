@@ -22,7 +22,7 @@ enum Route {
     case getUserChores
     case getGroupRequests
     case getUser(username: String)
-    
+    case requestResponse(response: Bool, group_id: Int, request_id: Int)
     
     func method() -> String {
         switch self {
@@ -32,6 +32,8 @@ enum Route {
             return "GET"
         case .logoutUser:
             return "DELETE"
+        case .requestResponse:
+            return "PATCH"
         }
     }
     
@@ -51,6 +53,8 @@ enum Route {
             return "chores/user"
         case .getGroupRequests:
             return "requests"
+        case let .requestResponse(_, _, request_id):
+            return "requests/\(request_id)"
         }
     }
     
@@ -79,6 +83,12 @@ enum Route {
             let body: [String: String] = ["name": name, "due_date": due_date, "penalty": penalty, "reward": reward]
             let result = try? encoder.encode(body)
             return result!
+        case let .requestResponse(response, group_id, _):
+            let encoder = JSONEncoder()
+            let body: [String: Any] = ["response": response, "group_id": group_id]
+            let result = try? encoder.encode(body)
+            return result!
+            
         
         default:
             return nil
