@@ -774,28 +774,43 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFU-tU-8ZM">
-                                <rect key="frame" x="167.66666666666666" y="552" width="80" height="41"/>
-                                <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="signUpTapped:" destination="CFo-To-Fwx" eventType="touchUpInside" id="sXj-29-jSA"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Z3e-9V-Eci">
+                                <rect key="frame" x="118.33333333333331" y="552" width="179" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GFU-tU-8ZM">
+                                        <rect key="frame" x="0.0" y="0.0" width="88" height="44"/>
+                                        <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                                        <state key="normal" title="Sign Up">
+                                            <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="signUpTapped:" destination="CFo-To-Fwx" eventType="touchUpInside" id="sXj-29-jSA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OAQ-1d-hu9">
+                                        <rect key="frame" x="103" y="0.0" width="76" height="44"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="24"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="cancelTapped:" destination="CFo-To-Fwx" eventType="touchUpInside" id="CoM-ai-rXe"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gnb-GW-lY6" firstAttribute="centerX" secondItem="36S-T6-bRg" secondAttribute="centerX" id="3wZ-mP-ctq"/>
                             <constraint firstItem="wAZ-6A-p3m" firstAttribute="trailing" secondItem="AFC-Ss-2ia" secondAttribute="trailing" constant="90" id="AtA-73-e9T"/>
                             <constraint firstItem="AFC-Ss-2ia" firstAttribute="top" secondItem="gnb-GW-lY6" secondAttribute="bottom" constant="88.333333333333343" id="I7K-Zf-L9a"/>
-                            <constraint firstItem="GFU-tU-8ZM" firstAttribute="top" secondItem="AFC-Ss-2ia" secondAttribute="bottom" constant="51" id="Tpx-R6-2qE"/>
+                            <constraint firstItem="Z3e-9V-Eci" firstAttribute="top" secondItem="AFC-Ss-2ia" secondAttribute="bottom" constant="51" id="LrY-CI-jdr"/>
                             <constraint firstItem="AFC-Ss-2ia" firstAttribute="centerX" secondItem="36S-T6-bRg" secondAttribute="centerX" id="hWQ-Dc-2uk"/>
                             <constraint firstItem="gnb-GW-lY6" firstAttribute="top" secondItem="wAZ-6A-p3m" secondAttribute="top" constant="67" id="jS7-NS-dA3"/>
                             <constraint firstItem="AFC-Ss-2ia" firstAttribute="leading" secondItem="wAZ-6A-p3m" secondAttribute="leading" constant="90" id="kZy-gQ-FB6"/>
-                            <constraint firstItem="GFU-tU-8ZM" firstAttribute="centerX" secondItem="36S-T6-bRg" secondAttribute="centerX" id="pr0-AW-tG1"/>
+                            <constraint firstItem="Z3e-9V-Eci" firstAttribute="centerX" secondItem="36S-T6-bRg" secondAttribute="centerX" id="sEV-nm-gHY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="wAZ-6A-p3m"/>
                     </view>

@@ -32,7 +32,12 @@ class RegisterViewController: UIViewController {
         
     }
     
-
+    @IBAction func cancelTapped(_ sender: Any) {
+        dismiss(animated: true)
+            
+    }
+    
+    
 }
 
 extension RegisterViewController {
