@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		36E1D0B3109AD2C802BF79B2 /* Pods_Chore_ClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738E6384CFDCCD20836F4D77 /* Pods_Chore_ClientUITests.framework */; };
+		8401A18D203E11C30038A864 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A18C203E11C30038A864 /* ProfileCollectionViewCell.swift */; };
+		8401A18F203E12BD0038A864 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A18E203E12BD0038A864 /* ProfileTableViewCell.swift */; };
 		84576D6720390FCC0014DDD4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84576D6620390FCC0014DDD4 /* Response.swift */; };
 		84576D6920394EE70014DDD4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84576D6820394EE70014DDD4 /* RegisterViewController.swift */; };
 		84906342202A3AE7008BFDF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906341202A3AE7008BFDF7 /* AppDelegate.swift */; };
@@ -62,6 +64,8 @@
 		5BB2FEE31FBC6FF76A2343E7 /* Pods-Chore-Client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-Client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-Client/Pods-Chore-Client.debug.xcconfig"; sourceTree = "<group>"; };
 		5EEAD19F591532395304131E /* Pods_Chore_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chore_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		738E6384CFDCCD20836F4D77 /* Pods_Chore_ClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chore_ClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8401A18C203E11C30038A864 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		8401A18E203E12BD0038A864 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		841F29657676D2B99D41653F /* Pods-Chore-Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-Client.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-Client/Pods-Chore-Client.release.xcconfig"; sourceTree = "<group>"; };
 		84576D6620390FCC0014DDD4 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		84576D6820394EE70014DDD4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 				84DEEDED203402F300FAAA6B /* UserChoreTableViewCell.swift */,
 				84DEEDF12034F34D00FAAA6B /* GroupChoreTableViewCell.swift */,
 				84BC189D2038E5BF000E2984 /* GroupRequestTableViewCell.swift */,
+				8401A18C203E11C30038A864 /* ProfileCollectionViewCell.swift */,
+				8401A18E203E12BD0038A864 /* ProfileTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -541,6 +547,7 @@
 				84DEEDEE203402F300FAAA6B /* UserChoreTableViewCell.swift in Sources */,
 				84DEEDEC2034014400FAAA6B /* UserChoresViewController.swift in Sources */,
 				84DEEDEA2033BD7600FAAA6B /* NewGroupViewController.swift in Sources */,
+				8401A18F203E12BD0038A864 /* ProfileTableViewCell.swift in Sources */,
 				84DEEDE52032570400FAAA6B /* Networking.swift in Sources */,
 				84DEEDF6203647FA00FAAA6B /* UserViewController.swift in Sources */,
 				84576D6720390FCC0014DDD4 /* Response.swift in Sources */,
@@ -548,6 +555,7 @@
 				84DEEDF8203667B400FAAA6B /* NewChoreViewController.swift in Sources */,
 				8490637B202BAA28008BFDF7 /* LoginViewController.swift in Sources */,
 				84906377202A859C008BFDF7 /* Request.swift in Sources */,
+				8401A18D203E11C30038A864 /* ProfileCollectionViewCell.swift in Sources */,
 				84906437202CD570008BFDF7 /* GroupTableViewCell.swift in Sources */,
 				84576D6920394EE70014DDD4 /* RegisterViewController.swift in Sources */,
 				84DEEDF22034F34D00FAAA6B /* GroupChoreTableViewCell.swift in Sources */,

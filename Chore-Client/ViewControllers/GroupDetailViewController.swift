@@ -9,12 +9,14 @@
 import UIKit
 import AZDropdownMenu
 
-class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+    
+    
     
     var users: [User] = []
     var chores: [Chore] = []
     var group: Group!
-    var menu: AZDropdownMenu!
+   
 
     @IBOutlet weak var groupDetailTableView: UITableView!
     
@@ -24,32 +26,24 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-        
-        self.menu = AZDropdownMenu(titles: ["Add New Chore", "Add New User"])
-        self.menu.itemHeight = 70
-        let margins = view.layoutMarginsGuide
-        
-        // Pin the leading edge of myView to the margin's leading edge
-//        menu.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
-//
-//        // Pin the trailing edge of myView to the margin's trailing edge
-//        menu.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
-        menu.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        let button = UIBarButtonItem(title: "add", style: .plain, target: self, action: #selector(showDropdown))
-        self.navigationItem.rightBarButtonItem = button
+        self.users = self.group.members
         self.getGroupChores {
             DispatchQueue.main.async {
                 self.groupDetailTableView.reloadData()
             }
         }
+//        self.chores = self.group.chores
+       
     }
     
     
-    
-    
-    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        if indexPath.section == 0 {
+            return 180
+        } else {
+            return 70
+        }
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -58,35 +52,52 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.users.count
+            return 1
         } else {
             return self.chores.count
         }
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if indexPath.section == 0 {
+            guard let tableViewCell = cell as? ProfileTableViewCell else { return }
+            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if indexPath.section == 0 {
-//
-//        } else {
+        
+        if indexPath.section == 1 {
             let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "groupChoreCell") as! GroupChoreTableViewCell
             cell.choreNameLabel.text = self.chores[indexPath.row].name
             cell.dueDateLabel.text = self.chores[indexPath.row].due_date
             return cell
-//        }
+        } else {
+            let tableViewCell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "profileTableViewCell") as! ProfileTableViewCell
+            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+            return tableViewCell
+        }
         
     }
+    
+    
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.users.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionViewCell
+        return cell
+    }
+    
 
 }
 
 extension GroupDetailViewController {
     
-    @objc func showDropdown() {
-        if (self.menu.isDescendant(of: self.view) == true) {
-            self.menu.hideMenu()
-        } else {
-            self.menu.showMenuFromView(self.view)
-        }
-    }
+   
     
     func getGroupChores(completion: @escaping ()->()) {
         Network.instance.fetch(route: Route.getGroupChores(chore_type: "group", id: self.group.id)) { (data) in
