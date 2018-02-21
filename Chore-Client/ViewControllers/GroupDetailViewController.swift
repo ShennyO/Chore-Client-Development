@@ -7,25 +7,46 @@
 //
 
 import UIKit
+import AZDropdownMenu
 
 class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
     
     var users: [User] = []
     var chores: [Chore] = []
     var group: Group!
+    var menu: AZDropdownMenu!
+
     @IBOutlet weak var groupDetailTableView: UITableView!
     
     @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
+
     
     override func viewDidAppear(_ animated: Bool) {
+        
         super.viewDidAppear(animated)
+        
+        self.menu = AZDropdownMenu(titles: ["Add New Chore", "Add New User"])
+        self.menu.itemHeight = 70
+        let margins = view.layoutMarginsGuide
+        
+        // Pin the leading edge of myView to the margin's leading edge
+//        menu.leadingAnchor.constraint(equalTo: margins.leadingAnchor).isActive = true
+//
+//        // Pin the trailing edge of myView to the margin's trailing edge
+//        menu.trailingAnchor.constraint(equalTo: margins.trailingAnchor).isActive = true
+        menu.heightAnchor.constraint(equalToConstant: 70).isActive = true
+        let button = UIBarButtonItem(title: "add", style: .plain, target: self, action: #selector(showDropdown))
+        self.navigationItem.rightBarButtonItem = button
         self.getGroupChores {
             DispatchQueue.main.async {
                 self.groupDetailTableView.reloadData()
             }
         }
     }
+    
+    
+    
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
@@ -58,6 +79,15 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
 }
 
 extension GroupDetailViewController {
+    
+    @objc func showDropdown() {
+        if (self.menu.isDescendant(of: self.view) == true) {
+            self.menu.hideMenu()
+        } else {
+            self.menu.showMenuFromView(self.view)
+        }
+    }
+    
     func getGroupChores(completion: @escaping ()->()) {
         Network.instance.fetch(route: Route.getGroupChores(chore_type: "group", id: self.group.id)) { (data) in
             let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)

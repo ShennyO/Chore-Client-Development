@@ -42,7 +42,13 @@ class RegisterViewController: UIViewController {
 
 extension RegisterViewController {
     func createUser(completion: @escaping ()->()) {
-        guard let firstName = self.firstNameTextField.text, let lastName = self.lastNameTextField.text, let username = self.usernameTextField.text, let email = self.emailTextField.text, let password = self.passwordTextField.text, let confirmation = self.confirmationTextField.text else {
+        guard let firstName = self.firstNameTextField.text, !firstName.isEmpty, let lastName = self.lastNameTextField.text, !lastName.isEmpty, let username = self.usernameTextField.text, !username.isEmpty, let email = self.emailTextField.text, !email.isEmpty, let password = self.passwordTextField.text, !password.isEmpty, let confirmation = self.confirmationTextField.text, !confirmation.isEmpty else {
+            DispatchQueue.main.async {
+                let alert = UIAlertController(title: "Invalid Sign Up", message: "Sign Up information not complete", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+            
             return
         }
         

@@ -7,6 +7,7 @@ target 'Chore-Client' do
 
   # Pods for Chore-Client
   pod 'KeychainSwift', '~> 10.0'
+  pod 'AZDropdownMenu'
 
   target 'Chore-ClientTests' do
     inherit! :search_paths
