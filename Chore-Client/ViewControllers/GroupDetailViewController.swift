@@ -17,7 +17,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var chores: [Chore] = []
     var group: Group!
    
-    var addUserButton = UIButton()
+    var addUserButton = UIButton(type: .custom)
 
     @IBOutlet weak var groupDetailTableView: UITableView!
     
@@ -27,17 +27,13 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
+        self.addUserButton.addTarget(self, action: #selector(ButtonClick(_:)), for: UIControlEvents.touchUpInside)
         self.users = self.group.members
         self.getGroupChores {
             DispatchQueue.main.async {
                 self.groupDetailTableView.reloadData()
             }
         }
-        self.addUserButton = UIButton(type: .custom)
-//        self.addUserButton.setTitleColor(UIColor.orange, for: .normal)
-        self.addUserButton.addTarget(self, action: #selector(ButtonClick(_:)), for: UIControlEvents.touchUpInside)
-        
-
        
     }
     
@@ -56,9 +52,9 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             addUserButton.heightAnchor.constraint(equalToConstant: 30)])
     }
     
-    @IBAction func ButtonClick(_ sender: UIButton){
-        
-        /** Do whatever you wanna do on button click**/
+    @objc func ButtonClick(_ sender: UIButton){
+        print("button tapped")
+        self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
         
     }
     
