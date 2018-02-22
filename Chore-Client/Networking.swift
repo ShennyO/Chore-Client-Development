@@ -85,19 +85,15 @@ enum Route {
             let result = try? encoder.encode(body)
             return result!
         case let .requestResponse(response, group_id, _):
-            let encoder = JSONEncoder()
-            let body = Response(response: response, group_id: group_id)
-            let result = try? encoder.encode(body)
-            return result!
+            let body: [String: Any] = ["response": response, "group_id": group_id]
+            let result = try! JSONSerialization.data(withJSONObject: body, options: [])
+            return result
         case let .sendGroupRequest(receiver_id, group_id, group_name):
             
             let body: [String: Any] = ["reciever_id": receiver_id, "group_id": group_id, "group_name": group_name, "request_type": 0]
             let result = try! JSONSerialization.data(withJSONObject: body, options: [])
-            
             return result
             
-            
-        
         default:
             return nil
         }
@@ -153,7 +149,6 @@ class Network {
         session.dataTask(with: request) { (data, resp, err) in
             
             if let data = data {
-                print(resp.debugDescription)
                 completion(data)
             }
             

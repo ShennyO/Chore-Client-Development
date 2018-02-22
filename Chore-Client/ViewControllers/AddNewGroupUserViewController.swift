@@ -43,10 +43,35 @@ class AddNewGroupUserViewController: UIViewController {
 extension AddNewGroupUserViewController {
     func getUser(completion: @escaping ()->()) {
         Network.instance.fetch(route: .getUser(username: usernameTextField.text!)) { (data) in
+            var runnable = true
             let jsonUser = try? JSONDecoder().decode(User.self, from: data)
             if let user = jsonUser {
-                self.userID = user.id
-                completion()
+                self.selectedGroup.members.forEach{
+                    if $0.id == user.id {
+                        runnable = false
+                        DispatchQueue.main.async {
+                            let alert = UIAlertController(title: "Error", message: "User already exists in the group", preferredStyle: UIAlertControllerStyle.alert)
+                            alert.addAction(UIAlertAction(title: "Return", style: UIAlertActionStyle.default, handler: nil))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                        return
+                    }
+                }
+                print("Not supposed to run")
+                if runnable {
+                    self.userID = user.id
+                    completion()
+                } else {
+                    return
+                }
+                
+            } else {
+                DispatchQueue.main.async {
+                    let alert = UIAlertController(title: "Error", message: "User doesn't exist", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "Return", style: UIAlertActionStyle.default, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                return
             }
         }
     }

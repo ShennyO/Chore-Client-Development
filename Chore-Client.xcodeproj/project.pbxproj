@@ -11,8 +11,6 @@
 		8401A18D203E11C30038A864 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A18C203E11C30038A864 /* ProfileCollectionViewCell.swift */; };
 		8401A18F203E12BD0038A864 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A18E203E12BD0038A864 /* ProfileTableViewCell.swift */; };
 		8401A191203E7EC90038A864 /* AddNewGroupUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A190203E7EC90038A864 /* AddNewGroupUserViewController.swift */; };
-		8401A193203F49900038A864 /* RequestEncodeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A192203F49900038A864 /* RequestEncodeObject.swift */; };
-		84576D6720390FCC0014DDD4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84576D6620390FCC0014DDD4 /* Response.swift */; };
 		84576D6920394EE70014DDD4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84576D6820394EE70014DDD4 /* RegisterViewController.swift */; };
 		84906342202A3AE7008BFDF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906341202A3AE7008BFDF7 /* AppDelegate.swift */; };
 		84906347202A3AE7008BFDF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84906345202A3AE7008BFDF7 /* Main.storyboard */; };
@@ -69,9 +67,7 @@
 		8401A18C203E11C30038A864 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
 		8401A18E203E12BD0038A864 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 		8401A190203E7EC90038A864 /* AddNewGroupUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGroupUserViewController.swift; sourceTree = "<group>"; };
-		8401A192203F49900038A864 /* RequestEncodeObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestEncodeObject.swift; sourceTree = "<group>"; };
 		841F29657676D2B99D41653F /* Pods-Chore-Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-Client.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-Client/Pods-Chore-Client.release.xcconfig"; sourceTree = "<group>"; };
-		84576D6620390FCC0014DDD4 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		84576D6820394EE70014DDD4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8490633E202A3AE7008BFDF7 /* Chore-Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chore-Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84906341202A3AE7008BFDF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -207,8 +203,6 @@
 				84906372202A844B008BFDF7 /* Group.swift */,
 				84906374202A84C8008BFDF7 /* Chore.swift */,
 				84906376202A859C008BFDF7 /* Request.swift */,
-				84576D6620390FCC0014DDD4 /* Response.swift */,
-				8401A192203F49900038A864 /* RequestEncodeObject.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -557,10 +551,8 @@
 				8401A191203E7EC90038A864 /* AddNewGroupUserViewController.swift in Sources */,
 				84DEEDE52032570400FAAA6B /* Networking.swift in Sources */,
 				84DEEDF6203647FA00FAAA6B /* UserViewController.swift in Sources */,
-				84576D6720390FCC0014DDD4 /* Response.swift in Sources */,
 				84906434202CD538008BFDF7 /* GroupsViewController.swift in Sources */,
 				84DEEDF8203667B400FAAA6B /* NewChoreViewController.swift in Sources */,
-				8401A193203F49900038A864 /* RequestEncodeObject.swift in Sources */,
 				8490637B202BAA28008BFDF7 /* LoginViewController.swift in Sources */,
 				84906377202A859C008BFDF7 /* Request.swift in Sources */,
 				8401A18D203E11C30038A864 /* ProfileCollectionViewCell.swift in Sources */,
