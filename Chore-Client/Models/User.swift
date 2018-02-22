@@ -16,7 +16,7 @@ class User: Codable {
     var username: String
     var id: Int
     var authentication_token: String!
-    var group: Group!
+    var group: [Group]!
 
     
     init(firstName: String, lastName: String, email: String, username: String, id: Int, authentication_token: String) {

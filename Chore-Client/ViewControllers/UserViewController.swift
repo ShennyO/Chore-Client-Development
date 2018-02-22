@@ -14,7 +14,7 @@ class UserViewController: UIViewController {
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var choreRecordTableView: UITableView!
     
-    var currentUser: Member!
+    var currentUser: User!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -33,7 +33,7 @@ extension UserViewController {
     func getUser(completion: @escaping()->()) {
         let username = KeychainSwift().get("username")
         Network.instance.fetch(route: Route.getUser(username: username!)) { (data) in
-            let jsonUser = try? JSONDecoder().decode(Member.self, from: data)
+            let jsonUser = try? JSONDecoder().decode(User.self, from: data)
             if let user = jsonUser {
                 self.currentUser = user
                 completion()

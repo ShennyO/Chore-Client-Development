@@ -22,11 +22,12 @@ enum Route {
     case getUserChores
     case getGroupRequests
     case getUser(username: String)
+    case sendGroupRequest(receiver_id: Int, group_id: Int, group_name: String)
     case requestResponse(response: Bool, group_id: Int, request_id: Int)
     
     func method() -> String {
         switch self {
-        case .loginUser, .createUser, .createGroup, .createChore:
+        case .loginUser, .createUser, .createGroup, .createChore, .sendGroupRequest:
             return "POST"
         case .getUserGroups, .getGroupChores, .getUserChores, .getGroupRequests, .getUser:
             return "GET"
@@ -51,7 +52,7 @@ enum Route {
             return "groups/\(id)/chores"
         case .getUserChores:
             return "chores/user"
-        case .getGroupRequests:
+        case .getGroupRequests, .sendGroupRequest:
             return "requests"
         case let .requestResponse(_, _, request_id):
             return "requests/\(request_id)"
@@ -88,6 +89,13 @@ enum Route {
             let body = Response(response: response, group_id: group_id)
             let result = try? encoder.encode(body)
             return result!
+        case let .sendGroupRequest(receiver_id, group_id, group_name):
+            
+            let body: [String: Any] = ["reciever_id": receiver_id, "group_id": group_id, "group_name": group_name, "request_type": 0]
+            let result = try! JSONSerialization.data(withJSONObject: body, options: [])
+            
+            return result
+            
             
         
         default:
@@ -145,7 +153,7 @@ class Network {
         session.dataTask(with: request) { (data, resp, err) in
             
             if let data = data {
-                
+                print(resp.debugDescription)
                 completion(data)
             }
             
@@ -186,4 +194,14 @@ extension Dictionary : URLQueryParameterStringConvertible {
         return parts.joined(separator: "&")
     }
     
+}
+
+extension Encodable {
+    func asDictionary() throws -> [String: Any] {
+        let data = try JSONEncoder().encode(self)
+        guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+            throw NSError()
+        }
+        return dictionary
+    }
 }

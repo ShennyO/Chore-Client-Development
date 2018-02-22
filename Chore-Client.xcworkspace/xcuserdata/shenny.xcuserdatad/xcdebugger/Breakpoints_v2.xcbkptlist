@@ -89,13 +89,221 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Chore-Client/ViewControllers/GroupDetailViewController.swift"
-            timestampString = "540972364.854974"
+            filePath = "Chore-Client/ViewControllers/AddNewGroupUserViewController.swift"
+            timestampString = "541019075.6519181"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "ButtonClick(_:)"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "addButtonTapped(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chore_Client.AddNewGroupUserViewController.addButtonTapped(Any) -&gt; ()"
+                  moduleName = "Chore-Client"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/AddNewGroupUserViewController.swift"
+                  timestampString = "541017973.119356"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "18">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Chore_Client.AddNewGroupUserViewController.addButtonTapped(Any) -&gt; ()"
+                  moduleName = "Chore-Client"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/AddNewGroupUserViewController.swift"
+                  timestampString = "541017973.12148"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "14">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/ViewControllers/AddNewGroupUserViewController.swift"
+            timestampString = "541019075.6519901"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "addButtonTapped(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in Chore_Client.AddNewGroupUserViewController.addButtonTapped(Any) -&gt; ()"
+                  moduleName = "Chore-Client"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/AddNewGroupUserViewController.swift"
+                  timestampString = "541017973.126018"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "28"
+                  endingLineNumber = "28"
+                  offsetFromSymbolStart = "14">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in Chore_Client.AddNewGroupUserViewController.addButtonTapped(Any) -&gt; ()"
+                  moduleName = "Chore-Client"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/AddNewGroupUserViewController.swift"
+                  timestampString = "541017973.1280529"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "14">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/ViewControllers/AddNewGroupUserViewController.swift"
+            timestampString = "541019075.652046"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "getUser(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/ViewControllers/AddNewGroupUserViewController.swift"
+            timestampString = "541019075.6521"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "getUser(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/Networking.swift"
+            timestampString = "541019075.652162"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
+            landmarkName = "fetch(route:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chore_Client.Network.fetch(route: Chore_Client.Route, completion: (Foundation.Data) -&gt; ()) -&gt; ()"
+                  moduleName = "Chore-Client"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/Networking.swift"
+                  timestampString = "541017973.141067"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "2496">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__ObjC.URLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in Chore_Client.Network.fetch(route: Chore_Client.Route, completion: (Foundation.Data) -&gt; ()) -&gt; ()"
+                  moduleName = "Chore-Client"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/Networking.swift"
+                  timestampString = "541017973.1431251"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "155"
+                  endingLineNumber = "155"
+                  offsetFromSymbolStart = "45">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/Networking.swift"
+            timestampString = "541019075.652511"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "155"
+            endingLineNumber = "155"
+            landmarkName = "fetch(route:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/Networking.swift"
+            timestampString = "541019075.652738"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "fetch(route:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/Networking.swift"
+            timestampString = "541019075.652956"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
+            landmarkName = "fetch(route:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

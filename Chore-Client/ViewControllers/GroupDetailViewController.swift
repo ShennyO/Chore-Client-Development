@@ -58,6 +58,15 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "toAddNewGroupUser" {
+                let addNewGroupUserVC = segue.destination as! AddNewGroupUserViewController
+                addNewGroupUserVC.selectedGroup = self.group
+            }
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
