@@ -12,7 +12,8 @@ class UserChoreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var choreNameLabel: UILabel!
     @IBOutlet weak var chorePenaltyLabel: UILabel!
-    @IBOutlet weak var choreDescriptionLabel: UILabel!
+    @IBOutlet weak var dueDate: UILabel!
+    @IBOutlet weak var choreDescription: UITextView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
