@@ -35,6 +35,8 @@ class LoginViewController: UIViewController {
                 print("Login successful")
                 self.keychain.set(user.authentication_token, forKey: "token")
                 self.keychain.set(user.email, forKey: "email")
+                self.keychain.set(user.username, forKey: "username")
+                self.keychain.set(String(user.id), forKey: "id")
 
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "toMain", sender: self)

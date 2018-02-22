@@ -14,28 +14,32 @@ enum Route {
     
     case loginUser(email: String, password: String)
     case logoutUser
-    case createUser(firstName: String, lastName: String, email: String, password: String, username: String)
+    case createUser(firstName: String, lastName: String, email: String, password: String, confirmation: String, username: String)
     case getUserGroups
     case createGroup(name: String)
     case createChore(name: String, due_date: String, penalty: String, reward: String, id: Int)
     case getGroupChores(chore_type: String, id: Int)
     case getUserChores
     case getGroupRequests
+    case getUser(username: String)
+    case requestResponse(response: Bool, group_id: Int, request_id: Int)
     
     func method() -> String {
         switch self {
         case .loginUser, .createUser, .createGroup, .createChore:
             return "POST"
-        case .getUserGroups, .getGroupChores, .getUserChores, .getGroupRequests:
+        case .getUserGroups, .getGroupChores, .getUserChores, .getGroupRequests, .getUser:
             return "GET"
         case .logoutUser:
             return "DELETE"
+        case .requestResponse:
+            return "PATCH"
         }
     }
     
     func path() -> String {
         switch self {
-        case .loginUser, .logoutUser:
+        case .loginUser, .logoutUser, .getUser:
             return "sessions"
         case .getUserGroups, .createGroup:
             return "groups"
@@ -49,6 +53,8 @@ enum Route {
             return "chores/user"
         case .getGroupRequests:
             return "requests"
+        case let .requestResponse(_, _, request_id):
+            return "requests/\(request_id)"
         }
     }
     
@@ -60,9 +66,9 @@ enum Route {
             let result = try? encoder.encode(body)
             return result!
         
-        case let .createUser(firstName, lastName, email, password, username):
+        case let .createUser(firstName, lastName, email, password, confirmation, username):
             let encoder = JSONEncoder()
-            let body: [String: String] = ["first_name": firstName, "last_name": lastName, "email": email, "password": password, "username": username]
+            let body: [String: String] = ["first_name": firstName, "last_name": lastName, "email": email, "password": password, "confirmation": confirmation, "username": username]
             let result = try? encoder.encode(body)
             return result!
             
@@ -77,6 +83,12 @@ enum Route {
             let body: [String: String] = ["name": name, "due_date": due_date, "penalty": penalty, "reward": reward]
             let result = try? encoder.encode(body)
             return result!
+        case let .requestResponse(response, group_id, _):
+            let encoder = JSONEncoder()
+            let body = Response(response: response, group_id: group_id)
+            let result = try? encoder.encode(body)
+            return result!
+            
         
         default:
             return nil
@@ -88,6 +100,8 @@ enum Route {
         switch self {
         case let .getGroupChores(chore_type, _):
             return ["chore_type": chore_type]
+        case let .getUser(username):
+            return ["username": username]
         default:
             return [:]
         }

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		36E1D0B3109AD2C802BF79B2 /* Pods_Chore_ClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738E6384CFDCCD20836F4D77 /* Pods_Chore_ClientUITests.framework */; };
+		8401A18D203E11C30038A864 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A18C203E11C30038A864 /* ProfileCollectionViewCell.swift */; };
+		8401A18F203E12BD0038A864 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A18E203E12BD0038A864 /* ProfileTableViewCell.swift */; };
+		8401A191203E7EC90038A864 /* AddNewGroupUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A190203E7EC90038A864 /* AddNewGroupUserViewController.swift */; };
+		84576D6720390FCC0014DDD4 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84576D6620390FCC0014DDD4 /* Response.swift */; };
+		84576D6920394EE70014DDD4 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84576D6820394EE70014DDD4 /* RegisterViewController.swift */; };
 		84906342202A3AE7008BFDF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906341202A3AE7008BFDF7 /* AppDelegate.swift */; };
 		84906347202A3AE7008BFDF7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84906345202A3AE7008BFDF7 /* Main.storyboard */; };
 		84906349202A3AE7008BFDF7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84906348202A3AE7008BFDF7 /* Assets.xcassets */; };
@@ -21,12 +26,16 @@
 		8490637B202BAA28008BFDF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490637A202BAA28008BFDF7 /* LoginViewController.swift */; };
 		84906434202CD538008BFDF7 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906433202CD538008BFDF7 /* GroupsViewController.swift */; };
 		84906437202CD570008BFDF7 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906436202CD570008BFDF7 /* GroupTableViewCell.swift */; };
-		84906439202CD5C6008BFDF7 /* FriendRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906438202CD5C6008BFDF7 /* FriendRequestTableViewCell.swift */; };
+		84BC189E2038E5BF000E2984 /* GroupRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC189D2038E5BF000E2984 /* GroupRequestTableViewCell.swift */; };
 		84DEEDE52032570400FAAA6B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDE42032570400FAAA6B /* Networking.swift */; };
 		84DEEDE72033A5A100FAAA6B /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDE62033A5A100FAAA6B /* Member.swift */; };
 		84DEEDEA2033BD7600FAAA6B /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDE92033BD7600FAAA6B /* NewGroupViewController.swift */; };
 		84DEEDEC2034014400FAAA6B /* UserChoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDEB2034014400FAAA6B /* UserChoresViewController.swift */; };
 		84DEEDEE203402F300FAAA6B /* UserChoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDED203402F300FAAA6B /* UserChoreTableViewCell.swift */; };
+		84DEEDF02034F16C00FAAA6B /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDEF2034F16C00FAAA6B /* GroupDetailViewController.swift */; };
+		84DEEDF22034F34D00FAAA6B /* GroupChoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDF12034F34D00FAAA6B /* GroupChoreTableViewCell.swift */; };
+		84DEEDF6203647FA00FAAA6B /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDF5203647FA00FAAA6B /* UserViewController.swift */; };
+		84DEEDF8203667B400FAAA6B /* NewChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDF7203667B400FAAA6B /* NewChoreViewController.swift */; };
 		9A3C5CD16C306D1C14BB9D59 /* Pods_Chore_ClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 380F1B8917556C1E547BAA4C /* Pods_Chore_ClientTests.framework */; };
 		E5492477C675BFFA058151A7 /* Pods_Chore_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEAD19F591532395304131E /* Pods_Chore_Client.framework */; };
 /* End PBXBuildFile section */
@@ -56,7 +65,12 @@
 		5BB2FEE31FBC6FF76A2343E7 /* Pods-Chore-Client.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-Client.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-Client/Pods-Chore-Client.debug.xcconfig"; sourceTree = "<group>"; };
 		5EEAD19F591532395304131E /* Pods_Chore_Client.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chore_Client.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		738E6384CFDCCD20836F4D77 /* Pods_Chore_ClientUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chore_ClientUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8401A18C203E11C30038A864 /* ProfileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCollectionViewCell.swift; sourceTree = "<group>"; };
+		8401A18E203E12BD0038A864 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
+		8401A190203E7EC90038A864 /* AddNewGroupUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewGroupUserViewController.swift; sourceTree = "<group>"; };
 		841F29657676D2B99D41653F /* Pods-Chore-Client.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-Client.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-Client/Pods-Chore-Client.release.xcconfig"; sourceTree = "<group>"; };
+		84576D6620390FCC0014DDD4 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
+		84576D6820394EE70014DDD4 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		8490633E202A3AE7008BFDF7 /* Chore-Client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Chore-Client.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		84906341202A3AE7008BFDF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84906346202A3AE7008BFDF7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -76,12 +90,16 @@
 		8490637A202BAA28008BFDF7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84906433202CD538008BFDF7 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		84906436202CD570008BFDF7 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
-		84906438202CD5C6008BFDF7 /* FriendRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendRequestTableViewCell.swift; sourceTree = "<group>"; };
+		84BC189D2038E5BF000E2984 /* GroupRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRequestTableViewCell.swift; sourceTree = "<group>"; };
 		84DEEDE42032570400FAAA6B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		84DEEDE62033A5A100FAAA6B /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		84DEEDE92033BD7600FAAA6B /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
 		84DEEDEB2034014400FAAA6B /* UserChoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChoresViewController.swift; sourceTree = "<group>"; };
 		84DEEDED203402F300FAAA6B /* UserChoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChoreTableViewCell.swift; sourceTree = "<group>"; };
+		84DEEDEF2034F16C00FAAA6B /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
+		84DEEDF12034F34D00FAAA6B /* GroupChoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChoreTableViewCell.swift; sourceTree = "<group>"; };
+		84DEEDF5203647FA00FAAA6B /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		84DEEDF7203667B400FAAA6B /* NewChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChoreViewController.swift; sourceTree = "<group>"; };
 		E0C26C00269B500A0053DF20 /* Pods-Chore-ClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-ClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-ClientTests/Pods-Chore-ClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -187,6 +205,7 @@
 				84906372202A844B008BFDF7 /* Group.swift */,
 				84906374202A84C8008BFDF7 /* Chore.swift */,
 				84906376202A859C008BFDF7 /* Request.swift */,
+				84576D6620390FCC0014DDD4 /* Response.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,8 +214,11 @@
 			isa = PBXGroup;
 			children = (
 				84906436202CD570008BFDF7 /* GroupTableViewCell.swift */,
-				84906438202CD5C6008BFDF7 /* FriendRequestTableViewCell.swift */,
 				84DEEDED203402F300FAAA6B /* UserChoreTableViewCell.swift */,
+				84DEEDF12034F34D00FAAA6B /* GroupChoreTableViewCell.swift */,
+				84BC189D2038E5BF000E2984 /* GroupRequestTableViewCell.swift */,
+				8401A18C203E11C30038A864 /* ProfileCollectionViewCell.swift */,
+				8401A18E203E12BD0038A864 /* ProfileTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -208,6 +230,11 @@
 				84906433202CD538008BFDF7 /* GroupsViewController.swift */,
 				84DEEDE92033BD7600FAAA6B /* NewGroupViewController.swift */,
 				84DEEDEB2034014400FAAA6B /* UserChoresViewController.swift */,
+				84DEEDEF2034F16C00FAAA6B /* GroupDetailViewController.swift */,
+				8401A190203E7EC90038A864 /* AddNewGroupUserViewController.swift */,
+				84DEEDF5203647FA00FAAA6B /* UserViewController.swift */,
+				84DEEDF7203667B400FAAA6B /* NewChoreViewController.swift */,
+				84576D6820394EE70014DDD4 /* RegisterViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -467,10 +494,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Chore-Client/Pods-Chore-Client-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AZDropdownMenu/AZDropdownMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AZDropdownMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -519,17 +548,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				84DEEDEE203402F300FAAA6B /* UserChoreTableViewCell.swift in Sources */,
-				84906439202CD5C6008BFDF7 /* FriendRequestTableViewCell.swift in Sources */,
 				84DEEDEC2034014400FAAA6B /* UserChoresViewController.swift in Sources */,
 				84DEEDEA2033BD7600FAAA6B /* NewGroupViewController.swift in Sources */,
+				8401A18F203E12BD0038A864 /* ProfileTableViewCell.swift in Sources */,
+				8401A191203E7EC90038A864 /* AddNewGroupUserViewController.swift in Sources */,
 				84DEEDE52032570400FAAA6B /* Networking.swift in Sources */,
+				84DEEDF6203647FA00FAAA6B /* UserViewController.swift in Sources */,
+				84576D6720390FCC0014DDD4 /* Response.swift in Sources */,
 				84906434202CD538008BFDF7 /* GroupsViewController.swift in Sources */,
+				84DEEDF8203667B400FAAA6B /* NewChoreViewController.swift in Sources */,
 				8490637B202BAA28008BFDF7 /* LoginViewController.swift in Sources */,
 				84906377202A859C008BFDF7 /* Request.swift in Sources */,
+				8401A18D203E11C30038A864 /* ProfileCollectionViewCell.swift in Sources */,
 				84906437202CD570008BFDF7 /* GroupTableViewCell.swift in Sources */,
+				84576D6920394EE70014DDD4 /* RegisterViewController.swift in Sources */,
+				84DEEDF22034F34D00FAAA6B /* GroupChoreTableViewCell.swift in Sources */,
+				84DEEDF02034F16C00FAAA6B /* GroupDetailViewController.swift in Sources */,
 				84906342202A3AE7008BFDF7 /* AppDelegate.swift in Sources */,
 				84906375202A84C8008BFDF7 /* Chore.swift in Sources */,
 				84906371202A8287008BFDF7 /* User.swift in Sources */,
+				84BC189E2038E5BF000E2984 /* GroupRequestTableViewCell.swift in Sources */,
 				84906373202A844B008BFDF7 /* Group.swift in Sources */,
 				84DEEDE72033A5A100FAAA6B /* Member.swift in Sources */,
 			);

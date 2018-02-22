@@ -16,6 +16,6 @@ struct Chore: Codable {
     let reward: String
     let completed: Bool
     let assigned: Bool
-    let user_id: Int
+    let user_id: Int!
     
 }

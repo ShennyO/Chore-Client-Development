@@ -7,12 +7,11 @@
 //
 
 import UIKit
+import KeychainSwift
 
-class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-   
+class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestDelegate {
     
     
-
     @IBOutlet weak var groupsTableView: UITableView!
     
     var groups: [Group] = []
@@ -31,11 +30,6 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        // Do any additional setup after loading the view.
-//    }
     
     @IBAction func unwindToGroupsVC(segue:UIStoryboardSegue) { }
     
@@ -59,8 +53,10 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
-            let cell = self.groupsTableView.dequeueReusableCell(withIdentifier: "requestCell") as! FriendRequestTableViewCell
-            cell.friendRequestLabel.text = " You have been invited to: \(self.requests[indexPath.row].group_name)"
+            let cell = self.groupsTableView.dequeueReusableCell(withIdentifier: "requestCell") as! GroupRequestTableViewCell
+            cell.requestLabel.text = " You have been invited to: \(self.requests[indexPath.row].group_name)"
+            cell.indexPath = indexPath
+            cell.delegate = self
             return cell
         } else {
             let cell = self.groupsTableView.dequeueReusableCell(withIdentifier: "groupCell") as! GroupTableViewCell
@@ -70,11 +66,39 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "toGroupDetail" {
+                let groupDetailVC = segue.destination as! GroupDetailViewController
+                let index = self.groupsTableView.indexPathForSelectedRow!
+                groupDetailVC.group = self.groups[index.row]
+                KeychainSwift().set(String(self.groups[index.row].id), forKey: "groupID")
+            }
+        }
+    }
+    
    
 
 }
 
 extension GroupsViewController {
+    
+    func completeRequest(indexPath: IndexPath, answer: Bool) {
+        let groupID = self.requests[indexPath.row].group_id!
+        let requestID = self.requests[indexPath.row].id
+        Network.instance.fetch(route: .requestResponse(response: answer, group_id: groupID, request_id: requestID!)) { (data) in
+            print("accepted Request")
+            self.getGroups {
+                self.getRequests {
+                    DispatchQueue.main.async {
+                        self.groupsTableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
+    
+    
     func getGroups(completion: @escaping ()->()) {
         Network.instance.fetch(route: Route.getUserGroups) { (data) in
             let jsonGroups = try? JSONDecoder().decode(Groups.self, from: data)
