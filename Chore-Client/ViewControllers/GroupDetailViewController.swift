@@ -17,6 +17,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var chores: [Chore] = []
     var group: Group!
    
+    var addUserButton = UIButton()
 
     @IBOutlet weak var groupDetailTableView: UITableView!
     
@@ -32,8 +33,33 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 self.groupDetailTableView.reloadData()
             }
         }
-//        self.chores = self.group.chores
+        self.addUserButton = UIButton(type: .custom)
+//        self.addUserButton.setTitleColor(UIColor.orange, for: .normal)
+        self.addUserButton.addTarget(self, action: #selector(ButtonClick(_:)), for: UIControlEvents.touchUpInside)
+        
+
        
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        self.view.addSubview(addUserButton)
+        addUserButton.layer.cornerRadius = addUserButton.layer.frame.size.width/2
+        addUserButton.backgroundColor = UIColor(red: 1.0, green: 177/255, blue: 49/255, alpha: 1.0)
+        addUserButton.clipsToBounds = true
+        addUserButton.setImage(UIImage(named:"PlusButton"), for: .normal)
+        addUserButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            addUserButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            addUserButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 90),
+            addUserButton.widthAnchor.constraint(equalToConstant: 30),
+            addUserButton.heightAnchor.constraint(equalToConstant: 30)])
+    }
+    
+    @IBAction func ButtonClick(_ sender: UIButton){
+        
+        /** Do whatever you wanna do on button click**/
+        
     }
     
     

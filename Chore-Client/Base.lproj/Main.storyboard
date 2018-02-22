@@ -31,11 +31,11 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ChoreKeeper" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WO0-tg-h48">
-                                        <rect key="frame" x="101.33333333333333" y="65" width="211.33333333333337" height="40"/>
+                                        <rect key="frame" x="78" y="65" width="259.66666666666669" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="ZMI-27-v7G"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="35"/>
+                                        <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="37"/>
                                         <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -282,6 +282,65 @@
             </objects>
             <point key="canvasLocation" x="3325" y="-162"/>
         </scene>
+        <!--Add New Group User View Controller-->
+        <scene sceneID="D6L-R6-E0X">
+            <objects>
+                <viewController id="61o-lc-HGn" customClass="AddNewGroupUserViewController" customModule="Chore_Client" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CwX-W5-vfl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8pg-Ax-EO8">
+                                <rect key="frame" x="87" y="214" width="240" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qn0-zp-TJB">
+                                        <rect key="frame" x="105" y="132" width="30" height="32"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                        <state key="normal" title="Add">
+                                            <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="qn0-zp-TJB" firstAttribute="centerX" secondItem="8pg-Ax-EO8" secondAttribute="centerX" id="CzY-d3-H7m"/>
+                                    <constraint firstAttribute="height" constant="200" id="ero-8T-o2g"/>
+                                    <constraint firstAttribute="width" constant="240" id="ium-ma-AVo"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fn-Ru-kCv">
+                                <rect key="frame" x="140" y="244.66666666666666" width="134.33333333333337" height="22.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dze-4u-EfZ">
+                                <rect key="frame" x="132.66666666666666" y="306" width="149.99999999999997" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="150" id="RiB-8H-qhK"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="8pg-Ax-EO8" firstAttribute="centerX" secondItem="CwX-W5-vfl" secondAttribute="centerX" id="O71-ds-zbr"/>
+                            <constraint firstItem="8pg-Ax-EO8" firstAttribute="top" secondItem="7fn-Ru-kCv" secondAttribute="bottom" constant="-53" id="RQu-TQ-wGu"/>
+                            <constraint firstItem="7fn-Ru-kCv" firstAttribute="centerX" secondItem="CwX-W5-vfl" secondAttribute="centerX" id="V2Z-pR-C1L"/>
+                            <constraint firstItem="qn0-zp-TJB" firstAttribute="top" secondItem="dze-4u-EfZ" secondAttribute="bottom" constant="10" id="aNt-yj-DjO"/>
+                            <constraint firstItem="dze-4u-EfZ" firstAttribute="centerX" secondItem="CwX-W5-vfl" secondAttribute="centerX" id="bR0-7Q-luo"/>
+                            <constraint firstItem="8pg-Ax-EO8" firstAttribute="top" secondItem="B1H-aT-ooO" secondAttribute="top" constant="150" id="fyX-12-3jc"/>
+                            <constraint firstItem="dze-4u-EfZ" firstAttribute="top" secondItem="7fn-Ru-kCv" secondAttribute="bottom" constant="39" id="suY-QY-Ase"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="B1H-aT-ooO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0xs-z0-W1z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1593" y="540"/>
+        </scene>
         <!--Group Detail-->
         <scene sceneID="nxm-fm-TAz">
             <objects>
@@ -305,25 +364,21 @@
                                                     <rect key="frame" x="15" y="11" width="384" height="158"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="03I-xt-fDA">
-                                                        <size key="itemSize" width="381" height="150"/>
+                                                        <size key="itemSize" width="195" height="150"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="profileCell" id="yxJ-0r-MjW" customClass="ProfileCollectionViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="4" width="381" height="150"/>
+                                                            <rect key="frame" x="0.0" y="4" width="195" height="150"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                                <rect key="frame" x="0.0" y="0.0" width="381" height="150"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="195" height="150"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Gz-bA-5J2">
-                                                                        <rect key="frame" x="317" y="13" width="64" height="30"/>
-                                                                        <state key="normal" title="Add User"/>
-                                                                    </button>
                                                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AccountIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yDD-dw-8r3">
-                                                                        <rect key="frame" x="145" y="20" width="120" height="120"/>
+                                                                        <rect key="frame" x="37.666666666666657" y="20" width="120" height="120"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="width" constant="120" id="dMS-CV-N2S"/>
                                                                             <constraint firstAttribute="height" constant="120" id="tea-lG-fP6"/>
@@ -332,10 +387,8 @@
                                                                 </subviews>
                                                             </view>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" secondItem="8Gz-bA-5J2" secondAttribute="trailing" id="Kzr-pI-QaO"/>
-                                                                <constraint firstItem="yDD-dw-8r3" firstAttribute="leading" secondItem="yxJ-0r-MjW" secondAttribute="leading" constant="145" id="oGe-Ee-DTE"/>
+                                                                <constraint firstItem="yDD-dw-8r3" firstAttribute="centerX" secondItem="yxJ-0r-MjW" secondAttribute="centerX" id="9cc-ZB-fnh"/>
                                                                 <constraint firstItem="yDD-dw-8r3" firstAttribute="top" secondItem="yxJ-0r-MjW" secondAttribute="top" constant="20" id="owq-JJ-qJk"/>
-                                                                <constraint firstItem="8Gz-bA-5J2" firstAttribute="top" secondItem="yxJ-0r-MjW" secondAttribute="top" constant="13" id="ygJ-7q-rcd"/>
                                                             </constraints>
                                                         </collectionViewCell>
                                                     </cells>
@@ -430,6 +483,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="groupDetailTableView" destination="HJL-AP-f6K" id="AEv-Hy-2gT"/>
+                        <segue destination="61o-lc-HGn" kind="show" identifier="toAddNewGroupUser" id="u5x-3u-Gws"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mh9-t9-zzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
