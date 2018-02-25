@@ -10,4 +10,6 @@ import UIKit
 
 class ProfileCollectionViewCell: UICollectionViewCell {
     
+    @IBOutlet weak var profilePicture: UIImageView!
+    @IBOutlet weak var usernameLabel: UILabel!
 }

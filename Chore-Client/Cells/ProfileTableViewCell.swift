@@ -20,7 +20,9 @@ class ProfileTableViewCell: UITableViewCell {
     func setCollectionViewDataSourceDelegate
         <D: UICollectionViewDataSource & UICollectionViewDelegate>
         (dataSourceDelegate: D, forRow row: Int) {
-        
+//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+//        layout.minimumInteritemSpacing = 10
+//        profileCollectionView.collectionViewLayout = layout
         profileCollectionView.delegate = dataSourceDelegate
         profileCollectionView.dataSource = dataSourceDelegate
         profileCollectionView.tag = row

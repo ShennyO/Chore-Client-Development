@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import AZDropdownMenu
+import KeychainSwift
+
 
 class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -29,6 +30,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         super.viewDidAppear(animated)
         self.addUserButton.addTarget(self, action: #selector(ButtonClick(_:)), for: UIControlEvents.touchUpInside)
         self.users = self.group.members
+        
         self.getGroupChores {
             DispatchQueue.main.async {
                 self.groupDetailTableView.reloadData()
@@ -72,7 +74,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         if indexPath.section == 0 {
             return 180
         } else {
-            return 70
+            return 100
         }
         
     }
@@ -89,12 +91,12 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            guard let tableViewCell = cell as? ProfileTableViewCell else { return }
-            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
-        }
-    }
+//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        if indexPath.section == 0 {
+//            guard let tableViewCell = cell as? ProfileTableViewCell else { return }
+//            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+//        }
+//    }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -103,6 +105,13 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "groupChoreCell") as! GroupChoreTableViewCell
             cell.choreNameLabel.text = self.chores[indexPath.row].name
             cell.dueDateLabel.text = self.chores[indexPath.row].due_date
+            cell.currentIndex = indexPath
+            cell.delegate = self
+            if self.chores[indexPath.row].assigned {
+                cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
+            } else {
+                cell.assignButton.setImage(nil, for: .normal)
+            }
             return cell
         } else {
             let tableViewCell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "profileTableViewCell") as! ProfileTableViewCell
@@ -120,15 +129,37 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionViewCell
+        cell.usernameLabel.text = self.users[indexPath.row].username
         return cell
     }
     
 
 }
 
-extension GroupDetailViewController {
+extension GroupDetailViewController: assignButtonDelegate {
     
-   
+    func takeChore(indexPath: IndexPath, completion: @escaping ()->()) {
+        let selectedChore = self.chores[indexPath.row]
+        guard let stringUserID = KeychainSwift().get("id") else {return}
+        guard let userID = Int(stringUserID) else {return}
+        Network.instance.fetch(route: .takeChore(group_id: self.group.id, chore_id: selectedChore.id, user_id: userID)) { (data) in
+            completion()
+        }
+    }
+    
+    func sendIndex(indexPath: IndexPath) {
+        takeChore(indexPath: indexPath) {
+            self.getGroupChores {
+                DispatchQueue.main.async {
+                    self.groupDetailTableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func userTakeChore() {
+        
+    }
     
     func getGroupChores(completion: @escaping ()->()) {
         Network.instance.fetch(route: Route.getGroupChores(chore_type: "group", id: self.group.id)) { (data) in
