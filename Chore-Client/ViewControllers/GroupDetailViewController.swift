@@ -102,16 +102,16 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             cell.delegate = self
             if self.chores[indexPath.row].assigned {
                 cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
-                cell.assignButton.imageView?.contentMode = .scaleAspectFit
-                cell.assignButton.contentMode = .center
                 cell.assignButton.layer.cornerRadius = cell.assignButton.layer.frame.size.width/2
                 cell.assignButton.clipsToBounds = true
                 cell.assignButtonHeight.constant = 60
+                cell.assignButton.isUserInteractionEnabled = false
     
             } else {
                 cell.assignButton.setImage(nil, for: .normal)
                 cell.assignButtonHeight.constant = 30
                 cell.assignButton.layer.cornerRadius = 0
+                cell.assignButton.isUserInteractionEnabled = true
             }
             return cell
         } else {
