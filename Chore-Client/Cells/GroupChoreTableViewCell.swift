@@ -16,6 +16,7 @@ class GroupChoreTableViewCell: UITableViewCell {
     @IBOutlet weak var choreNameLabel: UILabel!
     @IBOutlet weak var dueDateLabel: UILabel!
     @IBOutlet weak var assignButton: UIButton!
+    @IBOutlet weak var assignButtonHeight: NSLayoutConstraint!
     var delegate: assignButtonDelegate!
     var currentIndex: IndexPath!
     

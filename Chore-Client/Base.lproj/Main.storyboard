@@ -49,14 +49,14 @@
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sunny@mail.com" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0uI-Oz-qEp">
                                 <rect key="frame" x="80" y="318" width="254" height="30"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0XQ-cv-29Z">
                                 <rect key="frame" x="80" y="374" width="254" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="G7q-g6-hTg">
                                 <rect key="frame" x="127" y="445" width="160" height="35"/>
@@ -337,7 +337,7 @@
                                     <constraint firstAttribute="width" constant="150" id="RiB-8H-qhK"/>
                                 </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
@@ -446,10 +446,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="chore name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIJ-9i-2yI">
-                                                    <rect key="frame" x="15" y="12" width="110" height="26"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="110" id="ygD-LQ-WvO"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="15.000000000000007" y="12" width="107.66666666666669" height="26"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -464,13 +461,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIz-12-jLx">
-                                                    <rect key="frame" x="324" y="12" width="75" height="75"/>
+                                                    <rect key="frame" x="339" y="12" width="60" height="60"/>
                                                     <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="75" id="fRW-BP-c6h"/>
-                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="mUS-9y-xkE"/>
-                                                        <constraint firstAttribute="width" constant="75" id="qf8-vY-jgK"/>
+                                                        <constraint firstAttribute="height" constant="60" id="fRW-BP-c6h"/>
+                                                        <constraint firstAttribute="width" constant="60" id="qf8-vY-jgK"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                                     <state key="normal" title="Assign" image="AccountIcon">
                                                         <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
@@ -490,6 +487,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="assignButton" destination="dIz-12-jLx" id="dlz-a6-pxb"/>
+                                            <outlet property="assignButtonHeight" destination="fRW-BP-c6h" id="ByY-lD-EOv"/>
                                             <outlet property="choreNameLabel" destination="gIJ-9i-2yI" id="H8V-WJ-uJS"/>
                                             <outlet property="dueDateLabel" destination="qUu-GC-tMh" id="cjE-XK-B62"/>
                                         </connections>

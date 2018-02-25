@@ -91,13 +91,6 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-//    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-//        if indexPath.section == 0 {
-//            guard let tableViewCell = cell as? ProfileTableViewCell else { return }
-//            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
-//        }
-//    }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -109,8 +102,16 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             cell.delegate = self
             if self.chores[indexPath.row].assigned {
                 cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
+                cell.assignButton.imageView?.contentMode = .scaleAspectFit
+                cell.assignButton.contentMode = .center
+                cell.assignButton.layer.cornerRadius = cell.assignButton.layer.frame.size.width/2
+                cell.assignButton.clipsToBounds = true
+                cell.assignButtonHeight.constant = 60
+    
             } else {
                 cell.assignButton.setImage(nil, for: .normal)
+                cell.assignButtonHeight.constant = 30
+                cell.assignButton.layer.cornerRadius = 0
             }
             return cell
         } else {
