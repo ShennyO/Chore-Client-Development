@@ -675,6 +675,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4v2-iX-AAV">
+                                <rect key="frame" x="145" y="114" width="125" height="115"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="imageButtonTapped:" destination="zcB-kl-gsw" eventType="touchUpInside" id="DoV-6g-aaA"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -700,12 +708,14 @@
                     </navigationItem>
                     <connections>
                         <outlet property="choreRecordTableView" destination="L9k-s8-MTC" id="EM3-oy-TiC"/>
+                        <outlet property="imageButton" destination="4v2-iX-AAV" id="H9d-lU-Ii2"/>
+                        <outlet property="profilePic" destination="JdV-rP-4qE" id="UUX-Kr-vKJ"/>
                         <outlet property="userNameLabel" destination="u30-lm-tts" id="6Qt-AY-Gqy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tC8-en-f3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1506" y="1293"/>
+            <point key="canvasLocation" x="1505.7971014492755" y="1292.9347826086957"/>
         </scene>
         <!--User Chores-->
         <scene sceneID="5Dl-Tv-fZE">

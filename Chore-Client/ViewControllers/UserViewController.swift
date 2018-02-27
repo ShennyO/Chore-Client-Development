@@ -13,19 +13,45 @@ class UserViewController: UIViewController {
 
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var choreRecordTableView: UITableView!
+    @IBOutlet weak var profilePic: UIImageView!
+    @IBOutlet weak var imageButton: UIButton!
+    let photoHelper = PhotoHelper()
+    var imageData: NSData!
     
     var currentUser: User!
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        photoHelper.completionHandler = { (image) in
+            guard let imageData = UIImageJPEGRepresentation(image, 1) else {
+                
+                return
+            }
+            
+            self.imageData = imageData as NSData
+            
+            DispatchQueue.main.async {
+                self.profilePic.image = image
+            }
+        }
         getUser() {
             DispatchQueue.main.async {
                 self.userNameLabel.text = self.currentUser.username
             }
         }
     }
-
     
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        
+//    }
+
+    @IBAction func imageButtonTapped(_ sender: Any) {
+        
+        photoHelper.presentActionSheet(from: self)
+        
+    }
 
 }
 
