@@ -20,7 +20,6 @@ class ProfileTableViewCell: UITableViewCell {
     func setCollectionViewDataSourceDelegate
         <D: UICollectionViewDataSource & UICollectionViewDelegate>
         (dataSourceDelegate: D, forRow row: Int) {
-        
         profileCollectionView.delegate = dataSourceDelegate
         profileCollectionView.dataSource = dataSourceDelegate
         profileCollectionView.tag = row

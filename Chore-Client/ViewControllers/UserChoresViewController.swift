@@ -24,6 +24,9 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
         }
     }
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.userChores.count

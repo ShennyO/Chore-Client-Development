@@ -22,17 +22,19 @@ enum Route {
     case getUserChores
     case getGroupRequests
     case getUser(username: String)
+    case sendGroupRequest(receiver_id: Int, group_id: Int, group_name: String)
     case requestResponse(response: Bool, group_id: Int, request_id: Int)
+    case takeChore(group_id: Int, chore_id: Int, user_id: Int)
     
     func method() -> String {
         switch self {
-        case .loginUser, .createUser, .createGroup, .createChore:
+        case .loginUser, .createUser, .createGroup, .createChore, .sendGroupRequest:
             return "POST"
         case .getUserGroups, .getGroupChores, .getUserChores, .getGroupRequests, .getUser:
             return "GET"
         case .logoutUser:
             return "DELETE"
-        case .requestResponse:
+        case .requestResponse, .takeChore:
             return "PATCH"
         }
     }
@@ -51,10 +53,12 @@ enum Route {
             return "groups/\(id)/chores"
         case .getUserChores:
             return "chores/user"
-        case .getGroupRequests:
+        case .getGroupRequests, .sendGroupRequest:
             return "requests"
         case let .requestResponse(_, _, request_id):
             return "requests/\(request_id)"
+        case let .takeChore(group_id, chore_id, _):
+            return "groups/\(group_id)/chores/\(chore_id)"
         }
     }
     
@@ -84,12 +88,19 @@ enum Route {
             let result = try? encoder.encode(body)
             return result!
         case let .requestResponse(response, group_id, _):
-            let encoder = JSONEncoder()
-            let body = Response(response: response, group_id: group_id)
-            let result = try? encoder.encode(body)
-            return result!
+            let body: [String: Any] = ["response": response, "group_id": group_id]
+            let result = try! JSONSerialization.data(withJSONObject: body, options: [])
+            return result
+        case let .sendGroupRequest(receiver_id, group_id, group_name):
             
-        
+            let body: [String: Any] = ["reciever_id": receiver_id, "group_id": group_id, "group_name": group_name, "request_type": 0]
+            let result = try! JSONSerialization.data(withJSONObject: body, options: [])
+            return result
+        case let .takeChore(_, _, user_id):
+            let body: [String: Int] = ["user_id": user_id]
+            let result = try! JSONSerialization.data(withJSONObject: body, options: [])
+            return result
+            
         default:
             return nil
         }
@@ -145,7 +156,6 @@ class Network {
         session.dataTask(with: request) { (data, resp, err) in
             
             if let data = data {
-                
                 completion(data)
             }else{
                 completion(nil)
@@ -188,4 +198,14 @@ extension Dictionary : URLQueryParameterStringConvertible {
         return parts.joined(separator: "&")
     }
     
+}
+
+extension Encodable {
+    func asDictionary() throws -> [String: Any] {
+        let data = try JSONEncoder().encode(self)
+        guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+            throw NSError()
+        }
+        return dictionary
+    }
 }
