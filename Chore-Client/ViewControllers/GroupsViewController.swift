@@ -12,8 +12,8 @@ import FoldingCell
 
 class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestDelegate {
     
-    let kCloseCellHeight: CGFloat = 172
-    let kOpenCellHeight: CGFloat = 250
+    let kCloseCellHeight: CGFloat = 50
+    let kOpenCellHeight: CGFloat = 200
     let kRowsCount = 10
     var cellHeights: [CGFloat] = []
     @IBOutlet weak var groupsTableView: UITableView!
@@ -67,7 +67,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if section == 0 {
             return self.requests.count
         } else {
-            return 0//self.groups.count
+            return self.groups.count
         }
         
     }
@@ -104,12 +104,13 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cellIsCollapsed = cellHeights[indexPath.row] == kCloseCellHeight
         if cellIsCollapsed {
             cellHeights[indexPath.row] = kOpenCellHeight
+            
             cell.unfold(true, animated: true, completion: nil)
             duration = 0.5
         } else {
             cellHeights[indexPath.row] = kCloseCellHeight
             cell.unfold(false, animated: true, completion: nil)
-            duration = 0.8
+            duration = 1.1
         }
         
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseOut, animations: { () -> Void in
@@ -125,7 +126,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
            // cell.requestLabel.text = " You have been invited to: \(self.requests[indexPath.row].group_name)"
             //cell.indexPath = indexPath
             //cell.delegate = self
-            let durations: [TimeInterval] = [0.26, 0.2, 0.2]
+            let durations: [TimeInterval] = [0.5, 0.7, 0.9,1.5]
             cell.durationsForExpandedState = durations
             cell.durationsForCollapsedState = durations
             cell.groupName.text = requests[indexPath.row].group_name
@@ -149,9 +150,6 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
-    
-   
-
 }
 
 extension GroupsViewController {
@@ -170,7 +168,6 @@ extension GroupsViewController {
             }
         }
     }
-    
     
     func getGroups(completion: @escaping ()->()) {
         Network.instance.fetch(route: Route.getUserGroups) { (data) in

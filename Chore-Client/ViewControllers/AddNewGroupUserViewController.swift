@@ -44,7 +44,7 @@ extension AddNewGroupUserViewController {
     func getUser(completion: @escaping ()->()) {
         Network.instance.fetch(route: .getUser(username: usernameTextField.text!)) { (data) in
             var runnable = true
-            let jsonUser = try? JSONDecoder().decode(User.self, from: data)
+            let jsonUser = try? JSONDecoder().decode(User.self, from: data!)
             if let user = jsonUser {
                 self.selectedGroup.members.forEach{
                     if $0.id == user.id {
