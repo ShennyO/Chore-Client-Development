@@ -10,7 +10,7 @@ import Foundation
 
 
 struct Request: Codable {
-    let receiver_id: Int!
+    let reciever_id: Int!
     let sender_id: Int!
     let group_id: Int!
     let chore_id: Int!

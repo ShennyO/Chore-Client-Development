@@ -44,10 +44,13 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
 extension UserChoresViewController {
     func getUserChores(completion: @escaping ()->()) {
         Network.instance.fetch(route: .getUserChores) { (data) in
-            let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)
+            if data != nil{
+                
+            let jsonChores = try? JSONDecoder().decode([Chore].self, from: data!)
             if let chores = jsonChores {
                 self.userChores = chores
                 completion()
+                }
             }
         }
     }

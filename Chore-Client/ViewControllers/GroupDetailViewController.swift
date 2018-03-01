@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AZDropdownMenu
+//import AZDropdownMenu
 
 class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -123,10 +123,12 @@ extension GroupDetailViewController {
     
     func getGroupChores(completion: @escaping ()->()) {
         Network.instance.fetch(route: Route.getGroupChores(chore_type: "group", id: self.group.id)) { (data) in
-            let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)
+             if data != nil{
+            let jsonChores = try? JSONDecoder().decode([Chore].self, from: data!)
             if let chores = jsonChores {
                 self.chores = chores
                 completion()
+                }
             }
         }
     }

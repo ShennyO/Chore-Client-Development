@@ -116,7 +116,7 @@ enum Route {
             let token = keychain.get("token")
             let email = keychain.get("email")
             return ["Content-Type": "application/json",
-                    "x-User-Token": "\(token!)",
+                    "x-User-Token": "\(token!)" ,
                     "x-User-Email": email!]
         }
         
@@ -132,7 +132,7 @@ class Network {
     
     let session = URLSession.shared
     
-    func fetch(route: Route, completion: @escaping (Data) -> Void) {
+    func fetch(route: Route, completion: @escaping (Data?) -> Void) {
         let fullPath = baseURL + route.path()
         
         let pathURL = URL(string: fullPath)
@@ -147,6 +147,8 @@ class Network {
             if let data = data {
                 
                 completion(data)
+            }else{
+                completion(nil)
             }
             
             }.resume()

@@ -33,10 +33,12 @@ extension UserViewController {
     func getUser(completion: @escaping()->()) {
         let username = KeychainSwift().get("username")
         Network.instance.fetch(route: Route.getUser(username: username!)) { (data) in
-            let jsonUser = try? JSONDecoder().decode(Member.self, from: data)
+            if data != nil{
+            let jsonUser = try? JSONDecoder().decode(Member.self, from: data!)
             if let user = jsonUser {
                 self.currentUser = user
                 completion()
+                }
             }
         }
     }

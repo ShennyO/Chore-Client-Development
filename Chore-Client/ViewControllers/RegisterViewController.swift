@@ -36,8 +36,6 @@ class RegisterViewController: UIViewController {
         dismiss(animated: true)
             
     }
-    
-    
 }
 
 extension RegisterViewController {
@@ -46,6 +44,7 @@ extension RegisterViewController {
             DispatchQueue.main.async {
                 let alert = UIAlertController(title: "Invalid Sign Up", message: "Sign Up information not complete", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                UserDefaults.standard.set(true, forKey: "everLogin")
                 self.present(alert, animated: true, completion: nil)
             }
             

@@ -8,16 +8,22 @@
 
 import UIKit
 import KeychainSwift
+import Spring
+
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    @IBOutlet weak var loginButton: UIButton!
+    
+    @IBOutlet weak var loginButton: SpringButton!
+    
+    
     let keychain = KeychainSwift()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+usernameTextField.delegate = self
+        passwordTextField.delegate = self
         // Do any additional setup after loading the view.
     }
 
@@ -28,8 +34,14 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         
-        Network.instance.fetch(route: Route.loginUser(email: self.usernameTextField.text!, password: self.passwordTextField.text!)) { (data) in
-            let jsonUser = try? JSONDecoder().decode(User.self, from: data)
+        //loginButton.layer.animation(forKey: "shake")
+        //loginButton.curve = "easeIn"
+        
+        self.loginButton.animate()
+        
+        Network.instance.fetch(route: .loginUser(email: self.usernameTextField.text!, password: self.passwordTextField.text!)) { (data) in
+             if  data != nil{
+                let jsonUser = try? JSONDecoder().decode(User.self, from: data!)
             
             if let user = jsonUser {
                 print("Login successful")
@@ -41,7 +53,10 @@ class LoginViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "toMain", sender: self)
                 }
-            } else {
+                
+            }
+        }
+            else {
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "Invalid Login", message: "Username or password incorrect", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
@@ -52,9 +67,9 @@ class LoginViewController: UIViewController {
             }
         }
     }
+}
+extension LoginViewController:UITextFieldDelegate{
     
-    
-
 }
 
 
