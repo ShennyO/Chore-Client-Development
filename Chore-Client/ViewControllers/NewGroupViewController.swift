@@ -31,5 +31,7 @@ class NewGroupViewController: UIViewController {
         }
         
     }
-    
+    @IBAction func returnButton(_ sender: Any) {
+   self.performSegue(withIdentifier: "unwindToGroupsVC", sender: self)
+    }
 }

@@ -14,6 +14,8 @@ class RequestTableViewCell: FoldingCell {
     @IBOutlet var closeNumberLabel: UILabel!
     @IBOutlet var openNumberLabel: UILabel!
     @IBOutlet var groupName: UILabel!
+    @IBOutlet var participantLabel: UILabel!
+    @IBOutlet var choresNumber: UILabel!
     
     var number: Int = 0 {
         didSet {

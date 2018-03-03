@@ -17,6 +17,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let kRowsCount = 10
     var cellHeights: [CGFloat] = []
     @IBOutlet weak var groupsTableView: UITableView!
+    
    
     
     var groups: [Group] = []
@@ -52,6 +53,11 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+    @IBAction func createGroup(_ sender: UIButton){
+       
+        self.performSegue(withIdentifier: "createGroup", sender: self)
+        
+    }
     
     @IBAction func unwindToGroupsVC(segue:UIStoryboardSegue) { }
     
@@ -89,11 +95,20 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+       
+        if indexPath.section == 0{
         return cellHeights[indexPath.row]
+        }
+        else{
+            return 70
+        }
     }
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+       
+        if indexPath.section == 0 {
         let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
         
         if cell.isAnimating() {
@@ -117,28 +132,43 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.groupsTableView.beginUpdates()
             self.groupsTableView.endUpdates()
         }, completion: nil)
+        }else{
+             self.performSegue(withIdentifier: "toGroupDetail", sender: self)
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
             let cell = self.groupsTableView.dequeueReusableCell(withIdentifier: "requestCell") as! RequestTableViewCell
-           // cell.requestLabel.text = " You have been invited to: \(self.requests[indexPath.row].group_name)"
-            //cell.indexPath = indexPath
-            //cell.delegate = self
+           
+           
             let durations: [TimeInterval] = [0.5, 0.7, 0.9,1.5]
             cell.durationsForExpandedState = durations
             cell.durationsForCollapsedState = durations
             cell.groupName.text = requests[indexPath.row].group_name
+            let members: Int? = self.requests[indexPath.row].group.members.count
+            let chores: Int? =  self.requests[indexPath.row].group.chores.count
+            cell.participantLabel.text = ("\(members ?? 0) members")
+            cell.choresNumber.text = ("\(chores ?? 0) Chores")
+            
             return cell
         } else {
             let cell = self.groupsTableView.dequeueReusableCell(withIdentifier: "groupCell") as! GroupTableViewCell
+            let members: Int? = groups[indexPath.row].members.count
+            let chore: Int? = groups[indexPath.row].chores.count
             cell.groupNameLabel.text = self.groups[indexPath.row].name
+            cell.groupChoreCountLabel.text = (chore != 0) ? "\(chore ?? 0) chores in this group " : " no chores as been created in this group"
+            cell.groupMemberCountLabel.text = (members == 1) ? " you are the only member of this group" : ("\(members ?? 0) members in this group")
+            //var assignedChore = groups[indexPath.row].chores.filter{$0.user_id == User}
+            
             
             return cell
         }
         
     }
+    
+   
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
@@ -184,25 +214,17 @@ extension GroupsViewController {
     func getRequests(completion: @escaping ()->()) {
         Network.instance.fetch(route: Route.getGroupRequests) { (data) in
              if data != nil{
-            let jsonRequests = try? JSONDecoder().decode([Request].self, from: data!)
+            let jsonRequests = try? JSONDecoder().decode(Resq.self, from: data!)
             if let requests = jsonRequests {
-                self.requests = requests
+                self.requests = requests.request
                 completion()
                 }
             }
         }
     }
 }
-extension GroupsViewController{
-//    fileprivate struct C {
-//        struct CellHeight {
-//            //static let close: CGFloat = //*** // equal or greater foregroundView height
-//            //static let open: CGFloat = //*** // equal or greater containerView height
-//        }
-//    }
-    
-    
-
+struct Resq: Decodable{
+    let request:[Request]
 }
 
 

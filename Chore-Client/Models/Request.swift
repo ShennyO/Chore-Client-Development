@@ -17,5 +17,6 @@ struct Request: Codable {
     let request_type: String
     let group_name: String
     let id: Int!
+    let group: Group
     
 }
