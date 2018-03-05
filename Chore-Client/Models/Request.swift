@@ -9,6 +9,10 @@
 import Foundation
 
 
+struct Requests: Codable {
+    let request: [Request]
+}
+
 struct Request: Codable {
     let reciever_id: Int!
     let sender_id: Int!

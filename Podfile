@@ -12,7 +12,7 @@ pod 'FoldingCell'
   #pod 'AZDropdownMenu'
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 pod 'FSPagerView'
-
+pod 'Alamofire', '~> 4.7'
   target 'Chore-ClientTests' do
     inherit! :search_paths
     # Pods for testing

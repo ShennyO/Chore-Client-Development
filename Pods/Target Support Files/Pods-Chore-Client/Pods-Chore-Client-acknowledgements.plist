@@ -70,6 +70,7 @@ SOFTWARE.
 			<string>MIT</string>
 			<key>Title</key>
 			<string>FoldingCell</string>
+			<string>Alamofire</string>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 		</dict>

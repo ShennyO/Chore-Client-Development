@@ -14,8 +14,8 @@ struct Groups: Codable {
 
 struct Group: Codable {
     let name: String
-    let members: [User]
-    let chores: [Chore]
+    let members: [User]!
+    let chores: [Chore]!
     let id: Int
     
 }

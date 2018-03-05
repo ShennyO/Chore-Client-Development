@@ -8,23 +8,26 @@
 
 import UIKit
 import KeychainSwift
+import Alamofire
 
 class UserViewController: UIViewController {
 
     // - MARK: IBOUTLET
-    
+
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var choreRecordTableView: UITableView!
-    
-    // - MARK: PROPERTIES
-    
-    var currentUser: Member!
-    var userChores:[Chore] = []
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        getUser() {
+    // - MARK: PROPERTIES
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        photoHelper.completionHandler = { (image) in
+            guard let imageData = UIImageJPEGRepresentation(image, 1)
+                else {return}
+
+            self.imageData = imageData as NSData
+
+
             DispatchQueue.main.async {
                 self.userNameLabel.text = self.currentUser.username
             }
@@ -33,11 +36,13 @@ class UserViewController: UIViewController {
             DispatchQueue.main.async {
                  self.choreRecordTableView.reloadData()
             }
-           
+
         }
     }
 
-    
+
+
+
 
 }
 
@@ -59,22 +64,22 @@ extension UserViewController {
 // - Mark: TABLE VIEW CONTROLLER CYCLE
 
 extension UserViewController: UITableViewDataSource, UITableViewDelegate{
-    
+
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.userChores.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.choreRecordTableView.dequeueReusableCell(withIdentifier: "userChoreCell") as! UserChoreTableViewCell
         cell.choreNameLabel.text = self.userChores[indexPath.row].name
         //        cell.chorePenaltyLabel.text = self.userChores[indexPath.row].penalty
         cell.dueDate.text = self.userChores[indexPath.row].due_date ?? "No due date set yet"
         cell.chore = userChores[indexPath.row]
-        
+
         return cell
     }
 }
@@ -83,7 +88,7 @@ extension UserViewController {
     func getUserChores(completion: @escaping ()->()) {
         Network.instance.fetch(route: .getUserChores) { (data) in
             if data != nil{
-                
+
                 let jsonChores = try? JSONDecoder().decode([Chore].self, from: data!)
                 if let chores = jsonChores {
                     self.userChores = chores
@@ -92,4 +97,6 @@ extension UserViewController {
             }
         }
     }
+
+
 }
