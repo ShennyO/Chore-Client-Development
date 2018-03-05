@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 class PhotoHelper: NSObject {
     
     var completionHandler: ((UIImage) -> Void)?

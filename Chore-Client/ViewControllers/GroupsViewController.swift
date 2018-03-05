@@ -160,12 +160,18 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return cell
         } else {
             let cell = self.groupsTableView.dequeueReusableCell(withIdentifier: "groupCell") as! GroupTableViewCell
+            
+            
             let members: Int? = groups[indexPath.row].members.count
             let chore: Int? = groups[indexPath.row].chores.count
             cell.groupNameLabel.text = self.groups[indexPath.row].name
-            cell.groupChoreCountLabel.text = (chore != 0) ? "\(chore ?? 0) chores in this group " : " no chores as been created in this group"
+            cell.groupChoreCountLabel.text = (chore != 0) ? "\(chore ?? 0) chores" : " No chores"
             cell.groupMemberCountLabel.text = (members == 1) ? " you are the only member of this group" : ("\(members ?? 0) members in this group")
-            //var assignedChore = groups[indexPath.row].chores.filter{$0.user_id == User}
+            
+            let user_id = Int(KeychainSwift().get("id")!)
+            let assignedChore = groups[indexPath.row].chores.filter{$0.user_id == user_id}
+            
+            cell.assignedChore.text = ("\(assignedChore.count) assigned")
             
             
             return cell

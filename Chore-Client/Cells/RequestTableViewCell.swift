@@ -9,14 +9,30 @@
 import FoldingCell
 import UIKit
 
+protocol RequestDelegate: class {
+    //func completeRequest(indexPath: IndexPath, answer: Bool)
+    func reloadGroupViewController()
+    
+}
+
+extension RequestDelegate where Self: GroupsViewController{
+    
+    func reloadGroupViewController(){
+        DispatchQueue.main.async {
+            self.groupsTableView.reloadData()
+        }
+    }
+}
+
+
 class RequestTableViewCell: FoldingCell, RequestDelegate  {
     func reloadGroupViewController() {
         
     }
     
-   
     
     
+
     @IBOutlet var closeNumberLabel: UILabel!
     @IBOutlet var openNumberLabel: UILabel!
     @IBOutlet var groupName: UILabel!

@@ -8,20 +8,20 @@
 
 import UIKit
 
-protocol RequestDelegate: class {
-    //func completeRequest(indexPath: IndexPath, answer: Bool)
-    func reloadGroupViewController()
-    
-}
-
-extension RequestDelegate where Self: GroupsViewController{
-    
-    func reloadGroupViewController(){
-        DispatchQueue.main.async {
-            self.groupsTableView.reloadData()
-        }
-    }
-}
+//protocol RequestDelegate: class {
+//    //func completeRequest(indexPath: IndexPath, answer: Bool)
+//    func reloadGroupViewController()
+//    
+//}
+//
+//extension RequestDelegate where Self: GroupsViewController{
+//    
+//    func reloadGroupViewController(){
+//        DispatchQueue.main.async {
+//            self.groupsTableView.reloadData()
+//        }
+//    }
+//}
 
 class GroupRequestTableViewCell: UITableViewCell {
 

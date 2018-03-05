@@ -95,10 +95,22 @@ extension GroupDetailViewController: UITableViewDataSource, UITableViewDelegate{
         
        
             let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "groupChoreCell") as! GroupChoreTableViewCell
+            cell.chore = self.chores[indexPath.row]
+        
             cell.choreNameLabel.text = self.chores[indexPath.row].name
             cell.dueDateLabel.text = self.chores[indexPath.row].due_date
+        
+        if chores[indexPath.row].assigned!{
+            cell.assignedProfileImage.isHidden = false
+            cell.assignButton.isHidden = true
+        }
+        else{
+            cell.assignedProfileImage.isHidden = true
+            cell.assignButton.isHidden = false
+        }
             return cell
     }
+   
 }
 
 extension GroupDetailViewController: FSPagerViewDelegate, FSPagerViewDataSource{
@@ -112,6 +124,7 @@ extension GroupDetailViewController: FSPagerViewDelegate, FSPagerViewDataSource{
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
+        
         cell.imageView?.image = UIImage(named: "AccountIcon")
         cell.textLabel?.text = ("\(self.users[index].first_name) \(self.users[index].last_name)")
         return cell
