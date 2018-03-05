@@ -6,13 +6,14 @@ target 'Chore-Client' do
   use_frameworks!
 
   # Pods for Chore-Client
+
 pod 'FoldingCell'
   pod 'KeychainSwift', '~> 10.0'
 #github "evgenyneu/keychain-swift" ~> 10.0
   #pod 'AZDropdownMenu'
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git'
 pod 'FSPagerView'
-pod 'Alamofire', '~> 4.7'
+pod 'Alamofire'
   target 'Chore-ClientTests' do
     inherit! :search_paths
     # Pods for testing

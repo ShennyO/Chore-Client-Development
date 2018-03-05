@@ -1,16 +1,16 @@
 PODS:
+  - Alamofire (4.6.0)
   - FoldingCell (3.0.3)
   - FSPagerView (0.7.1)
   - KeychainSwift (10.0.0)
   - Spring (1.0.5)
-   - Alamofire (4.6.0)
 
 DEPENDENCIES:
+  - Alamofire
   - FoldingCell
   - FSPagerView
   - KeychainSwift (~> 10.0)
   - Spring (from `https://github.com/MengTo/Spring.git`)
-  - Alamofire (~> 4.6)
 
 EXTERNAL SOURCES:
   Spring:
@@ -22,12 +22,12 @@ CHECKOUT OPTIONS:
     :git: https://github.com/MengTo/Spring.git
 
 SPEC CHECKSUMS:
+  Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
   FoldingCell: 76ce5d1ddba34c6d25548b473b7b51585e992da0
   FSPagerView: 958aba39684e1573755ddcfcc29f7eebb8413cee
   KeychainSwift: f9f7910449a0c0fd2cabc889121530dd2c477c33
   Spring: 48aad470f3ead043b2da98b64e0bf0630b7ebc42
-   Alamofire: f41a599bd63041760b26d393ec1069d9d7b917f4
 
-PODFILE CHECKSUM: d3058eb334c23feb0f468dd64b15db85f5e5b09f
+PODFILE CHECKSUM: 09dd98da2a20017a77688e2f0aac1d12fd99fc1b
 
 COCOAPODS: 1.4.0

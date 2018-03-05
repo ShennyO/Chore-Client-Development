@@ -19,19 +19,24 @@ class UserViewController: UIViewController {
 
     // - MARK: PROPERTIES
 
+    var currentUser: Member!
+    var userChores: [Chore] = []
+    var photoHelper: PhotoHelper!
+    var imageData: Data!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        photoHelper.completionHandler = { (image) in
-            guard let imageData = UIImageJPEGRepresentation(image, 1)
-                else {return}
+      //  photoHelper.completionHandler = { (image) in
+      //      guard let imageData = UIImageJPEGRepresentation(image, 1)
+      //          else {return}
 
-            self.imageData = imageData as NSData
+            self.imageData = imageData as Data
 
 
             DispatchQueue.main.async {
                 self.userNameLabel.text = self.currentUser.username
             }
-        }
+       // }
         getUserChores {
             DispatchQueue.main.async {
                  self.choreRecordTableView.reloadData()
@@ -39,11 +44,6 @@ class UserViewController: UIViewController {
 
         }
     }
-
-
-
-
-
 }
 
 extension UserViewController {
