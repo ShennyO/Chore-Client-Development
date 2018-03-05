@@ -84,7 +84,9 @@ class GroupDetailViewController: UIViewController {
 
 extension GroupDetailViewController: UITableViewDataSource, UITableViewDelegate{
 
-   
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
@@ -101,13 +103,21 @@ extension GroupDetailViewController: UITableViewDataSource, UITableViewDelegate{
             cell.dueDateLabel.text = self.chores[indexPath.row].due_date
         
         if chores[indexPath.row].assigned!{
+            
             cell.assignedProfileImage.isHidden = false
             cell.assignButton.isHidden = true
+            cell.choreOwnerNameLabel.isHidden = false
+            // get chore assigned user
+            let user = group.members.filter{$0.id == chores[indexPath.row].user_id}
+            cell.choreOwnerNameLabel.text = user.first?.first_name
         }
         else{
             cell.assignedProfileImage.isHidden = true
             cell.assignButton.isHidden = false
+            cell.choreOwnerNameLabel.isHidden = true
         }
+        
+        
             return cell
     }
    

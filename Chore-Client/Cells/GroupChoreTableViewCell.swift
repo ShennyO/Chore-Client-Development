@@ -14,9 +14,15 @@ protocol assignButtonDelegate {
 }
 
 class GroupChoreTableViewCell: UITableViewCell {
+    
+    // - MARK: IBOUTLET
+    
     @IBOutlet weak var choreNameLabel: UILabel!
+ 
+    @IBOutlet weak var choreOwnerNameLabel: UILabel!
+    
     @IBOutlet weak var dueDateLabel: UILabel!
-   // @IBOutlet weak var assignButton: UIButton!
+ 
     @IBOutlet weak var assignButtonHeight: NSLayoutConstraint!
     
     @IBOutlet weak var assignButton: UIButton!

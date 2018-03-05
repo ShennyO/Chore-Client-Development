@@ -24,25 +24,28 @@ class UserChoreTableViewCell: UITableViewCell {
     }
 
     @IBAction func completedButtonTapped(_ sender: Any) {
+        self.handleCompletButton()
     }
     
-    @objc func handleAssignButton() {
-        let alertAssign = UIAlertController(title: "Get Chore", message: "Do you really want to get this chore? Don't fuck it up", preferredStyle: .alert)
+    @objc func handleCompletButton() {
+        let alertAssign = UIAlertController(title: "Complet Chore", message: "Are you sure you really complet this chore? bitch ", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "cancel", style: .cancel, handler: nil)
-        let assign = UIAlertAction(title: "Assign", style: .default) { (assign) in
-            self.didAssignChore(chore: self.chore, completion: {
+        let complet = UIAlertAction(title: "completed", style: .default) { (complet) in
+            
+            self.didCompletChore(chore: self.chore, completion: {
                 
-                print("Assigned")
+                print("completed")
             })
         }
+        alertAssign.addAction(complet)
         alertAssign.addAction(cancel)
-        alertAssign.addAction(assign)
+        
         
         
         self.parentViewController?.present(alertAssign, animated: true, completion: nil)
         
     }
-    func didAssignChore(chore: Chore, completion: @escaping()->()){
+    func didCompletChore(chore: Chore, completion: @escaping()->()){
         
         let userId = KeychainSwift().get("id")
         

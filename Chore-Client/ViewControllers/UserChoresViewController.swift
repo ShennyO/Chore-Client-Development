@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserChoresViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class UserChoresViewController: UIViewController {
     
 
     @IBOutlet weak var choresTableView: UITableView!
@@ -23,6 +23,11 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
             }
         }
     }
+}
+
+// - Mark: TABLE VIEW CONTROLLER CYCLE
+
+extension UserChoresViewController: UITableViewDataSource, UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
@@ -39,9 +44,6 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
         cell.choreDescriptionLabel.text = self.userChores[indexPath.row].due_date
         return cell
     }
-    
-
-    
 }
 
 extension UserChoresViewController {

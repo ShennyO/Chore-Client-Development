@@ -28,8 +28,6 @@ class RegisterViewController: UIViewController {
                 self.dismiss(animated: true)
             }
         }
-        
-        
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
