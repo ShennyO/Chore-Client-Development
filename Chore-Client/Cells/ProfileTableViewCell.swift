@@ -7,24 +7,29 @@
 //
 
 import UIKit
+import FSPagerView
 
 class ProfileTableViewCell: UITableViewCell {
-
-    @IBOutlet private weak var profileCollectionView: UICollectionView!
+    
+    @IBOutlet weak var profileImageView: FSPagerView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        
+        
         // Initialization code
     }
     
     
-    func setCollectionViewDataSourceDelegate
-        <D: UICollectionViewDataSource & UICollectionViewDelegate>
-        (dataSourceDelegate: D, forRow row: Int) {
-        profileCollectionView.delegate = dataSourceDelegate
-        profileCollectionView.dataSource = dataSourceDelegate
-        profileCollectionView.tag = row
-        profileCollectionView.reloadData()
-    }
+//    func setCollectionViewDataSourceDelegate
+//        <D: UICollectionViewDataSource & UICollectionViewDelegate>
+//        (dataSourceDelegate: D, forRow row: Int) {
+//        profileCollectionView.delegate = dataSourceDelegate
+//        profileCollectionView.dataSource = dataSourceDelegate
+//        profileCollectionView.tag = row
+//        profileCollectionView.reloadData()
+//    }
 
     
 

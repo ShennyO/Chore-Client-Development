@@ -7,23 +7,50 @@
 //
 
 import UIKit
+import FSPagerView
 //import AZDropdownMenu
 
-class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class GroupDetailViewController: UIViewController {
     
     
-    
+    // - MARK: Properties
     var users: [User] = []
     var chores: [Chore] = []
     var group: Group!
-   
     var addUserButton = UIButton(type: .custom)
-
+    
+    // - MARK: Iboutlet
     @IBOutlet weak var groupDetailTableView: UITableView!
+    
+    @IBOutlet weak var memberImageView: FSPagerView!{
+        didSet {
+            self.memberImageView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
+        }
+    }
+    
+    // - MARK: IBACTION
     
     @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
 
+    // - MARK: METHOD
     
+    @objc func ButtonClick(_ sender: UIButton){
+        print("button tapped")
+        self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
+        
+    }
+    
+    // - MARK: VIEW CONTROLLER LIFE CYCLE
+    
+    override func viewDidLoad() {
+        
+        // configure profile  view
+        self.memberImageView.transformer = FSPagerViewTransformer(type: .linear)
+        memberImageView.itemSize = CGSize(width: 150, height: 100)
+        memberImageView.isInfinite = false
+        memberImageView.interitemSpacing = 10
+    }
+   
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
@@ -32,6 +59,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         self.getGroupChores {
             DispatchQueue.main.async {
                 self.groupDetailTableView.reloadData()
+                self.memberImageView.reloadData()
             }
         }
        
@@ -51,66 +79,41 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             addUserButton.widthAnchor.constraint(equalToConstant: 30),
             addUserButton.heightAnchor.constraint(equalToConstant: 30)])
     }
-    
-    @objc func ButtonClick(_ sender: UIButton){
-        print("button tapped")
-        self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
-        
-    }
-    
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 180
-        } else {
-            return 70
-        }
-        
-    }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
+}
+// - MARK: TABLEVIEW LIFE CYCLE
+
+extension GroupDetailViewController: UITableViewDataSource, UITableViewDelegate{
+
+   
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
+
             return self.chores.count
-        }
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            guard let tableViewCell = cell as? ProfileTableViewCell else { return }
-            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
-        }
-    }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 1 {
+       
             let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "groupChoreCell") as! GroupChoreTableViewCell
             cell.choreNameLabel.text = self.chores[indexPath.row].name
             cell.dueDateLabel.text = self.chores[indexPath.row].due_date
             return cell
-        } else {
-            let tableViewCell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "profileTableViewCell") as! ProfileTableViewCell
-            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
-            return tableViewCell
-        }
-        
     }
+}
+
+extension GroupDetailViewController: FSPagerViewDelegate, FSPagerViewDataSource{
     
+    // - MARK FPSVIEW LIFE CYCLE
     
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func numberOfItems(in pagerView: FSPagerView) -> Int {
         return self.users.count
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionViewCell
+    func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
+        
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "cell", at: index)
+        cell.imageView?.image = UIImage(named: "AccountIcon")
+        cell.textLabel?.text = ("\(self.users[index].first_name) \(self.users[index].last_name)")
         return cell
     }
     

@@ -49,6 +49,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.getRequests {
             DispatchQueue.main.async {
                 self.groupsTableView.reloadData()
+                
             }
         }
     }
