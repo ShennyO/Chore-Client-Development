@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double AZDropdownMenuVersionNumber;
-FOUNDATION_EXPORT const unsigned char AZDropdownMenuVersionString[];
+FOUNDATION_EXPORT double AlamofireVersionNumber;
+FOUNDATION_EXPORT const unsigned char AlamofireVersionString[];
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import KeychainSwift
+import Alamofire
 
 class UserViewController: UIViewController {
 
@@ -23,10 +24,8 @@ class UserViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         photoHelper.completionHandler = { (image) in
-            guard let imageData = UIImageJPEGRepresentation(image, 1) else {
-                
-                return
-            }
+            guard let imageData = UIImageJPEGRepresentation(image, 1)
+                else {return}
             
             self.imageData = imageData as NSData
             
@@ -41,11 +40,7 @@ class UserViewController: UIViewController {
         }
     }
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//
-//        
-//    }
+
 
     @IBAction func imageButtonTapped(_ sender: Any) {
         
@@ -66,4 +61,6 @@ extension UserViewController {
             }
         }
     }
+    
+    
 }

@@ -20,7 +20,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.getGroups {
-            
+           
             self.getRequests {
                 DispatchQueue.main.async {
                     self.groupsTableView.reloadData()
@@ -111,8 +111,8 @@ extension GroupsViewController {
     
     func getRequests(completion: @escaping ()->()) {
         Network.instance.fetch(route: Route.getGroupRequests) { (data) in
-            let jsonRequests = try? JSONDecoder().decode([Request].self, from: data)
-            if let requests = jsonRequests {
+            let jsonRequests = try? JSONDecoder().decode(Requests.self, from: data)
+            if let requests = jsonRequests?.request {
                 self.requests = requests
                 completion()
             }
