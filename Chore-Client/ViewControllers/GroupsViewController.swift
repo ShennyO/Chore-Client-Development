@@ -17,6 +17,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let kRowsCount = 10
     var cellHeights: [CGFloat] = []
     @IBOutlet weak var groupsTableView: UITableView!
+    //var delegate: RequestDelegate!
     
    
     
@@ -49,7 +50,6 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.getRequests {
             DispatchQueue.main.async {
                 self.groupsTableView.reloadData()
-                
             }
         }
     }
@@ -60,11 +60,11 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
     }
     
+    // - MARK: IBACTION
+    
     @IBAction func unwindToGroupsVC(segue:UIStoryboardSegue) { }
     
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 70
-//    }
+
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -107,11 +107,15 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
        
         if indexPath.section == 0 {
         let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
-        
+        let requestCell = tableView.cellForRow(at: indexPath) as! RequestTableViewCell
+            requestCell.request = requests[indexPath.row]
+            
+            
         if cell.isAnimating() {
             return
         }
@@ -183,7 +187,11 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 }
 
+// - MARK: NETWORKING
+
 extension GroupsViewController {
+    
+    
     
     func completeRequest(indexPath: IndexPath, answer: Bool) {
         let groupID = self.requests[indexPath.row].group_id!
@@ -220,6 +228,7 @@ extension GroupsViewController {
                 self.requests = requests.request
                 completion()
                 }
+                
             }
         }
     }
