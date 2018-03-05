@@ -11,13 +11,16 @@ import UIKit
 class UserChoreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var choreNameLabel: UILabel!
-    @IBOutlet weak var chorePenaltyLabel: UILabel!
+    
+    @IBOutlet weak var completeButton: UIButton!
     @IBOutlet weak var choreDescriptionLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func completeButtonTapped(_ sender: Any) {
+    }
     
 
 }

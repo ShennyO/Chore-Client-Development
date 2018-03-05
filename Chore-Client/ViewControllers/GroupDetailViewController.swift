@@ -17,6 +17,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var users: [User] = []
     var chores: [Chore] = []
     var group: Group!
+    //for chore completion requests
+    var requests: [Request] = []
    
     var addUserButton = UIButton(type: .custom)
 
@@ -32,9 +34,11 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         self.users = self.group.members
         
         self.getGroupChores {
-            DispatchQueue.main.async {
-                self.groupDetailTableView.reloadData()
-            }
+            self.getChoreCompletionRequests(completion: {
+                DispatchQueue.main.async {
+                    self.groupDetailTableView.reloadData()
+                }
+            })
         }
        
     }
@@ -80,21 +84,23 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
-        } else {
+        } else if section == 2{
             return self.chores.count
+        } else {
+            return self.requests.count
         }
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 1 {
+        if indexPath.section == 2 {
             let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "groupChoreCell") as! GroupChoreTableViewCell
             cell.choreNameLabel.text = self.chores[indexPath.row].name
             cell.dueDateLabel.text = self.chores[indexPath.row].due_date
@@ -114,10 +120,14 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 cell.assignButton.isUserInteractionEnabled = true
             }
             return cell
-        } else {
+        } else if indexPath.section == 0 {
             let tableViewCell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "profileTableViewCell") as! ProfileTableViewCell
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
             return tableViewCell
+        } else {
+            let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "choreCompletionRequestCell") as! ChoreCompletionRequestTableViewCell
+            cell.choreCompletionLabel.text = "\(self.requests[indexPath.row].sender_id!) has finished said chore"
+            return cell
         }
         
     }
@@ -148,7 +158,7 @@ extension GroupDetailViewController: assignButtonDelegate {
         }
     }
     
-    func sendIndex(indexPath: IndexPath) {
+    func assignChore(indexPath: IndexPath) {
         takeChore(indexPath: indexPath) {
             self.getGroupChores {
                 DispatchQueue.main.async {
@@ -158,15 +168,23 @@ extension GroupDetailViewController: assignButtonDelegate {
         }
     }
     
-    func userTakeChore() {
-        
-    }
+
     
     func getGroupChores(completion: @escaping ()->()) {
         Network.instance.fetch(route: Route.getGroupChores(chore_type: "group", id: self.group.id)) { (data) in
             let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)
             if let chores = jsonChores {
                 self.chores = chores
+                completion()
+            }
+        }
+    }
+    
+    func getChoreCompletionRequests(completion: @escaping ()->()) {
+        Network.instance.fetch(route: .getChoreRequests) { (data) in
+            let jsonRequests = try? JSONDecoder().decode([Request].self, from: data)
+            if let requests = jsonRequests {
+                self.requests = requests
                 completion()
             }
         }

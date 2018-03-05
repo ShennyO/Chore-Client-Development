@@ -36,6 +36,7 @@
 		84DEEDF22034F34D00FAAA6B /* GroupChoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDF12034F34D00FAAA6B /* GroupChoreTableViewCell.swift */; };
 		84DEEDF6203647FA00FAAA6B /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDF5203647FA00FAAA6B /* UserViewController.swift */; };
 		84DEEDF8203667B400FAAA6B /* NewChoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDF7203667B400FAAA6B /* NewChoreViewController.swift */; };
+		84FD6E26204DFD3D00ED098A /* ChoreCompletionRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FD6E25204DFD3D00ED098A /* ChoreCompletionRequestTableViewCell.swift */; };
 		9A3C5CD16C306D1C14BB9D59 /* Pods_Chore_ClientTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 380F1B8917556C1E547BAA4C /* Pods_Chore_ClientTests.framework */; };
 		E5492477C675BFFA058151A7 /* Pods_Chore_Client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5EEAD19F591532395304131E /* Pods_Chore_Client.framework */; };
 /* End PBXBuildFile section */
@@ -100,6 +101,7 @@
 		84DEEDF12034F34D00FAAA6B /* GroupChoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChoreTableViewCell.swift; sourceTree = "<group>"; };
 		84DEEDF5203647FA00FAAA6B /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		84DEEDF7203667B400FAAA6B /* NewChoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChoreViewController.swift; sourceTree = "<group>"; };
+		84FD6E25204DFD3D00ED098A /* ChoreCompletionRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreCompletionRequestTableViewCell.swift; sourceTree = "<group>"; };
 		E0C26C00269B500A0053DF20 /* Pods-Chore-ClientTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-ClientTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-ClientTests/Pods-Chore-ClientTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -215,6 +217,7 @@
 			children = (
 				84906436202CD570008BFDF7 /* GroupTableViewCell.swift */,
 				84DEEDED203402F300FAAA6B /* UserChoreTableViewCell.swift */,
+				84FD6E25204DFD3D00ED098A /* ChoreCompletionRequestTableViewCell.swift */,
 				84DEEDF12034F34D00FAAA6B /* GroupChoreTableViewCell.swift */,
 				84BC189D2038E5BF000E2984 /* GroupRequestTableViewCell.swift */,
 				8401A18C203E11C30038A864 /* ProfileCollectionViewCell.swift */,
@@ -550,6 +553,7 @@
 				84DEEDEE203402F300FAAA6B /* UserChoreTableViewCell.swift in Sources */,
 				84DEEDEC2034014400FAAA6B /* UserChoresViewController.swift in Sources */,
 				84DEEDEA2033BD7600FAAA6B /* NewGroupViewController.swift in Sources */,
+				84FD6E26204DFD3D00ED098A /* ChoreCompletionRequestTableViewCell.swift in Sources */,
 				8401A18F203E12BD0038A864 /* ProfileTableViewCell.swift in Sources */,
 				8401A191203E7EC90038A864 /* AddNewGroupUserViewController.swift in Sources */,
 				84DEEDE52032570400FAAA6B /* Networking.swift in Sources */,

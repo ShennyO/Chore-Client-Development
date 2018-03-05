@@ -9,7 +9,7 @@
 import UIKit
 
 protocol assignButtonDelegate {
-    func sendIndex(indexPath: IndexPath)
+    func assignChore(indexPath: IndexPath)
 }
 
 class GroupChoreTableViewCell: UITableViewCell {
@@ -26,7 +26,7 @@ class GroupChoreTableViewCell: UITableViewCell {
     }
 
     @IBAction func assignButtonTapped(_ sender: Any) {
-        delegate.sendIndex(indexPath: currentIndex)
+        delegate.assignChore(indexPath: currentIndex)
     }
     
 }
