@@ -220,7 +220,7 @@
                                                 </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="uZK-ow-jOA" firstAttribute="top" secondItem="i2L-SJ-rca" secondAttribute="top" constant="24" id="Q89-bG-xwv"/>
+                                                <constraint firstItem="uZK-ow-jOA" firstAttribute="top" secondItem="i2L-SJ-rca" secondAttribute="top" id="Q89-bG-xwv"/>
                                                 <constraint firstItem="uZK-ow-jOA" firstAttribute="leading" secondItem="i2L-SJ-rca" secondAttribute="leading" constant="15" id="Sm5-zy-pW1"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1318,6 +1318,20 @@
                                                         <constraint firstItem="tRR-n9-06G" firstAttribute="width" secondItem="Q1r-ah-jhD" secondAttribute="width" multiplier="0.3" id="cN8-Tg-gra"/>
                                                     </constraints>
                                                 </stackView>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TlV-K8-IrU">
+                                                    <rect key="frame" x="309" y="19" width="80" height="32"/>
+                                                    <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="80" id="RFN-dZ-5V9"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                    <state key="normal" title="Complete">
+                                                        <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="completeButtonTapped:" destination="3xl-xW-r2E" eventType="touchUpInside" id="HoO-ye-DOk"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="Q1r-ah-jhD" secondAttribute="bottom" id="Rtr-H0-Dnp"/>
@@ -1329,6 +1343,7 @@
                                         <connections>
                                             <outlet property="choreDescriptionLabel" destination="gAm-cO-5EV" id="4Ou-de-0jM"/>
                                             <outlet property="choreNameLabel" destination="j4v-J6-g4e" id="rkK-vE-kHO"/>
+                                            <outlet property="completeButton" destination="TlV-K8-IrU" id="wqI-hx-Jaa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

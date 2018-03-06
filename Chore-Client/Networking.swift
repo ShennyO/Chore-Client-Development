@@ -21,16 +21,18 @@ enum Route {
     case getGroupChores(chore_type: String, id: Int)
     case getUserChores
     case getGroupRequests
+    case getChoreRequests
     case getUser(username: String)
     case sendGroupRequest(receiver_id: Int, group_id: Int, group_name: String)
     case requestResponse(response: Bool, group_id: Int, request_id: Int)
     case takeChore(group_id: Int, chore_id: Int, user_id: Int)
+    case sendChoreCompletionRequest(chore_id: Int, request_type: Int)
     
     func method() -> String {
         switch self {
-        case .loginUser, .createUser, .createGroup, .createChore, .sendGroupRequest:
+        case .loginUser, .createUser, .createGroup, .createChore, .sendGroupRequest, .sendChoreCompletionRequest:
             return "POST"
-        case .getUserGroups, .getGroupChores, .getUserChores, .getGroupRequests, .getUser:
+        case .getUserGroups, .getGroupChores, .getUserChores, .getGroupRequests, .getUser, .getChoreRequests:
             return "GET"
         case .logoutUser:
             return "DELETE"
@@ -53,8 +55,14 @@ enum Route {
             return "groups/\(id)/chores"
         case .getUserChores:
             return "chores/user"
-        case .getGroupRequests, .sendGroupRequest:
+        case .sendGroupRequest:
             return "requests"
+        case  .getGroupRequests:
+            return "fetch_group_requests"
+        case .getChoreRequests:
+            return "fetch_chore_completion_requests"
+        case .sendChoreCompletionRequest:
+            return "chore_completion_request"
         case let .requestResponse(_, _, request_id):
             return "requests/\(request_id)"
         case let .takeChore(group_id, chore_id, _):
@@ -94,6 +102,10 @@ enum Route {
         case let .sendGroupRequest(receiver_id, group_id, group_name):
             
             let body: [String: Any] = ["reciever_id": receiver_id, "group_id": group_id, "group_name": group_name, "request_type": 0]
+            let result = try! JSONSerialization.data(withJSONObject: body, options: [])
+            return result
+        case let .sendChoreCompletionRequest(chore_id, request_type):
+            let body: [String: Int] = ["chore_id": chore_id, "request_type": request_type]
             let result = try! JSONSerialization.data(withJSONObject: body, options: [])
             return result
         case let .takeChore(_, _, user_id):

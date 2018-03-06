@@ -19,7 +19,7 @@ struct Request: Codable {
     let group_id: Int!
     let chore_id: Int!
     let request_type: String
-    let group_name: String
+    let group_name: String!
     let id: Int!
     let group: Group
     
