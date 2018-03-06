@@ -30,7 +30,7 @@ class UserViewController: UIViewController {
       //      guard let imageData = UIImageJPEGRepresentation(image, 1)
       //          else {return}
 
-            self.imageData = imageData as Data
+       //     self.imageData = imageData as Data
 
 
             DispatchQueue.main.async {
