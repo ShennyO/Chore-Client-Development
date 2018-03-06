@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserChoresViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class UserChoresViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ChoreCompletionDelegate {
     
 
     @IBOutlet weak var choresTableView: UITableView!
@@ -37,6 +37,8 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
         cell.choreNameLabel.text = self.userChores[indexPath.row].name
 //        cell.chorePenaltyLabel.text = self.userChores[indexPath.row].penalty
         cell.choreDescriptionLabel.text = self.userChores[indexPath.row].due_date
+        cell.delegate = self as ChoreCompletionDelegate
+        cell.index = indexPath
         return cell
     }
     
@@ -52,6 +54,11 @@ extension UserChoresViewController {
                 self.userChores = chores
                 completion()
             }
+        }
+    }
+    func createChoreCompletionRequests(index: IndexPath) {
+        Network.instance.fetch(route: .sendChoreCompletionRequest(chore_id: self.userChores[index.row].id)) { (data) in
+            print("Requests created")
         }
     }
 }

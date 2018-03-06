@@ -26,7 +26,7 @@ enum Route {
     case sendGroupRequest(receiver_id: Int, group_id: Int, group_name: String)
     case requestResponse(response: Bool, group_id: Int, request_id: Int)
     case takeChore(group_id: Int, chore_id: Int, user_id: Int)
-    case sendChoreCompletionRequest(chore_id: Int, request_type: Int)
+    case sendChoreCompletionRequest(chore_id: Int)
     
     func method() -> String {
         switch self {
@@ -104,8 +104,8 @@ enum Route {
             let body: [String: Any] = ["reciever_id": receiver_id, "group_id": group_id, "group_name": group_name, "request_type": 0]
             let result = try! JSONSerialization.data(withJSONObject: body, options: [])
             return result
-        case let .sendChoreCompletionRequest(chore_id, request_type):
-            let body: [String: Int] = ["chore_id": chore_id, "request_type": request_type]
+        case let .sendChoreCompletionRequest(chore_id):
+            let body: [String: Int] = ["chore_id": chore_id, "request_type": 1]
             let result = try! JSONSerialization.data(withJSONObject: body, options: [])
             return result
         case let .takeChore(_, _, user_id):

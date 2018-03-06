@@ -149,6 +149,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
 
 extension GroupDetailViewController: assignButtonDelegate {
     
+    
+    
     func takeChore(indexPath: IndexPath, completion: @escaping ()->()) {
         let selectedChore = self.chores[indexPath.row]
         guard let stringUserID = KeychainSwift().get("id") else {return}

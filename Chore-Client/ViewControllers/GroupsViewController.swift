@@ -9,7 +9,7 @@
 import UIKit
 import KeychainSwift
 
-class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestDelegate {
+class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestDelegate{
     
     
     @IBOutlet weak var groupsTableView: UITableView!
@@ -82,6 +82,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 }
 
 extension GroupsViewController {
+    
     
     func completeRequest(indexPath: IndexPath, answer: Bool) {
         let groupID = self.requests[indexPath.row].group_id!
