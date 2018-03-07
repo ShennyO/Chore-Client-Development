@@ -87,8 +87,7 @@ extension GroupsViewController {
     func completeRequest(indexPath: IndexPath, answer: Bool) {
         let groupID = self.requests[indexPath.row].group_id!
         let requestID = self.requests[indexPath.row].id
-        Network.instance.fetch(route: .requestResponse(response: answer, group_id: groupID, request_id: requestID!)) { (data) in
-            print("accepted Request")
+        Network.instance.fetch(route: .groupRequestResponse(response: answer, group_id: groupID, request_id: requestID!)) { (data) in
             self.getGroups {
                 self.getRequests {
                     DispatchQueue.main.async {

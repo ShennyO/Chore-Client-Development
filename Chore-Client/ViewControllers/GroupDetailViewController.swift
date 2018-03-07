@@ -10,9 +10,7 @@ import UIKit
 import KeychainSwift
 
 
-class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
-    
-    
+class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CompleteChoreCompletionDelegate {
     
     var users: [User] = []
     var chores: [Chore] = []
@@ -127,6 +125,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         } else {
             let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "choreCompletionRequestCell") as! ChoreCompletionRequestTableViewCell
             cell.choreCompletionLabel.text = "\(self.requests[indexPath.row].sender_id!) has finished said chore"
+            cell.index = indexPath
+            cell.delegate = self
             return cell
         }
         
@@ -149,6 +149,18 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
 
 extension GroupDetailViewController: assignButtonDelegate {
     
+    func completeChoreCompletionRequest(index: IndexPath, answer: Bool) {
+        let request = self.requests[index.row]
+        Network.instance.fetch(route: .choreRequestResponse(response: answer, chore_id: request.chore_id, uuid: request.uuid, request_id: request.id)) { (data) in
+            self.getChoreCompletionRequests {
+                self.getGroupChores {
+                    DispatchQueue.main.async {
+                        self.groupDetailTableView.reloadData()
+                    }
+                }
+            }
+        }
+    }
     
     
     func takeChore(indexPath: IndexPath, completion: @escaping ()->()) {
@@ -183,7 +195,8 @@ extension GroupDetailViewController: assignButtonDelegate {
     }
     
     func getChoreCompletionRequests(completion: @escaping ()->()) {
-        Network.instance.fetch(route: .getChoreRequests) { (data) in
+        let currentGroupID = Int(KeychainSwift().get("groupID")!)
+        Network.instance.fetch(route: .getChoreRequests(group_id: currentGroupID!)) { (data) in
             let jsonRequests = try? JSONDecoder().decode([Request].self, from: data)
             if let requests = jsonRequests {
                 self.requests = requests

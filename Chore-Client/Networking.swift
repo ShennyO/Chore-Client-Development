@@ -21,12 +21,13 @@ enum Route {
     case getGroupChores(chore_type: String, id: Int)
     case getUserChores
     case getGroupRequests
-    case getChoreRequests
+    case getChoreRequests(group_id: Int)
     case getUser(username: String)
     case sendGroupRequest(receiver_id: Int, group_id: Int, group_name: String)
-    case requestResponse(response: Bool, group_id: Int, request_id: Int)
+    case groupRequestResponse(response: Bool, group_id: Int, request_id: Int)
     case takeChore(group_id: Int, chore_id: Int, user_id: Int)
     case sendChoreCompletionRequest(chore_id: Int)
+    case choreRequestResponse(response: Bool, chore_id: Int, uuid: String, request_id: Int)
     
     func method() -> String {
         switch self {
@@ -36,7 +37,7 @@ enum Route {
             return "GET"
         case .logoutUser:
             return "DELETE"
-        case .requestResponse, .takeChore:
+        case .groupRequestResponse, .takeChore, .choreRequestResponse:
             return "PATCH"
         }
     }
@@ -63,10 +64,12 @@ enum Route {
             return "fetch_chore_completion_requests"
         case .sendChoreCompletionRequest:
             return "chore_completion_request"
-        case let .requestResponse(_, _, request_id):
+        case let .groupRequestResponse(_, _, request_id):
             return "requests/\(request_id)"
         case let .takeChore(group_id, chore_id, _):
             return "groups/\(group_id)/chores/\(chore_id)"
+        case let .choreRequestResponse(_, _, _, request_id):
+            return "requests/\(request_id)"
         }
     }
     
@@ -95,7 +98,7 @@ enum Route {
             let body: [String: String] = ["name": name, "due_date": due_date, "penalty": penalty, "reward": reward]
             let result = try? encoder.encode(body)
             return result!
-        case let .requestResponse(response, group_id, _):
+        case let .groupRequestResponse(response, group_id, _):
             let body: [String: Any] = ["response": response, "group_id": group_id]
             let result = try! JSONSerialization.data(withJSONObject: body, options: [])
             return result
@@ -105,14 +108,17 @@ enum Route {
             let result = try! JSONSerialization.data(withJSONObject: body, options: [])
             return result
         case let .sendChoreCompletionRequest(chore_id):
-            let body: [String: Int] = ["chore_id": chore_id, "request_type": 1]
+            let body: [String: Int] = ["chore_id": chore_id, "request_type": 3]
             let result = try! JSONSerialization.data(withJSONObject: body, options: [])
             return result
         case let .takeChore(_, _, user_id):
             let body: [String: Int] = ["user_id": user_id]
             let result = try! JSONSerialization.data(withJSONObject: body, options: [])
             return result
-            
+        case let .choreRequestResponse(response, chore_id, uuid, _):
+            let body: [String: Any] = ["response": response, "chore_id": chore_id, "request_type": 3, "uuid": uuid]
+            let result = try! JSONSerialization.data(withJSONObject: body, options: [])
+            return result
         default:
             return nil
         }
@@ -125,6 +131,8 @@ enum Route {
             return ["chore_type": chore_type]
         case let .getUser(username):
             return ["username": username]
+        case let .getChoreRequests(group_id):
+            return ["group_id": String(group_id)]
         default:
             return [:]
         }

@@ -458,14 +458,48 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KFA-t9-BiU">
+                                                    <rect key="frame" x="294" y="22" width="54" height="31"/>
+                                                    <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="54" id="uDd-se-ZoB"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                                    <state key="normal" title="Accept">
+                                                        <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="acceptButtonTapped:" destination="rKu-lE-0DY" eventType="touchUpInside" id="bRv-cy-ttl"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYc-GE-0FL">
+                                                    <rect key="frame" x="358" y="22" width="41" height="31"/>
+                                                    <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="41" id="kYh-6G-aNR"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                                    <state key="normal" title="Deny">
+                                                        <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="denyButtonTapped:" destination="rKu-lE-0DY" eventType="touchUpInside" id="kJ0-tc-ERt"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="2BH-vC-HWO" firstAttribute="top" secondItem="cvF-I0-abD" secondAttribute="top" constant="27" id="RJF-hi-hhP"/>
+                                                <constraint firstItem="KFA-t9-BiU" firstAttribute="top" secondItem="cvF-I0-abD" secondAttribute="top" constant="22" id="UtD-nt-i3i"/>
+                                                <constraint firstAttribute="trailing" secondItem="WYc-GE-0FL" secondAttribute="trailing" constant="15" id="Xje-fB-6bW"/>
                                                 <constraint firstItem="2BH-vC-HWO" firstAttribute="leading" secondItem="cvF-I0-abD" secondAttribute="leading" constant="15" id="YcH-jW-uwa"/>
+                                                <constraint firstItem="WYc-GE-0FL" firstAttribute="top" secondItem="cvF-I0-abD" secondAttribute="top" constant="22" id="oxb-Sx-dck"/>
+                                                <constraint firstItem="WYc-GE-0FL" firstAttribute="leading" secondItem="KFA-t9-BiU" secondAttribute="trailing" constant="10" id="xqC-TP-z7t"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="acceptButton" destination="KFA-t9-BiU" id="7fa-eH-kbw"/>
                                             <outlet property="choreCompletionLabel" destination="2BH-vC-HWO" id="Ff4-Fh-Ygm"/>
+                                            <outlet property="denyButton" destination="WYc-GE-0FL" id="8WF-RM-hK5"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupChoreCell" rowHeight="99" id="ofG-r8-6M1" customClass="GroupChoreTableViewCell" customModule="Chore_Client" customModuleProvider="target">
