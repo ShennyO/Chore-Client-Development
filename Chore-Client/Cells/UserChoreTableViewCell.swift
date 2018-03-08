@@ -16,8 +16,9 @@ protocol ChoreCompletionDelegate {
 class UserChoreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var choreNameLabel: UILabel!
+    @IBOutlet weak var choreDateLabel: UILabel!
     @IBOutlet weak var completeButton: UIButton!
-    @IBOutlet weak var choreDescriptionLabel: UILabel!
+    
     var delegate: ChoreCompletionDelegate!
     var index: IndexPath!
     

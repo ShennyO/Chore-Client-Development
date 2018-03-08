@@ -10,7 +10,7 @@ import UIKit
 import KeychainSwift
 import Alamofire
 
-class UserViewController: UIViewController {
+class UserViewController: UIViewController, ChoreCompletionDelegate, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var choreRecordTableView: UITableView!
@@ -18,26 +18,60 @@ class UserViewController: UIViewController {
     @IBOutlet weak var imageButton: UIButton!
     let photoHelper = PhotoHelper()
     var imageData: NSData!
-    
+    var userChores: [Chore] = []
     var currentUser: User!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         photoHelper.completionHandler = { (image) in
             guard let imageData = UIImageJPEGRepresentation(image, 1)
                 else {return}
             
             self.imageData = imageData as NSData
+            let userID = KeychainSwift().get("id")
+            let fileName = "User\(userID)Profile"
+            let name = "Avatar\(String(describing: userID))"
+            
+            Alamofire.uplo
+            
+            
             
             DispatchQueue.main.async {
                 self.profilePic.image = image
             }
         }
         getUser() {
-            DispatchQueue.main.async {
-                self.userNameLabel.text = self.currentUser.username
+            self.getUserChores {
+                DispatchQueue.main.async {
+                    self.choreRecordTableView.reloadData()
+                }
             }
         }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.userChores.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = self.choreRecordTableView.dequeueReusableCell(withIdentifier: "userChoreCell") as! UserChoreTableViewCell
+        cell.choreNameLabel.text = self.userChores[indexPath.row].name
+        //        cell.chorePenaltyLabel.text = self.userChores[indexPath.row].penalty
+        if self.userChores[indexPath.row].pending {
+            cell.completeButton.setTitle("Pending", for: .normal)
+            cell.completeButton.isUserInteractionEnabled = false
+            cell.selectionStyle = .none
+            
+        }
+        cell.choreDateLabel.text = self.userChores[indexPath.row].due_date
+        cell.delegate = self as ChoreCompletionDelegate
+        cell.index = indexPath
+        return cell
     }
     
 
@@ -59,6 +93,21 @@ extension UserViewController {
                 self.currentUser = user
                 completion()
             }
+        }
+    }
+    
+    func getUserChores(completion: @escaping ()->()) {
+        Network.instance.fetch(route: .getUserChores) { (data) in
+            let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)
+            if let chores = jsonChores {
+                self.userChores = chores
+                completion()
+            }
+        }
+    }
+    func createChoreCompletionRequests(index: IndexPath) {
+        Network.instance.fetch(route: .sendChoreCompletionRequest(chore_id: self.userChores[index.row].id)) { (data) in
+            print("Requests created")
         }
     }
     

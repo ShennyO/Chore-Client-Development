@@ -707,31 +707,56 @@
                                 <rect key="frame" x="0.0" y="264" width="414" height="423"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="eRc-fc-Wwl">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userChoreCell" rowHeight="70" id="eRc-fc-Wwl" customClass="UserChoreTableViewCell" customModule="Chore_Client" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eRc-fc-Wwl" id="6wm-hG-eos">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXy-Ax-e66">
-                                                    <rect key="frame" x="28" y="12" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXy-Ax-e66">
+                                                    <rect key="frame" x="28" y="12" width="243" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKp-Ev-jLQ">
-                                                    <rect key="frame" x="340" y="12" width="42" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aKp-Ev-jLQ">
+                                                    <rect key="frame" x="28" y="38" width="141" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7Z-Qm-2t4">
+                                                    <rect key="frame" x="332" y="19" width="67" height="30"/>
+                                                    <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" title="Complete">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="completeButtonTapped:" destination="eRc-fc-Wwl" eventType="touchUpInside" id="4Vg-ZD-eM7"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="eXy-Ax-e66" firstAttribute="leading" secondItem="6wm-hG-eos" secondAttribute="leading" constant="28" id="LFq-rM-tk8"/>
+                                                <constraint firstItem="b7Z-Qm-2t4" firstAttribute="top" secondItem="6wm-hG-eos" secondAttribute="top" constant="19" id="cfb-Pj-MyS"/>
+                                                <constraint firstItem="aKp-Ev-jLQ" firstAttribute="top" secondItem="eXy-Ax-e66" secondAttribute="bottom" constant="5" id="ie8-AG-Nz7"/>
+                                                <constraint firstItem="eXy-Ax-e66" firstAttribute="top" secondItem="6wm-hG-eos" secondAttribute="top" constant="12" id="pdU-fD-ech"/>
+                                                <constraint firstItem="aKp-Ev-jLQ" firstAttribute="leading" secondItem="6wm-hG-eos" secondAttribute="leading" constant="28" id="qsP-0e-Kel"/>
+                                                <constraint firstAttribute="trailing" secondItem="b7Z-Qm-2t4" secondAttribute="trailing" constant="15" id="sBF-uO-DR5"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="choreDateLabel" destination="aKp-Ev-jLQ" id="7v5-Pi-6G2"/>
+                                            <outlet property="choreNameLabel" destination="eXy-Ax-e66" id="0Rf-UA-wla"/>
+                                            <outlet property="completeButton" destination="b7Z-Qm-2t4" id="fbS-29-VTS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="zcB-kl-gsw" id="Pdk-2K-I55"/>
+                                    <outlet property="delegate" destination="zcB-kl-gsw" id="5mI-mq-g8D"/>
+                                </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u30-lm-tts">
                                 <rect key="frame" x="186" y="85" width="42" height="21"/>
@@ -781,7 +806,7 @@
             </objects>
             <point key="canvasLocation" x="1505.7971014492755" y="1292.9347826086957"/>
         </scene>
-        <!--User Chores-->
+        <!--Completed Chores-->
         <scene sceneID="5Dl-Tv-fZE">
             <objects>
                 <viewController id="yIn-Te-tY7" customClass="UserChoresViewController" customModule="Chore_Client" customModuleProvider="target" sceneMemberID="viewController">
@@ -793,7 +818,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userChoreCell" rowHeight="70" id="3xl-xW-r2E" customClass="UserChoreTableViewCell" customModule="Chore_Client" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="3xl-xW-r2E">
                                         <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3xl-xW-r2E" id="wf2-am-IL9">
@@ -817,33 +842,12 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TlV-K8-IrU">
-                                                    <rect key="frame" x="309" y="19" width="80" height="32"/>
-                                                    <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="80" id="RFN-dZ-5V9"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                    <state key="normal" title="Complete">
-                                                        <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="completeButtonTapped:" destination="3xl-xW-r2E" eventType="touchUpInside" id="HoO-ye-DOk"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="qiS-ei-DQ4" firstAttribute="top" secondItem="wf2-am-IL9" secondAttribute="top" constant="13" id="3hm-HY-22Q"/>
                                                 <constraint firstItem="qiS-ei-DQ4" firstAttribute="leading" secondItem="wf2-am-IL9" secondAttribute="leading" constant="15.000000000000004" id="F2y-sX-qV7"/>
-                                                <constraint firstItem="TlV-K8-IrU" firstAttribute="top" secondItem="wf2-am-IL9" secondAttribute="top" constant="19" id="Ncq-4k-mRk"/>
-                                                <constraint firstAttribute="trailing" secondItem="TlV-K8-IrU" secondAttribute="trailing" constant="25" id="aXb-ci-I6V"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="choreDescriptionLabel" destination="gAm-cO-5EV" id="4Ou-de-0jM"/>
-                                            <outlet property="choreNameLabel" destination="j4v-J6-g4e" id="rkK-vE-kHO"/>
-                                            <outlet property="completeButton" destination="TlV-K8-IrU" id="wqI-hx-Jaa"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -861,7 +865,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lwb-UE-wL1"/>
                     </view>
-                    <navigationItem key="navigationItem" title="User Chores" id="QLg-ic-dAv"/>
+                    <navigationItem key="navigationItem" title="Completed Chores" id="QLg-ic-dAv"/>
                     <connections>
                         <outlet property="choresTableView" destination="u5D-1m-q1S" id="52x-Xq-fkx"/>
                     </connections>

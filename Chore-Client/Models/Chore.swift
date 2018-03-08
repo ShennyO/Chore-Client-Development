@@ -17,5 +17,5 @@ struct Chore: Codable {
     let completed: Bool
     let assigned: Bool
     let user_id: Int!
-    
+    let pending: Bool!
 }
