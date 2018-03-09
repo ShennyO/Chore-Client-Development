@@ -10,7 +10,15 @@ import UIKit
 import KeychainSwift
 
 
-class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CompleteChoreCompletionDelegate {
+class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CompleteChoreCompletionDelegate, addNewDelegate {
+    func newChore() {
+        self.performSegue(withIdentifier: "toNewChore", sender: self)
+    }
+    
+    func newUser() {
+        self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
+    }
+    
     
     var users: [User] = []
     var chores: [Chore] = []
@@ -18,7 +26,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     //for chore completion requests
     var requests: [Request] = []
    
-    var addUserButton = UIButton(type: .custom)
+//    var addUserButton = UIButton(type: .custom)
 
     @IBOutlet weak var groupDetailTableView: UITableView!
     
@@ -28,7 +36,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-        self.addUserButton.addTarget(self, action: #selector(ButtonClick(_:)), for: UIControlEvents.touchUpInside)
+//        self.addUserButton.addTarget(self, action: #selector(ButtonClick(_:)), for: UIControlEvents.touchUpInside)
         self.users = self.group.members
         
         self.getGroupChores {
@@ -43,17 +51,17 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        self.view.addSubview(addUserButton)
-        addUserButton.layer.cornerRadius = addUserButton.layer.frame.size.width/2
-        addUserButton.backgroundColor = UIColor(red: 1.0, green: 177/255, blue: 49/255, alpha: 1.0)
-        addUserButton.clipsToBounds = true
-        addUserButton.setImage(UIImage(named:"PlusButton"), for: .normal)
-        addUserButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            addUserButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-            addUserButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 90),
-            addUserButton.widthAnchor.constraint(equalToConstant: 30),
-            addUserButton.heightAnchor.constraint(equalToConstant: 30)])
+//        self.view.addSubview(addUserButton)
+//        addUserButton.layer.cornerRadius = addUserButton.layer.frame.size.width/2
+//        addUserButton.backgroundColor = UIColor(red: 1.0, green: 177/255, blue: 49/255, alpha: 1.0)
+//        addUserButton.clipsToBounds = true
+//        addUserButton.setImage(UIImage(named:"PlusButton"), for: .normal)
+//        addUserButton.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            addUserButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+//            addUserButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 90),
+//            addUserButton.widthAnchor.constraint(equalToConstant: 30),
+//            addUserButton.heightAnchor.constraint(equalToConstant: 30)])
     }
     
     @objc func ButtonClick(_ sender: UIButton){
@@ -82,23 +90,25 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 4
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return 1
-        } else if section == 2{
+        } else if section == 3{
             return self.chores.count
-        } else {
+        } else if section == 2 {
             return self.requests.count
+        } else {
+            return 1
         }
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 2 {
+        if indexPath.section == 3 {
             let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "groupChoreCell") as! GroupChoreTableViewCell
             cell.choreNameLabel.text = self.chores[indexPath.row].name
             cell.dueDateLabel.text = self.chores[indexPath.row].due_date
@@ -122,10 +132,14 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             let tableViewCell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "profileTableViewCell") as! ProfileTableViewCell
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
             return tableViewCell
-        } else {
+        } else if indexPath.section == 2{
             let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "choreCompletionRequestCell") as! ChoreCompletionRequestTableViewCell
             cell.choreCompletionLabel.text = "\(self.requests[indexPath.row].sender_id!) has finished said chore"
             cell.index = indexPath
+            cell.delegate = self
+            return cell
+        } else {
+            let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "addNew") as! GroupDetailAddNewTableViewCell
             cell.delegate = self
             return cell
         }

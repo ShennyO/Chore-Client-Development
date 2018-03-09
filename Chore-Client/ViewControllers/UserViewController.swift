@@ -17,7 +17,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var imageButton: UIButton!
     let photoHelper = PhotoHelper()
-    var imageData: NSData!
+    var imageData: NSData?
     var userChores: [Chore] = []
     var currentUser: User!
     
@@ -29,13 +29,38 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
                 else {return}
             
             self.imageData = imageData as NSData
-            let userID = KeychainSwift().get("id")
+            let userID = KeychainSwift().get("id")!
             let fileName = "User\(userID)Profile"
-            let name = "Avatar\(String(describing: userID))"
+            let name = "image_file"
+            let url = "http://0.0.0.0:3000/v1/sessions"
+            let keychain = KeychainSwift()
+            let token = keychain.get("token")
+            let email = keychain.get("email")
+            //TODO: change application/json to multipart
+            let headers = ["x-User-Token": "\(token!)",
+                "x-User-Email": email!]
             
-            Alamofire.uplo
             
-            
+            Alamofire.upload(multipartFormData: { (multiPartFormData) in
+                multiPartFormData.append(imageData, withName: name, fileName: fileName, mimeType: "image/png")
+                
+            }, usingThreshold: UInt64.init(), to: url, method: .patch, headers: headers, encodingCompletion: { (result) in
+                switch result{
+                case .success(let upload, _, _):
+                    
+                    upload.uploadProgress(closure: { (progress) in
+                        //Print progress
+                    })
+                    
+                    upload.responseJSON { response in
+                        print(response.description)
+                    }
+                    
+                case .failure(let encodingError):
+                    print(encodingError.localizedDescription)
+                }
+
+                })
             
             DispatchQueue.main.async {
                 self.profilePic.image = image

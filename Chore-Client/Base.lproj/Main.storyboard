@@ -441,8 +441,45 @@
                                             <outlet property="profileCollectionView" destination="Q4k-FT-MiQ" id="uRh-nL-W2K"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addNew" id="gEc-af-6Bz" customClass="GroupDetailAddNewTableViewCell" customModule="Chore_Client" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="208" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gEc-af-6Bz" id="gMx-2K-X95">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xNN-7v-O7Q">
+                                                    <rect key="frame" x="120.66666666666669" y="6" width="174" height="30"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Na7-pC-gLW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="77" height="30"/>
+                                                            <state key="normal" title="New Chore"/>
+                                                            <connections>
+                                                                <action selector="newChoreTapped:" destination="gEc-af-6Bz" eventType="touchUpInside" id="0TL-RW-gAL"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPE-Ah-90Z">
+                                                            <rect key="frame" x="107" y="0.0" width="67" height="30"/>
+                                                            <state key="normal" title="New User"/>
+                                                            <connections>
+                                                                <action selector="newUserTapped:" destination="gEc-af-6Bz" eventType="touchUpInside" id="rJ9-lT-Ds7"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="xNN-7v-O7Q" firstAttribute="centerY" secondItem="gMx-2K-X95" secondAttribute="centerY" id="Sui-XS-npx"/>
+                                                <constraint firstItem="xNN-7v-O7Q" firstAttribute="centerX" secondItem="gMx-2K-X95" secondAttribute="centerX" id="rHp-TY-FjZ"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="newChoreButton" destination="Na7-pC-gLW" id="nRd-Ea-oVF"/>
+                                            <outlet property="newUserButton" destination="XPE-Ah-90Z" id="RSe-BA-qmT"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="choreCompletionRequestCell" rowHeight="75" id="rKu-lE-0DY" customClass="ChoreCompletionRequestTableViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="208" width="414" height="75"/>
+                                        <rect key="frame" x="0.0" y="252" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rKu-lE-0DY" id="cvF-I0-abD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="74.666666666666671"/>
@@ -503,7 +540,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupChoreCell" rowHeight="99" id="ofG-r8-6M1" customClass="GroupChoreTableViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="283" width="414" height="99"/>
+                                        <rect key="frame" x="0.0" y="327" width="414" height="99"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ofG-r8-6M1" id="aSx-6D-ASc">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="98.666666666666671"/>
@@ -572,16 +609,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PD7-iA-6hE"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Group Detail" id="tSj-mn-Sub">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NIP-54-TLj">
-                            <connections>
-                                <segue destination="t6M-lI-lMh" kind="show" id="I60-2K-RMV"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Group Detail" id="tSj-mn-Sub"/>
                     <connections>
                         <outlet property="groupDetailTableView" destination="HJL-AP-f6K" id="AEv-Hy-2gT"/>
                         <segue destination="61o-lc-HGn" kind="presentation" identifier="toAddNewGroupUser" id="Vuw-fd-Xcf"/>
+                        <segue destination="t6M-lI-lMh" kind="show" identifier="toNewChore" id="8QV-9f-GFE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mh9-t9-zzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -788,7 +820,6 @@
                         <viewLayoutGuide key="safeArea" id="dQg-TB-gw7"/>
                     </view>
                     <navigationItem key="navigationItem" title="Personal" id="MuI-0Q-BPK">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="f5r-wt-jut"/>
                         <barButtonItem key="rightBarButtonItem" title="Chores" id="kAc-26-Jdq">
                             <connections>
                                 <segue destination="yIn-Te-tY7" kind="show" id="R6b-3E-uhH"/>
