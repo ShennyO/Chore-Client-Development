@@ -17,6 +17,7 @@ class User: Codable {
     var id: Int
     var authentication_token: String!
     var group: [Group]!
+    var image_file: String!
 
     
     init(firstName: String, lastName: String, email: String, username: String, id: Int, authentication_token: String) {

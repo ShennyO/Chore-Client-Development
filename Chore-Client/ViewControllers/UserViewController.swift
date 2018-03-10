@@ -9,6 +9,8 @@
 import UIKit
 import KeychainSwift
 import Alamofire
+import Kingfisher
+
 
 class UserViewController: UIViewController, ChoreCompletionDelegate, UITableViewDelegate, UITableViewDataSource{
 
@@ -24,7 +26,23 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        getUser() {
+            self.getUserChores {
+                DispatchQueue.main.async {
+                    if self.currentUser.image_file != nil {
+                        let imageUrl = URL(string: self.currentUser.image_file)
+                        self.profilePic.kf.setImage(with: imageUrl)
+                        self.choreRecordTableView.reloadData()
+                    } else {
+                        self.profilePic.image = UIImage(named: "AccountIcon")
+                    }
+                    
+                }
+            }
+        }
+        
         photoHelper.completionHandler = { (image) in
+            self.profilePic.image = image
             guard let imageData = UIImageJPEGRepresentation(image, 1)
                 else {return}
             
@@ -61,18 +79,9 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
                 }
 
                 })
-            
-            DispatchQueue.main.async {
-                self.profilePic.image = image
-            }
+
         }
-        getUser() {
-            self.getUserChores {
-                DispatchQueue.main.async {
-                    self.choreRecordTableView.reloadData()
-                }
-            }
-        }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

@@ -8,6 +8,7 @@
 
 import UIKit
 import KeychainSwift
+import Kingfisher
 
 
 class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CompleteChoreCompletionDelegate, addNewDelegate {
@@ -26,7 +27,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     //for chore completion requests
     var requests: [Request] = []
    
-//    var addUserButton = UIButton(type: .custom)
+
 
     @IBOutlet weak var groupDetailTableView: UITableView!
     
@@ -36,7 +37,6 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
-//        self.addUserButton.addTarget(self, action: #selector(ButtonClick(_:)), for: UIControlEvents.touchUpInside)
         self.users = self.group.members
         
         self.getGroupChores {
@@ -49,20 +49,6 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
        
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-//        self.view.addSubview(addUserButton)
-//        addUserButton.layer.cornerRadius = addUserButton.layer.frame.size.width/2
-//        addUserButton.backgroundColor = UIColor(red: 1.0, green: 177/255, blue: 49/255, alpha: 1.0)
-//        addUserButton.clipsToBounds = true
-//        addUserButton.setImage(UIImage(named:"PlusButton"), for: .normal)
-//        addUserButton.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            addUserButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
-//            addUserButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 90),
-//            addUserButton.widthAnchor.constraint(equalToConstant: 30),
-//            addUserButton.heightAnchor.constraint(equalToConstant: 30)])
-    }
     
     @objc func ButtonClick(_ sender: UIButton){
         print("button tapped")
@@ -83,7 +69,12 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
             return 180
-        } else {
+        } else if indexPath.section == 1 {
+            return 55
+        } else if indexPath.section == 2 {
+            return 55
+        }
+        else {
             return 100
         }
         
@@ -115,7 +106,14 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             cell.currentIndex = indexPath
             cell.delegate = self
             if self.chores[indexPath.row].assigned {
-                cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
+                //TODO: must be changed to self.chores
+                if self.chores[indexPath.row].user.image_file != nil {
+                    let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
+                    cell.assignButton.kf.setImage(with: imageURL!, for: .normal)
+                } else {
+                    cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
+                }
+                
                 cell.assignButton.layer.cornerRadius = cell.assignButton.layer.frame.size.width/2
                 cell.assignButton.clipsToBounds = true
                 cell.assignButtonHeight.constant = 60
@@ -155,6 +153,11 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionViewCell
         cell.usernameLabel.text = self.users[indexPath.row].username
+       
+            let imageURL = URL(string: self.users[indexPath.row].image_file)
+            cell.profilePicture.kf.setImage(with: imageURL!)
+            cell.profilePicture.kf.setImage(with: imageURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+            
         return cell
     }
     

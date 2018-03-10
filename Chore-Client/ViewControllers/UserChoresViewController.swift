@@ -33,7 +33,7 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = self.choresTableView.dequeueReusableCell(withIdentifier: "userChoreCell") as! UserChoreTableViewCell
+        let cell = self.choresTableView.dequeueReusableCell(withIdentifier: "completedChoreCell") as! UserChoreTableViewCell
         cell.choreNameLabel.text = self.userChores[indexPath.row].name
 //        cell.chorePenaltyLabel.text = self.userChores[indexPath.row].penalty
         cell.choreDateLabel.text = self.userChores[indexPath.row].due_date

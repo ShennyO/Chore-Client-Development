@@ -8,6 +8,7 @@ target 'Chore-Client' do
   # Pods for Chore-Client
   pod 'KeychainSwift', '~> 10.0'
   pod 'Alamofire', '~> 4.6'
+  pod 'Kingfisher', '~> 4.6'
 
   target 'Chore-ClientTests' do
     inherit! :search_paths
