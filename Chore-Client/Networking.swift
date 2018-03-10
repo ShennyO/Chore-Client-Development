@@ -20,6 +20,7 @@ enum Route {
     case createChore(name: String, due_date: String, penalty: String, reward: String, id: Int)
     case getGroupChores(chore_type: String, id: Int)
     case getUserChores
+    case getUserCompletedChores
     case getGroupRequests
     case getChoreRequests(group_id: Int)
     case getUser(username: String)
@@ -33,7 +34,7 @@ enum Route {
         switch self {
         case .loginUser, .createUser, .createGroup, .createChore, .sendGroupRequest, .sendChoreCompletionRequest:
             return "POST"
-        case .getUserGroups, .getGroupChores, .getUserChores, .getGroupRequests, .getUser, .getChoreRequests:
+        case .getUserGroups, .getGroupChores, .getUserChores, .getUserCompletedChores, .getGroupRequests, .getUser, .getChoreRequests:
             return "GET"
         case .logoutUser:
             return "DELETE"
@@ -56,6 +57,8 @@ enum Route {
             return "groups/\(id)/chores"
         case .getUserChores:
             return "chores/user"
+        case .getUserCompletedChores:
+            return "completed_chores/user"
         case .sendGroupRequest:
             return "requests"
         case  .getGroupRequests:

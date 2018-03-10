@@ -36,7 +36,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
                     } else {
                         self.profilePic.image = UIImage(named: "AccountIcon")
                     }
-                    
+                    self.userNameLabel.text = self.currentUser.username
                 }
             }
         }
@@ -96,11 +96,15 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         let cell = self.choreRecordTableView.dequeueReusableCell(withIdentifier: "userChoreCell") as! UserChoreTableViewCell
         cell.choreNameLabel.text = self.userChores[indexPath.row].name
         //        cell.chorePenaltyLabel.text = self.userChores[indexPath.row].penalty
+        cell.selectionStyle = .none
         if self.userChores[indexPath.row].pending {
             cell.completeButton.setTitle("Pending", for: .normal)
             cell.completeButton.isUserInteractionEnabled = false
-            cell.selectionStyle = .none
             
+            
+        } else {
+            cell.completeButton.setTitle("Complete", for: .normal)
+            cell.completeButton.isUserInteractionEnabled = true
         }
         cell.choreDateLabel.text = self.userChores[indexPath.row].due_date
         cell.delegate = self as ChoreCompletionDelegate
