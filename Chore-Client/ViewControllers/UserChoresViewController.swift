@@ -17,7 +17,7 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        getUserChores {
+        getUserCompletedChores {
             DispatchQueue.main.async {
                 self.choresTableView.reloadData()
             }
@@ -45,8 +45,8 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
 }
 
 extension UserChoresViewController {
-    func getUserChores(completion: @escaping ()->()) {
-        Network.instance.fetch(route: .getUserChores) { (data) in
+    func getUserCompletedChores(completion: @escaping ()->()) {
+        Network.instance.fetch(route: .getUserCompletedChores) { (data) in
             let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)
             if let chores = jsonChores {
                 self.userChores = chores

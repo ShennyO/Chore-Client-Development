@@ -14,9 +14,11 @@ import Kingfisher
 
 class UserViewController: UIViewController, ChoreCompletionDelegate, UITableViewDelegate, UITableViewDataSource{
 
+    @IBOutlet weak var profileImage: UIImageView!
+    
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var choreRecordTableView: UITableView!
-    @IBOutlet weak var profilePic: UIImageView!
+
     @IBOutlet weak var imageButton: UIButton!
     let photoHelper = PhotoHelper()
     var imageData: NSData?
@@ -26,23 +28,23 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        
         getUser() {
             self.getUserChores {
                 DispatchQueue.main.async {
-                    if self.currentUser.image_file != nil {
-                        let imageUrl = URL(string: self.currentUser.image_file)
-                        self.profilePic.kf.setImage(with: imageUrl)
-                        self.choreRecordTableView.reloadData()
-                    } else {
-                        self.profilePic.image = UIImage(named: "AccountIcon")
-                    }
+                   
+                    let imageUrl = URL(string: self.currentUser.image_file)
+                    self.profileImage.kf.setImage(with: imageUrl!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+                    self.profileImage.layer.cornerRadius = 0.5 * self.imageButton.bounds.size.width
+                    self.profileImage.clipsToBounds = true
                     self.userNameLabel.text = self.currentUser.username
+                    self.choreRecordTableView.reloadData()
+                    
                 }
             }
         }
         
         photoHelper.completionHandler = { (image) in
-            self.profilePic.image = image
             guard let imageData = UIImageJPEGRepresentation(image, 1)
                 else {return}
             
@@ -106,6 +108,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
             cell.completeButton.setTitle("Complete", for: .normal)
             cell.completeButton.isUserInteractionEnabled = true
         }
+        cell.completeButton.configureButton()
         cell.choreDateLabel.text = self.userChores[indexPath.row].due_date
         cell.delegate = self as ChoreCompletionDelegate
         cell.index = indexPath
@@ -123,6 +126,9 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
 }
 
 extension UserViewController {
+    
+    
+    
     func getUser(completion: @escaping()->()) {
         let username = KeychainSwift().get("username")
         Network.instance.fetch(route: Route.getUser(username: username!)) { (data) in
@@ -146,8 +152,22 @@ extension UserViewController {
     func createChoreCompletionRequests(index: IndexPath) {
         Network.instance.fetch(route: .sendChoreCompletionRequest(chore_id: self.userChores[index.row].id)) { (data) in
             print("Requests created")
+            DispatchQueue.main.async {
+                let cell = self.choreRecordTableView.cellForRow(at: index) as! UserChoreTableViewCell
+                cell.completeButton.setTitle("Pending", for: .normal)
+                cell.completeButton.configureButton()
+                cell.isUserInteractionEnabled = false
+                
+            }
         }
     }
     
     
+}
+
+extension UIButton {
+    func configureButton() {
+        self.layer.cornerRadius = 0.455 * self.bounds.height
+        self.clipsToBounds = true
+    }
 }

@@ -11,7 +11,7 @@ import KeychainSwift
 import Kingfisher
 
 
-class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, CompleteChoreCompletionDelegate, addNewDelegate {
+class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CompleteChoreCompletionDelegate, addNewDelegate {
     func newChore() {
         self.performSegue(withIdentifier: "toNewChore", sender: self)
     }
@@ -68,14 +68,14 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.section == 0 {
-            return 180
+            return 155
         } else if indexPath.section == 1 {
-            return 55
+            return 50
         } else if indexPath.section == 2 {
             return 55
         }
         else {
-            return 100
+            return 70
         }
         
     }
@@ -106,23 +106,23 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             cell.currentIndex = indexPath
             cell.delegate = self
             if self.chores[indexPath.row].assigned {
-                //TODO: must be changed to self.chores
                 if self.chores[indexPath.row].user.image_file != nil {
                     let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
                     cell.assignButton.kf.setImage(with: imageURL!, for: .normal)
+                    cell.assignButton.layer.cornerRadius = 0.5 * cell.assignButton.bounds.width
+                    cell.assignButton.clipsToBounds = true
                 } else {
                     cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
                 }
                 
-                cell.assignButton.layer.cornerRadius = cell.assignButton.layer.frame.size.width/2
-                cell.assignButton.clipsToBounds = true
                 cell.assignButtonHeight.constant = 60
                 cell.assignButton.isUserInteractionEnabled = false
     
             } else {
                 cell.assignButton.setImage(nil, for: .normal)
                 cell.assignButtonHeight.constant = 30
-                cell.assignButton.layer.cornerRadius = 0
+                cell.assignButton.layer.cornerRadius = 30 * 0.455
+                cell.assignButton.clipsToBounds = true
                 cell.assignButton.isUserInteractionEnabled = true
             }
             return cell
@@ -130,14 +130,18 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             let tableViewCell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "profileTableViewCell") as! ProfileTableViewCell
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
             return tableViewCell
-        } else if indexPath.section == 2{
+        } else if indexPath.section == 2 {
             let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "choreCompletionRequestCell") as! ChoreCompletionRequestTableViewCell
             cell.choreCompletionLabel.text = "\(self.requests[indexPath.row].sender_id!) has finished said chore"
             cell.index = indexPath
+            cell.acceptButton.configureButton()
+            cell.denyButton.configureButton()
             cell.delegate = self
             return cell
         } else {
             let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "addNew") as! GroupDetailAddNewTableViewCell
+            cell.newUserButton.configureButton()
+            cell.newChoreButton.configureButton()
             cell.delegate = self
             return cell
         }
@@ -154,17 +158,26 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "profileCell", for: indexPath) as! ProfileCollectionViewCell
         cell.usernameLabel.text = self.users[indexPath.row].username
        
-            let imageURL = URL(string: self.users[indexPath.row].image_file)
-            cell.profilePicture.kf.setImage(with: imageURL!)
-            cell.profilePicture.kf.setImage(with: imageURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+        let imageURL = URL(string: self.users[indexPath.row].image_file)
+        cell.profilePicture.kf.setImage(with: imageURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+        cell.profilePicture.layer.cornerRadius = 0.5 * cell.profilePicture.bounds.size.width
+        cell.profilePicture.clipsToBounds = true
             
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100.0, height: 130.0)
+    }
 
 }
 
 extension GroupDetailViewController: assignButtonDelegate {
+    
+    func configureButton(button: UIButton) {
+        button.layer.cornerRadius = 0.155 * button.bounds.size.width
+        button.clipsToBounds = true
+    }
     
     func completeChoreCompletionRequest(index: IndexPath, answer: Bool) {
         let request = self.requests[index.row]

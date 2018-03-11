@@ -88,7 +88,7 @@ extension GroupsViewController {
         let groupID = self.requests[indexPath.row].group_id!
         let requestID = self.requests[indexPath.row].id
         Network.instance.fetch(route: .groupRequestResponse(response: answer, group_id: groupID, request_id: requestID!)) { (data) in
-            self.groups.remove(at: indexPath.row)
+            self.requests.remove(at: indexPath.row)
             self.getGroups {
                 self.getRequests {
                     DispatchQueue.main.async {
