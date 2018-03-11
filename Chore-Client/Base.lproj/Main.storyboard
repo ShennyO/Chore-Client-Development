@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -182,24 +183,32 @@
                                             <outlet property="requestLabel" destination="uZK-ow-jOA" id="cfX-4l-dXD"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="70" id="cs4-fg-NzE" customClass="GroupTableViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="98" width="414" height="70"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupCell" rowHeight="100" id="cs4-fg-NzE" customClass="GroupTableViewCell" customModule="Chore_Client" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="98" width="414" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cs4-fg-NzE" id="N1X-6Y-CRe">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8Q-N9-aT0">
-                                                    <rect key="frame" x="29.999999999999996" y="24" width="51.666666666666657" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AccountIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JDm-2q-JQl">
+                                                    <rect key="frame" x="15" y="9" width="80" height="80"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="80" id="eqB-4T-Vjv"/>
+                                                        <constraint firstAttribute="width" secondItem="JDm-2q-JQl" secondAttribute="height" multiplier="1:1" id="sDc-Z9-YVt"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8Q-N9-aT0">
+                                                    <rect key="frame" x="103" y="11" width="52" height="30"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="S8Q-N9-aT0" firstAttribute="leading" secondItem="N1X-6Y-CRe" secondAttribute="leading" constant="30" id="3j5-jm-WJS"/>
-                                                <constraint firstAttribute="bottom" secondItem="S8Q-N9-aT0" secondAttribute="bottom" constant="24.666666666666671" id="fAX-w5-HF0"/>
-                                                <constraint firstItem="S8Q-N9-aT0" firstAttribute="top" secondItem="N1X-6Y-CRe" secondAttribute="top" constant="24" id="lNZ-Pq-nD4"/>
+                                                <constraint firstItem="JDm-2q-JQl" firstAttribute="leading" secondItem="N1X-6Y-CRe" secondAttribute="leading" constant="15" id="7A8-9M-XWp"/>
+                                                <constraint firstItem="S8Q-N9-aT0" firstAttribute="leading" secondItem="JDm-2q-JQl" secondAttribute="trailing" constant="8" id="hiP-Zg-9SO"/>
+                                                <constraint firstItem="S8Q-N9-aT0" firstAttribute="top" secondItem="N1X-6Y-CRe" secondAttribute="top" constant="11" id="u5p-Au-DnF"/>
+                                                <constraint firstItem="JDm-2q-JQl" firstAttribute="centerY" secondItem="N1X-6Y-CRe" secondAttribute="centerY" id="u7s-L8-rpv"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

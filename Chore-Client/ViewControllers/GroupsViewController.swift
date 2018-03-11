@@ -34,7 +34,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func unwindToGroupsVC(segue:UIStoryboardSegue) { }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 100
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

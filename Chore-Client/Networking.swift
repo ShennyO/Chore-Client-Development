@@ -8,7 +8,43 @@
 
 import Foundation
 import KeychainSwift
+import Alamofire
 
+
+enum imageUploadRoute {
+    case userUpload
+    case groupUpload
+    
+    func fileName()->String {
+        let keychain = KeychainSwift()
+        switch self {
+        case .userUpload:
+            let userID = keychain.get("id")
+            return "User\(String(describing: userID!))Profile"
+        case .groupUpload:
+            let groupID = keychain.get("groupID")
+            return "Group\(String(describing: groupID!))Profile"
+        }
+    }
+    
+    func Path()-> String {
+        switch self {
+        case .userUpload:
+            return "sessions"
+        case .groupUpload:
+            return "groups"
+        }
+    }
+    
+    func Headers()-> [String: String] {
+        let keychain = KeychainSwift()
+        let token = keychain.get("token")
+        let email = keychain.get("email")
+        return ["x-User-Token": "\(token!)",
+            "x-User-Email": email!]
+    }
+    
+}
 
 enum Route {
     
@@ -184,6 +220,36 @@ class Network {
             
             }.resume()
     }
+    
+    func imageUpload(route: imageUploadRoute, imageData: Data) {
+        let name = "image_file"
+        let fileName = route.fileName()
+        let fullPath = baseURL + route.Path()
+        let fullURL = URL(string: fullPath)
+        let headers = route.Headers()
+        Alamofire.upload(multipartFormData: { (multiPartFormData) in
+            
+            multiPartFormData.append(imageData, withName: name, fileName: fileName, mimeType: "image/png")
+            
+        }, usingThreshold: UInt64.init(), to: fullURL!, method: .patch, headers: headers, encodingCompletion: { (result) in
+            switch result{
+            case .success(let upload, _, _):
+                
+                upload.uploadProgress(closure: { (progress) in
+                    //Print progress
+                })
+                
+                upload.responseJSON { response in
+                    print(response.description)
+                }
+                
+            case .failure(let encodingError):
+                print(encodingError.localizedDescription)
+            }
+            
+        })
+    }
+    
 }
 
 
