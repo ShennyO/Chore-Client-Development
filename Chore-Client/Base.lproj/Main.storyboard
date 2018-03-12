@@ -590,7 +590,7 @@
                                                         <constraint firstAttribute="width" constant="60" id="qf8-vY-jgK"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                                    <state key="normal" title="Assign" image="AccountIcon">
+                                                    <state key="normal" title="Take" image="AccountIcon">
                                                         <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     </state>
                                                     <connections>
