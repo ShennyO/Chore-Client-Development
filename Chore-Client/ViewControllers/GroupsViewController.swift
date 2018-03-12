@@ -8,6 +8,7 @@
 
 import UIKit
 import KeychainSwift
+import Kingfisher
 
 class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestDelegate{
     
@@ -34,7 +35,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func unwindToGroupsVC(segue:UIStoryboardSegue) { }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 115
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -60,7 +61,9 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             return cell
         } else {
             let cell = self.groupsTableView.dequeueReusableCell(withIdentifier: "groupCell") as! GroupTableViewCell
+            let imageURL = URL(string: self.groups[indexPath.row].image_file)
             cell.groupNameLabel.text = self.groups[indexPath.row].name
+            cell.groupProfileImage.kf.setImage(with: imageURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
             return cell
         }
         

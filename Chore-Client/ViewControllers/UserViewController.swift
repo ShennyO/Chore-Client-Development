@@ -64,14 +64,12 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.choreRecordTableView.dequeueReusableCell(withIdentifier: "userChoreCell") as! UserChoreTableViewCell
         cell.choreNameLabel.text = self.userChores[indexPath.row].name
-        //        cell.chorePenaltyLabel.text = self.userChores[indexPath.row].penalty
         cell.selectionStyle = .none
         if self.userChores[indexPath.row].pending {
             cell.completeButton.setTitle("Pending", for: .normal)
             cell.completeButton.isUserInteractionEnabled = false
             
-            
-        } else {
+        } else if self.userChores[indexPath.row].pending == false {
             cell.completeButton.setTitle("Complete", for: .normal)
             cell.completeButton.isUserInteractionEnabled = true
         }
@@ -119,12 +117,10 @@ extension UserViewController {
     func createChoreCompletionRequests(index: IndexPath) {
         Network.instance.fetch(route: .sendChoreCompletionRequest(chore_id: self.userChores[index.row].id)) { (data) in
             print("Requests created")
-            DispatchQueue.main.async {
-                let cell = self.choreRecordTableView.cellForRow(at: index) as! UserChoreTableViewCell
-                cell.completeButton.setTitle("Pending", for: .normal)
-                cell.completeButton.configureButton()
-                cell.isUserInteractionEnabled = false
-                
+            self.getUserChores {
+                DispatchQueue.main.async {
+                    self.choreRecordTableView.reloadData()
+                }
             }
         }
     }

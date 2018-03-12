@@ -17,5 +17,5 @@ struct Group: Codable {
     let members: [User]!
     let chores: [Chore]!
     let id: Int
-    
+    let image_file: String!
 }

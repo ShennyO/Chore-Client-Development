@@ -11,6 +11,7 @@ import UIKit
 class GroupTableViewCell: UITableViewCell {
 
     @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var groupProfileImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
