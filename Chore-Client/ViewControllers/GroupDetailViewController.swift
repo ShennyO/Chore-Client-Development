@@ -12,6 +12,30 @@ import Kingfisher
 
 
 class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CompleteChoreCompletionDelegate, addNewDelegate {
+    
+    
+    @IBOutlet weak var sideMenuTrailingConstraint: NSLayoutConstraint!
+    @IBOutlet weak var sideMenuView: UIView!
+    @IBOutlet weak var sideMenuGroupLabel: UILabel!
+    @IBOutlet weak var sideMenuGroupImageView: UIImageView!
+    @IBOutlet weak var sideMenuTableView: UITableView!
+    
+     var menuShowing = true
+    
+    @IBAction func sideMenuButtonTapped(_ sender: Any) {
+        if (menuShowing) {
+            sideMenuTrailingConstraint.constant = 0
+            UIView.animate(withDuration: 0.3, animations: {
+                self.view.layoutIfNeeded()
+            })
+        } else {
+            sideMenuTrailingConstraint.constant = -200
+            
+        }
+        menuShowing = !menuShowing
+    }
+    
+    
     func newChore() {
         self.performSegue(withIdentifier: "toNewChore", sender: self)
     }
@@ -20,12 +44,13 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
     }
     
-    
+    let sideMenuCellLabels = ["Completed Chores", "Members"]
     var users: [User] = []
     var chores: [Chore] = []
     var group: Group!
     //for chore completion requests
     var requests: [Request] = []
+   
    
 
 
@@ -37,15 +62,22 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
+        sideMenuTableView.dataSource = self
+        sideMenuTableView.delegate = self
+        let groupProfileURL = URL(string: self.group.image_file)
+        self.sideMenuGroupImageView.kf.setImage(with: groupProfileURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
         self.users = self.group.members
         
         self.getGroupChores {
             self.getChoreCompletionRequests(completion: {
                 DispatchQueue.main.async {
                     self.groupDetailTableView.reloadData()
+                    self.sideMenuTableView.reloadData()
                 }
             })
         }
+        
+        
        
     }
     
@@ -67,82 +99,103 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.section == 0 {
-            return 155
-        } else if indexPath.section == 1 {
-            return 50
-        } else if indexPath.section == 2 {
+        if tableView == self.groupDetailTableView {
+            if indexPath.section == 0 {
+                return 155
+            } else if indexPath.section == 1 {
+                return 50
+            } else if indexPath.section == 2 {
+                return 70
+            }
+            else {
+                return 70
+            }
+        } else {
             return 55
         }
-        else {
-            return 70
-        }
+        
         
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        if tableView == groupDetailTableView {
+            return 4
+        } else {
+            return 1
+        }
+        
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else if section == 3{
-            return self.chores.count
-        } else if section == 2 {
-            return self.requests.count
+        
+        if tableView == groupDetailTableView {
+            if section == 0 {
+                return 1
+            } else if section == 3 {
+                return self.chores.count
+            } else if section == 2 {
+                return self.requests.count
+            } else {
+                return 1
+            }
         } else {
-            return 1
+            return self.sideMenuCellLabels.count
         }
     }
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if indexPath.section == 3 {
-            let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "groupChoreCell") as! GroupChoreTableViewCell
-            cell.choreNameLabel.text = self.chores[indexPath.row].name
-            cell.dueDateLabel.text = self.chores[indexPath.row].due_date
-            cell.currentIndex = indexPath
-            cell.delegate = self
-            if self.chores[indexPath.row].assigned {
-                if self.chores[indexPath.row].user.image_file != nil {
-                    let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
-                    cell.assignButton.kf.setImage(with: imageURL!, for: .normal)
-                    cell.assignButton.layer.cornerRadius = 0.5 * cell.assignButton.bounds.width
-                    cell.assignButton.clipsToBounds = true
+        if tableView == groupDetailTableView {
+            if indexPath.section == 3 {
+                let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "groupChoreCell") as! GroupChoreTableViewCell
+                cell.choreNameLabel.text = self.chores[indexPath.row].name
+                cell.dueDateLabel.text = self.chores[indexPath.row].due_date
+                cell.currentIndex = indexPath
+                cell.delegate = self
+                if self.chores[indexPath.row].assigned {
+                    if self.chores[indexPath.row].user.image_file != nil {
+                        let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
+                        cell.assignButton.kf.setImage(with: imageURL!, for: .normal)
+                        cell.assignButton.layer.cornerRadius = 0.5 * cell.assignButton.bounds.width
+                        cell.assignButton.clipsToBounds = true
+                    } else {
+                        cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
+                    }
+                    
+                    cell.assignButtonHeight.constant = 60
+                    cell.assignButton.isUserInteractionEnabled = false
+                    
                 } else {
-                    cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
+                    cell.assignButton.setImage(nil, for: .normal)
+                    cell.assignButtonHeight.constant = 30
+                    cell.assignButton.layer.cornerRadius = 30 * 0.455
+                    cell.assignButton.clipsToBounds = true
+                    cell.assignButton.isUserInteractionEnabled = true
                 }
-                
-                cell.assignButtonHeight.constant = 60
-                cell.assignButton.isUserInteractionEnabled = false
-    
+                return cell
+            } else if indexPath.section == 0 {
+                let tableViewCell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "profileTableViewCell") as! ProfileTableViewCell
+                tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+                return tableViewCell
+            } else if indexPath.section == 2 {
+                let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "choreCompletionRequestCell") as! ChoreCompletionRequestTableViewCell
+                cell.choreCompletionLabel.text = "\(self.requests[indexPath.row].username!) has finished \(self.requests[indexPath.row].chore_name!)chore"
+                cell.index = indexPath
+                cell.acceptButton.configureButton()
+                cell.denyButton.configureButton()
+                cell.delegate = self
+                return cell
             } else {
-                cell.assignButton.setImage(nil, for: .normal)
-                cell.assignButtonHeight.constant = 30
-                cell.assignButton.layer.cornerRadius = 30 * 0.455
-                cell.assignButton.clipsToBounds = true
-                cell.assignButton.isUserInteractionEnabled = true
+                let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "addNew") as! GroupDetailAddNewTableViewCell
+                cell.newUserButton.configureButton()
+                cell.newChoreButton.configureButton()
+                cell.delegate = self
+                return cell
             }
-            return cell
-        } else if indexPath.section == 0 {
-            let tableViewCell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "profileTableViewCell") as! ProfileTableViewCell
-            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
-            return tableViewCell
-        } else if indexPath.section == 2 {
-            let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "choreCompletionRequestCell") as! ChoreCompletionRequestTableViewCell
-            cell.choreCompletionLabel.text = "\(self.requests[indexPath.row].sender_id!) has finished said chore"
-            cell.index = indexPath
-            cell.acceptButton.configureButton()
-            cell.denyButton.configureButton()
-            cell.delegate = self
-            return cell
         } else {
-            let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "addNew") as! GroupDetailAddNewTableViewCell
-            cell.newUserButton.configureButton()
-            cell.newChoreButton.configureButton()
-            cell.delegate = self
+            let cell = self.sideMenuTableView.dequeueReusableCell(withIdentifier: "sideMenuCell") as! SideBarMenuTableViewCell
+            cell.sideMenuLabel.text = self.sideMenuCellLabels[indexPath.row]
             return cell
         }
         

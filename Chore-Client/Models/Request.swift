@@ -22,5 +22,7 @@ struct Request: Codable {
     let group_name: String!
     let id: Int!
     let uuid: String!
+    let username: String!
+    let chore_name: String!
     
 }

@@ -37,6 +37,7 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
         cell.choreNameLabel.text = self.userChores[indexPath.row].name
 //        cell.chorePenaltyLabel.text = self.userChores[indexPath.row].penalty
         cell.choreDateLabel.text = self.userChores[indexPath.row].due_date
+        cell.choreGroupLabel.text = self.userChores[indexPath.row].groupname
         return cell
     }
     

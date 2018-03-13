@@ -17,6 +17,7 @@ class UserChoreTableViewCell: UITableViewCell {
 
     @IBOutlet weak var choreNameLabel: UILabel!
     @IBOutlet weak var choreDateLabel: UILabel!
+    @IBOutlet weak var choreGroupLabel: UILabel!
     @IBOutlet weak var completeButton: UIButton!
     
     var delegate: ChoreCompletionDelegate!

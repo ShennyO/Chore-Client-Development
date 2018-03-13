@@ -12,9 +12,11 @@ class NewGroupViewController: UIViewController {
 
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var addNewGroupView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.addNewGroupView.layer.cornerRadius = 10
+        self.addNewGroupView.layer.masksToBounds = true
         // Do any additional setup after loading the view.
     }
 
@@ -30,6 +32,11 @@ class NewGroupViewController: UIViewController {
             
         }
         
+    }
+    @IBAction func cancelButtonTapped(_ sender: Any) {
+        DispatchQueue.main.async {
+            self.performSegue(withIdentifier: "unwindToGroupsVC", sender: self)
+        }
     }
     
 }

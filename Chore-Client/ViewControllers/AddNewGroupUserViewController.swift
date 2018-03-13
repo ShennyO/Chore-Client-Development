@@ -57,7 +57,7 @@ extension AddNewGroupUserViewController {
                         return
                     }
                 }
-                print("Not supposed to run")
+               
                 if runnable {
                     self.userID = user.id
                     completion()

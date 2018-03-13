@@ -17,6 +17,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var userNameLabel: UILabel!
+   
     @IBOutlet weak var choreRecordTableView: UITableView!
 
     @IBOutlet weak var imageButton: UIButton!
@@ -64,6 +65,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.choreRecordTableView.dequeueReusableCell(withIdentifier: "userChoreCell") as! UserChoreTableViewCell
         cell.choreNameLabel.text = self.userChores[indexPath.row].name
+        cell.choreGroupLabel.text = self.userChores[indexPath.row].groupname
         cell.selectionStyle = .none
         if self.userChores[indexPath.row].pending {
             cell.completeButton.setTitle("Pending", for: .normal)
