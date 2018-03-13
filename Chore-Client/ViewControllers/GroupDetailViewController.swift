@@ -25,11 +25,14 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func sideMenuButtonTapped(_ sender: Any) {
         if (menuShowing) {
             sideMenuTrailingConstraint.constant = 0
-            UIView.animate(withDuration: 0.3, animations: {
+            UIView.animate(withDuration: 0.2, animations: {
                 self.view.layoutIfNeeded()
             })
         } else {
             sideMenuTrailingConstraint.constant = -200
+            UIView.animate(withDuration: 0.125, animations: {
+                self.view.layoutIfNeeded()
+            })
             
         }
         menuShowing = !menuShowing
