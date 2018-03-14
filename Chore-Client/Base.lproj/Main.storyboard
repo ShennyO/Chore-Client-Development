@@ -701,6 +701,12 @@
                                             <constraint firstAttribute="trailing" secondItem="ejm-HM-7K4" secondAttribute="trailing" id="kw4-h2-hvL"/>
                                         </constraints>
                                     </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bae-12-5xW">
+                                        <rect key="frame" x="25" y="56.666666666666686" width="150" height="150"/>
+                                        <connections>
+                                            <action selector="sideMenuProfileButtonTapped:" destination="sPM-2H-Wo2" eventType="touchUpInside" id="V7Z-SN-bZN"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
@@ -714,12 +720,16 @@
                                     <constraint firstAttribute="width" constant="200" id="hTY-40-hW3"/>
                                     <constraint firstAttribute="trailing" secondItem="9W9-sa-KhD" secondAttribute="trailing" constant="40" id="joh-ot-NJk"/>
                                     <constraint firstItem="vD4-9X-iem" firstAttribute="leading" secondItem="RaG-66-I3R" secondAttribute="leading" id="jsU-ap-ZNW"/>
+                                    <constraint firstItem="Bae-12-5xW" firstAttribute="centerX" secondItem="RaG-66-I3R" secondAttribute="centerX" id="lBV-mt-jE0"/>
                                     <constraint firstAttribute="trailing" secondItem="Raw-Xe-487" secondAttribute="trailing" id="lpE-w6-O5D"/>
+                                    <constraint firstItem="Bae-12-5xW" firstAttribute="height" secondItem="Qj2-aG-yuz" secondAttribute="height" id="nQT-f0-SSE"/>
                                     <constraint firstItem="aAA-Mw-hXR" firstAttribute="leading" secondItem="RaG-66-I3R" secondAttribute="leading" constant="15" id="o9O-9k-Lpb"/>
                                     <constraint firstItem="Raw-Xe-487" firstAttribute="top" secondItem="Qj2-aG-yuz" secondAttribute="bottom" id="p3f-z8-iOF"/>
                                     <constraint firstItem="vD4-9X-iem" firstAttribute="top" secondItem="9W9-sa-KhD" secondAttribute="bottom" constant="10" id="rvo-mk-8fZ"/>
+                                    <constraint firstItem="Bae-12-5xW" firstAttribute="width" secondItem="Qj2-aG-yuz" secondAttribute="width" id="sgT-hg-BjI"/>
                                     <constraint firstItem="9W9-sa-KhD" firstAttribute="leading" secondItem="RaG-66-I3R" secondAttribute="leading" constant="40" id="sy9-4I-Y9r"/>
                                     <constraint firstItem="aAA-Mw-hXR" firstAttribute="top" secondItem="Raw-Xe-487" secondAttribute="bottom" constant="15" id="tRo-2K-hvF"/>
+                                    <constraint firstItem="Bae-12-5xW" firstAttribute="top" secondItem="vD4-9X-iem" secondAttribute="bottom" constant="15" id="vS9-HK-r5E"/>
                                     <constraint firstItem="9W9-sa-KhD" firstAttribute="top" secondItem="RaG-66-I3R" secondAttribute="top" constant="10" id="x7H-gz-OdS"/>
                                 </constraints>
                             </view>
@@ -743,6 +753,7 @@
                         <outlet property="sideMenuGroupLabel" destination="9W9-sa-KhD" id="afL-ez-K0a"/>
                         <outlet property="sideMenuNewChoreButton" destination="ejm-HM-7K4" id="kuw-4y-Rvi"/>
                         <outlet property="sideMenuNewUserButton" destination="LxE-Yt-jqb" id="R1L-uI-nva"/>
+                        <outlet property="sideMenuProfileButton" destination="Bae-12-5xW" id="Vtc-Ip-zcL"/>
                         <outlet property="sideMenuTableView" destination="Raw-Xe-487" id="Sa1-Mv-z5g"/>
                         <outlet property="sideMenuTrailingConstraint" destination="RLe-NQ-1TA" id="LCA-yx-rx4"/>
                         <outlet property="sideMenuView" destination="RaG-66-I3R" id="vI3-Qe-tDy"/>

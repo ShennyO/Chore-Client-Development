@@ -21,14 +21,16 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var sideMenuTableView: UITableView!
     @IBOutlet weak var sideMenuNewChoreButton: UIButton!
     @IBOutlet weak var sideMenuNewUserButton: UIButton!
+    @IBOutlet weak var sideMenuProfileButton: UIButton!
     
-    var blurEffectView: UIVisualEffectView!
+    
     let sideMenuCellLabels = ["Completed Chores"]
+    let photoHelper = PhotoHelper()
     var users: [User] = []
     var chores: [Chore] = []
     var group: Group!
-    var blurred = false
     var darkened = false
+    var Uploaded = false
     //for chore completion requests
     var requests: [Request] = []
     var menuShowing = true
@@ -41,6 +43,17 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewDidAppear(_ animated: Bool) {
         
         super.viewDidAppear(animated)
+        photoHelper.completionHandler = { (image) in
+            guard let imageData = UIImageJPEGRepresentation(image, 1)
+                else {return}
+            DispatchQueue.main.async {
+                self.Uploaded = true
+                self.sideMenuGroupImageView.image = image
+                self.sideMenuGroupImageView.setNeedsDisplay()
+            }
+            Network.instance.imageUpload(route:imageUploadRoute.groupUpload, imageData: imageData)
+            
+        }
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
         edgePan.edges = .right
         view.addGestureRecognizer(edgePan)
@@ -49,8 +62,10 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         view.addGestureRecognizer(swipeRight)
         sideMenuTableView.dataSource = self
         sideMenuTableView.delegate = self
-        let groupProfileURL = URL(string: self.group.image_file)
-        self.sideMenuGroupImageView.kf.setImage(with: groupProfileURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+        if Uploaded == false {
+            let groupProfileURL = URL(string: self.group.image_file)
+            self.sideMenuGroupImageView.kf.setImage(with: groupProfileURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+        }
         self.sideMenuGroupLabel.text = self.group.name
         self.users = self.group.members
         
@@ -66,6 +81,11 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         sideMenuNewUserButton.configureButton()
         sideMenuNewChoreButton.configureButton()
     }
+    
+    @IBAction func sideMenuProfileButtonTapped(_ sender: Any) {
+        photoHelper.presentActionSheet(from: self)
+    }
+    
     
     @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
         if recognizer.state == .recognized || recognizer.state == .changed {
@@ -83,7 +103,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 } else if self.sideMenuTrailingConstraint.constant > -200 {
                     self.menuShowing = false
                     self.sideMenuTrailingConstraint.constant = 0
-                    if blurred == false {
+                    if darkened == false {
                         let deadlineTime = DispatchTime.now() + .milliseconds(200)
                         DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
                             self.darkenScreen(darken: .dark)
@@ -157,9 +177,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     @objc func ButtonClick(_ sender: UIButton){
-        print("button tapped")
         self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -288,6 +306,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
        
         let imageURL = URL(string: self.users[indexPath.row].image_file)
         cell.profilePicture.kf.setImage(with: imageURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+        cell.profilePicture.setNeedsDisplay()
         cell.profilePicture.layer.cornerRadius = 0.5 * cell.profilePicture.bounds.size.width
         cell.profilePicture.clipsToBounds = true
             
@@ -302,10 +321,6 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
 
 enum darkenScreen {
     case dark, normal
-}
-
-enum screenBlur {
-    case blur, normal
 }
 
 extension GroupDetailViewController: assignButtonDelegate {

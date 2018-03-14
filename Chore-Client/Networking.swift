@@ -28,11 +28,13 @@ enum imageUploadRoute {
     }
     
     func Path()-> String {
+        let keychain = KeychainSwift()
         switch self {
         case .userUpload:
             return "sessions"
         case .groupUpload:
-            return "groups"
+            let groupID = keychain.get("groupID")
+            return "groups/\(groupID!)"
         }
     }
     
