@@ -11,7 +11,7 @@ import KeychainSwift
 import Kingfisher
 
 
-class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CompleteChoreCompletionDelegate, addNewDelegate {
+class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CompleteChoreCompletionDelegate{
     
     
     @IBOutlet weak var sideMenuTrailingConstraint: NSLayoutConstraint!
@@ -19,6 +19,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var sideMenuGroupLabel: UILabel!
     @IBOutlet weak var sideMenuGroupImageView: UIImageView!
     @IBOutlet weak var sideMenuTableView: UITableView!
+    @IBOutlet weak var sideMenuNewChoreButton: UIButton!
+    @IBOutlet weak var sideMenuNewUserButton: UIButton!
     
     var blurEffectView: UIVisualEffectView!
     let sideMenuCellLabels = ["Completed Chores"]
@@ -26,6 +28,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var chores: [Chore] = []
     var group: Group!
     var blurred = false
+    var darkened = false
     //for chore completion requests
     var requests: [Request] = []
     var menuShowing = true
@@ -60,6 +63,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             })
         }
         self.setUpSideMenuButton()
+        sideMenuNewUserButton.configureButton()
+        sideMenuNewChoreButton.configureButton()
     }
     
     @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
@@ -79,9 +84,9 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                     self.menuShowing = false
                     self.sideMenuTrailingConstraint.constant = 0
                     if blurred == false {
-                        let deadlineTime = DispatchTime.now() + .milliseconds(200) // 0.3 seconds
+                        let deadlineTime = DispatchTime.now() + .milliseconds(200)
                         DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
-                            self.blurScreen(blur: .blur)
+                            self.darkenScreen(darken: .dark)
 
                         })
                         
@@ -90,7 +95,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 } else if self.sideMenuTrailingConstraint.constant < -50 {
                     self.menuShowing = true
                     self.sideMenuTrailingConstraint.constant = -200
-                    blurScreen(blur: .normal)
+                    darkenScreen(darken: .normal)
 
                 }
             }
@@ -107,12 +112,20 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                     self.sideMenuTrailingConstraint.constant = -200
                     self.view.layoutIfNeeded()
                 })
-                blurScreen(blur: .normal)
+                darkenScreen(darken: .normal)
 
             }
         default:
             return
         }
+    }
+    
+    @IBAction func NewChoreTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "toNewChore", sender: self)
+    }
+    
+    @IBAction func newUserTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
     }
     
     @objc func sideMenuButtonTapped() {
@@ -125,29 +138,20 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             })
             let deadlineTime = DispatchTime.now() + .milliseconds(200) // 0.3 seconds
             DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
-                self.blurScreen(blur: .blur)
+                self.darkenScreen(darken: .dark)
 
             })
             
             
         } else {
             sideMenuTrailingConstraint.constant = -200
-            blurScreen(blur: .normal)
+            darkenScreen(darken: .normal)
             UIView.animate(withDuration: 0.125, animations: {
                 self.view.layoutIfNeeded()
             })
             
         }
         menuShowing = !menuShowing
-    }
-    
-    
-    func newChore() {
-        self.performSegue(withIdentifier: "toNewChore", sender: self)
-    }
-    
-    func newUser() {
-        self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
     }
     
     
@@ -177,23 +181,19 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             if indexPath.section == 0 {
                 return 155
             } else if indexPath.section == 1 {
-                return 50
-            } else if indexPath.section == 2 {
                 return 70
-            }
-            else {
+            } else {
                 return 70
             }
         } else {
             return 55
         }
-        
-        
+
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         if tableView == groupDetailTableView {
-            return 4
+            return 3
         } else {
             return 1
         }
@@ -206,12 +206,10 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         if tableView == groupDetailTableView {
             if section == 0 {
                 return 1
-            } else if section == 3 {
-                return self.chores.count
             } else if section == 2 {
-                return self.requests.count
+                return self.chores.count
             } else {
-                return 1
+                return self.requests.count
             }
         } else {
             return self.sideMenuCellLabels.count
@@ -222,7 +220,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if tableView == groupDetailTableView {
-            if indexPath.section == 3 {
+            if indexPath.section == 2 {
                 let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "groupChoreCell") as! GroupChoreTableViewCell
                 cell.choreNameLabel.text = self.chores[indexPath.row].name
                 cell.dueDateLabel.text = self.chores[indexPath.row].due_date
@@ -253,18 +251,12 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 let tableViewCell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "profileTableViewCell") as! ProfileTableViewCell
                 tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
                 return tableViewCell
-            } else if indexPath.section == 2 {
+            } else {
                 let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "choreCompletionRequestCell") as! ChoreCompletionRequestTableViewCell
-                cell.choreCompletionLabel.text = "\(self.requests[indexPath.row].username!) has finished \(self.requests[indexPath.row].chore_name!)chore"
+                cell.choreCompletionLabel.text = "\(self.requests[indexPath.row].username!) has finished \(self.requests[indexPath.row].chore_name!) chore"
                 cell.index = indexPath
                 cell.acceptButton.configureButton()
                 cell.denyButton.configureButton()
-                cell.delegate = self
-                return cell
-            } else {
-                let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "addNew") as! GroupDetailAddNewTableViewCell
-                cell.newUserButton.configureButton()
-                cell.newChoreButton.configureButton()
                 cell.delegate = self
                 return cell
             }
@@ -308,43 +300,45 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
 
 }
 
+enum darkenScreen {
+    case dark, normal
+}
+
 enum screenBlur {
     case blur, normal
 }
 
 extension GroupDetailViewController: assignButtonDelegate {
     
-    func blurScreen(blur: screenBlur) {
-        self.blurEffectView = UIVisualEffectView()
+    func darkenScreen(darken: darkenScreen) {
+        let grayView = UIView()
+        grayView.tag = 1
+        grayView.backgroundColor = UIColor.black
+        grayView.alpha = 0.5
         let screenHeight = view.bounds.height
         let width = view.bounds.width - self.sideMenuView.bounds.width
-        self.blurEffectView.frame.size.height = screenHeight
-        self.blurEffectView.frame.size.width = width
-        self.blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        switch blur {
-        case .blur:
-            if blurred == false {
-                
-                self.blurEffectView.effect = UIBlurEffect(style: .light)
-                self.view.addSubview(self.blurEffectView)
-                blurred = !blurred
-                
+        grayView.frame.size.height = screenHeight
+        grayView.frame.size.width = width
+        switch darken {
+        case .dark:
+            if darkened == false {
+                self.view.addSubview(grayView)
+                darkened = !darkened
             }
-            
-            
         case .normal:
-            DispatchQueue.main.async {
-                for subview in self.view.subviews {
-                    if subview is UIVisualEffectView {
-                        subview.removeFromSuperview()
-                    }
+            
+            for subview in self.view.subviews {
+                if subview.tag == 1 {
+                    subview.removeFromSuperview()
                 }
-                self.blurred = !self.blurred
             }
+            
+            darkened = !darkened
             
         }
-       
+        
     }
+    
     
     func setUpSideMenuButton() {
         let sideMenuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))

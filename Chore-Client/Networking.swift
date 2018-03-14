@@ -94,7 +94,7 @@ enum Route {
         case let .getGroupChores(_, id):
             return "groups/\(id)/chores"
         case let .getCompletedGroupChores(_, id):
-            return "groups/\(id)/chores"
+            return "groups/\(id)/completed_chores"
         case .getUserChores:
             return "chores/user"
         case .getUserCompletedChores:

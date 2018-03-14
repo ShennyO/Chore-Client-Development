@@ -25,6 +25,9 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     var imageData: NSData?
     var userChores: [Chore] = []
     var currentUser: User!
+    //This checks if we are opening the view normally, or right after we uploaded an image
+    var Uploaded = false
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -33,9 +36,10 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         getUser() {
             self.getUserChores {
                 DispatchQueue.main.async {
-                   
                     let imageUrl = URL(string: self.currentUser.image_file)
+                    if self.Uploaded == false {
                     self.profileImage.kf.setImage(with: imageUrl!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+                    }
                     self.profileImage.layer.cornerRadius = 0.5 * self.imageButton.bounds.size.width
                     self.profileImage.clipsToBounds = true
                     self.userNameLabel.text = self.currentUser.username
@@ -48,6 +52,11 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         photoHelper.completionHandler = { (image) in
             guard let imageData = UIImageJPEGRepresentation(image, 1)
                 else {return}
+            DispatchQueue.main.async {
+                self.Uploaded = true
+                self.profileImage.image = image
+                self.profileImage.setNeedsDisplay()
+            }
             Network.instance.imageUpload(route: .userUpload, imageData: imageData)
 
         }

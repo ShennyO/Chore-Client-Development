@@ -491,67 +491,20 @@
                                             <outlet property="profileCollectionView" destination="Q4k-FT-MiQ" id="uRh-nL-W2K"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addNew" rowHeight="50" id="gEc-af-6Bz" customClass="GroupDetailAddNewTableViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="183" width="414" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gEc-af-6Bz" id="gMx-2K-X95">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="49.666666666666664"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xNN-7v-O7Q">
-                                                    <rect key="frame" x="93" y="7.6666666666666679" width="228" height="35"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Na7-pC-gLW">
-                                                            <rect key="frame" x="0.0" y="0.0" width="104" height="35"/>
-                                                            <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                                            <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
-                                                            <state key="normal" title="New Chore">
-                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="0.90702589897260277" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="newChoreTapped:" destination="gEc-af-6Bz" eventType="touchUpInside" id="0TL-RW-gAL"/>
-                                                            </connections>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XPE-Ah-90Z">
-                                                            <rect key="frame" x="134" y="0.0" width="94" height="35"/>
-                                                            <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                                            <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
-                                                            <state key="normal" title="New User">
-                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="0.9511183647260274" colorSpace="calibratedRGB"/>
-                                                            </state>
-                                                            <connections>
-                                                                <action selector="newUserTapped:" destination="gEc-af-6Bz" eventType="touchUpInside" id="rJ9-lT-Ds7"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="xNN-7v-O7Q" firstAttribute="centerY" secondItem="gMx-2K-X95" secondAttribute="centerY" id="Sui-XS-npx"/>
-                                                <constraint firstItem="xNN-7v-O7Q" firstAttribute="centerX" secondItem="gMx-2K-X95" secondAttribute="centerX" id="rHp-TY-FjZ"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="newChoreButton" destination="Na7-pC-gLW" id="nRd-Ea-oVF"/>
-                                            <outlet property="newUserButton" destination="XPE-Ah-90Z" id="RSe-BA-qmT"/>
-                                        </connections>
-                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="choreCompletionRequestCell" rowHeight="70" id="rKu-lE-0DY" customClass="ChoreCompletionRequestTableViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="233" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="183" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rKu-lE-0DY" id="cvF-I0-abD">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2BH-vC-HWO">
-                                                    <rect key="frame" x="15.000000000000004" y="5" width="39.333333333333343" height="60"/>
+                                                    <rect key="frame" x="15" y="5" width="37" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="Bgb-81-HEn"/>
                                                         <constraint firstAttribute="width" relation="lessThanOrEqual" constant="205" id="i7e-xi-tVa"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -599,7 +552,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupChoreCell" rowHeight="70" id="ofG-r8-6M1" customClass="GroupChoreTableViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="303" width="414" height="70"/>
+                                        <rect key="frame" x="0.0" y="253" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ofG-r8-6M1" id="aSx-6D-ASc">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.666666666666671"/>
@@ -662,30 +615,30 @@
                                 <rect key="frame" x="414" y="64" width="200" height="623"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9W9-sa-KhD">
-                                        <rect key="frame" x="40" y="2" width="120" height="18.333333333333332"/>
-                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                        <rect key="frame" x="40" y="10" width="120" height="21"/>
+                                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AccountIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Qj2-aG-yuz">
-                                        <rect key="frame" x="24.666666666666686" y="33.333333333333329" width="150" height="150"/>
+                                        <rect key="frame" x="24.666666666666686" y="56.666666666666686" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="Cao-AV-MvG"/>
                                             <constraint firstAttribute="width" secondItem="Qj2-aG-yuz" secondAttribute="height" multiplier="1:1" id="HV8-eh-Q0T"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vD4-9X-iem">
-                                        <rect key="frame" x="0.0" y="22.333333333333329" width="200" height="0.66666666666666785"/>
+                                        <rect key="frame" x="0.0" y="41" width="200" height="0.6666666666666643"/>
                                         <color key="backgroundColor" red="0.20000000300000001" green="0.20000000300000001" blue="0.20000000300000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="kYU-7h-xIe"/>
                                         </constraints>
                                     </view>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Raw-Xe-487">
-                                        <rect key="frame" x="0.0" y="201.33333333333331" width="200" height="110"/>
+                                        <rect key="frame" x="0.0" y="206.66666666666669" width="200" height="60"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="110" id="ZPv-e8-Shz"/>
+                                            <constraint firstAttribute="height" constant="60" id="ZPv-e8-Shz"/>
                                         </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="sideMenuCell" rowHeight="55" id="iMw-h2-5IK" customClass="SideBarMenuTableViewCell" customModule="Chore_Client" customModuleProvider="target">
@@ -713,22 +666,61 @@
                                             </tableViewCell>
                                         </prototypes>
                                     </tableView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aAA-Mw-hXR">
+                                        <rect key="frame" x="15" y="281.66666666666669" width="170" height="87"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejm-HM-7K4">
+                                                <rect key="frame" x="0.0" y="0.0" width="170" height="36"/>
+                                                <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                                <state key="normal" title="New Chore">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="NewChoreTapped:" destination="sPM-2H-Wo2" eventType="touchUpInside" id="ixZ-Tc-UaM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LxE-Yt-jqb">
+                                                <rect key="frame" x="0.0" y="51" width="170" height="36"/>
+                                                <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                                <state key="normal" title="New User">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.86108732876712324" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="newUserTapped:" destination="sPM-2H-Wo2" eventType="touchUpInside" id="bBL-ca-QB2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="LxE-Yt-jqb" secondAttribute="trailing" id="7k9-yt-Z2K"/>
+                                            <constraint firstItem="ejm-HM-7K4" firstAttribute="leading" secondItem="aAA-Mw-hXR" secondAttribute="leading" id="ZTf-WZ-XfC"/>
+                                            <constraint firstItem="LxE-Yt-jqb" firstAttribute="leading" secondItem="aAA-Mw-hXR" secondAttribute="leading" id="ak3-Uo-epl"/>
+                                            <constraint firstAttribute="trailing" secondItem="ejm-HM-7K4" secondAttribute="trailing" id="kw4-h2-hvL"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstItem="Qj2-aG-yuz" firstAttribute="top" secondItem="vD4-9X-iem" secondAttribute="bottom" constant="10" id="Pk3-eQ-G9f"/>
+                                    <constraint firstItem="aAA-Mw-hXR" firstAttribute="centerX" secondItem="RaG-66-I3R" secondAttribute="centerX" id="7ev-f5-yTy"/>
+                                    <constraint firstItem="Qj2-aG-yuz" firstAttribute="top" secondItem="vD4-9X-iem" secondAttribute="bottom" constant="15" id="Pk3-eQ-G9f"/>
                                     <constraint firstItem="Qj2-aG-yuz" firstAttribute="centerX" secondItem="RaG-66-I3R" secondAttribute="centerX" id="QDn-yh-gv7"/>
                                     <constraint firstAttribute="trailing" secondItem="vD4-9X-iem" secondAttribute="trailing" id="Sw4-s6-ep5"/>
                                     <constraint firstItem="Raw-Xe-487" firstAttribute="leading" secondItem="RaG-66-I3R" secondAttribute="leading" id="Tz4-gb-dmU"/>
+                                    <constraint firstAttribute="trailing" secondItem="aAA-Mw-hXR" secondAttribute="trailing" constant="15" id="elY-8d-rpB"/>
                                     <constraint firstAttribute="width" constant="200" id="hTY-40-hW3"/>
                                     <constraint firstAttribute="trailing" secondItem="9W9-sa-KhD" secondAttribute="trailing" constant="40" id="joh-ot-NJk"/>
                                     <constraint firstItem="vD4-9X-iem" firstAttribute="leading" secondItem="RaG-66-I3R" secondAttribute="leading" id="jsU-ap-ZNW"/>
                                     <constraint firstAttribute="trailing" secondItem="Raw-Xe-487" secondAttribute="trailing" id="lpE-w6-O5D"/>
-                                    <constraint firstItem="Raw-Xe-487" firstAttribute="top" secondItem="Qj2-aG-yuz" secondAttribute="bottom" constant="18" id="p3f-z8-iOF"/>
-                                    <constraint firstItem="vD4-9X-iem" firstAttribute="top" secondItem="9W9-sa-KhD" secondAttribute="bottom" constant="2" id="rvo-mk-8fZ"/>
+                                    <constraint firstItem="aAA-Mw-hXR" firstAttribute="leading" secondItem="RaG-66-I3R" secondAttribute="leading" constant="15" id="o9O-9k-Lpb"/>
+                                    <constraint firstItem="Raw-Xe-487" firstAttribute="top" secondItem="Qj2-aG-yuz" secondAttribute="bottom" id="p3f-z8-iOF"/>
+                                    <constraint firstItem="vD4-9X-iem" firstAttribute="top" secondItem="9W9-sa-KhD" secondAttribute="bottom" constant="10" id="rvo-mk-8fZ"/>
                                     <constraint firstItem="9W9-sa-KhD" firstAttribute="leading" secondItem="RaG-66-I3R" secondAttribute="leading" constant="40" id="sy9-4I-Y9r"/>
-                                    <constraint firstItem="9W9-sa-KhD" firstAttribute="top" secondItem="RaG-66-I3R" secondAttribute="top" constant="2" id="x7H-gz-OdS"/>
+                                    <constraint firstItem="aAA-Mw-hXR" firstAttribute="top" secondItem="Raw-Xe-487" secondAttribute="bottom" constant="15" id="tRo-2K-hvF"/>
+                                    <constraint firstItem="9W9-sa-KhD" firstAttribute="top" secondItem="RaG-66-I3R" secondAttribute="top" constant="10" id="x7H-gz-OdS"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -749,6 +741,8 @@
                         <outlet property="groupDetailTableView" destination="HJL-AP-f6K" id="AEv-Hy-2gT"/>
                         <outlet property="sideMenuGroupImageView" destination="Qj2-aG-yuz" id="EGw-ja-fU1"/>
                         <outlet property="sideMenuGroupLabel" destination="9W9-sa-KhD" id="afL-ez-K0a"/>
+                        <outlet property="sideMenuNewChoreButton" destination="ejm-HM-7K4" id="kuw-4y-Rvi"/>
+                        <outlet property="sideMenuNewUserButton" destination="LxE-Yt-jqb" id="R1L-uI-nva"/>
                         <outlet property="sideMenuTableView" destination="Raw-Xe-487" id="Sa1-Mv-z5g"/>
                         <outlet property="sideMenuTrailingConstraint" destination="RLe-NQ-1TA" id="LCA-yx-rx4"/>
                         <outlet property="sideMenuView" destination="RaG-66-I3R" id="vI3-Qe-tDy"/>
