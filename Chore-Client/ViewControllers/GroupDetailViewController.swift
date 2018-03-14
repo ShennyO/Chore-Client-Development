@@ -20,16 +20,119 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var sideMenuGroupImageView: UIImageView!
     @IBOutlet weak var sideMenuTableView: UITableView!
     
-     var menuShowing = true
+    var blurEffectView: UIVisualEffectView!
+    let sideMenuCellLabels = ["Completed Chores"]
+    var users: [User] = []
+    var chores: [Chore] = []
+    var group: Group!
+    var blurred = false
+    //for chore completion requests
+    var requests: [Request] = []
+    var menuShowing = true
+   
+    @IBOutlet weak var groupDetailTableView: UITableView!
     
-    @IBAction func sideMenuButtonTapped(_ sender: Any) {
-        if (menuShowing) {
-            sideMenuTrailingConstraint.constant = 0
-            UIView.animate(withDuration: 0.2, animations: {
-                self.view.layoutIfNeeded()
+    @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
+
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
+        edgePan.edges = .right
+        view.addGestureRecognizer(edgePan)
+        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight(swipe:)))
+        swipeRight.direction = .right
+        view.addGestureRecognizer(swipeRight)
+        sideMenuTableView.dataSource = self
+        sideMenuTableView.delegate = self
+        let groupProfileURL = URL(string: self.group.image_file)
+        self.sideMenuGroupImageView.kf.setImage(with: groupProfileURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+        self.sideMenuGroupLabel.text = self.group.name
+        self.users = self.group.members
+        
+        self.getGroupChores {
+            self.getChoreCompletionRequests(completion: {
+                DispatchQueue.main.async {
+                    self.groupDetailTableView.reloadData()
+                    self.sideMenuTableView.reloadData()
+                }
             })
+        }
+        self.setUpSideMenuButton()
+    }
+    
+    @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
+        if recognizer.state == .recognized || recognizer.state == .changed {
+            
+            let translation = recognizer.translation(in: self.view).x
+            
+            if translation < 0  { //swipe left
+                if self.sideMenuTrailingConstraint.constant < 0 {
+                    self.menuShowing = true
+                    UIView.animate(withDuration: 0.3, animations: {
+                        self.sideMenuTrailingConstraint.constant -= -100
+                        self.view.layoutIfNeeded()
+                    })
+                    
+                } else if self.sideMenuTrailingConstraint.constant > -200 {
+                    self.menuShowing = false
+                    self.sideMenuTrailingConstraint.constant = 0
+                    if blurred == false {
+                        let deadlineTime = DispatchTime.now() + .milliseconds(200) // 0.3 seconds
+                        DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+                            self.blurScreen(blur: .blur)
+
+                        })
+                        
+                    }
+                    
+                } else if self.sideMenuTrailingConstraint.constant < -50 {
+                    self.menuShowing = true
+                    self.sideMenuTrailingConstraint.constant = -200
+                    blurScreen(blur: .normal)
+
+                }
+            }
+            
+        }
+    }
+    
+    @objc func swipeRight(swipe: UISwipeGestureRecognizer) {
+        switch swipe.direction.rawValue {
+        case 1:
+            if self.sideMenuTrailingConstraint.constant > -200 {
+                self.menuShowing = true
+                UIView.animate(withDuration: 0.125, animations: {
+                    self.sideMenuTrailingConstraint.constant = -200
+                    self.view.layoutIfNeeded()
+                })
+                blurScreen(blur: .normal)
+
+            }
+        default:
+            return
+        }
+    }
+    
+    @objc func sideMenuButtonTapped() {
+        if (menuShowing) {
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.sideMenuTrailingConstraint.constant = 0
+                self.view.layoutIfNeeded()
+                
+            })
+            let deadlineTime = DispatchTime.now() + .milliseconds(200) // 0.3 seconds
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+                self.blurScreen(blur: .blur)
+
+            })
+            
+            
         } else {
             sideMenuTrailingConstraint.constant = -200
+            blurScreen(blur: .normal)
             UIView.animate(withDuration: 0.125, animations: {
                 self.view.layoutIfNeeded()
             })
@@ -47,42 +150,6 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
     }
     
-    let sideMenuCellLabels = ["Completed Chores", "Members"]
-    var users: [User] = []
-    var chores: [Chore] = []
-    var group: Group!
-    //for chore completion requests
-    var requests: [Request] = []
-   
-   
-
-
-    @IBOutlet weak var groupDetailTableView: UITableView!
-    
-    @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
-
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        super.viewDidAppear(animated)
-        sideMenuTableView.dataSource = self
-        sideMenuTableView.delegate = self
-        let groupProfileURL = URL(string: self.group.image_file)
-        self.sideMenuGroupImageView.kf.setImage(with: groupProfileURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
-        self.users = self.group.members
-        
-        self.getGroupChores {
-            self.getChoreCompletionRequests(completion: {
-                DispatchQueue.main.async {
-                    self.groupDetailTableView.reloadData()
-                    self.sideMenuTableView.reloadData()
-                }
-            })
-        }
-        
-        
-       
-    }
     
     
     @objc func ButtonClick(_ sender: UIButton){
@@ -96,9 +163,13 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             if identifier == "toAddNewGroupUser" {
                 let addNewGroupUserVC = segue.destination as! AddNewGroupUserViewController
                 addNewGroupUserVC.selectedGroup = self.group
+            } else if identifier == "toCompletedGroupChores" {
+                let CompletedGroupChoresVC = segue.destination as! CompletedGroupChoresViewController
+                CompletedGroupChoresVC.group = self.group
             }
         }
     }
+    
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -128,7 +199,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         }
         
     }
-
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         if tableView == groupDetailTableView {
@@ -204,6 +276,14 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == sideMenuTableView {
+            if indexPath.row == 0 {
+                self.performSegue(withIdentifier: "toCompletedGroupChores", sender: self)
+            }
+        }
+    }
+    
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -228,7 +308,57 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
 
 }
 
+enum screenBlur {
+    case blur, normal
+}
+
 extension GroupDetailViewController: assignButtonDelegate {
+    
+    func blurScreen(blur: screenBlur) {
+        self.blurEffectView = UIVisualEffectView()
+        let screenHeight = view.bounds.height
+        let width = view.bounds.width - self.sideMenuView.bounds.width
+        self.blurEffectView.frame.size.height = screenHeight
+        self.blurEffectView.frame.size.width = width
+        self.blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        switch blur {
+        case .blur:
+            if blurred == false {
+                
+                self.blurEffectView.effect = UIBlurEffect(style: .light)
+                self.view.addSubview(self.blurEffectView)
+                blurred = !blurred
+                
+            }
+            
+            
+        case .normal:
+            DispatchQueue.main.async {
+                for subview in self.view.subviews {
+                    if subview is UIVisualEffectView {
+                        subview.removeFromSuperview()
+                    }
+                }
+                self.blurred = !self.blurred
+            }
+            
+        }
+       
+    }
+    
+    func setUpSideMenuButton() {
+        let sideMenuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+        sideMenuButton.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
+        sideMenuButton.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
+        let imgURL = URL(string: self.group.image_file)
+        KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
+            DispatchQueue.main.async {
+                sideMenuButton.setBackgroundImage(image!, for: .normal)
+                sideMenuButton.addTarget(self, action: #selector(self.sideMenuButtonTapped), for: .touchUpInside)
+                self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
+            }
+        }
+    }
     
     func configureButton(button: UIButton) {
         button.layer.cornerRadius = 0.155 * button.bounds.size.width

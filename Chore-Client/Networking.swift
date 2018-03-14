@@ -55,6 +55,7 @@ enum Route {
     case createGroup(name: String)
     case createChore(name: String, due_date: String, penalty: String, reward: String, id: Int)
     case getGroupChores(chore_type: String, id: Int)
+    case getCompletedGroupChores(chore_type: String, id: Int)
     case getUserChores
     case getUserCompletedChores
     case getGroupRequests
@@ -70,12 +71,13 @@ enum Route {
         switch self {
         case .loginUser, .createUser, .createGroup, .createChore, .sendGroupRequest, .sendChoreCompletionRequest:
             return "POST"
-        case .getUserGroups, .getGroupChores, .getUserChores, .getUserCompletedChores, .getGroupRequests, .getUser, .getChoreRequests:
+        case .getUserGroups, .getGroupChores, .getUserChores, .getUserCompletedChores, .getGroupRequests, .getUser, .getChoreRequests, .getCompletedGroupChores:
             return "GET"
         case .logoutUser:
             return "DELETE"
         case .groupRequestResponse, .takeChore, .choreRequestResponse:
             return "PATCH"
+        
         }
     }
     
@@ -90,6 +92,8 @@ enum Route {
         case let .createChore(_, _, _, _, id):
             return "groups/\(id)/chores"
         case let .getGroupChores(_, id):
+            return "groups/\(id)/chores"
+        case let .getCompletedGroupChores(_, id):
             return "groups/\(id)/chores"
         case .getUserChores:
             return "chores/user"
@@ -167,6 +171,8 @@ enum Route {
     func Parameters() -> [String: String] {
         switch self {
         case let .getGroupChores(chore_type, _):
+            return ["chore_type": chore_type]
+        case let .getCompletedGroupChores(chore_type, _):
             return ["chore_type": chore_type]
         case let .getUser(username):
             return ["username": username]
