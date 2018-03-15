@@ -68,6 +68,7 @@ enum Route {
     case takeChore(group_id: Int, chore_id: Int, user_id: Int)
     case sendChoreCompletionRequest(chore_id: Int)
     case choreRequestResponse(response: Bool, chore_id: Int, uuid: String, request_id: Int)
+    case removeMember(group_id: Int, user_id: Int)
     
     func method() -> String {
         switch self {
@@ -77,7 +78,7 @@ enum Route {
             return "GET"
         case .logoutUser:
             return "DELETE"
-        case .groupRequestResponse, .takeChore, .choreRequestResponse:
+        case .groupRequestResponse, .takeChore, .choreRequestResponse, .removeMember:
             return "PATCH"
         
         }
@@ -115,6 +116,8 @@ enum Route {
             return "groups/\(group_id)/chores/\(chore_id)"
         case let .choreRequestResponse(_, _, _, request_id):
             return "requests/\(request_id)"
+        case let .removeMember(group_id, _):
+            return "groups/\(group_id)/user/"
         }
     }
     
@@ -162,6 +165,10 @@ enum Route {
             return result
         case let .choreRequestResponse(response, chore_id, uuid, _):
             let body: [String: Any] = ["response": response, "chore_id": chore_id, "request_type": 3, "uuid": uuid]
+            let result = try! JSONSerialization.data(withJSONObject: body, options: [])
+            return result
+        case let .removeMember(_, user_id):
+            let body: [String: Int] = ["user_id": user_id]
             let result = try! JSONSerialization.data(withJSONObject: body, options: [])
             return result
         default:

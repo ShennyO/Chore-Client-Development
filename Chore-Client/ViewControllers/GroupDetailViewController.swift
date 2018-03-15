@@ -21,8 +21,9 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var sideMenuTableView: UITableView!
     @IBOutlet weak var sideMenuNewChoreButton: UIButton!
     @IBOutlet weak var sideMenuNewUserButton: UIButton!
+    @IBOutlet weak var sideMenuLeaveButton: UIButton!
     @IBOutlet weak var sideMenuProfileButton: UIButton!
-    
+   
     
     let sideMenuCellLabels = ["Completed Chores"]
     let photoHelper = PhotoHelper()
@@ -80,6 +81,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         self.setUpSideMenuButton()
         sideMenuNewUserButton.configureButton()
         sideMenuNewChoreButton.configureButton()
+        sideMenuLeaveButton.configureButton()
     }
     
     @IBAction func sideMenuProfileButtonTapped(_ sender: Any) {
@@ -147,6 +149,20 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func newUserTapped(_ sender: Any) {
         self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
     }
+    
+    @IBAction func leaveGroupTapped(_ sender: Any) {
+        let currentGroupID = Int(KeychainSwift().get("groupID")!)!
+        let userID = Int(KeychainSwift().get("id")!)!
+        Network.instance.fetch(route: .removeMember(group_id: currentGroupID, user_id: userID)) { (data) in
+            print("Member removed")
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "groupDetailToGroups", sender: self)
+            }
+        }
+        
+        
+    }
+    
     
     @objc func sideMenuButtonTapped() {
         if (menuShowing) {
@@ -254,7 +270,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                         cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
                     }
                     
-                    cell.assignButtonHeight.constant = 60
+                    cell.assignButtonHeight.constant = 45
                     cell.assignButton.isUserInteractionEnabled = false
                     
                 } else {
@@ -360,13 +376,16 @@ extension GroupDetailViewController: assignButtonDelegate {
         sideMenuButton.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
         sideMenuButton.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
         let imgURL = URL(string: self.group.image_file)
-        KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
-            DispatchQueue.main.async {
-                sideMenuButton.setBackgroundImage(image!, for: .normal)
-                sideMenuButton.addTarget(self, action: #selector(self.sideMenuButtonTapped), for: .touchUpInside)
-                self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
+        if self.group.image_file != nil {
+            KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
+                DispatchQueue.main.async {
+                    sideMenuButton.setBackgroundImage(image!, for: .normal)
+                    sideMenuButton.addTarget(self, action: #selector(self.sideMenuButtonTapped), for: .touchUpInside)
+                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
+                }
             }
         }
+        
     }
     
     func configureButton(button: UIButton) {
@@ -428,5 +447,11 @@ extension GroupDetailViewController: assignButtonDelegate {
                 completion()
             }
         }
+    }
+}
+
+extension NSLayoutConstraint {
+    func constraintWithMultiplier(_ multiplier: CGFloat) -> NSLayoutConstraint {
+        return NSLayoutConstraint(item: self.firstItem, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
     }
 }

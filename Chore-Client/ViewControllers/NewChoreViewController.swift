@@ -15,10 +15,11 @@ class NewChoreViewController: UIViewController {
     @IBOutlet weak var penaltyNameLabel: UITextField!
     @IBOutlet weak var rewardNameLabel: UITextField!
     @IBOutlet weak var choreDatePicker: UIDatePicker!
+    @IBOutlet weak var addButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        addButton.configureButton()
         // Do any additional setup after loading the view.
     }
 
