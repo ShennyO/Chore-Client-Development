@@ -41,6 +41,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
                     self.profileImage.kf.setImage(with: imageUrl!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
                     }
                     self.profileImage.layer.cornerRadius = 0.5 * self.imageButton.bounds.size.width
+                    self.profileImage.contentMode = .scaleAspectFill
                     self.profileImage.clipsToBounds = true
                     self.userNameLabel.text = self.currentUser.username
                     self.choreRecordTableView.reloadData()

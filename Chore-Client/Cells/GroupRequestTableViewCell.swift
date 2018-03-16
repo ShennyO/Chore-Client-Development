@@ -23,6 +23,8 @@ class GroupRequestTableViewCell: UITableViewCell {
     var indexPath: IndexPath!
     override func awakeFromNib() {
         super.awakeFromNib()
+        acceptButton.configureButton()
+        declineButton.configureButton()
         // Initialization code
     }
 

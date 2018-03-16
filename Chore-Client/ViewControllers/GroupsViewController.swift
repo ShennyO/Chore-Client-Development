@@ -18,16 +18,16 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var groups: [Group] = []
     var requests: [Request] = []
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.getGroups {
-           
+            
             self.getRequests {
                 DispatchQueue.main.async {
                     self.groupsTableView.reloadData()
                 }
             }
-           
+            
         }
     }
     
@@ -64,6 +64,9 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let imageURL = URL(string: self.groups[indexPath.row].image_file)
             cell.groupNameLabel.text = self.groups[indexPath.row].name
             cell.groupProfileImage.kf.setImage(with: imageURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+            cell.groupProfileImage.contentMode = .scaleAspectFill
+            cell.groupProfileImage.clipsToBounds = true
+//            cell.groupProfileImage.layer.masksToBounds = false
             return cell
         }
         

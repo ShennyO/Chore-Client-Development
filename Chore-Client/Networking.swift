@@ -194,8 +194,9 @@ enum Route {
     
     func headers() -> [String: String] {
         switch self {
-        case .loginUser:
+        case .loginUser, .createUser:
             return ["Content-Type": "application/json"]
+       
         default:
             let keychain = KeychainSwift()
             let token = keychain.get("token")
@@ -213,7 +214,7 @@ class Network {
     static let instance = Network()
     
     let baseURL = "http://0.0.0.0:3000/v1/"
-    //    let baseURL = "http://127.0.0.1:5000/"
+//    let baseURL = "https://chores-server.herokuapp.com/v1/"
     
     let session = URLSession.shared
     

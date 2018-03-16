@@ -14,15 +14,15 @@ struct Requests: Codable {
 }
 
 struct Request: Codable {
-    let reciever_id: Int!
-    let sender_id: Int!
-    let group_id: Int!
-    let chore_id: Int!
+    let reciever_id: Int?
+    let sender_id: Int?
+    let group_id: Int?
+    let chore_id: Int?
     let request_type: String
-    let group_name: String!
-    let id: Int!
-    let uuid: String!
-    let username: String!
-    let chore_name: String!
+    let group_name: String?
+    let id: Int?
+    let uuid: String?
+    let username: String?
+    let chore_name: String?
     
 }

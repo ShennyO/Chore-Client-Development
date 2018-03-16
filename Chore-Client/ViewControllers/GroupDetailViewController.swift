@@ -66,6 +66,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         if Uploaded == false {
             let groupProfileURL = URL(string: self.group.image_file)
             self.sideMenuGroupImageView.kf.setImage(with: groupProfileURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+            self.sideMenuGroupImageView.contentMode = .scaleAspectFill
+            self.sideMenuGroupImageView.clipsToBounds = true
         }
         self.sideMenuGroupLabel.text = self.group.name
         self.users = self.group.members
@@ -265,6 +267,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                         let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
                         cell.assignButton.kf.setImage(with: imageURL!, for: .normal)
                         cell.assignButton.layer.cornerRadius = 0.5 * cell.assignButton.bounds.width
+                        cell.assignButton.contentMode = .scaleAspectFill
                         cell.assignButton.clipsToBounds = true
                     } else {
                         cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
@@ -324,9 +327,16 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         cell.profilePicture.kf.setImage(with: imageURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
         cell.profilePicture.setNeedsDisplay()
         cell.profilePicture.layer.cornerRadius = 0.5 * cell.profilePicture.bounds.size.width
+        cell.profilePicture.contentMode = .scaleAspectFill
         cell.profilePicture.clipsToBounds = true
+        
+//        cell.profilePicture.layer.masksToBounds = false
             
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 25
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -376,7 +386,7 @@ extension GroupDetailViewController: assignButtonDelegate {
         sideMenuButton.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
         sideMenuButton.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
         let imgURL = URL(string: self.group.image_file)
-        if self.group.image_file != nil {
+        if self.group.image_file != "/image_files/original/missing.png" {
             KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
                 DispatchQueue.main.async {
                     sideMenuButton.setBackgroundImage(image!, for: .normal)
@@ -384,6 +394,10 @@ extension GroupDetailViewController: assignButtonDelegate {
                     self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
                 }
             }
+        } else {
+            sideMenuButton.setBackgroundImage(UIImage(named: "AccountIcon"), for: .normal)
+            sideMenuButton.addTarget(self, action: #selector(self.sideMenuButtonTapped), for: .touchUpInside)
+            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
         }
         
     }
@@ -395,7 +409,7 @@ extension GroupDetailViewController: assignButtonDelegate {
     
     func completeChoreCompletionRequest(index: IndexPath, answer: Bool) {
         let request = self.requests[index.row]
-        Network.instance.fetch(route: .choreRequestResponse(response: answer, chore_id: request.chore_id, uuid: request.uuid, request_id: request.id)) { (data) in
+        Network.instance.fetch(route: .choreRequestResponse(response: answer, chore_id: request.chore_id!, uuid: request.uuid!, request_id: request.id!)) { (data) in
             self.getChoreCompletionRequests {
                 self.getGroupChores {
                     DispatchQueue.main.async {
@@ -447,11 +461,5 @@ extension GroupDetailViewController: assignButtonDelegate {
                 completion()
             }
         }
-    }
-}
-
-extension NSLayoutConstraint {
-    func constraintWithMultiplier(_ multiplier: CGFloat) -> NSLayoutConstraint {
-        return NSLayoutConstraint(item: self.firstItem, attribute: self.firstAttribute, relatedBy: self.relation, toItem: self.secondItem, attribute: self.secondAttribute, multiplier: multiplier, constant: self.constant)
     }
 }

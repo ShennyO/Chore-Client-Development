@@ -28,7 +28,6 @@
 		84AD4475205483AE0015ECB2 /* UserCompletedChoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD4474205483AE0015ECB2 /* UserCompletedChoreTableViewCell.swift */; };
 		84B30FC0204517FA00B2C34B /* photoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B30FBF204517FA00B2C34B /* photoHelper.swift */; };
 		84BC189E2038E5BF000E2984 /* GroupRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC189D2038E5BF000E2984 /* GroupRequestTableViewCell.swift */; };
-		84C1F8452059FA31005EE0A5 /* NSConstraintHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C1F8442059FA31005EE0A5 /* NSConstraintHelper.swift */; };
 		84C5949B2057963200525246 /* SideBarMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5949A2057963200525246 /* SideBarMenuTableViewCell.swift */; };
 		84C5949D2058EFC300525246 /* CompletedGroupChoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5949C2058EFC300525246 /* CompletedGroupChoreCell.swift */; };
 		84C5949F2058F04800525246 /* CompletedGroupChoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5949E2058F04800525246 /* CompletedGroupChoresViewController.swift */; };
@@ -97,7 +96,6 @@
 		84AD4474205483AE0015ECB2 /* UserCompletedChoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCompletedChoreTableViewCell.swift; sourceTree = "<group>"; };
 		84B30FBF204517FA00B2C34B /* photoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoHelper.swift; sourceTree = "<group>"; };
 		84BC189D2038E5BF000E2984 /* GroupRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRequestTableViewCell.swift; sourceTree = "<group>"; };
-		84C1F8442059FA31005EE0A5 /* NSConstraintHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSConstraintHelper.swift; sourceTree = "<group>"; };
 		84C5949A2057963200525246 /* SideBarMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuTableViewCell.swift; sourceTree = "<group>"; };
 		84C5949C2058EFC300525246 /* CompletedGroupChoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedGroupChoreCell.swift; sourceTree = "<group>"; };
 		84C5949E2058F04800525246 /* CompletedGroupChoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedGroupChoresViewController.swift; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 				84906341202A3AE7008BFDF7 /* AppDelegate.swift */,
 				84DEEDE82033B41100FAAA6B /* ViewControllers */,
 				84DEEDE42032570400FAAA6B /* Networking.swift */,
-				84C1F8442059FA31005EE0A5 /* NSConstraintHelper.swift */,
 				84B30FBF204517FA00B2C34B /* photoHelper.swift */,
 				84906435202CD55D008BFDF7 /* Cells */,
 				8490636F202A8278008BFDF7 /* Models */,
@@ -585,7 +582,6 @@
 				84DEEDF02034F16C00FAAA6B /* GroupDetailViewController.swift in Sources */,
 				84C5949F2058F04800525246 /* CompletedGroupChoresViewController.swift in Sources */,
 				84C5949B2057963200525246 /* SideBarMenuTableViewCell.swift in Sources */,
-				84C1F8452059FA31005EE0A5 /* NSConstraintHelper.swift in Sources */,
 				84906342202A3AE7008BFDF7 /* AppDelegate.swift in Sources */,
 				84906375202A84C8008BFDF7 /* Chore.swift in Sources */,
 				84906371202A8287008BFDF7 /* User.swift in Sources */,
