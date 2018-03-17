@@ -20,6 +20,7 @@ class NewChoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addButton.configureButton()
+        self.hideKeyboardWhenTappedAround()
         // Do any additional setup after loading the view.
     }
 

@@ -17,7 +17,9 @@ class LoginViewController: UIViewController {
     let keychain = KeychainSwift()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedAround()
         loginButton.configureButton()
         registerButton.configureButton()
 
@@ -36,6 +38,8 @@ class LoginViewController: UIViewController {
             
             if let user = jsonUser {
                 print("Login successful")
+                UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+                UserDefaults.standard.synchronize()
                 self.keychain.set(user.authentication_token, forKey: "token")
                 self.keychain.set(user.email, forKey: "email")
                 self.keychain.set(user.username, forKey: "username")

@@ -14,6 +14,7 @@ import Kingfisher
 
 class UserViewController: UIViewController, ChoreCompletionDelegate, UITableViewDelegate, UITableViewDataSource{
 
+    @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     @IBOutlet weak var profileImage: UIImageView!
     
     @IBOutlet weak var userNameLabel: UILabel!
@@ -27,6 +28,18 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     var currentUser: User!
     //This checks if we are opening the view normally, or right after we uploaded an image
     var Uploaded = false
+    
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+        UserDefaults.standard.synchronize()
+        Network.instance.fetch(route: .logoutUser) { (data) in
+            DispatchQueue.main.async {
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC")
+                self.present(loginVC, animated: true)
+            }
+        }
+    }
     
     
     override func viewWillAppear(_ animated: Bool) {
