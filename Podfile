@@ -9,6 +9,7 @@ target 'Chore-Client' do
   pod 'KeychainSwift', '~> 10.0'
   pod 'Alamofire', '~> 4.6'
   pod 'Kingfisher', '~> 4.6'
+  pod 'IQKeyboardManagerSwift'
 
   target 'Chore-ClientTests' do
     inherit! :search_paths

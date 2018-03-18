@@ -10,6 +10,7 @@ import UIKit
 import KeychainSwift
 
 class LoginViewController: UIViewController {
+    //USE EMAIL, NOT USERNAME
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -19,7 +20,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
+//        self.hideKeyboardWhenTappedAround()
         loginButton.configureButton()
         registerButton.configureButton()
 
@@ -32,8 +33,9 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonTapped(_ sender: Any) {
-        
-        Network.instance.fetch(route: Route.loginUser(email: self.usernameTextField.text!, password: self.passwordTextField.text!)) { (data) in
+        let trimmedUsernameText = self.usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        let trimmedPasswordText = self.passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        Network.instance.fetch(route: Route.loginUser(email: trimmedUsernameText!, password: trimmedPasswordText!)) { (data) in
             let jsonUser = try? JSONDecoder().decode(User.self, from: data)
             
             if let user = jsonUser {

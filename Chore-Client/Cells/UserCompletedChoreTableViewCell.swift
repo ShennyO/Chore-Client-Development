@@ -10,8 +10,9 @@ import UIKit
 
 class UserCompletedChoreTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var groupProfileImageView: UIImageView!
     @IBOutlet weak var choreNameLabel: UILabel!
-    @IBOutlet weak var choreGroupLabel: UILabel!
+    @IBOutlet weak var choreDescriptionLabel: UILabel!
     @IBOutlet weak var choreDateLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()

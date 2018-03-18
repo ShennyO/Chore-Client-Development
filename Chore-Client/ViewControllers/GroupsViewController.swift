@@ -15,7 +15,14 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     @IBOutlet weak var groupsTableView: UITableView!
     
-    var groups: [Group] = []
+    var groups: [Group] = [] {
+        didSet {
+            DispatchQueue.main.async {
+                self.groupsTableView.reloadData()
+            }
+            
+        }
+    }
     var requests: [Request] = []
     
     override func viewWillAppear(_ animated: Bool) {

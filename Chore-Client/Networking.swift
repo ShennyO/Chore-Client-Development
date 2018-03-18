@@ -55,7 +55,7 @@ enum Route {
     case createUser(firstName: String, lastName: String, email: String, password: String, confirmation: String, username: String)
     case getUserGroups
     case createGroup(name: String)
-    case createChore(name: String, due_date: String, penalty: String, reward: String, id: Int)
+    case createChore(name: String, due_date: String, description: String, id: Int)
     case getGroupChores(chore_type: String, id: Int)
     case getCompletedGroupChores(chore_type: String, id: Int)
     case getUserChores
@@ -92,7 +92,7 @@ enum Route {
             return "groups"
         case .createUser:
             return "new_account"
-        case let .createChore(_, _, _, _, id):
+        case let .createChore(_, _, _, id):
             return "groups/\(id)/chores"
         case let .getGroupChores(_, id):
             return "groups/\(id)/chores"
@@ -141,9 +141,9 @@ enum Route {
             let result = try? encoder.encode(body)
             return result!
         
-        case let .createChore(name, due_date, penalty, reward, _):
+        case let .createChore(name, due_date, description, _):
             let encoder = JSONEncoder()
-            let body: [String: String] = ["name": name, "due_date": due_date, "penalty": penalty, "reward": reward]
+            let body: [String: String] = ["name": name, "due_date": due_date, "description": description]
             let result = try? encoder.encode(body)
             return result!
         case let .groupRequestResponse(response, group_id, _):

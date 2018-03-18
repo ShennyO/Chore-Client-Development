@@ -258,7 +258,9 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         if tableView == groupDetailTableView {
             if indexPath.section == 2 {
                 let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "groupChoreCell") as! GroupChoreTableViewCell
+                cell.selectionStyle = .none
                 cell.choreNameLabel.text = self.chores[indexPath.row].name
+                cell.choreDescriptionLabel.text = self.chores[indexPath.row].description
                 cell.dueDateLabel.text = self.chores[indexPath.row].due_date
                 cell.currentIndex = indexPath
                 cell.delegate = self
@@ -290,6 +292,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 return tableViewCell
             } else {
                 let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "choreCompletionRequestCell") as! ChoreCompletionRequestTableViewCell
+                cell.selectionStyle = .none
                 cell.choreCompletionLabel.text = "\(self.requests[indexPath.row].username!) has finished \(self.requests[indexPath.row].chore_name!) chore"
                 cell.index = indexPath
                 cell.acceptButton.configureButton()

@@ -35,9 +35,10 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.choresTableView.dequeueReusableCell(withIdentifier: "completedChoreCell") as! UserCompletedChoreTableViewCell
         cell.choreNameLabel.text = self.userChores[indexPath.row].name
-//        cell.chorePenaltyLabel.text = self.userChores[indexPath.row].penalty
+        let groupProfileURL = URL(string: self.userChores[indexPath.row].group_image)
+        cell.groupProfileImageView.kf.setImage(with: groupProfileURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+        cell.choreDescriptionLabel.text = self.userChores[indexPath.row].description
         cell.choreDateLabel.text = self.userChores[indexPath.row].due_date
-        cell.choreGroupLabel.text = self.userChores[indexPath.row].groupname
         return cell
     }
     

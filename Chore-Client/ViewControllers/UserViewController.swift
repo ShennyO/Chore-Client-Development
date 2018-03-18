@@ -53,12 +53,12 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
                     if self.Uploaded == false {
                     self.profileImage.kf.setImage(with: imageUrl!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
                     }
-                    self.profileImage.layer.cornerRadius = 0.5 * self.imageButton.bounds.size.width
                     self.profileImage.contentMode = .scaleAspectFill
+                    self.profileImage.layer.cornerRadius = 0.5 * self.imageButton.bounds.size.width
                     self.profileImage.clipsToBounds = true
                     self.userNameLabel.text = self.currentUser.username
                     self.choreRecordTableView.reloadData()
-                    
+                    print(self.userChores)
                 }
             }
         }
@@ -88,7 +88,11 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.choreRecordTableView.dequeueReusableCell(withIdentifier: "userChoreCell") as! UserChoreTableViewCell
         cell.choreNameLabel.text = self.userChores[indexPath.row].name
-        cell.choreGroupLabel.text = self.userChores[indexPath.row].groupname
+        cell.choreDescriptionLabel.text = self.userChores[indexPath.row].description
+        let groupImageURL = URL(string: self.userChores[indexPath.row].group_image)
+        cell.choreGroupImage.kf.setImage(with: groupImageURL, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+        cell.choreGroupImage.contentMode = .scaleAspectFill
+        cell.choreGroupImage.clipsToBounds = true
         cell.selectionStyle = .none
         if self.userChores[indexPath.row].pending {
             cell.completeButton.setTitle("Pending", for: .normal)

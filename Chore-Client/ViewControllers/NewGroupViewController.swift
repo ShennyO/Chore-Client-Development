@@ -13,11 +13,28 @@ class NewGroupViewController: UIViewController {
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var addNewGroupView: UIView!
+    var accepted = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNewGroupView.layer.cornerRadius = 10
         self.addNewGroupView.layer.masksToBounds = true
         // Do any additional setup after loading the view.
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let _ = segue.identifier {
+            if accepted {
+                Network.instance.fetch(route: .getUserGroups, completion: { (data) in
+                    let jsonGroups = try? JSONDecoder().decode(Groups.self, from: data)
+                    if let groups = jsonGroups?.groups {
+                         let GroupsVC = segue.destination as! GroupsViewController
+                        GroupsVC.groups = groups
+                    }
+                })
+               
+                
+            }
+        }
     }
 
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -27,6 +44,7 @@ class NewGroupViewController: UIViewController {
         Network.instance.fetch(route: .createGroup(name: groupName)) { (data) in
             print("group created")
             DispatchQueue.main.async {
+                self.accepted = true
                 self.performSegue(withIdentifier: "unwindToGroupsVC", sender: self)
             }
             

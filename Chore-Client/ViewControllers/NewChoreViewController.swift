@@ -9,19 +9,40 @@
 import UIKit
 import KeychainSwift
 
-class NewChoreViewController: UIViewController {
+class NewChoreViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var choreNameLabel: UITextField!
-    @IBOutlet weak var penaltyNameLabel: UITextField!
-    @IBOutlet weak var rewardNameLabel: UITextField!
+    @IBOutlet weak var choreDescriptionTextField: UITextField!
     @IBOutlet weak var choreDatePicker: UIDatePicker!
     @IBOutlet weak var addButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addButton.configureButton()
-        self.hideKeyboardWhenTappedAround()
+        choreNameLabel.delegate = self
+        choreDescriptionTextField.delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
+                   replacementString string: String) -> Bool
+    {
+        if textField == choreDescriptionTextField {
+            let maxLength = 40
+            let currentString: NSString = textField.text as! NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        } else if textField == choreNameLabel {
+            let maxLength = 15
+            let currentString: NSString = textField.text as! NSString
+            let newString: NSString =
+                currentString.replacingCharacters(in: range, with: string) as NSString
+            return newString.length <= maxLength
+        } else {
+            return true
+        }
+        
     }
 
     @IBAction func addButtonTapped(_ sender: Any) {
@@ -41,7 +62,7 @@ extension NewChoreViewController {
         let stringDueDate = self.choreDatePicker.date.toString()
         let groupID = Int(KeychainSwift().get("groupID")!)
         
-        Network.instance.fetch(route: Route.createChore(name: self.choreNameLabel.text!, due_date: stringDueDate, penalty: self.penaltyNameLabel.text!, reward: self.rewardNameLabel.text!, id: groupID!)) { (data) in
+        Network.instance.fetch(route: Route.createChore(name: self.choreNameLabel.text!, due_date: stringDueDate, description: self.choreDescriptionTextField.text!, id: groupID!)) { (data) in
             print("Chore Created")
             completion()
         }
