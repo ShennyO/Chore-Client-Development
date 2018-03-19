@@ -16,6 +16,11 @@ class NewChoreViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var choreDatePicker: UIDatePicker!
     @IBOutlet weak var addButton: UIButton!
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.addButton.isEnabled = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addButton.configureButton()
@@ -48,6 +53,7 @@ class NewChoreViewController: UIViewController, UITextFieldDelegate {
     @IBAction func addButtonTapped(_ sender: Any) {
         createChore {
             DispatchQueue.main.async {
+                self.addButton.isEnabled = false
                 self.performSegue(withIdentifier: "unwindToGroupDetail", sender: self)
             }
         }
