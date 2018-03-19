@@ -593,30 +593,66 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="114.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AccountIcon" translatesAutoresizingMaskIntoConstraints="NO" id="JDm-2q-JQl">
-                                                    <rect key="frame" x="15" y="17.666666666666671" width="80" height="80"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="aGw-tZ-lSz">
+                                                    <rect key="frame" x="15" y="15" width="360" height="84.666666666666671"/>
+                                                    <subviews>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lnf-sS-Ien">
+                                                            <rect key="frame" x="0.0" y="0.0" width="72" height="84.666666666666671"/>
+                                                            <subviews>
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AccountIcon" translatesAutoresizingMaskIntoConstraints="NO" id="hKa-uC-qau">
+                                                                    <rect key="frame" x="-3" y="0.0" width="75" height="75"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="75" id="KCL-Ur-OHg"/>
+                                                                        <constraint firstAttribute="height" constant="75" id="t6r-JU-sqK"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="hKa-uC-qau" secondAttribute="trailing" id="Szb-oS-oTD"/>
+                                                                <constraint firstItem="hKa-uC-qau" firstAttribute="top" secondItem="lnf-sS-Ien" secondAttribute="top" id="c0n-Hw-24J"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-15" translatesAutoresizingMaskIntoConstraints="NO" id="ANb-6s-miJ">
+                                                            <rect key="frame" x="82" y="0.0" width="278" height="84.666666666666671"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hsr-7R-6Hy">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="278" height="38.333333333333336"/>
+                                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmI-Vz-Bks">
+                                                                    <rect key="frame" x="0.0" y="23.333333333333336" width="278" height="38"/>
+                                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                                    <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M0d-hj-uFf">
+                                                                    <rect key="frame" x="0.0" y="46.333333333333329" width="278" height="38.333333333333329"/>
+                                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                                    <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="80" id="eqB-4T-Vjv"/>
-                                                        <constraint firstAttribute="width" constant="80" id="fOK-WE-Cex"/>
+                                                        <constraint firstItem="lnf-sS-Ien" firstAttribute="width" secondItem="aGw-tZ-lSz" secondAttribute="width" multiplier="0.2" id="aED-7G-gzx"/>
                                                     </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8Q-N9-aT0">
-                                                    <rect key="frame" x="103" y="17.666666666666668" width="52" height="27.000000000000004"/>
-                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="JDm-2q-JQl" firstAttribute="leading" secondItem="N1X-6Y-CRe" secondAttribute="leading" constant="15" id="7A8-9M-XWp"/>
-                                                <constraint firstItem="S8Q-N9-aT0" firstAttribute="leading" secondItem="JDm-2q-JQl" secondAttribute="trailing" constant="8" id="hiP-Zg-9SO"/>
-                                                <constraint firstItem="S8Q-N9-aT0" firstAttribute="top" secondItem="JDm-2q-JQl" secondAttribute="top" id="mJu-XD-FML"/>
-                                                <constraint firstItem="JDm-2q-JQl" firstAttribute="centerY" secondItem="N1X-6Y-CRe" secondAttribute="centerY" id="u7s-L8-rpv"/>
+                                                <constraint firstItem="aGw-tZ-lSz" firstAttribute="leading" secondItem="N1X-6Y-CRe" secondAttribute="leading" constant="15" id="0iO-Vh-Cuh"/>
+                                                <constraint firstAttribute="trailing" secondItem="aGw-tZ-lSz" secondAttribute="trailing" id="AUe-Bd-UhD"/>
+                                                <constraint firstItem="aGw-tZ-lSz" firstAttribute="centerY" secondItem="N1X-6Y-CRe" secondAttribute="centerY" id="xZ9-qX-f3u"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="groupNameLabel" destination="S8Q-N9-aT0" id="afz-Zm-NMW"/>
-                                            <outlet property="groupProfileImage" destination="JDm-2q-JQl" id="CeW-EH-GfI"/>
+                                            <outlet property="choresCountLabel" destination="M0d-hj-uFf" id="oeG-sN-R4N"/>
+                                            <outlet property="groupNameLabel" destination="hsr-7R-6Hy" id="OTV-8t-pHd"/>
+                                            <outlet property="groupProfileImage" destination="hKa-uC-qau" id="0ax-Op-hXe"/>
+                                            <outlet property="membersCountLabel" destination="YmI-Vz-Bks" id="zku-83-4eb"/>
                                             <segue destination="sPM-2H-Wo2" kind="show" identifier="toGroupDetail" id="Cu5-fV-GuO"/>
                                         </connections>
                                     </tableViewCell>
