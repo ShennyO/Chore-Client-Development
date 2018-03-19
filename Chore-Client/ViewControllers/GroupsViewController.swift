@@ -73,6 +73,10 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.groupProfileImage.kf.setImage(with: imageURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
             cell.groupProfileImage.contentMode = .scaleAspectFill
             cell.groupProfileImage.clipsToBounds = true
+            let members = self.groups[indexPath.row].members.count
+            let chores = self.groups[indexPath.row].chores.count
+            cell.membersCountLabel.text = "\(members) Members"
+            cell.choresCountLabel.text = "\(chores) Chores"
 //            cell.groupProfileImage.layer.masksToBounds = false
             return cell
         }
