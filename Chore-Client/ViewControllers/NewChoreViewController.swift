@@ -51,14 +51,21 @@ class NewChoreViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func addButtonTapped(_ sender: Any) {
+        if self.choreNameLabel.text != ""{
         createChore {
             DispatchQueue.main.async {
                 self.addButton.isEnabled = false
                 self.performSegue(withIdentifier: "unwindToGroupDetail", sender: self)
             }
+            }
         }
-    }
-    
+        else{
+            let alert = UIAlertController(title: "Empty name", message: "Chores cannot have an empty name", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Return", style: .cancel, handler: nil)
+            alert.addAction(cancel)
+            self.present(alert, animated: true, completion: nil)
+        }
+}
 
 }
 
