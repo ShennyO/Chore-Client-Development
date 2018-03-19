@@ -1684,11 +1684,11 @@
             </objects>
             <point key="canvasLocation" x="2437.68115942029" y="1292.9347826086957"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="Rmc-P0-wzL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UT8-Tq-vMD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="wWt-6c-J5d"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="ios7-home-outline" selectedImage="ios7-home-outline" id="wWt-6c-J5d"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1y8-tE-VqO">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
@@ -1835,6 +1835,7 @@
         <image name="Username Copy 2" width="374" height="33"/>
         <image name="icon" width="45" height="45"/>
         <image name="icons8-cancel" width="51" height="51"/>
+        <image name="ios7-home-outline" width="31" height="29"/>
         <image name="line-1" width="374" height="38"/>
         <image name="orange bg" width="934" height="1074"/>
         <image name="orange for button" width="2178" height="1082"/>
