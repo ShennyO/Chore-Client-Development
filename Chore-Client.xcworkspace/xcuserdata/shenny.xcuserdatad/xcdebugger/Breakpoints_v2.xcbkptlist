@@ -106,7 +106,7 @@
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/AddNewGroupUserViewController.swift"
-                  timestampString = "543046481.731168"
+                  timestampString = "543119056.4969389"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "27"
@@ -121,7 +121,7 @@
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/AddNewGroupUserViewController.swift"
-                  timestampString = "543046481.7329969"
+                  timestampString = "543119056.500075"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -154,7 +154,7 @@
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/AddNewGroupUserViewController.swift"
-                  timestampString = "543046481.739043"
+                  timestampString = "543119056.506543"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "28"
@@ -169,7 +169,7 @@
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/AddNewGroupUserViewController.swift"
-                  timestampString = "543046481.740913"
+                  timestampString = "543119056.509776"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "29"
@@ -218,7 +218,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/UserViewController.swift"
-            timestampString = "543112536.947137"
+            timestampString = "543123551.871401"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "75"
@@ -234,7 +234,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/LoginViewController.swift"
-            timestampString = "543112536.947229"
+            timestampString = "543123551.871492"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/LoginViewController.swift"
-            timestampString = "543112536.947302"
+            timestampString = "543123551.871564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
@@ -266,7 +266,7 @@
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/LoginViewController.swift"
-                  timestampString = "543046481.761737"
+                  timestampString = "543119056.536954"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "38"
@@ -281,7 +281,7 @@
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/LoginViewController.swift"
-                  timestampString = "543046481.763555"
+                  timestampString = "543119056.539874"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "39"
@@ -298,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/GroupsViewController.swift"
-            timestampString = "543112536.947371"
+            timestampString = "543123551.871635"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "128"
@@ -314,11 +314,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/GroupDetailViewController.swift"
-            timestampString = "543112536.947437"
+            timestampString = "543123551.871706"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "462"
-            endingLineNumber = "462"
+            startingLineNumber = "465"
+            endingLineNumber = "465"
             landmarkName = "getChoreCompletionRequests(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/GroupDetailViewController.swift"
-            timestampString = "543112536.947506"
+            timestampString = "543123551.8721811"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "461"
-            endingLineNumber = "461"
+            startingLineNumber = "464"
+            endingLineNumber = "464"
             landmarkName = "getChoreCompletionRequests(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -346,7 +346,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/GroupsViewController.swift"
-            timestampString = "543112536.947575"
+            timestampString = "543123551.8724951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
@@ -362,7 +362,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/Networking.swift"
-            timestampString = "543112536.947639"
+            timestampString = "543123551.872561"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "234"
@@ -378,7 +378,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/GroupsViewController.swift"
-            timestampString = "543112536.947718"
+            timestampString = "543123551.872646"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "129"
@@ -394,7 +394,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/AppDelegate.swift"
-            timestampString = "543112536.947781"
+            timestampString = "543123551.872709"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -410,13 +410,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/AppDelegate.swift"
-            timestampString = "543112536.948202"
+            timestampString = "543123551.872772"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "18"
             endingLineNumber = "18"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
-            landmarkType = "7">
+            landmarkName = "AppDelegate"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -426,7 +426,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/LoginViewController.swift"
-            timestampString = "543112536.94846"
+            timestampString = "543123551.872835"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -442,7 +442,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/UserViewController.swift"
-            timestampString = "543112536.9485199"
+            timestampString = "543123551.87289"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "33"
@@ -458,7 +458,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/UserViewController.swift"
-            timestampString = "543112536.948593"
+            timestampString = "543123551.8729579"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "36"
@@ -474,7 +474,7 @@
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/UserViewController.swift"
-                  timestampString = "543046481.808295"
+                  timestampString = "543119056.605751"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "36"
@@ -489,7 +489,7 @@
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/UserViewController.swift"
-                  timestampString = "543046481.810764"
+                  timestampString = "543119056.6089"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "37"
@@ -506,7 +506,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/UserViewController.swift"
-            timestampString = "543112536.9486639"
+            timestampString = "543123551.873024"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "38"
@@ -522,7 +522,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/RegisterViewController.swift"
-            timestampString = "543112536.948813"
+            timestampString = "543123551.873091"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "40"
@@ -538,7 +538,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/GroupsViewController.swift"
-            timestampString = "543112536.948907"
+            timestampString = "543123551.873142"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "119"
@@ -554,11 +554,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/GroupDetailViewController.swift"
-            timestampString = "543112536.948995"
+            timestampString = "543123551.8731951"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "451"
-            endingLineNumber = "451"
+            startingLineNumber = "454"
+            endingLineNumber = "454"
             landmarkName = "getGroupChores(completion:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -570,11 +570,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/NewChoreViewController.swift"
-            timestampString = "543112536.949124"
+            timestampString = "543123551.873489"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
             landmarkName = "createChore(completion:)"
             landmarkType = "7">
             <Locations>
@@ -586,11 +586,11 @@
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/NewChoreViewController.swift"
-                  timestampString = "543046478.9739259"
+                  timestampString = "543119056.637306"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "43"
-                  endingLineNumber = "43"
+                  startingLineNumber = "71"
+                  endingLineNumber = "71"
                   offsetFromSymbolStart = "651">
                </Location>
                <Location
@@ -601,11 +601,11 @@
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/NewChoreViewController.swift"
-                  timestampString = "543046478.976205"
+                  timestampString = "543119056.63992"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
+                  startingLineNumber = "72"
+                  endingLineNumber = "72"
                   offsetFromSymbolStart = "33">
                </Location>
             </Locations>
@@ -618,12 +618,92 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/NewChoreViewController.swift"
-            timestampString = "543112536.9492199"
+            timestampString = "543123551.873546"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "createChore(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/Helpers/Notification.swift"
+            timestampString = "543123551.873603"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "checkDueDate(completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/ViewControllers/GroupsViewController.swift"
+            timestampString = "543123551.873657"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/Networking.swift"
+            timestampString = "543123551.873708"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "202"
+            endingLineNumber = "202"
+            landmarkName = "headers()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/Networking.swift"
+            timestampString = "543123551.87376"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+            landmarkName = "headers()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/Networking.swift"
+            timestampString = "543123551.873812"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "201"
+            endingLineNumber = "201"
+            landmarkName = "headers()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

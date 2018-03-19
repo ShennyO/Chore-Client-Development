@@ -422,7 +422,7 @@
             </objects>
             <point key="canvasLocation" x="1593" y="540"/>
         </scene>
-        <!--Group Detail View Controller-->
+        <!--Group-->
         <scene sceneID="nxm-fm-TAz">
             <objects>
                 <viewController id="sPM-2H-Wo2" customClass="GroupDetailViewController" customModule="Chore_Client" customModuleProvider="target" sceneMemberID="viewController">
@@ -795,6 +795,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PD7-iA-6hE"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Group" id="mFQ-vN-Szq"/>
                     <connections>
                         <outlet property="groupDetailTableView" destination="HJL-AP-f6K" id="AEv-Hy-2gT"/>
                         <outlet property="sideMenuGroupImageView" destination="Qj2-aG-yuz" id="EGw-ja-fU1"/>
