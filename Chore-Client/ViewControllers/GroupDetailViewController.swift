@@ -13,6 +13,7 @@ import Kingfisher
 
 class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CompleteChoreCompletionDelegate{
     
+    // - MARK: IBOULET
     
     @IBOutlet weak var sideMenuTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var sideMenuView: UIView!
@@ -23,7 +24,9 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var sideMenuNewUserButton: UIButton!
     @IBOutlet weak var sideMenuLeaveButton: UIButton!
     @IBOutlet weak var sideMenuProfileButton: UIButton!
-   
+    @IBOutlet weak var groupDetailTableView: UITableView!
+    
+    // - MARK: PROPERTIES
     
     let sideMenuCellLabels = ["Completed Chores"]
     let photoHelper = PhotoHelper()
@@ -36,8 +39,6 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var requests: [Request] = []
     var menuShowing = true
    
-    @IBOutlet weak var groupDetailTableView: UITableView!
-    
     @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
 
     
