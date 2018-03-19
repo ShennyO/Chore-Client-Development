@@ -35,7 +35,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         Network.instance.fetch(route: .logoutUser) { (data) in
             DispatchQueue.main.async {
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "LoginVC")
+                let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "newLoginVC")
                 self.present(loginVC, animated: true)
             }
         }
