@@ -49,14 +49,16 @@ struct Notification{
        let center = UNUserNotificationCenter.current()
         
         Notification.checkDueDate {(chores) in
-            
-            if chores != nil{
+            guard let dueChores = chores else {return}
+            let zero: Int = 0
+            if dueChores.count > zero {
             // trigger
             var dateComponents = DateComponents()
             
-            dateComponents.hour = 10
+            dateComponents.hour = 11
             
-            dateComponents.minute = 00
+            dateComponents.minute = 04
+                
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
             
             // content
