@@ -64,7 +64,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         if indexPath.section == 0 {
             let cell = self.groupsTableView.dequeueReusableCell(withIdentifier: "requestCell") as! GroupRequestTableViewCell
-            cell.requestLabel.text = " You have been invited to: \(self.requests[indexPath.row].group_name!)"
+            cell.requestLabel.text = "You have been invited to: \(self.requests[indexPath.row].group_name!)"
             cell.indexPath = indexPath
             cell.delegate = self
             return cell
