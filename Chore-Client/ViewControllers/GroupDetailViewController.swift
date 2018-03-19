@@ -41,9 +41,9 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
 
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         
-        super.viewDidAppear(animated)
+        super.viewWillAppear(animated)
         photoHelper.completionHandler = { (image) in
             guard let imageData = UIImageJPEGRepresentation(image, 1)
                 else {return}
@@ -311,6 +311,38 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+         let chore = self.chores[indexPath.row]
+        let alert = UIAlertController(title: "Delete Chore", message: "Are you sure you want to delete chore: \(chore.name)?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let delete = UIAlertAction(title: "Delete", style: .default) { (delete) in
+            self.deleteChore(chore: chore)
+        }
+        alert.addAction(cancel)
+        alert.addAction(delete)
+        
+        if editingStyle == .delete {
+           
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        
+    }
+    
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        if tableView == groupDetailTableView {
+            if indexPath.section == 2 {
+                let chore = self.chores[indexPath.row]
+                if chore.assigned == false {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if tableView == sideMenuTableView {
             if indexPath.row == 0 {
@@ -411,6 +443,19 @@ extension GroupDetailViewController: assignButtonDelegate {
     func configureButton(button: UIButton) {
         button.layer.cornerRadius = 0.155 * button.bounds.size.width
         button.clipsToBounds = true
+    }
+    
+    func deleteChore(chore: Chore) {
+        let groupID = Int(KeychainSwift().get("groupID")!)!
+        
+        Network.instance.fetch(route: .deleteChore(id: chore.id, group_id: groupID)) { (data) in
+            print("deleted chore")
+            self.getGroupChores {
+                DispatchQueue.main.async {
+                    self.groupDetailTableView.reloadData()
+                }
+            }
+        }
     }
     
     func completeChoreCompletionRequest(index: IndexPath, answer: Bool) {

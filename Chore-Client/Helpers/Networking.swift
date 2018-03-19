@@ -235,6 +235,10 @@ class Network {
             
             if let data = data {
                 completion(data)
+                
+                if let httpResponse = resp as? HTTPURLResponse {
+                    print("error \(httpResponse.statusCode)")
+                }
             }
             
             }.resume()
