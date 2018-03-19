@@ -29,22 +29,12 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     //This checks if we are opening the view normally, or right after we uploaded an image
     var Uploaded = false
     
-    @IBAction func settingsButtonTapped(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
-        UserDefaults.standard.synchronize()
-        Network.instance.fetch(route: .logoutUser) { (data) in
-            DispatchQueue.main.async {
-                let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "newLoginVC")
-                self.present(loginVC, animated: true)
-            }
-        }
-    }
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.navigationController?.navigationBar.tintAdjustmentMode = .normal
+        self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
         
         getUser() {
             self.getUserChores {
@@ -76,6 +66,19 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         }
         
     }
+    
+    @IBAction func settingsButtonTapped(_ sender: Any) {
+        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+        UserDefaults.standard.synchronize()
+        Network.instance.fetch(route: .logoutUser) { (data) in
+            DispatchQueue.main.async {
+                let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "newLoginVC")
+                self.present(loginVC, animated: true)
+            }
+        }
+    }
+    
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70

@@ -77,9 +77,8 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.groupProfileImage.clipsToBounds = true
             let members = self.groups[indexPath.row].members.count
             let chores = self.groups[indexPath.row].chores.count
-            cell.membersCountLabel.text = "\(members) Members"
-            cell.choresCountLabel.text = "\(chores) Chores"
-//            cell.groupProfileImage.layer.masksToBounds = false
+            cell.membersCountLabel.text = (members == 1) ? "\(members) member" : "\(members) members"
+            cell.choresCountLabel.text = (chores == 1) ? "\(chores) chore" : "\(chores) chores"
             return cell
         }
         
