@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          IQKeyboardManager.sharedManager().enable = true
         
         // check notification
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge]) { (permitionGranted, error) in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (permitionGranted, error) in
             Notification.generateNotification()
         }
         
