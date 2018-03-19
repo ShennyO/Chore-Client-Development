@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import KeychainSwift
 
 class RegisterViewController: UIViewController {
 
@@ -15,12 +16,13 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-
+    @IBOutlet weak var signUpButton: UIButton!
+    var user: User!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.signUpButton.configureButton()
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         // Do any additional setup after loading the view.
@@ -46,10 +48,20 @@ class RegisterViewController: UIViewController {
 
     
     @IBAction func signUpTapped(_ sender: Any) {
+        
+        let keychain = KeychainSwift()
         createUser {
+            UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
+            UserDefaults.standard.synchronize()
+            keychain.set(self.user.authentication_token, forKey: "token")
+            keychain.set(self.user.email, forKey: "email")
+            keychain.set(self.user.username, forKey: "username")
+            keychain.set(String(self.user.id), forKey: "id")
+            
             DispatchQueue.main.async {
-                self.dismiss(animated: true)
+                self.performSegue(withIdentifier: "toMain", sender: self)
             }
+
         }
         
         
