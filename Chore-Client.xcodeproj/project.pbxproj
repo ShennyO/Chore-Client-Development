@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		20B99AE0205F241C00076C1F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B99ADF205F241C00076C1F /* Notification.swift */; };
 		20B99AE3205F2CDC00076C1F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B99AE2205F2CDC00076C1F /* Date+Extension.swift */; };
+		20B99AE5205F8C4900076C1F /* HeaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B99AE4205F8C4900076C1F /* HeaderHelper.swift */; };
 		36E1D0B3109AD2C802BF79B2 /* Pods_Chore_ClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738E6384CFDCCD20836F4D77 /* Pods_Chore_ClientUITests.framework */; };
 		8401A18D203E11C30038A864 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A18C203E11C30038A864 /* ProfileCollectionViewCell.swift */; };
 		8401A18F203E12BD0038A864 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A18E203E12BD0038A864 /* ProfileTableViewCell.swift */; };
@@ -67,6 +68,7 @@
 		1DB9AEFA9463BF187BEF51F6 /* Pods-Chore-ClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-ClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-ClientTests/Pods-Chore-ClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		20B99ADF205F241C00076C1F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		20B99AE2205F2CDC00076C1F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
+		20B99AE4205F8C4900076C1F /* HeaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHelper.swift; sourceTree = "<group>"; };
 		27F77F44D88488A28D4C9920 /* Pods-Chore-ClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-ClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-ClientUITests/Pods-Chore-ClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		380F1B8917556C1E547BAA4C /* Pods_Chore_ClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chore_ClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9CA9E21271CE72CF146E58 /* Pods-Chore-ClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-ClientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-ClientUITests/Pods-Chore-ClientUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				20B99ADF205F241C00076C1F /* Notification.swift */,
 				84B30FBF204517FA00B2C34B /* photoHelper.swift */,
 				84DEEDE42032570400FAAA6B /* Networking.swift */,
+				20B99AE4205F8C4900076C1F /* HeaderHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -532,6 +535,7 @@
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -539,6 +543,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -587,6 +592,7 @@
 			files = (
 				84DEEDEE203402F300FAAA6B /* UserChoreTableViewCell.swift in Sources */,
 				84DEEDEC2034014400FAAA6B /* UserChoresViewController.swift in Sources */,
+				20B99AE5205F8C4900076C1F /* HeaderHelper.swift in Sources */,
 				84DEEDEA2033BD7600FAAA6B /* NewGroupViewController.swift in Sources */,
 				84FD6E26204DFD3D00ED098A /* ChoreCompletionRequestTableViewCell.swift in Sources */,
 				8401A18F203E12BD0038A864 /* ProfileTableViewCell.swift in Sources */,
