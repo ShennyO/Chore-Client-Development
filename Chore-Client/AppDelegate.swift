@@ -8,6 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          IQKeyboardManager.sharedManager().enable = true
+        
+        // check notification
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge]) { (permitionGranted, error) in
+            Notification.generateNotification()
+        }
+        
         // Override point for customization after application launch.
         let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         if(userLoginStatus)
@@ -30,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 window.rootViewController = rootController
             }
             
-            return true
+            window?.makeKeyAndVisible()
             
             
         }
