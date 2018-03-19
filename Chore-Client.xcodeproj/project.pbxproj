@@ -157,6 +157,8 @@
 			isa = PBXGroup;
 			children = (
 				20B99ADF205F241C00076C1F /* Notification.swift */,
+				84B30FBF204517FA00B2C34B /* photoHelper.swift */,
+				84DEEDE42032570400FAAA6B /* Networking.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -198,8 +200,6 @@
 				20B99ADE205F23E700076C1F /* Helpers */,
 				84906341202A3AE7008BFDF7 /* AppDelegate.swift */,
 				84DEEDE82033B41100FAAA6B /* ViewControllers */,
-				84DEEDE42032570400FAAA6B /* Networking.swift */,
-				84B30FBF204517FA00B2C34B /* photoHelper.swift */,
 				84906435202CD55D008BFDF7 /* Cells */,
 				8490636F202A8278008BFDF7 /* Models */,
 				84906345202A3AE7008BFDF7 /* Main.storyboard */,
@@ -781,7 +781,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K7R433H2CL;
+				DEVELOPMENT_TEAM = X3T6G6B4MK;
 				INFOPLIST_FILE = "Chore-Client/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MakeSchool.Chore-Client";
@@ -797,7 +797,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = K7R433H2CL;
+				DEVELOPMENT_TEAM = X3T6G6B4MK;
 				INFOPLIST_FILE = "Chore-Client/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MakeSchool.Chore-Client";

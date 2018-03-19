@@ -56,6 +56,7 @@ enum Route {
     case getUserGroups
     case createGroup(name: String)
     case createChore(name: String, due_date: String, description: String, id: Int)
+    case deleteChore(id: Int, group_id: Int)
     case getGroupChores(chore_type: String, id: Int)
     case getCompletedGroupChores(chore_type: String, id: Int)
     case getUserChores
@@ -76,7 +77,7 @@ enum Route {
             return "POST"
         case .getUserGroups, .getGroupChores, .getUserChores, .getUserCompletedChores, .getGroupRequests, .getUser, .getChoreRequests, .getCompletedGroupChores:
             return "GET"
-        case .logoutUser:
+        case .logoutUser, .deleteChore:
             return "DELETE"
         case .groupRequestResponse, .takeChore, .choreRequestResponse, .removeMember:
             return "PATCH"
@@ -118,6 +119,8 @@ enum Route {
             return "requests/\(request_id)"
         case let .removeMember(group_id, _):
             return "groups/\(group_id)/user/"
+        case let .deleteChore(id, group_id):
+            return "groups/\(group_id)/chores/\(id)"
         }
     }
     

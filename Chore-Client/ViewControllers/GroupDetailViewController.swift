@@ -265,7 +265,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 cell.currentIndex = indexPath
                 cell.delegate = self
                 if self.chores[indexPath.row].assigned {
-                    if self.chores[indexPath.row].user.image_file != nil {
+                    if self.chores[indexPath.row].user.image_file != "/image_files/original/missing.png" {
                         let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
                         cell.assignButton.kf.setImage(with: imageURL!, for: .normal)
                         cell.assignButton.layer.cornerRadius = 0.5 * cell.assignButton.bounds.width
@@ -273,6 +273,9 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                         cell.assignButton.clipsToBounds = true
                     } else {
                         cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
+                        cell.assignButton.layer.cornerRadius = 0.5 * cell.assignButton.bounds.width
+                        cell.assignButton.contentMode = .scaleAspectFill
+                        cell.assignButton.clipsToBounds = true
                     }
                     
                     cell.assignButtonHeight.constant = 45

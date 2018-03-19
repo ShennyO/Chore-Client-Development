@@ -62,8 +62,8 @@ struct Notification{
             // content
             
             let content = UNMutableNotificationContent()
-            content.title = "Chore Due Date"
-            content.body = "Hey, you \(chores?.count ?? 0) due for today"
+            content.title = "Chores Due"
+            content.body = "Hi, \(chores?.count ?? 0) are due today"
             //content.categoryIdentifier = "customIdentifier"
             //content.userInfo = ["customData": "fizzbuzz"]
             content.sound = UNNotificationSound.default()
