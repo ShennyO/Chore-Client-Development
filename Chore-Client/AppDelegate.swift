@@ -21,9 +21,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // check notification
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (permitionGranted, error) in
+            
+            // generate notification if condition meet
             Notification.generateNotification()
         }
         
+        
+        
+        
+        
+//        let cancel = UNNotificationAction(identifier: "return", title: "Return", options: [.foreground])
+//        let completed = UNNotificationAction(identifier: "completed", title: "Completed", options: [.foreground])
+//        let choreNotification = UNNotificationCategory(identifier: "choreNotification", actions: [cancel,completed], intentIdentifiers: [], options: [])
+//        UNUserNotificationCenter.current().setNotificationCategories([choreNotification])
+
         // Override point for customization after application launch.
         let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         if(userLoginStatus)
@@ -69,3 +80,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate{
+//
+//     func userNotificationCenter(_ center: UNUserNotificationCenter,
+//                                         didReceive response: UNNotificationResponse,
+//                                         withCompletionHandler completionHandler: @escaping () -> Void){
+//
+//        if response.actionIdentifier == "completed"{
+//            Network.instance
+//        }
+//    }
+}
