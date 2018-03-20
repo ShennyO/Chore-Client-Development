@@ -63,7 +63,7 @@ extension CompletedGroupChoresViewController {
         if loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }
-        Network.instance.fetch(route: Route.getCompletedGroupChores(chore_type: "group", id: self.group.id)) { (data) in
+        Network.instance.fetch(route: Route.getCompletedGroupChores(chore_type: "group", id: self.group.id)) { (data, resp) in
             let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)
             if let chores = jsonChores {
                 self.chores = chores

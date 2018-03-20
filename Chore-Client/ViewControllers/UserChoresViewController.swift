@@ -60,7 +60,7 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
 
 extension UserChoresViewController {
     func getUserCompletedChores(completion: @escaping ()->()) {
-        Network.instance.fetch(route: .getUserCompletedChores) { (data) in
+        Network.instance.fetch(route: .getUserCompletedChores) { (data, resp) in
             let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)
             if let chores = jsonChores {
                 self.userChores = chores
@@ -69,7 +69,7 @@ extension UserChoresViewController {
         }
     }
     func createChoreCompletionRequests(index: IndexPath) {
-        Network.instance.fetch(route: .sendChoreCompletionRequest(chore_id: self.userChores[index.row].id)) { (data) in
+        Network.instance.fetch(route: .sendChoreCompletionRequest(chore_id: self.userChores[index.row].id)) { (data, resp) in
             print("Requests created")
         }
     }

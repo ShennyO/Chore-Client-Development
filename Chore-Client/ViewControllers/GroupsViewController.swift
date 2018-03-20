@@ -43,9 +43,12 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+<<<<<<< HEAD
         
         
 
+=======
+>>>>>>> c61c4b22c1dc1c3e52d48b9924dd48b7a605db96
         if self.loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }
@@ -57,7 +60,11 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 DispatchQueue.main.async {
                     self.groupsTableView.reloadData()
 
+<<<<<<< HEAD
                    // self.activity.alpha = 0.0
+=======
+
+>>>>>>> c61c4b22c1dc1c3e52d48b9924dd48b7a605db96
                     if self.loaded == false {
                      ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                     }
@@ -69,6 +76,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
 
+<<<<<<< HEAD
     override func viewDidLoad() {
         //self.activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
        // self.activity.frame = CGRect(x: self.view.frame.width/2, y: self.view.frame.height/2 , width: 80, height: 80)
@@ -77,6 +85,8 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
          IQKeyboardManager.sharedManager().enable = true
     }
+=======
+>>>>>>> c61c4b22c1dc1c3e52d48b9924dd48b7a605db96
 
    
 
@@ -146,7 +156,7 @@ extension GroupsViewController {
     func completeRequest(indexPath: IndexPath, answer: Bool) {
         let groupID = self.requests[indexPath.row].group_id!
         let requestID = self.requests[indexPath.row].id
-        Network.instance.fetch(route: .groupRequestResponse(response: answer, group_id: groupID, request_id: requestID!)) { (data) in
+        Network.instance.fetch(route: .groupRequestResponse(response: answer, group_id: groupID, request_id: requestID!)) { data, resp in
             self.requests.remove(at: indexPath.row)
             self.getGroups {
                 self.getRequests {
@@ -163,7 +173,7 @@ extension GroupsViewController {
         
         self.shown = true
         
-        Network.instance.fetch(route: Route.getUserGroups) { (data) in
+        Network.instance.fetch(route: Route.getUserGroups) { (data, resp) in
             let jsonGroups = try? JSONDecoder().decode(Groups.self, from: data)
             if let groups = jsonGroups?.groups {
                 self.groups = groups
@@ -173,7 +183,7 @@ extension GroupsViewController {
     }
     
     func getRequests(completion: @escaping ()->()) {
-        Network.instance.fetch(route: Route.getGroupRequests) { (data) in
+        Network.instance.fetch(route: Route.getGroupRequests) { (data, resp) in
             let jsonRequests = try? JSONDecoder().decode([Request].self, from: data)
             if let requests = jsonRequests {
                 self.requests = requests

@@ -78,7 +78,7 @@ extension NewChoreViewController {
         let stringDueDate = self.choreDatePicker.date.toString()
         let groupID = Int(KeychainSwift().get("groupID")!)
         
-        Network.instance.fetch(route: Route.createChore(name: self.choreNameLabel.text!, due_date: stringDueDate, description: self.choreDescriptionTextField.text!, id: groupID!)) { (data) in
+        Network.instance.fetch(route: Route.createChore(name: self.choreNameLabel.text!, due_date: stringDueDate, description: self.choreDescriptionTextField.text!, id: groupID!)) { (data, resp) in
             print("Chore Created")
             completion()
         }
