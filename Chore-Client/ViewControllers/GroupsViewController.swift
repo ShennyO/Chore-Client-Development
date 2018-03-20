@@ -43,12 +43,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-<<<<<<< HEAD
-        
-        
 
-=======
->>>>>>> c61c4b22c1dc1c3e52d48b9924dd48b7a605db96
         if self.loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }
@@ -60,11 +55,9 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 DispatchQueue.main.async {
                     self.groupsTableView.reloadData()
 
-<<<<<<< HEAD
-                   // self.activity.alpha = 0.0
-=======
 
->>>>>>> c61c4b22c1dc1c3e52d48b9924dd48b7a605db96
+
+
                     if self.loaded == false {
                      ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                     }
@@ -76,7 +69,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
 
-<<<<<<< HEAD
+
     override func viewDidLoad() {
         //self.activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
        // self.activity.frame = CGRect(x: self.view.frame.width/2, y: self.view.frame.height/2 , width: 80, height: 80)
@@ -85,8 +78,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
          IQKeyboardManager.sharedManager().enable = true
     }
-=======
->>>>>>> c61c4b22c1dc1c3e52d48b9924dd48b7a605db96
+
 
    
 
