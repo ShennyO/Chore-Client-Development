@@ -16,14 +16,21 @@ class CompletedGroupChoresViewController: UIViewController, UITableViewDelegate,
     @IBOutlet weak var completedGroupChoresTableView: UITableView!
     var chores: [Chore] = []
     var group: Group!
+    var loaded: Bool = false
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.loaded = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        
         getCompletedGroupChores {
             DispatchQueue.main.async {
+                if self.loaded == false {
                 ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+                }
                 self.completedGroupChoresTableView.reloadData()
             }
         }
@@ -53,6 +60,9 @@ class CompletedGroupChoresViewController: UIViewController, UITableViewDelegate,
 
 extension CompletedGroupChoresViewController {
     func getCompletedGroupChores(completion: @escaping ()->()) {
+        if loaded == false {
+            ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        }
         Network.instance.fetch(route: Route.getCompletedGroupChores(chore_type: "group", id: self.group.id)) { (data) in
             let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)
             if let chores = jsonChores {

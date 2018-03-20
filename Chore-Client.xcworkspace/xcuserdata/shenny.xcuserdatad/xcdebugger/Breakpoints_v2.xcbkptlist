@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/Helpers/ActivityIndicatorHelper.swift"
-            timestampString = "543221018.155527"
+            timestampString = "543222856.320839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "59"
             endingLineNumber = "59"
-            landmarkName = "hideActivityIndicator(uiView:)"
+            landmarkName = "showActivityIndicator(uiView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -26,12 +26,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/Helpers/ActivityIndicatorHelper.swift"
-            timestampString = "543221018.156189"
+            timestampString = "543222856.321169"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
             endingLineNumber = "62"
-            landmarkName = "hideActivityIndicator(uiView:)"
+            landmarkName = "showActivityIndicator(uiView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/Helpers/ActivityIndicatorHelper.swift"
-            timestampString = "543221018.156453"
+            timestampString = "543222856.321242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "63"
             endingLineNumber = "63"
-            landmarkName = "hideActivityIndicator(uiView:)"
+            landmarkName = "showActivityIndicator(uiView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -865,7 +865,7 @@
         <!--Group-->
         <scene sceneID="nxm-fm-TAz">
             <objects>
-                <viewController id="sPM-2H-Wo2" customClass="GroupDetailViewController" customModule="Chore_Client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController definesPresentationContext="YES" id="sPM-2H-Wo2" customClass="GroupDetailViewController" customModule="Chore_Client" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iij-o6-kR4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1258,7 +1258,7 @@
             </objects>
             <point key="canvasLocation" x="2779" y="539"/>
         </scene>
-        <!--New Chore-->
+        <!--New Task-->
         <scene sceneID="48G-HP-Db9">
             <objects>
                 <viewController id="t6M-lI-lMh" customClass="NewChoreViewController" customModule="Chore_Client" customModuleProvider="target" sceneMemberID="viewController">
@@ -1323,7 +1323,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fud-BL-fYd"/>
                     </view>
-                    <navigationItem key="navigationItem" title="New Chore" id="mNJ-Az-RBQ"/>
+                    <navigationItem key="navigationItem" title="New Task" id="mNJ-Az-RBQ"/>
                     <connections>
                         <outlet property="addButton" destination="Rdr-KD-P77" id="6WP-Ye-P2r"/>
                         <outlet property="choreDatePicker" destination="hg8-Rw-Kab" id="mE7-CQ-Fvf"/>
@@ -1536,7 +1536,7 @@
             </objects>
             <point key="canvasLocation" x="1505.625" y="1291.9014084507041"/>
         </scene>
-        <!--Completed Chores-->
+        <!--Completed Tasks-->
         <scene sceneID="5Dl-Tv-fZE">
             <objects>
                 <viewController id="yIn-Te-tY7" customClass="UserChoresViewController" customModule="Chore_Client" customModuleProvider="target" sceneMemberID="viewController">
@@ -1621,7 +1621,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="lwb-UE-wL1"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Completed Chores" id="QLg-ic-dAv"/>
+                    <navigationItem key="navigationItem" title="Completed Tasks" id="QLg-ic-dAv"/>
                     <connections>
                         <outlet property="choresTableView" destination="u5D-1m-q1S" id="52x-Xq-fkx"/>
                     </connections>

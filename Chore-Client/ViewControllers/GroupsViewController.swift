@@ -26,16 +26,28 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     var requests: [Request] = []
     var shown: Bool = false
+    var loaded: Bool = false
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.loaded = true
+    }
    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if self.loaded == false {
+            ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        }
         
         self.getGroups {
             
             self.getRequests {
                 DispatchQueue.main.async {
                     self.groupsTableView.reloadData()
+                    if self.loaded == false {
+                     ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+                    }
                 }
             }
             
@@ -122,16 +134,13 @@ extension GroupsViewController {
     
     
     func getGroups(completion: @escaping ()->()) {
-        ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        
         self.shown = true
         
         Network.instance.fetch(route: Route.getUserGroups) { (data) in
             let jsonGroups = try? JSONDecoder().decode(Groups.self, from: data)
             if let groups = jsonGroups?.groups {
                 self.groups = groups
-                DispatchQueue.main.async {
-                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
-                }
                 completion()
             }
         }

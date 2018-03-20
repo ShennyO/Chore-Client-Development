@@ -38,14 +38,21 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     //for chore completion requests
     var requests: [Request] = []
     var menuShowing = true
+    var loaded: Bool = false
    
     @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.loaded = true
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        if loaded == false {
+            ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        }
         if self.menuShowing {
             let sideMenuWidth = self.view.frame.width * 0.7
             let sideMenuStartingPoint = sideMenuWidth * -1
@@ -84,7 +91,10 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 DispatchQueue.main.async {
                     self.groupDetailTableView.reloadData()
                     self.sideMenuTableView.reloadData()
-                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+                    if self.loaded == false {
+                         ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+                    }
+                   
                 }
             })
         }
