@@ -97,6 +97,7 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func signUpTapped(_ sender: Any) {
+        //self.signUpButton.zoomOutWithEasing()
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
         let keychain = KeychainSwift()
         createUser {
