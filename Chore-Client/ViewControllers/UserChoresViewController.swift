@@ -17,9 +17,11 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
         getUserCompletedChores {
             DispatchQueue.main.async {
                 self.choresTableView.reloadData()
+                ViewControllerUtils().hideActivityIndicator(uiView: self.view)
             }
         }
     }

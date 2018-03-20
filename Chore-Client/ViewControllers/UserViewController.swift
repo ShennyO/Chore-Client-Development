@@ -33,6 +33,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
         self.navigationController?.navigationBar.tintAdjustmentMode = .normal
         self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
         
@@ -48,7 +49,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
                     self.profileImage.clipsToBounds = true
                     self.userNameLabel.text = self.currentUser.username
                     self.choreRecordTableView.reloadData()
-                    print(self.userChores)
+                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                 }
             }
         }

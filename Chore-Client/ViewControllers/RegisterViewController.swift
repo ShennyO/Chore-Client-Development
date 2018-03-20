@@ -48,7 +48,7 @@ class RegisterViewController: UIViewController {
 
     
     @IBAction func signUpTapped(_ sender: Any) {
-        
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
         let keychain = KeychainSwift()
         createUser {
             UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
@@ -59,6 +59,7 @@ class RegisterViewController: UIViewController {
             keychain.set(String(self.user.id), forKey: "id")
             
             DispatchQueue.main.async {
+                ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                 self.performSegue(withIdentifier: "toMain", sender: self)
             }
 

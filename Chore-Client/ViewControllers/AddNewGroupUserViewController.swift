@@ -24,9 +24,11 @@ class AddNewGroupUserViewController: UIViewController {
 
     @IBAction func addButtonTapped(_ sender: Any) {
         //In here, we first have to preform a find Request to get the User associated with the username, then we can affirm that the user exists, and get the User ID, and then perform the send Request route
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
         getUser {
             self.sendGroupRequest {
                 DispatchQueue.main.async {
+                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                     self.dismiss(animated: true)
                 }
             }

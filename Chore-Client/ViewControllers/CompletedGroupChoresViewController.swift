@@ -20,8 +20,10 @@ class CompletedGroupChoresViewController: UIViewController, UITableViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
         getCompletedGroupChores {
             DispatchQueue.main.async {
+                ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                 self.completedGroupChoresTableView.reloadData()
             }
         }
