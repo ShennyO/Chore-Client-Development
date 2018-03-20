@@ -1029,7 +1029,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIz-12-jLx">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIz-12-jLx">
                                                     <rect key="frame" x="260" y="13" width="45" height="45"/>
                                                     <color key="backgroundColor" red="0.98873347043991089" green="0.69481050968170166" blue="0.19063752889633179" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
@@ -1090,7 +1090,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RaG-66-I3R">
-                                <rect key="frame" x="128" y="64" width="192" height="455"/>
+                                <rect key="frame" x="328" y="64" width="192" height="455"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9W9-sa-KhD">
                                         <rect key="frame" x="40" y="10" width="112" height="21"/>
@@ -1242,7 +1242,7 @@
                             <constraint firstItem="RaG-66-I3R" firstAttribute="top" secondItem="PD7-iA-6hE" secondAttribute="top" id="Fbh-vO-1ka"/>
                             <constraint firstItem="PD7-iA-6hE" firstAttribute="trailing" secondItem="HJL-AP-f6K" secondAttribute="trailing" id="Gtg-s7-Z0s"/>
                             <constraint firstItem="RaG-66-I3R" firstAttribute="width" secondItem="Iij-o6-kR4" secondAttribute="width" multiplier="0.6" id="IYs-3J-tXC"/>
-                            <constraint firstItem="PD7-iA-6hE" firstAttribute="trailing" secondItem="RaG-66-I3R" secondAttribute="trailing" id="RLe-NQ-1TA"/>
+                            <constraint firstItem="PD7-iA-6hE" firstAttribute="trailing" secondItem="RaG-66-I3R" secondAttribute="trailing" constant="-200" id="RLe-NQ-1TA"/>
                             <constraint firstItem="PD7-iA-6hE" firstAttribute="bottom" secondItem="HJL-AP-f6K" secondAttribute="bottom" id="ZPq-k9-Lzr"/>
                             <constraint firstItem="HJL-AP-f6K" firstAttribute="top" secondItem="PD7-iA-6hE" secondAttribute="top" id="bbe-d1-ACg"/>
                             <constraint firstItem="HJL-AP-f6K" firstAttribute="leading" secondItem="PD7-iA-6hE" secondAttribute="leading" id="zXd-Sd-Zfr"/>
@@ -1250,7 +1250,7 @@
                         <viewLayoutGuide key="safeArea" id="PD7-iA-6hE"/>
                     </view>
                     <navigationItem key="navigationItem" title="Group" id="mFQ-vN-Szq">
-                        <barButtonItem key="rightBarButtonItem" image="Category" id="do4-g8-knr">
+                        <barButtonItem key="rightBarButtonItem" image="Menu" id="do4-g8-knr">
                             <connections>
                                 <action selector="categoryButtonTapped:" destination="sPM-2H-Wo2" id="ltc-jp-cmD"/>
                             </connections>
@@ -1883,8 +1883,8 @@
     </scenes>
     <resources>
         <image name="AccountIcon" width="100" height="100"/>
-        <image name="Category" width="27" height="15"/>
         <image name="Email" width="375" height="33"/>
+        <image name="Menu" width="25" height="15"/>
         <image name="Password" width="375" height="32"/>
         <image name="Password-1" width="375" height="35"/>
         <image name="Username" width="375" height="31"/>
