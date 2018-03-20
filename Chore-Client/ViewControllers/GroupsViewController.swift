@@ -58,6 +58,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
                    // self.activity.alpha = 0.0
 
+
                     if self.loaded == false {
                      ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                     }
