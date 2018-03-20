@@ -48,6 +48,8 @@ struct Notification{
         
        let center = UNUserNotificationCenter.current()
         
+        center.removeAllPendingNotificationRequests()
+        
         Notification.checkDueDate {(chores) in
             guard let dueChores = chores else {return}
             let zero: Int = 0
@@ -55,9 +57,9 @@ struct Notification{
             // trigger
             var dateComponents = DateComponents()
             
-            dateComponents.hour = 11
+            dateComponents.hour = 10
             
-            dateComponents.minute = 04
+            dateComponents.minute = 30
                 
             let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
             
