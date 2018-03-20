@@ -56,7 +56,7 @@ class ViewControllerUtils {
         activityIndicator.stopAnimating()
         loadingView.removeFromSuperview()
 //        container.removeFromSuperview()
-        print(uiView.subviews[0])
+        
         for subView in uiView.subviews {
             print(uiView.subviews)
             if subView.tag == 100 {

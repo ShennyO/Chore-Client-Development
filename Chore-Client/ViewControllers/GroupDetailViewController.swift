@@ -213,7 +213,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             
             
         } else {
-            sideMenuTrailingConstraint.constant = -200
+            let sideMenuStartingPoint = self.view.frame.width * -0.7
+            sideMenuTrailingConstraint.constant = sideMenuStartingPoint
             darkenScreen(darken: .normal)
             UIView.animate(withDuration: 0.125, animations: {
                 self.view.layoutIfNeeded()
