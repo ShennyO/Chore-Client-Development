@@ -88,7 +88,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvN-js-pDK">
                                                         <rect key="frame" x="0.0" y="0.0" width="147.5" height="34.5"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" minimumFontSize="17" background="line-1" translatesAutoresizingMaskIntoConstraints="NO" id="u0Q-6r-6Ks">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sunny" placeholder="First name" minimumFontSize="17" background="line-1" translatesAutoresizingMaskIntoConstraints="NO" id="u0Q-6r-6Ks">
                                                                 <rect key="frame" x="3.5" y="8.5" width="140" height="17"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -106,7 +106,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rVI-5y-sHr">
                                                         <rect key="frame" x="172.5" y="0.0" width="147.5" height="34.5"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" minimumFontSize="17" background="line-1" translatesAutoresizingMaskIntoConstraints="NO" id="LzM-eC-YkW">
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="ouyang" placeholder="Last name" minimumFontSize="17" background="line-1" translatesAutoresizingMaskIntoConstraints="NO" id="LzM-eC-YkW">
                                                                 <rect key="frame" x="3.5" y="8.5" width="140.5" height="17"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -126,7 +126,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vW0-ns-n8G">
                                                 <rect key="frame" x="0.0" y="34.5" width="320" height="34"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="Email" translatesAutoresizingMaskIntoConstraints="NO" id="Y1q-z2-T9N">
+                                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sunny@mail.com" placeholder="Email" textAlignment="center" minimumFontSize="17" background="Email" translatesAutoresizingMaskIntoConstraints="NO" id="Y1q-z2-T9N">
                                                         <rect key="frame" x="0.5" y="8.5" width="320" height="17"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -144,7 +144,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rQk-Ai-uWW">
                                                 <rect key="frame" x="0.0" y="68.5" width="320" height="34.5"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="17" background="Username Copy 2" translatesAutoresizingMaskIntoConstraints="NO" id="g0S-EO-2Wb">
+                                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="sunny" placeholder="Username" textAlignment="center" minimumFontSize="17" background="Username Copy 2" translatesAutoresizingMaskIntoConstraints="NO" id="g0S-EO-2Wb">
                                                         <rect key="frame" x="0.5" y="8" width="320" height="17.5"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -162,7 +162,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jfP-9K-tzt">
                                                 <rect key="frame" x="0.0" y="103" width="320" height="34"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" background="Password-1" translatesAutoresizingMaskIntoConstraints="NO" id="yFf-PW-63e">
+                                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123456" placeholder="Password" textAlignment="center" minimumFontSize="17" background="Password-1" translatesAutoresizingMaskIntoConstraints="NO" id="yFf-PW-63e">
                                                         <rect key="frame" x="0.5" y="7.5" width="320" height="17.5"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>

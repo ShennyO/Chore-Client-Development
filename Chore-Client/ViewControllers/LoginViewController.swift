@@ -39,7 +39,7 @@ class LoginViewController: UIViewController {
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
         
         
-        Network.instance.fetch(route: Route.loginUser(email: trimmedUsernameText!, password: trimmedPasswordText!)) { (data) in
+        Network.instance.fetch(route: Route.loginUser(email: trimmedUsernameText!, password: trimmedPasswordText!)) { (data, resp) in
             let jsonUser = try? JSONDecoder().decode(User.self, from: data)
             
             if let user = jsonUser {

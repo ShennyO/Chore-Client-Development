@@ -80,7 +80,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     @IBAction func settingsButtonTapped(_ sender: Any) {
         UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
         UserDefaults.standard.synchronize()
-        Network.instance.fetch(route: .logoutUser) { (data) in
+        Network.instance.fetch(route: .logoutUser) { (data, resp)  in
             DispatchQueue.main.async {
                 let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                 let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "newLoginVC")
@@ -138,7 +138,7 @@ extension UserViewController {
     
     func getUser(completion: @escaping()->()) {
         let username = KeychainSwift().get("username")
-        Network.instance.fetch(route: Route.getUser(username: username!)) { (data) in
+        Network.instance.fetch(route: Route.getUser(username: username!)) { (data, resp) in
             let jsonUser = try? JSONDecoder().decode(User.self, from: data)
             if let user = jsonUser {
                 self.currentUser = user
@@ -148,7 +148,7 @@ extension UserViewController {
     }
     
     func getUserChores(completion: @escaping ()->()) {
-        Network.instance.fetch(route: .getUserChores) { (data) in
+        Network.instance.fetch(route: .getUserChores) { (data, resp) in
             let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)
             if let chores = jsonChores {
                 self.userChores = chores
@@ -157,7 +157,7 @@ extension UserViewController {
         }
     }
     func createChoreCompletionRequests(index: IndexPath) {
-        Network.instance.fetch(route: .sendChoreCompletionRequest(chore_id: self.userChores[index.row].id)) { (data) in
+        Network.instance.fetch(route: .sendChoreCompletionRequest(chore_id: self.userChores[index.row].id)) { (data, resp) in
             print("Requests created")
             self.getUserChores {
                 DispatchQueue.main.async {

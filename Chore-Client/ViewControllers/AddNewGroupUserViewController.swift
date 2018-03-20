@@ -44,7 +44,7 @@ class AddNewGroupUserViewController: UIViewController {
 
 extension AddNewGroupUserViewController {
     func getUser(completion: @escaping ()->()) {
-        Network.instance.fetch(route: .getUser(username: usernameTextField.text!)) { (data) in
+        Network.instance.fetch(route: .getUser(username: usernameTextField.text!)) { (data, resp) in
             var runnable = true
             let jsonUser = try? JSONDecoder().decode(User.self, from: data)
             if let user = jsonUser {
@@ -80,7 +80,7 @@ extension AddNewGroupUserViewController {
     
     func sendGroupRequest(completion: @escaping ()->()) {
         
-        Network.instance.fetch(route: .sendGroupRequest(receiver_id: self.userID, group_id: self.selectedGroup.id, group_name: self.selectedGroup.name)) { (data) in
+        Network.instance.fetch(route: .sendGroupRequest(receiver_id: self.userID, group_id: self.selectedGroup.id, group_name: self.selectedGroup.name)) { (data, resp) in
             completion()
         }
     }

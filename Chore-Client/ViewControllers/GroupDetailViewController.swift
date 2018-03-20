@@ -196,7 +196,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBAction func leaveGroupTapped(_ sender: Any) {
         let currentGroupID = Int(KeychainSwift().get("groupID")!)!
         let userID = Int(KeychainSwift().get("id")!)!
-        Network.instance.fetch(route: .removeMember(group_id: currentGroupID, user_id: userID)) { (data) in
+        Network.instance.fetch(route: .removeMember(group_id: currentGroupID, user_id: userID)) { (data, resp) in
             print("Member removed")
             DispatchQueue.main.async {
                 self.performSegue(withIdentifier: "groupDetailToGroups", sender: self)
@@ -488,7 +488,7 @@ extension GroupDetailViewController: assignButtonDelegate {
     func deleteChore(chore: Chore) {
         let groupID = Int(KeychainSwift().get("groupID")!)!
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
-        Network.instance.fetch(route: .deleteChore(id: chore.id, group_id: groupID)) { (data) in
+        Network.instance.fetch(route: .deleteChore(id: chore.id, group_id: groupID)) { (data, resp) in
             print("deleted chore")
             self.getGroupChores {
                 DispatchQueue.main.async {
@@ -502,7 +502,7 @@ extension GroupDetailViewController: assignButtonDelegate {
     func completeChoreCompletionRequest(index: IndexPath, answer: Bool) {
         let request = self.requests[index.row]
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
-        Network.instance.fetch(route: .choreRequestResponse(response: answer, chore_id: request.chore_id!, uuid: request.uuid!, request_id: request.id!)) { (data) in
+        Network.instance.fetch(route: .choreRequestResponse(response: answer, chore_id: request.chore_id!, uuid: request.uuid!, request_id: request.id!)) { (data, resp) in
             self.getChoreCompletionRequests {
                 self.getGroupChores {
                     DispatchQueue.main.async {
@@ -519,7 +519,7 @@ extension GroupDetailViewController: assignButtonDelegate {
         let selectedChore = self.chores[indexPath.row]
         guard let stringUserID = KeychainSwift().get("id") else {return}
         guard let userID = Int(stringUserID) else {return}
-        Network.instance.fetch(route: .takeChore(group_id: self.group.id, chore_id: selectedChore.id, user_id: userID)) { (data) in
+        Network.instance.fetch(route: .takeChore(group_id: self.group.id, chore_id: selectedChore.id, user_id: userID)) { (data, resp) in
             completion()
         }
     }
@@ -539,7 +539,7 @@ extension GroupDetailViewController: assignButtonDelegate {
 
     
     func getGroupChores(completion: @escaping ()->()) {
-        Network.instance.fetch(route: Route.getGroupChores(chore_type: "group", id: self.group.id)) { (data) in
+        Network.instance.fetch(route: Route.getGroupChores(chore_type: "group", id: self.group.id)) { (data, resp) in
             let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)
             if let chores = jsonChores {
                 self.chores = chores
@@ -550,7 +550,7 @@ extension GroupDetailViewController: assignButtonDelegate {
     
     func getChoreCompletionRequests(completion: @escaping ()->()) {
         let currentGroupID = Int(KeychainSwift().get("groupID")!)
-        Network.instance.fetch(route: .getChoreRequests(group_id: currentGroupID!)) { (data) in
+        Network.instance.fetch(route: .getChoreRequests(group_id: currentGroupID!)) { (data, resp) in
             let jsonRequests = try? JSONDecoder().decode([Request].self, from: data)
             if let requests = jsonRequests {
                 self.requests = requests

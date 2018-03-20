@@ -13,7 +13,7 @@ import KeychainSwift
 struct Notification{
     
     static func getUserChores(completion: @escaping ([Chore]?)->()) {
-        Network.instance.fetch(route: .getUserChores) { (data) in
+        Network.instance.fetch(route: .getUserChores) { (data, resp) in
             let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)
             if let chores = jsonChores {
                 

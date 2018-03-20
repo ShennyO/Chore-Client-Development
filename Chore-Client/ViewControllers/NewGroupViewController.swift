@@ -24,7 +24,7 @@ class NewGroupViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let _ = segue.identifier {
             if accepted {
-                Network.instance.fetch(route: .getUserGroups, completion: { (data) in
+                Network.instance.fetch(route: .getUserGroups, completion: { (data, resp) in
                     let jsonGroups = try? JSONDecoder().decode(Groups.self, from: data)
                     if let groups = jsonGroups?.groups {
                          let GroupsVC = segue.destination as! GroupsViewController
@@ -42,7 +42,7 @@ class NewGroupViewController: UIViewController {
         //After this is tapped, we want to perform a POST request to create a new group
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
         guard let groupName = self.groupNameTextField.text else {return}
-        Network.instance.fetch(route: .createGroup(name: groupName)) { (data) in
+        Network.instance.fetch(route: .createGroup(name: groupName)) { (data, resp) in
             print("group created")
             DispatchQueue.main.async {
                 ViewControllerUtils().hideActivityIndicator(uiView: self.view)

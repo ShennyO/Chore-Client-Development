@@ -221,7 +221,7 @@ class Network {
 //    let baseURL = "https://chorekeeper.herokuapp.com/v1/"
     let session = URLSession.shared
     
-    func fetch(route: Route, completion: @escaping (Data) -> Void) {
+    func fetch(route: Route, completion: @escaping (Data, HTTPURLResponse) -> Void) {
         let fullPath = baseURL + route.path()
         
         let pathURL = URL(string: fullPath)
@@ -233,8 +233,8 @@ class Network {
         
         session.dataTask(with: request) { (data, resp, err) in
             
-            if let data = data {
-                completion(data)
+            if let data = data, let resp = resp {
+                completion(data, resp as! HTTPURLResponse)
                 
                 if let httpResponse = resp as? HTTPURLResponse {
 //                    print("\(httpResponse.statusCode)")

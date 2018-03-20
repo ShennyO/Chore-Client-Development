@@ -123,7 +123,7 @@ extension GroupsViewController {
     func completeRequest(indexPath: IndexPath, answer: Bool) {
         let groupID = self.requests[indexPath.row].group_id!
         let requestID = self.requests[indexPath.row].id
-        Network.instance.fetch(route: .groupRequestResponse(response: answer, group_id: groupID, request_id: requestID!)) { (data) in
+        Network.instance.fetch(route: .groupRequestResponse(response: answer, group_id: groupID, request_id: requestID!)) { data, resp in
             self.requests.remove(at: indexPath.row)
             self.getGroups {
                 self.getRequests {
@@ -140,7 +140,7 @@ extension GroupsViewController {
         
         self.shown = true
         
-        Network.instance.fetch(route: Route.getUserGroups) { (data) in
+        Network.instance.fetch(route: Route.getUserGroups) { (data, resp) in
             let jsonGroups = try? JSONDecoder().decode(Groups.self, from: data)
             if let groups = jsonGroups?.groups {
                 self.groups = groups
@@ -150,7 +150,7 @@ extension GroupsViewController {
     }
     
     func getRequests(completion: @escaping ()->()) {
-        Network.instance.fetch(route: Route.getGroupRequests) { (data) in
+        Network.instance.fetch(route: Route.getGroupRequests) { (data, resp) in
             let jsonRequests = try? JSONDecoder().decode([Request].self, from: data)
             if let requests = jsonRequests {
                 self.requests = requests
