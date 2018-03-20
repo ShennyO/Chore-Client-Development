@@ -76,17 +76,27 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         }
         
     }
-    
+    /// logout user
     @IBAction func settingsButtonTapped(_ sender: Any) {
         UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
         UserDefaults.standard.synchronize()
-        Network.instance.fetch(route: .logoutUser) { (data, resp)  in
-            DispatchQueue.main.async {
-                let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
-                let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "newLoginVC")
-                self.present(loginVC, animated: true)
+
+        
+        let alert = UIAlertController(title: "Log out", message: "Do you want to log out?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Return", style: .cancel, handler: nil)
+        let logOut = UIAlertAction(title: "Logout", style: .default) { (logout) in
+            Network.instance.fetch(route: .logoutUser) { (data, resp) in
+                DispatchQueue.main.async {
+                    let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                    let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "newLoginVC")
+                    self.present(loginVC, animated: true)
+                }
+
             }
         }
+        alert.addAction(cancel)
+        alert.addAction(logOut)
+        self.present(alert, animated: true, completion: nil)
     }
     
     
@@ -166,13 +176,5 @@ extension UserViewController {
             }
         }
     }
-    
-    
 }
 
-extension UIButton {
-    func configureButton() {
-        self.layer.cornerRadius = 0.455 * self.bounds.height
-        self.clipsToBounds = true
-    }
-}

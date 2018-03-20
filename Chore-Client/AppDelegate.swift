@@ -27,7 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         
-        
+        IQKeyboardManager.sharedManager().enable = true
         
         
 //        let cancel = UNNotificationAction(identifier: "return", title: "Return", options: [.foreground])

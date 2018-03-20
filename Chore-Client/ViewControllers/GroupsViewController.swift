@@ -24,6 +24,9 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
     }
+    
+   // var activity :  UIActivityIndicatorView!
+    
     var requests: [Request] = []
     var shown: Bool = false
     var loaded: Bool = false
@@ -38,25 +41,33 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+
         if self.loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }
+
         
         self.getGroups {
             
             self.getRequests {
                 DispatchQueue.main.async {
                     self.groupsTableView.reloadData()
+
+
                     if self.loaded == false {
                      ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                     }
+
                 }
             }
             
         }
     }
     
+
+
    
+
     
     @IBAction func unwindToGroupsVC(segue:UIStoryboardSegue) { }
     
