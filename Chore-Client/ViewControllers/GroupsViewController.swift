@@ -28,6 +28,8 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var shown: Bool = false
     var loaded: Bool = false
     
+
+    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.loaded = true
@@ -54,6 +56,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
     }
     
+   
     
     @IBAction func unwindToGroupsVC(segue:UIStoryboardSegue) { }
     

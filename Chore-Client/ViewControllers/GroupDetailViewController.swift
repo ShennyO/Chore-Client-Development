@@ -26,6 +26,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var sideMenuProfileButton: UIButton!
     @IBOutlet weak var groupDetailTableView: UITableView!
     
+    
     // - MARK: PROPERTIES
     
     let sideMenuCellLabels = ["Completed Tasks"]
@@ -69,6 +70,9 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             Network.instance.imageUpload(route:imageUploadRoute.groupUpload, imageData: imageData)
             
         }
+        
+        
+        
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
         edgePan.edges = .right
         view.addGestureRecognizer(edgePan)
@@ -104,10 +108,23 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         sideMenuLeaveButton.configureButton()
     }
     
+    
+    
     @IBAction func sideMenuProfileButtonTapped(_ sender: Any) {
         photoHelper.presentActionSheet(from: self)
     }
     
+    @objc func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        self.getGroupChores {
+            self.getChoreCompletionRequests(completion: {
+                DispatchQueue.main.async {
+                    self.groupDetailTableView.reloadData()
+                    self.sideMenuTableView.reloadData()
+                }
+            })
+        }
+    }
     
     @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
         if recognizer.state == .recognized || recognizer.state == .changed {
