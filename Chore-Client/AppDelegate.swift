@@ -59,7 +59,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                             alertWindow.rootViewController = UIViewController()
                             alertWindow.windowLevel = UIWindowLevelAlert + 1
                             alertWindow.makeKeyAndVisible()
-                            
+                            UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
                             alertWindow.rootViewController?.present(alert, animated: true, completion: nil)
 
                         }
@@ -77,8 +77,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
             
             window?.makeKeyAndVisible()
-            
-            
         }
         return true
     }

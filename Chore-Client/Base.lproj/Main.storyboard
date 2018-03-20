@@ -268,11 +268,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wr3-lY-dhN">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2lo-5G-ZR8">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-70" translatesAutoresizingMaskIntoConstraints="NO" id="2lo-5G-ZR8">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                         <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHY-s1-8gN">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="98.5"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYu-pg-VOD">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="255.5"/>
+                                                <rect key="frame" x="0.0" y="28.5" width="320" height="255.5"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ke4-St-H3u">
                                                         <rect key="frame" x="47.5" y="62" width="225" height="123"/>
@@ -286,12 +292,6 @@
                                                     <constraint firstItem="Ke4-St-H3u" firstAttribute="centerY" secondItem="MYu-pg-VOD" secondAttribute="centerY" id="wf8-TI-XTT"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHY-s1-8gN">
-                                                <rect key="frame" x="0.0" y="255.5" width="320" height="28.5"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="MYu-pg-VOD" firstAttribute="height" secondItem="2lo-5G-ZR8" secondAttribute="height" multiplier="0.9" id="Cgp-lj-PBQ"/>
@@ -303,11 +303,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Se6-vx-FtW">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="42.5"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="Email" translatesAutoresizingMaskIntoConstraints="NO" id="S8g-E2-zL8">
+                                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="Username" translatesAutoresizingMaskIntoConstraints="NO" id="S8g-E2-zL8">
                                                         <rect key="frame" x="24" y="11" width="272" height="21"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                <color key="value" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -321,11 +326,16 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AoJ-ZD-mZg">
                                                 <rect key="frame" x="0.0" y="42.5" width="320" height="42.5"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" background="Password-1" translatesAutoresizingMaskIntoConstraints="NO" id="BOy-uK-tbr">
+                                                    <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" background="Password" translatesAutoresizingMaskIntoConstraints="NO" id="BOy-uK-tbr">
                                                         <rect key="frame" x="24" y="11.5" width="272" height="20.5"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                                                <color key="value" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
                                                     </textField>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -362,17 +372,17 @@
                                                     <constraint firstItem="qPi-tb-8LQ" firstAttribute="height" secondItem="sDJ-Vq-AVD" secondAttribute="height" multiplier="0.35" id="xNv-06-Ib5"/>
                                                 </constraints>
                                             </view>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="89P-Gi-r5q">
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-120" translatesAutoresizingMaskIntoConstraints="NO" id="89P-Gi-r5q">
                                                 <rect key="frame" x="0.0" y="99.5" width="320" height="99.5"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not registered yet?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7H-bI-dDu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="160" height="99.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="220" height="99.5"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                                         <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo8-3r-eq3">
-                                                        <rect key="frame" x="160" y="0.0" width="160" height="99.5"/>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo8-3r-eq3">
+                                                        <rect key="frame" x="100" y="0.0" width="220" height="99.5"/>
                                                         <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="13"/>
                                                         <state key="normal" title="Sign Up">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1869,7 +1879,9 @@
     <resources>
         <image name="AccountIcon" width="100" height="100"/>
         <image name="Email" width="375" height="33"/>
+        <image name="Password" width="375" height="32"/>
         <image name="Password-1" width="375" height="35"/>
+        <image name="Username" width="375" height="31"/>
         <image name="Username Copy 2" width="374" height="33"/>
         <image name="icon" width="70" height="70"/>
         <image name="icons8-cancel" width="51" height="51"/>
