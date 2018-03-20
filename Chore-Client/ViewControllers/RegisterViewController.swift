@@ -12,6 +12,10 @@ import IQKeyboardManagerSwift
 
 class RegisterViewController: UIViewController {
 
+    @IBOutlet weak var buttonConstraint: NSLayoutConstraint!
+    @IBOutlet weak var titleLabelUpAndDown: NSLayoutConstraint!
+    
+    @IBOutlet weak var textFieldStack: UIStackView!
     @IBOutlet weak var moveTheViewUpAndDown: NSLayoutConstraint!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -20,6 +24,8 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var imagePlaceHolderButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    @IBOutlet weak var mainStack: UIStackView!
     var user: User!
      let photoHelper = PhotoHelper()
     
@@ -34,6 +40,8 @@ class RegisterViewController: UIViewController {
         
         
         self.hideKeyboardWhenTappedAround()
+        
+        self.buttonConstraint.constant = (self.view.frame.height - 50)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,10 +59,12 @@ class RegisterViewController: UIViewController {
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
 //            if self.view.frame.origin.y == 0{
-//               // self.view.frame.origin.y -= keyboardSize.height
+//                self.view.frame.origin.y -= keyboardSize.height
 //            }
             UIView.animate(withDuration: 1.5, animations: {
-                 self.moveTheViewUpAndDown.constant = -70
+                 self.moveTheViewUpAndDown.constant = -(self.view.center.y)/2
+                //self.mainStack.center.y -= keyboardSize.height
+                //self.textFieldStack.center.y -= 50
 //                self.imagePlaceHolderButton.imageView?.frame.size.height = 90
 //                self.imagePlaceHolderButton.imageView?.frame.size.width = 90
                 //self.moveTheViewUpAndDown.setMultiplier(multiplier: 0.3)
@@ -70,9 +80,11 @@ class RegisterViewController: UIViewController {
 //            }
             UIView.animate(withDuration: 1.5, animations: {
                 self.moveTheViewUpAndDown.constant = 0
+                 //self.mainStack.center.y += keyboardSize.height
 //                self.imagePlaceHolderButton.imageView?.frame.size.height = 120
 //                self.imagePlaceHolderButton.imageView?.frame.size.width = 120
                  //self.moveTheViewUpAndDown.setMultiplier(multiplier: 0.4)
+                 //self.textFieldStack.center.y += 50
             })
         }
     }
@@ -97,7 +109,7 @@ class RegisterViewController: UIViewController {
     
     
     @IBAction func signUpTapped(_ sender: Any) {
-        //self.signUpButton.zoomOutWithEasing()
+        self.signUpButton.zoomInWithEasing()
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
         let keychain = KeychainSwift()
         createUser {
@@ -119,6 +131,7 @@ class RegisterViewController: UIViewController {
     }
     
     @IBAction func cancelTapped(_ sender: Any) {
+       self.cancelButton.zoomInWithEasing()
         dismiss(animated: true)
             
     }
