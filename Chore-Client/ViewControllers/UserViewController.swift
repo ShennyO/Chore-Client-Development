@@ -82,9 +82,9 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         UserDefaults.standard.synchronize()
 
         
-        let alert = UIAlertController(title: "Log out", message: "Do you want to log out?", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "Return", style: .cancel, handler: nil)
-        let logOut = UIAlertAction(title: "Logout", style: .default) { (logout) in
+        let alert = UIAlertController(title: "Log out", message: "Are you sure you want to log out?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "No", style: .default, handler: nil)
+        let logOut = UIAlertAction(title: "Yes", style: .default) { (logout) in
             Network.instance.fetch(route: .logoutUser) { (data, resp) in
                 DispatchQueue.main.async {
                     let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)

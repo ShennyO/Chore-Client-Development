@@ -56,6 +56,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                     self.groupsTableView.reloadData()
 
 
+                   // self.activity.alpha = 0.0
 
 
                     if self.loaded == false {
