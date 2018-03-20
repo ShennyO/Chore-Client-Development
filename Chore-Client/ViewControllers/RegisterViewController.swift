@@ -93,22 +93,23 @@ extension RegisterViewController {
         
         Network.instance.fetch(route: .createUser(firstName: firstName, lastName: lastName, email: trimmedEmail, password: trimmedPassword, confirmation: trimmedPassword, username: trimmedUsername)) { (data) in
             print("User Created")
-            completion()
+            self.getUser(username: username) {
+                completion()
+            }
+            
+        }
+    }
+}
+extension RegisterViewController {
+    func getUser(username: String, completion: @escaping()->()) {
+        Network.instance.fetch(route: .getUser(username: username)) { (data) in
+            let jsonUser = try? JSONDecoder().decode(User.self, from: data)
+            if let loggedUser = jsonUser {
+                self.user = loggedUser
+                completion()
+            }
         }
     }
 }
 
-//extension UIViewController {
-//    
-//    
-//    func hideKeyboardWhenTappedAround() {
-//        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-//        tap.cancelsTouchesInView = false
-//        view.addGestureRecognizer(tap)
-//    }
-//    
-//    @objc func dismissKeyboard() {
-//        view.endEditing(true)
-//    }
-//}
 
