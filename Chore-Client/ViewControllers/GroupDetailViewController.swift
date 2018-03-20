@@ -26,9 +26,10 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var sideMenuProfileButton: UIButton!
     @IBOutlet weak var groupDetailTableView: UITableView!
     
+    
     // - MARK: PROPERTIES
     
-    let sideMenuCellLabels = ["Completed Chores"]
+    let sideMenuCellLabels = ["Completed Tasks"]
     let photoHelper = PhotoHelper()
     var users: [User] = []
     var chores: [Chore] = []
@@ -38,13 +39,26 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     //for chore completion requests
     var requests: [Request] = []
     var menuShowing = true
+    var loaded: Bool = false
    
     @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.loaded = true
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        if loaded == false {
+            ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        }
+        if self.menuShowing {
+            let sideMenuWidth = self.view.frame.width * 0.7
+            let sideMenuStartingPoint = sideMenuWidth * -1
+            self.sideMenuTrailingConstraint.constant = sideMenuStartingPoint
+        }
         photoHelper.completionHandler = { (image) in
             guard let imageData = UIImageJPEGRepresentation(image, 1)
                 else {return}
@@ -56,6 +70,9 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             Network.instance.imageUpload(route:imageUploadRoute.groupUpload, imageData: imageData)
             
         }
+        
+        
+        
         let edgePan = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(screenEdgeSwiped))
         edgePan.edges = .right
         view.addGestureRecognizer(edgePan)
@@ -78,6 +95,10 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 DispatchQueue.main.async {
                     self.groupDetailTableView.reloadData()
                     self.sideMenuTableView.reloadData()
+                    if self.loaded == false {
+                         ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+                    }
+                   
                 }
             })
         }
@@ -87,25 +108,42 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         sideMenuLeaveButton.configureButton()
     }
     
+    
+    
     @IBAction func sideMenuProfileButtonTapped(_ sender: Any) {
         photoHelper.presentActionSheet(from: self)
     }
     
+    @objc func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        self.getGroupChores {
+            self.getChoreCompletionRequests(completion: {
+                DispatchQueue.main.async {
+                    self.groupDetailTableView.reloadData()
+                    self.sideMenuTableView.reloadData()
+                }
+            })
+        }
+    }
     
     @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
         if recognizer.state == .recognized || recognizer.state == .changed {
             
             let translation = recognizer.translation(in: self.view).x
-            
+            let sideMenuWidth = self.view.frame.width * 0.7
+            let sideMenuStartingPoint = self.sideMenuView.frame.width * -1
             if translation < 0  { //swipe left
+                //if its at the starting position
                 if self.sideMenuTrailingConstraint.constant < 0 {
                     self.menuShowing = true
                     UIView.animate(withDuration: 0.3, animations: {
-                        self.sideMenuTrailingConstraint.constant -= -100
+                        //move it left by the width
+                        self.sideMenuTrailingConstraint.constant += sideMenuWidth
                         self.view.layoutIfNeeded()
                     })
-                    
-                } else if self.sideMenuTrailingConstraint.constant > -200 {
+                    //if its not at the starting position
+                } else if self.sideMenuTrailingConstraint.constant > sideMenuStartingPoint {
+                    //the menu is not able to come out
                     self.menuShowing = false
                     self.sideMenuTrailingConstraint.constant = 0
                     if darkened == false {
@@ -119,7 +157,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                     
                 } else if self.sideMenuTrailingConstraint.constant < -50 {
                     self.menuShowing = true
-                    self.sideMenuTrailingConstraint.constant = -200
+                    self.sideMenuTrailingConstraint.constant = sideMenuStartingPoint
                     darkenScreen(darken: .normal)
 
                 }
@@ -131,10 +169,12 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @objc func swipeRight(swipe: UISwipeGestureRecognizer) {
         switch swipe.direction.rawValue {
         case 1:
-            if self.sideMenuTrailingConstraint.constant > -200 {
+            let sideMenuStartingPoint = self.sideMenuView.frame.width * -1
+            //if it's not at the starting point
+            if self.sideMenuTrailingConstraint.constant > sideMenuStartingPoint {
                 self.menuShowing = true
                 UIView.animate(withDuration: 0.125, animations: {
-                    self.sideMenuTrailingConstraint.constant = -200
+                    self.sideMenuTrailingConstraint.constant = sideMenuStartingPoint
                     self.view.layoutIfNeeded()
                 })
                 darkenScreen(darken: .normal)
@@ -313,7 +353,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
          let chore = self.chores[indexPath.row]
-        let alert = UIAlertController(title: "Delete Chore", message: "Are you sure you want to delete chore: \(chore.name)?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Delete Task", message: "Are you sure you want to delete task: \(chore.name)?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         let delete = UIAlertAction(title: "Delete", style: .default) { (delete) in
             self.deleteChore(chore: chore)
@@ -447,12 +487,13 @@ extension GroupDetailViewController: assignButtonDelegate {
     
     func deleteChore(chore: Chore) {
         let groupID = Int(KeychainSwift().get("groupID")!)!
-        
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
         Network.instance.fetch(route: .deleteChore(id: chore.id, group_id: groupID)) { (data) in
             print("deleted chore")
             self.getGroupChores {
                 DispatchQueue.main.async {
                     self.groupDetailTableView.reloadData()
+                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                 }
             }
         }
@@ -460,10 +501,12 @@ extension GroupDetailViewController: assignButtonDelegate {
     
     func completeChoreCompletionRequest(index: IndexPath, answer: Bool) {
         let request = self.requests[index.row]
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
         Network.instance.fetch(route: .choreRequestResponse(response: answer, chore_id: request.chore_id!, uuid: request.uuid!, request_id: request.id!)) { (data) in
             self.getChoreCompletionRequests {
                 self.getGroupChores {
                     DispatchQueue.main.async {
+                        ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                         self.groupDetailTableView.reloadData()
                     }
                 }
@@ -482,10 +525,12 @@ extension GroupDetailViewController: assignButtonDelegate {
     }
     
     func assignChore(indexPath: IndexPath) {
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
         takeChore(indexPath: indexPath) {
             self.getGroupChores {
                 DispatchQueue.main.async {
                     self.groupDetailTableView.reloadData()
+                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                 }
             }
         }

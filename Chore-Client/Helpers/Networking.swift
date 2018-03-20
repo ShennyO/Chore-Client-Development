@@ -237,7 +237,7 @@ class Network {
                 completion(data)
                 
                 if let httpResponse = resp as? HTTPURLResponse {
-                    print("error \(httpResponse.statusCode)")
+//                    print("\(httpResponse.statusCode)")
                 }
             }
             

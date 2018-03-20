@@ -9,13 +9,45 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Chore-Client/Helpers/Networking.swift"
-            timestampString = "543178675.737664"
+            filePath = "Chore-Client/Helpers/ActivityIndicatorHelper.swift"
+            timestampString = "543222856.320839"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "240"
-            endingLineNumber = "240"
-            landmarkName = "fetch(route:completion:)"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
+            landmarkName = "showActivityIndicator(uiView:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/Helpers/ActivityIndicatorHelper.swift"
+            timestampString = "543222856.321169"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "showActivityIndicator(uiView:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/Helpers/ActivityIndicatorHelper.swift"
+            timestampString = "543222856.321242"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "showActivityIndicator(uiView:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -28,11 +28,19 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     var currentUser: User!
     //This checks if we are opening the view normally, or right after we uploaded an image
     var Uploaded = false
+    var loaded = false
     
-    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.loaded = true
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if loaded == false {
+            ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        }
+        
         self.navigationController?.navigationBar.tintAdjustmentMode = .normal
         self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
         
@@ -48,7 +56,9 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
                     self.profileImage.clipsToBounds = true
                     self.userNameLabel.text = self.currentUser.username
                     self.choreRecordTableView.reloadData()
-                    print(self.userChores)
+                    if self.loaded == false {
+                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+                    }
                 }
             }
         }

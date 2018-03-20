@@ -13,13 +13,25 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
 
     @IBOutlet weak var choresTableView: UITableView!
     var userChores: [Chore] = []
+    var loaded: Bool = false
    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.loaded = true
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if loaded == false {
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        }
         getUserCompletedChores {
             DispatchQueue.main.async {
                 self.choresTableView.reloadData()
+                if self.loaded == false {
+                ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+                }
             }
         }
     }

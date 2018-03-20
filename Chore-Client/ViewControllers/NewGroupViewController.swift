@@ -40,10 +40,12 @@ class NewGroupViewController: UIViewController {
     @IBAction func addButtonTapped(_ sender: Any) {
         
         //After this is tapped, we want to perform a POST request to create a new group
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
         guard let groupName = self.groupNameTextField.text else {return}
         Network.instance.fetch(route: .createGroup(name: groupName)) { (data) in
             print("group created")
             DispatchQueue.main.async {
+                ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                 self.accepted = true
                 self.performSegue(withIdentifier: "unwindToGroupsVC", sender: self)
             }

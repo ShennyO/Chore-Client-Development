@@ -30,6 +30,8 @@
 		8490637B202BAA28008BFDF7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490637A202BAA28008BFDF7 /* LoginViewController.swift */; };
 		84906434202CD538008BFDF7 /* GroupsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906433202CD538008BFDF7 /* GroupsViewController.swift */; };
 		84906437202CD570008BFDF7 /* GroupTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906436202CD570008BFDF7 /* GroupTableViewCell.swift */; };
+		849B44D220606B7400400549 /* ActivityIndicatorHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B44D120606B7400400549 /* ActivityIndicatorHelper.swift */; };
+		849B44D420606BFD00400549 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B44D320606BFD00400549 /* UIColorExtension.swift */; };
 		84AD4475205483AE0015ECB2 /* UserCompletedChoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD4474205483AE0015ECB2 /* UserCompletedChoreTableViewCell.swift */; };
 		84B30FC0204517FA00B2C34B /* photoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B30FBF204517FA00B2C34B /* photoHelper.swift */; };
 		84BC189E2038E5BF000E2984 /* GroupRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC189D2038E5BF000E2984 /* GroupRequestTableViewCell.swift */; };
@@ -103,6 +105,8 @@
 		8490637A202BAA28008BFDF7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		84906433202CD538008BFDF7 /* GroupsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsViewController.swift; sourceTree = "<group>"; };
 		84906436202CD570008BFDF7 /* GroupTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupTableViewCell.swift; sourceTree = "<group>"; };
+		849B44D120606B7400400549 /* ActivityIndicatorHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorHelper.swift; sourceTree = "<group>"; };
+		849B44D320606BFD00400549 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		84AD4474205483AE0015ECB2 /* UserCompletedChoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCompletedChoreTableViewCell.swift; sourceTree = "<group>"; };
 		84B30FBF204517FA00B2C34B /* photoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoHelper.swift; sourceTree = "<group>"; };
 		84BC189D2038E5BF000E2984 /* GroupRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRequestTableViewCell.swift; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 				84B30FBF204517FA00B2C34B /* photoHelper.swift */,
 				84DEEDE42032570400FAAA6B /* Networking.swift */,
 				20B99AE4205F8C4900076C1F /* HeaderHelper.swift */,
+				849B44D120606B7400400549 /* ActivityIndicatorHelper.swift */,
+				849B44D320606BFD00400549 /* UIColorExtension.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -609,6 +615,7 @@
 				84DEEDF6203647FA00FAAA6B /* UserViewController.swift in Sources */,
 				84906434202CD538008BFDF7 /* GroupsViewController.swift in Sources */,
 				84C5949D2058EFC300525246 /* CompletedGroupChoreCell.swift in Sources */,
+				849B44D420606BFD00400549 /* UIColorExtension.swift in Sources */,
 				84DEEDF8203667B400FAAA6B /* NewChoreViewController.swift in Sources */,
 				8490637B202BAA28008BFDF7 /* LoginViewController.swift in Sources */,
 				84906377202A859C008BFDF7 /* Request.swift in Sources */,
@@ -624,6 +631,7 @@
 				84906342202A3AE7008BFDF7 /* AppDelegate.swift in Sources */,
 				84906375202A84C8008BFDF7 /* Chore.swift in Sources */,
 				84906371202A8287008BFDF7 /* User.swift in Sources */,
+				849B44D220606B7400400549 /* ActivityIndicatorHelper.swift in Sources */,
 				20B99AE0205F241C00076C1F /* Notification.swift in Sources */,
 				84BC189E2038E5BF000E2984 /* GroupRequestTableViewCell.swift in Sources */,
 				84906373202A844B008BFDF7 /* Group.swift in Sources */,

@@ -35,6 +35,10 @@ class LoginViewController: UIViewController {
     @IBAction func loginButtonTapped(_ sender: Any) {
         let trimmedUsernameText = self.usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedPasswordText = self.passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        
+        
         Network.instance.fetch(route: Route.loginUser(email: trimmedUsernameText!, password: trimmedPasswordText!)) { (data) in
             let jsonUser = try? JSONDecoder().decode(User.self, from: data)
             
@@ -49,9 +53,11 @@ class LoginViewController: UIViewController {
 
                 DispatchQueue.main.async {
                     self.performSegue(withIdentifier: "toMain", sender: self)
+                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                 }
             } else {
                 DispatchQueue.main.async {
+                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                     let alert = UIAlertController(title: "Invalid Login", message: "Username or password incorrect", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
@@ -61,9 +67,6 @@ class LoginViewController: UIViewController {
             }
         }
     }
-    
-    
-
 }
 
 
