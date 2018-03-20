@@ -8,6 +8,7 @@
 
 import UIKit
 import KeychainSwift
+import IQKeyboardManagerSwift
 
 class LoginViewController: UIViewController {
     //USE EMAIL, NOT USERNAME
@@ -23,8 +24,12 @@ class LoginViewController: UIViewController {
 //        self.hideKeyboardWhenTappedAround()
         loginButton.configureButton()
         registerButton.configureButton()
-
-        // Do any additional setup after loading the view.
+        
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        IQKeyboardManager.sharedManager().enable = true
+       
     }
 
     override func didReceiveMemoryWarning() {

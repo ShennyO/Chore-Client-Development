@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import UserNotifications
+import KeychainSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -29,16 +30,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         IQKeyboardManager.sharedManager().enable = true
         
-        
-//        let cancel = UNNotificationAction(identifier: "return", title: "Return", options: [.foreground])
-//        let completed = UNNotificationAction(identifier: "completed", title: "Completed", options: [.foreground])
-//        let choreNotification = UNNotificationCategory(identifier: "choreNotification", actions: [cancel,completed], intentIdentifiers: [], options: [])
-//        UNUserNotificationCenter.current().setNotificationCategories([choreNotification])
 
         // Override point for customization after application launch.
         let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         if(userLoginStatus)
         {
+            let username:String = KeychainSwift().get("username")!
+            let token: String = KeychainSwift().get("token")!
+            Network.instance.fetch(route: .getUser(username: username), completion: { (data) in
+                DispatchQueue.main.async {
+                    if let user = try? JSONDecoder().decode(User.self, from: data){
+                        if user.authentication_token != token {
+                            
+                            let alert = UIAlertController(title: "Log Out", message: "you have been logged out because your account was logIn in different device", preferredStyle: .alert)
+                            let done = UIAlertAction(title: "Return", style: .default, handler: { (done) in
+                                let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                                let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "newLoginVC")
+                                self.window?.rootViewController = loginVC
+                                self.window?.makeKeyAndVisible()
+                            })
+                            alert.addAction(done)
+                            let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+                            
+                            alertWindow.rootViewController = UIViewController()
+                            alertWindow.windowLevel = UIWindowLevelAlert + 1
+                            alertWindow.makeKeyAndVisible()
+                            
+                            alertWindow.rootViewController?.present(alert, animated: true, completion: nil)
+
+                        }
+                    }
+                    
+                }
+            })
             
             let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let rootController = mainStoryBoard.instantiateViewController(withIdentifier: "MainTab") 
