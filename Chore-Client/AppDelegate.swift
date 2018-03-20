@@ -19,6 +19,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
          IQKeyboardManager.sharedManager().enable = true
+        UIApplication.shared.statusBarStyle = .lightContent
+        let navigationBarAppearance = UINavigationBar.appearance()
+        
+        navigationBarAppearance.isTranslucent = false
+        navigationBarAppearance.barTintColor = UIColor(rgb: 0xFFB131)
+        
+        
+        navigationBarAppearance.tintColor = UIColor.white
+        
+        navigationBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+            
+            //Change status bar color
+            UIApplication.shared.statusBarStyle = .lightContent
         
         // check notification
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (permitionGranted, error) in

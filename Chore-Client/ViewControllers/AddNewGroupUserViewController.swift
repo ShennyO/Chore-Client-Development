@@ -72,6 +72,7 @@ extension AddNewGroupUserViewController {
                     let alert = UIAlertController(title: "Error", message: "User doesn't exist", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Return", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
+                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                 }
                 return
             }

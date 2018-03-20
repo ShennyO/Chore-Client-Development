@@ -41,6 +41,32 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var menuShowing = true
     var loaded: Bool = false
    
+    @IBAction func categoryButtonTapped(_ sender: Any) {
+        if (menuShowing) {
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.sideMenuTrailingConstraint.constant = 0
+                self.view.layoutIfNeeded()
+                
+            })
+            let deadlineTime = DispatchTime.now() + .milliseconds(200) // 0.3 seconds
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+                self.darkenScreen(darken: .dark)
+                
+            })
+            
+            
+        } else {
+            let sideMenuStartingPoint = self.view.frame.width * -0.7
+            sideMenuTrailingConstraint.constant = sideMenuStartingPoint
+            darkenScreen(darken: .normal)
+            UIView.animate(withDuration: 0.125, animations: {
+                self.view.layoutIfNeeded()
+            })
+            
+        }
+        menuShowing = !menuShowing
+    }
     @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,6 +77,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
         if loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }
@@ -102,7 +129,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 }
             })
         }
-        self.setUpSideMenuButton()
+//        self.setUpSideMenuButton()
         sideMenuNewUserButton.configureButton()
         sideMenuNewChoreButton.configureButton()
         sideMenuLeaveButton.configureButton()
