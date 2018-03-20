@@ -37,7 +37,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         {
             let username:String = KeychainSwift().get("username")!
             let token: String = KeychainSwift().get("token")!
-            Network.instance.fetch(route: .getUser(username: username), completion: { (data) in
+            Network.instance.fetch(route: .getUser(username: username), completion: { (data, resp) in
+                
+            
                 DispatchQueue.main.async {
                     if let user = try? JSONDecoder().decode(User.self, from: data){
                         if user.authentication_token != token {
