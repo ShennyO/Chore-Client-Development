@@ -131,6 +131,7 @@ extension RegisterViewController {
                 let alert = UIAlertController(title: "Invalid Sign Up", message: "Sign Up information not complete", preferredStyle: UIAlertControllerStyle.alert)
                 alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
                 self.present(alert, animated: true, completion: nil)
+                ViewControllerUtils().hideActivityIndicator(uiView: self.view)
             }
             
             return

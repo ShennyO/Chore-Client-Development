@@ -65,38 +65,22 @@
             endingLineNumber = "106"
             landmarkName = "signUpTapped(_:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 (Foundation.Data, __ObjC.HTTPURLResponse) -&gt; () in Chore_Client.RegisterViewController.createUser(completion: () -&gt; ()) -&gt; ()"
-                  moduleName = "Chore-Client"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/RegisterViewController.swift"
-                  timestampString = "543267465.115533"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "106"
-                  endingLineNumber = "106"
-                  offsetFromSymbolStart = "460">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #2 () -&gt; () in closure #2 (Foundation.Data, __ObjC.HTTPURLResponse) -&gt; () in Chore_Client.RegisterViewController.createUser(completion: () -&gt; ()) -&gt; ()"
-                  moduleName = "Chore-Client"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/RegisterViewController.swift"
-                  timestampString = "543267465.1183929"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "107"
-                  endingLineNumber = "107"
-                  offsetFromSymbolStart = "18">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/ViewControllers/GroupDetailViewController.swift"
+            timestampString = "543275089.90231"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
+            landmarkName = "swipeRight(swipe:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

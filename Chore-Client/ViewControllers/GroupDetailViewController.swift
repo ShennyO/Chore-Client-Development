@@ -114,17 +114,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         photoHelper.presentActionSheet(from: self)
     }
     
-    @objc func refresh(sender:AnyObject) {
-        // Code to refresh table view
-        self.getGroupChores {
-            self.getChoreCompletionRequests(completion: {
-                DispatchQueue.main.async {
-                    self.groupDetailTableView.reloadData()
-                    self.sideMenuTableView.reloadData()
-                }
-            })
-        }
-    }
+    
     
     @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
         if recognizer.state == .recognized || recognizer.state == .changed {
@@ -169,7 +159,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @objc func swipeRight(swipe: UISwipeGestureRecognizer) {
         switch swipe.direction.rawValue {
         case 1:
-            let sideMenuStartingPoint = self.sideMenuView.frame.width * -1
+            let sideMenuStartingPoint = self.view.frame.width * -0.7
             //if it's not at the starting point
             if self.sideMenuTrailingConstraint.constant > sideMenuStartingPoint {
                 self.menuShowing = true
@@ -223,7 +213,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             
             
         } else {
-            sideMenuTrailingConstraint.constant = -200
+            let sideMenuStartingPoint = self.view.frame.width * -0.7
+            sideMenuTrailingConstraint.constant = sideMenuStartingPoint
             darkenScreen(darken: .normal)
             UIView.animate(withDuration: 0.125, animations: {
                 self.view.layoutIfNeeded()
