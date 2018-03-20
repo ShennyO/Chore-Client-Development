@@ -23,6 +23,7 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+       
         if loaded == false {
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }

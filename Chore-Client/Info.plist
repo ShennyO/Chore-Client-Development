@@ -9,6 +9,8 @@
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 	<key>NSCameraUsageDescription</key>
 	<string>Allows camera usage for profile images</string>
 	<key>NSPhotoLibraryUsageDescription</key>

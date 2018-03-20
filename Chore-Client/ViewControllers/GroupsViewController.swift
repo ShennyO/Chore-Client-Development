@@ -43,7 +43,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-
+        
         if self.loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }
