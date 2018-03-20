@@ -10,6 +10,7 @@ import UIKit
 import KeychainSwift
 import Kingfisher
 import SnapKit
+import IQKeyboardManagerSwift
 
 class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestDelegate{
     
@@ -41,43 +42,44 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-<<<<<<< HEAD
+
         
         
-=======
+
         if self.loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }
->>>>>>> a320a6281b49667175b95739c0479db5248f8b90
+
         
         self.getGroups {
             
             self.getRequests {
                 DispatchQueue.main.async {
                     self.groupsTableView.reloadData()
-<<<<<<< HEAD
+
                    // self.activity.alpha = 0.0
-=======
                     if self.loaded == false {
                      ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                     }
->>>>>>> a320a6281b49667175b95739c0479db5248f8b90
+
                 }
             }
             
         }
     }
     
-<<<<<<< HEAD
+
     override func viewDidLoad() {
         //self.activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
        // self.activity.frame = CGRect(x: self.view.frame.width/2, y: self.view.frame.height/2 , width: 80, height: 80)
         //self.activity.startAnimating()
        // self.view.addSubview(self.activity)
+        
+         IQKeyboardManager.sharedManager().enable = true
     }
-=======
+
    
->>>>>>> a320a6281b49667175b95739c0479db5248f8b90
+
     
     @IBAction func unwindToGroupsVC(segue:UIStoryboardSegue) { }
     
