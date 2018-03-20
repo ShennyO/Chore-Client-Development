@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		20AD4E1F20609D480012B881 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AD4E1E20609D480012B881 /* ViewController+Extension.swift */; };
 		20B99AE0205F241C00076C1F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B99ADF205F241C00076C1F /* Notification.swift */; };
 		20B99AE3205F2CDC00076C1F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B99AE2205F2CDC00076C1F /* Date+Extension.swift */; };
 		20B99AE5205F8C4900076C1F /* HeaderHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B99AE4205F8C4900076C1F /* HeaderHelper.swift */; };
+		20B99AE720609A5200076C1F /* Button+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B99AE620609A5200076C1F /* Button+Extension.swift */; };
 		36E1D0B3109AD2C802BF79B2 /* Pods_Chore_ClientUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 738E6384CFDCCD20836F4D77 /* Pods_Chore_ClientUITests.framework */; };
 		8401A18D203E11C30038A864 /* ProfileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A18C203E11C30038A864 /* ProfileCollectionViewCell.swift */; };
 		8401A18F203E12BD0038A864 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8401A18E203E12BD0038A864 /* ProfileTableViewCell.swift */; };
@@ -66,9 +68,11 @@
 
 /* Begin PBXFileReference section */
 		1DB9AEFA9463BF187BEF51F6 /* Pods-Chore-ClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-ClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-ClientTests/Pods-Chore-ClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		20AD4E1E20609D480012B881 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		20B99ADF205F241C00076C1F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		20B99AE2205F2CDC00076C1F /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
 		20B99AE4205F8C4900076C1F /* HeaderHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderHelper.swift; sourceTree = "<group>"; };
+		20B99AE620609A5200076C1F /* Button+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Extension.swift"; sourceTree = "<group>"; };
 		27F77F44D88488A28D4C9920 /* Pods-Chore-ClientUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-ClientUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-ClientUITests/Pods-Chore-ClientUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		380F1B8917556C1E547BAA4C /* Pods_Chore_ClientTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chore_ClientTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3B9CA9E21271CE72CF146E58 /* Pods-Chore-ClientUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-ClientUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-ClientUITests/Pods-Chore-ClientUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 			isa = PBXGroup;
 			children = (
 				20B99AE2205F2CDC00076C1F /* Date+Extension.swift */,
+				20B99AE620609A5200076C1F /* Button+Extension.swift */,
+				20AD4E1E20609D480012B881 /* ViewController+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -590,6 +596,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				20AD4E1F20609D480012B881 /* ViewController+Extension.swift in Sources */,
 				84DEEDEE203402F300FAAA6B /* UserChoreTableViewCell.swift in Sources */,
 				84DEEDEC2034014400FAAA6B /* UserChoresViewController.swift in Sources */,
 				20B99AE5205F8C4900076C1F /* HeaderHelper.swift in Sources */,
@@ -597,6 +604,7 @@
 				84FD6E26204DFD3D00ED098A /* ChoreCompletionRequestTableViewCell.swift in Sources */,
 				8401A18F203E12BD0038A864 /* ProfileTableViewCell.swift in Sources */,
 				8401A191203E7EC90038A864 /* AddNewGroupUserViewController.swift in Sources */,
+				20B99AE720609A5200076C1F /* Button+Extension.swift in Sources */,
 				84DEEDE52032570400FAAA6B /* Networking.swift in Sources */,
 				84DEEDF6203647FA00FAAA6B /* UserViewController.swift in Sources */,
 				84906434202CD538008BFDF7 /* GroupsViewController.swift in Sources */,
@@ -787,7 +795,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X3T6G6B4MK;
+				DEVELOPMENT_TEAM = K7R433H2CL;
 				INFOPLIST_FILE = "Chore-Client/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MakeSchool.Chore-Client";
@@ -803,7 +811,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = X3T6G6B4MK;
+				DEVELOPMENT_TEAM = K7R433H2CL;
 				INFOPLIST_FILE = "Chore-Client/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.MakeSchool.Chore-Client";

@@ -216,9 +216,9 @@ enum Route {
 class Network {
     static let instance = Network()
     
-    let baseURL = "http://0.0.0.0:3000/v1/"
+   // let baseURL = "http://0.0.0.0:3000/v1/"
 //    let baseURL = "https://chores-server.herokuapp.com/v1/"
-//    let baseURL = "https://chorekeeper.herokuapp.com/v1/"
+    let baseURL = "https://chorekeeper.herokuapp.com/v1/"
     let session = URLSession.shared
     
     func fetch(route: Route, completion: @escaping (Data) -> Void) {

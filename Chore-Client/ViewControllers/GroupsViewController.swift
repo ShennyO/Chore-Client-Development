@@ -24,21 +24,34 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
     }
+    
+   // var activity :  UIActivityIndicatorView!
+    
     var requests: [Request] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        
+        
         self.getGroups {
             
             self.getRequests {
                 DispatchQueue.main.async {
                     self.groupsTableView.reloadData()
+                   // self.activity.alpha = 0.0
                 }
             }
             
         }
     }
     
+    override func viewDidLoad() {
+        //self.activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+       // self.activity.frame = CGRect(x: self.view.frame.width/2, y: self.view.frame.height/2 , width: 80, height: 80)
+        //self.activity.startAnimating()
+       // self.view.addSubview(self.activity)
+    }
     
     @IBAction func unwindToGroupsVC(segue:UIStoryboardSegue) { }
     
