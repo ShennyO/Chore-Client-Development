@@ -32,10 +32,10 @@ class RegisterViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.passwordTextField.delegate = self
-        self.emailTextField.delegate = self
+//        self.emailTextField.delegate = self
         self.usernameTextField.delegate = self
         self.emailTextField.tag = 1
-        self.usernameTextField.tag = 1
+//        self.usernameTextField.tag = 1
         self.passwordTextField.tag = 1
         self.imagePlaceHolderButton.isUserInteractionEnabled = false
         self.signUpButton.configureButton()

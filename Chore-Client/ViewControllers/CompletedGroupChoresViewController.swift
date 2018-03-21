@@ -25,7 +25,6 @@ class CompletedGroupChoresViewController: UIViewController, UITableViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         getCompletedGroupChores {
             DispatchQueue.main.async {
                 if self.loaded == false {
@@ -47,6 +46,7 @@ class CompletedGroupChoresViewController: UIViewController, UITableViewDelegate,
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = self.completedGroupChoresTableView.dequeueReusableCell(withIdentifier: "completedGroupChoreCell") as! CompletedGroupChoreCell
+        cell.selectionStyle = .none
         cell.choreNameLabel.text = self.chores[indexPath.row].name
         cell.dateLabel.text = self.chores[indexPath.row].due_date
         let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
