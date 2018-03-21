@@ -69,7 +69,7 @@ class RegisterViewController: UIViewController{
 //                self.view.frame.origin.y -= keyboardSize.height
 //            }
             UIView.animate(withDuration: 1.5, animations: {
-                 self.moveTheViewUpAndDown.constant = -(self.view.center.y)/2
+                 self.moveTheViewUpAndDown.constant = -(keyboardSize.height)/2
                 //self.mainStack.center.y -= keyboardSize.height
                 //self.textFieldStack.center.y -= 50
 //                self.imagePlaceHolderButton.imageView?.frame.size.height = 90
