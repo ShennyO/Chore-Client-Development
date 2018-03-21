@@ -349,12 +349,13 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 return cell
             } else if indexPath.section == 0 {
                 let tableViewCell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "profileTableViewCell") as! ProfileTableViewCell
-                tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
+                tableViewCell.selectionStyle = .none
+            tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
                 return tableViewCell
             } else {
                 let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "choreCompletionRequestCell") as! ChoreCompletionRequestTableViewCell
                 cell.selectionStyle = .none
-                cell.choreCompletionLabel.text = "\(self.requests[indexPath.row].username!) has finished \(self.requests[indexPath.row].chore_name!) chore"
+                cell.choreCompletionLabel.text = "\(self.requests[indexPath.row].username!) has finished \(self.requests[indexPath.row].chore_name!) task"
                 cell.index = indexPath
                 cell.acceptButton.configureButton()
                 cell.denyButton.configureButton()

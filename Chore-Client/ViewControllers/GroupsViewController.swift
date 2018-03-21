@@ -72,10 +72,6 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 
     override func viewDidLoad() {
-        //self.activity = UIActivityIndicatorView(activityIndicatorStyle: .gray)
-       // self.activity.frame = CGRect(x: self.view.frame.width/2, y: self.view.frame.height/2 , width: 80, height: 80)
-        //self.activity.startAnimating()
-       // self.view.addSubview(self.activity)
         
          IQKeyboardManager.sharedManager().enable = true
     }
@@ -122,7 +118,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let members = self.groups[indexPath.row].members.count
             let chores = self.groups[indexPath.row].chores.count
             cell.membersCountLabel.text = (members == 1) ? "\(members) member" : "\(members) members"
-            cell.choresCountLabel.text = (chores == 1) ? "\(chores) chore" : "\(chores) chores"
+            cell.choresCountLabel.text = (chores == 1) ? "\(chores) chore" : "\(chores) tasks"
             return cell
         }
         

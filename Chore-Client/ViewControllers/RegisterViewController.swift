@@ -10,7 +10,7 @@ import UIKit
 import KeychainSwift
 import IQKeyboardManagerSwift
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController{
 
     @IBOutlet weak var buttonConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabelUpAndDown: NSLayoutConstraint!
@@ -31,6 +31,13 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.passwordTextField.delegate = self
+        self.emailTextField.delegate = self
+        self.usernameTextField.delegate = self
+        self.emailTextField.tag = 1
+        self.usernameTextField.tag = 1
+        self.passwordTextField.tag = 1
+        self.imagePlaceHolderButton.isUserInteractionEnabled = false
         self.signUpButton.configureButton()
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -44,17 +51,17 @@ class RegisterViewController: UIViewController {
         self.buttonConstraint.constant = (self.view.frame.height - 50)
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        photoHelper.completionHandler = {(image) in
-            //guard let image = image
-            DispatchQueue.main.async {
-                self.imagePlaceHolderButton.setImage(image, for: UIControlState.normal)
-                self.imagePlaceHolderButton.imageView?.setNeedsDisplay()
-                self.imagePlaceHolderButton.imageView?.layer.cornerRadius = 0.5 * (self.imagePlaceHolderButton.imageView?.bounds.size.width)!
-                self.imagePlaceHolderButton.imageView?.clipsToBounds = true
-            }
-        }
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        photoHelper.completionHandler = {(image) in
+//            //guard let image = image
+//            DispatchQueue.main.async {
+//                self.imagePlaceHolderButton.setImage(image, for: UIControlState.normal)
+//                self.imagePlaceHolderButton.imageView?.setNeedsDisplay()
+//                self.imagePlaceHolderButton.imageView?.layer.cornerRadius = 0.5 * (self.imagePlaceHolderButton.imageView?.bounds.size.width)!
+//                self.imagePlaceHolderButton.imageView?.clipsToBounds = true
+//            }
+//        }
+//    }
 
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
@@ -89,23 +96,23 @@ class RegisterViewController: UIViewController {
         }
     }
 
-    @IBAction func addProfilePicButtonTapped(_ sender: Any){
-        
-//        photoHelper.completionHandler = { (image) in
-//            guard let imageData = UIImageJPEGRepresentation(image, 1)
-//                else {return}
-//            DispatchQueue.main.async {
-//                self.Uploaded = true
-//                self.profileImage.image = image
-//                self.profileImage.setNeedsDisplay()
-//            }
-//            Network.instance.imageUpload(route: .userUpload, imageData: imageData)
+//    @IBAction func addProfilePicButtonTapped(_ sender: Any){
 //
-//        }
-        
-       
-        photoHelper.presentActionSheet(from: self)
-    }
+////        photoHelper.completionHandler = { (image) in
+////            guard let imageData = UIImageJPEGRepresentation(image, 1)
+////                else {return}
+////            DispatchQueue.main.async {
+////                self.Uploaded = true
+////                self.profileImage.image = image
+////                self.profileImage.setNeedsDisplay()
+////            }
+////            Network.instance.imageUpload(route: .userUpload, imageData: imageData)
+////
+////        }
+//
+//
+//        photoHelper.presentActionSheet(from: self)
+//    }
     
     
     @IBAction func signUpTapped(_ sender: Any) {
@@ -121,7 +128,7 @@ class RegisterViewController: UIViewController {
             keychain.set(String(self.user.id), forKey: "id")
             
             // add userImage
-            self.setProfilePic()
+//            self.setProfilePic()
             
             DispatchQueue.main.async {
                 ViewControllerUtils().hideActivityIndicator(uiView: self.view)
@@ -148,6 +155,13 @@ extension RegisterViewController {
             }
             
             return
+        }
+        
+        if password.count < 6 {
+            let alert = UIAlertController(title: "Invalid Sign Up", message: "Password must be at least 6 characters", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            ViewControllerUtils().hideActivityIndicator(uiView: self.view)
         }
         
         let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -183,16 +197,28 @@ extension RegisterViewController {
         }
     }
     
-    func setProfilePic() {
-        if let image: UIImage = self.imagePlaceHolderButton.imageView?.image{
-        let imageData = UIImageJPEGRepresentation(image, 1)
-            Network.instance.imageUpload(route: .userUpload, imageData: imageData!)
-    }
-  }
+//    func setProfilePic() {
+//        if let image: UIImage = self.imagePlaceHolderButton.imageView?.image{
+//        let imageData = UIImageJPEGRepresentation(image, 1)
+//            Network.instance.imageUpload(route: .userUpload, imageData: imageData!)
+//    }
+//  }
 }
 
 // - MARK: TEXTFIELD LIFE CYCLE
 extension RegisterViewController: UITextFieldDelegate{
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField.tag == 1 {
+            if (textField.text?.count)! < 6 {
+                let alert = UIAlertController(title: "Invalid", message: "Minimum of 6 characters required", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                textField.text = ""
+            }
+        }
+        
+    }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool
     {
