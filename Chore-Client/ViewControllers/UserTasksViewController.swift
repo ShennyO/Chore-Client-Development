@@ -20,8 +20,8 @@ class UserTasksViewController: UIViewController {
     
     var group: Group!
     var user: User!
-    var progressTasks: [Chore]!
-    var completedTasks: [Chore]!
+    var progressTasks: [Chore] = []
+    var completedTasks: [Chore] = []
     
     // - MARK: IBACTIONS
     override func viewDidLoad() {
@@ -56,7 +56,12 @@ extension UserTasksViewController: UITableViewDelegate, UITableViewDataSource {
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return self.progressTasks.count
+            if self.group.userInProgressTasks(userId: self.user.id).count != 0 {
+                return self.progressTasks.count
+            } else {
+                return 0
+            }
+            
         } else {
             if self.group.userCompletedTasks(userId: self.user.id).count != 0 {
                 return self.completedTasks.count
