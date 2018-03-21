@@ -22,24 +22,17 @@ struct Group: Codable {
 
 extension Group{
     func userCompletedTasks(userId: Int) -> [Chore]{
-//        var progressChores: [Chore] = []
-//        for chore in chores {
-//            if chore.user_id == userId && chore.completed == true {
-//                progressChores.append(chore)
-//            }
-//        }
-//        return progressChores
-        return self.chores.filter{$0.user_id == userId && $0.completed == true}
+
+        
+        return self.cleanChore().filter{$0.user_id == userId && $0.completed == true}
     }
     
     func userInProgressTasks(userId: Int) -> [Chore]{
-//        var progressChores: [Chore] = []
-//        for chore in chores {
-//            if chore.user_id == userId && chore.completed == false {
-//                progressChores.append(chore)
-//            }
-//        }
-//        return progressChores
-        return self.chores.filter{$0.user_id == userId && $0.completed == false}
+        let chore = self.cleanChore().filter{$0.user_id == userId && $0.completed == false}
+        return chore
+    }
+    func cleanChore() -> [Chore]{
+        return self.chores.filter{$0.user_id != nil}
+
     }
 }
