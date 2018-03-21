@@ -265,6 +265,11 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             } else if identifier == "toCompletedGroupChores" {
                 let CompletedGroupChoresVC = segue.destination as! CompletedGroupChoresViewController
                 CompletedGroupChoresVC.group = self.group
+            } else if identifier == "userDetail"{
+                let user = sender as! User
+                let userTaskVC = segue.destination as! UserTasksViewController
+                userTaskVC.group = group
+                userTaskVC.user = user
             }
         }
     }
@@ -438,6 +443,11 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100.0, height: 130.0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let user = group.members[indexPath.row]
+        self.performSegue(withIdentifier: "userDetail", sender: user)
     }
 
 }

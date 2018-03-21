@@ -68,7 +68,7 @@ class NewChoreViewController: UIViewController, UITextFieldDelegate {
             alert.addAction(cancel)
             self.present(alert, animated: true, completion: nil)
         }
-}
+    }
 
 }
 

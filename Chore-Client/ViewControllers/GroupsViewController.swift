@@ -134,9 +134,6 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         }
     }
-    
-   
-
 }
 
 extension GroupsViewController {

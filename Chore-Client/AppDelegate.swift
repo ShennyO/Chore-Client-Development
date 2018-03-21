@@ -15,10 +15,16 @@ import KeychainSwift
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var center = UNUserNotificationCenter.current()
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-         IQKeyboardManager.sharedManager().enable = true
+        
+        center.delegate = self
+        center.removeAllDeliveredNotifications()
+        
+        IQKeyboardManager.sharedManager().enable = true
         UIApplication.shared.statusBarStyle = .lightContent
         let navigationBarAppearance = UINavigationBar.appearance()
         
@@ -120,13 +126,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate{
-//
-//     func userNotificationCenter(_ center: UNUserNotificationCenter,
-//                                         didReceive response: UNNotificationResponse,
-//                                         withCompletionHandler completionHandler: @escaping () -> Void){
-//
-//        if response.actionIdentifier == "completed"{
-//            Network.instance
-//        }
-//    }
+
+     func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                         didReceive response: UNNotificationResponse,
+                                         withCompletionHandler completionHandler: @escaping () -> Void){
+
+      center.removeAllDeliveredNotifications()
+    }
 }

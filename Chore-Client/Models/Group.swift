@@ -15,7 +15,18 @@ struct Groups: Codable {
 struct Group: Codable {
     let name: String
     let members: [User]!
-    let chores: [Chore]!
+    var chores: [Chore]!
     let id: Int
     let image_file: String!
+}
+
+extension Group{
+    func userCompletedTasks(userId: Int) -> [Chore]{
+        
+        return self.chores.filter{$0.user_id == userId && $0.completed == true}
+    }
+    
+    func userInProgressTasks(userId: Int) -> [Chore]{
+        return self.chores.filter{$0.user_id == userId && $0.completed == false}
+    }
 }

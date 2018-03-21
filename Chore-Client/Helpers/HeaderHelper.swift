@@ -15,10 +15,10 @@ struct HeaderViewHelper
     static  func createTitleHeaderView(title: String, fontSize: CGFloat, frame: CGRect) -> UIView
     {
         let vw = UIView(frame:frame)
-        vw.backgroundColor = UIColor(red:0.99, green:0.69, blue:0.19, alpha:1.0)
+        vw.backgroundColor = UIColor.white
         let titleLabel = UILabel()
         titleLabel.clipsToBounds = false
-        titleLabel.textColor = .white
+        titleLabel.textColor = UIColor(rgb: 0x4734AE)
         titleLabel.text = title
         titleLabel.textAlignment = .left
         titleLabel.font = UIFont(name: "Futura", size: fontSize)
