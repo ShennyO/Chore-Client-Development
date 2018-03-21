@@ -106,6 +106,11 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight(swipe:)))
         swipeRight.direction = .right
         view.addGestureRecognizer(swipeRight)
+        
+        
+        self.groupDetailTableView.separatorInset = UIEdgeInsets.zero
+        self.groupDetailTableView.layoutMargins = UIEdgeInsets.zero
+        
         sideMenuTableView.dataSource = self
         sideMenuTableView.delegate = self
         if Uploaded == false {
@@ -355,6 +360,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             } else if indexPath.section == 0 {
                 let tableViewCell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "profileTableViewCell") as! ProfileTableViewCell
                 tableViewCell.selectionStyle = .none
+                tableViewCell.layoutMargins = UIEdgeInsets.zero
             tableViewCell.setCollectionViewDataSourceDelegate(dataSourceDelegate: self, forRow: indexPath.row)
                 return tableViewCell
             } else {

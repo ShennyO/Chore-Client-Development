@@ -23,7 +23,9 @@ class ViewControllerUtils {
      @param uiView - add activity indicator to this view
      */
     func showActivityIndicator(uiView: UIView) {
-        container.frame = uiView.frame
+        container.frame.size.height = uiView.frame.height + 100
+        container.frame.size.width = uiView.frame.width
+        
         container.center.y = uiView.center.y - 100
         container.center.x = uiView.center.x 
         container.backgroundColor = UIColor(rgb: 0xffffff).withAlphaComponent(0.3)
