@@ -69,6 +69,11 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
 
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        title = "\(self.group.name)"
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.loaded = true
@@ -119,7 +124,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             self.sideMenuGroupImageView.contentMode = .scaleAspectFill
             self.sideMenuGroupImageView.clipsToBounds = true
         }
-        self.sideMenuGroupLabel.text = self.group.name
+        
         self.users = self.group.members
         
         self.getGroupChores {
@@ -140,6 +145,32 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         sideMenuLeaveButton.configureButton()
     }
     
+    @IBAction func sideMenuButtonTapped(_ sender: Any) {
+        if (menuShowing) {
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.sideMenuTrailingConstraint.constant = 0
+                self.view.layoutIfNeeded()
+                
+            })
+            let deadlineTime = DispatchTime.now() + .milliseconds(200) // 0.3 seconds
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+                self.darkenScreen(darken: .dark)
+                
+            })
+            
+            
+        } else {
+            let sideMenuStartingPoint = self.view.frame.width * -0.7
+            sideMenuTrailingConstraint.constant = sideMenuStartingPoint
+            darkenScreen(darken: .normal)
+            UIView.animate(withDuration: 0.125, animations: {
+                self.view.layoutIfNeeded()
+            })
+            
+        }
+        menuShowing = !menuShowing
+    }
     
     
     @IBAction func sideMenuProfileButtonTapped(_ sender: Any) {
@@ -229,33 +260,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     
-    @objc func sideMenuButtonTapped() {
-        if (menuShowing) {
-            
-            UIView.animate(withDuration: 0.3, animations: {
-                self.sideMenuTrailingConstraint.constant = 0
-                self.view.layoutIfNeeded()
-                
-            })
-            let deadlineTime = DispatchTime.now() + .milliseconds(200) // 0.3 seconds
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
-                self.darkenScreen(darken: .dark)
-
-            })
-            
-            
-        } else {
-            let sideMenuStartingPoint = self.view.frame.width * -0.7
-            sideMenuTrailingConstraint.constant = sideMenuStartingPoint
-            darkenScreen(darken: .normal)
-            UIView.animate(withDuration: 0.125, animations: {
-                self.view.layoutIfNeeded()
-            })
-            
-        }
-        menuShowing = !menuShowing
-    }
-    
+   
     
     
     @objc func ButtonClick(_ sender: UIButton){
@@ -284,11 +289,11 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == self.groupDetailTableView {
             if indexPath.section == 0 {
-                return 155
+                return 170
             } else if indexPath.section == 1 {
-                return 70
+                return 110
             } else {
-                return 70
+                return 80
             }
         } else {
             return 55
@@ -334,7 +339,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 cell.currentIndex = indexPath
                 cell.delegate = self
                 if self.chores[indexPath.row].assigned {
-                    cell.assignButtonHeight.constant = 45
+//                    cell.assignButtonHeight.constant = 45
                     cell.assignButton.isUserInteractionEnabled = false
                     if self.chores[indexPath.row].user.image_file != "/image_files/original/missing.png" {
                         let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
@@ -351,7 +356,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                     
                 } else {
                     cell.assignButton.setImage(nil, for: .normal)
-                    cell.assignButtonHeight.constant = 30
+//                    cell.assignButtonHeight.constant = 30
                     cell.assignButton.layer.cornerRadius = 30 * 0.455
                     cell.assignButton.clipsToBounds = true
                     cell.assignButton.isUserInteractionEnabled = true
@@ -444,7 +449,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 25
+        return 10
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -494,26 +499,26 @@ extension GroupDetailViewController: assignButtonDelegate {
     }
     
     
-    func setUpSideMenuButton() {
-        let sideMenuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
-        sideMenuButton.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
-        sideMenuButton.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
-        let imgURL = URL(string: self.group.image_file)
-        if self.group.image_file != "/image_files/original/missing.png" {
-            KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
-                DispatchQueue.main.async {
-                    sideMenuButton.setBackgroundImage(image!, for: .normal)
-                    sideMenuButton.addTarget(self, action: #selector(self.sideMenuButtonTapped), for: .touchUpInside)
-                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
-                }
-            }
-        } else {
-            sideMenuButton.setBackgroundImage(UIImage(named: "AccountIcon"), for: .normal)
-            sideMenuButton.addTarget(self, action: #selector(self.sideMenuButtonTapped), for: .touchUpInside)
-            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
-        }
-        
-    }
+//    func setUpSideMenuButton() {
+//        let sideMenuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+//        sideMenuButton.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
+//        sideMenuButton.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
+//        let imgURL = URL(string: self.group.image_file)
+//        if self.group.image_file != "/image_files/original/missing.png" {
+//            KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
+//                DispatchQueue.main.async {
+//                    sideMenuButton.setBackgroundImage(image!, for: .normal)
+//                    sideMenuButton.addTarget(self, action: #selector(self.sideMenuButtonTapped), for: .touchUpInside)
+//                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
+//                }
+//            }
+//        } else {
+//            sideMenuButton.setBackgroundImage(UIImage(named: "AccountIcon"), for: .normal)
+//            sideMenuButton.addTarget(self, action: #selector(self.sideMenuButtonTapped), for: .touchUpInside)
+//            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
+//        }
+//
+//    }
     
     func configureButton(button: UIButton) {
         button.layer.cornerRadius = 0.155 * button.bounds.size.width

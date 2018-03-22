@@ -24,20 +24,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         center.delegate = self
         center.removeAllDeliveredNotifications()
         
+        UINavigationBar.appearance().tintColor = UIColor.black
+        let offset = UIOffset(horizontal: -300, vertical: 0)
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(offset, for: .default)
+//
+//        UINavigationBar.appearance().prefersLargeTitles = true
+//        UINavigationBar.appearance().largeTitleTextAttributes =
+//            [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 35, weight: UIFont.Weight.black)]
+
+        
         IQKeyboardManager.sharedManager().enable = true
-        UIApplication.shared.statusBarStyle = .lightContent
-        let navigationBarAppearance = UINavigationBar.appearance()
+//        UIApplication.shared.statusBarStyle = .default
+//        let navigationBarAppearance = UINavigationBar.appearance()
         
-        navigationBarAppearance.isTranslucent = false
-        navigationBarAppearance.barTintColor = UIColor(rgb: 0xFFB131)
+//        navigationBarAppearance.isTranslucent = false
+//        navigationBarAppearance.barTintColor = UIColor(rgb: 0xFFB131)
         
         
-        navigationBarAppearance.tintColor = UIColor.white
+//        navigationBarAppearance.tintColor = UIColor.white
         
-        navigationBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
-            
+//        navigationBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
             //Change status bar color
-            UIApplication.shared.statusBarStyle = .lightContent
+//            UIApplication.shared.statusBarStyle = .lightContent
         
         // check notification
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (permitionGranted, error) in

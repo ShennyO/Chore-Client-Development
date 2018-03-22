@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class UserTasksViewController: UIViewController {
 
@@ -17,11 +18,26 @@ class UserTasksViewController: UIViewController {
     @IBOutlet weak var userTaskRecordTableView: UITableView!
     
     // - MARK: PROPERTIES
-    
+    var myCustomView: UIImageView!
     var group: Group!
     var user: User!
     var progressTasks: [Chore] = []
     var completedTasks: [Chore] = []
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        showNavigation()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.userProfileImageView.contentMode = .scaleAspectFill
+        hideNavigation()
+    }
     
     // - MARK: IBACTIONS
     override func viewDidLoad() {
@@ -29,9 +45,6 @@ class UserTasksViewController: UIViewController {
         self.usernameLabel.text = self.user.username
         let imageURL = URL(string: self.user.image_file)
         self.userProfileImageView.kf.setImage(with: imageURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
-        self.userProfileImageView.contentMode = .scaleAspectFill
-        self.userProfileImageView.layer.cornerRadius = 0.5 * self.userProfileImageView.bounds.size.width
-        self.userProfileImageView.clipsToBounds = true
         self.userTaskRecordTableView.dataSource = self
         self.userTaskRecordTableView.delegate = self
         self.progressTasks = group.userInProgressTasks(userId: self.user.id)
@@ -49,6 +62,7 @@ class UserTasksViewController: UIViewController {
 }
 
 extension UserTasksViewController: UITableViewDelegate, UITableViewDataSource {
+    
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2

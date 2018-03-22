@@ -33,10 +33,14 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.loaded = true
+        showNavigation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        hideNavigation()
+    navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.black
+    navigationController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
         if loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }

@@ -12,4 +12,12 @@ class ProfileCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
+    
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        profilePicture.layer.borderWidth = 3
+        profilePicture.layer.borderColor = UIColor(red: 45, green: 45, blue: 45).cgColor
+    }
 }
