@@ -21,12 +21,20 @@ class GroupChoreTableViewCell: UITableViewCell {
 //    @IBOutlet weak var assignButtonHeight: NSLayoutConstraint!
     var delegate: assignButtonDelegate!
     var currentIndex: IndexPath!
+    var chore: Chore!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        assignButton.imageView?.contentMode = .scaleAspectFill
+//        if chore.assigned {
+            assignButton.frame.size.height = 45
+            assignButton.imageView?.contentMode = .scaleAspectFill
+            
+            assignButton.layer.cornerRadius = assignButton.frame.size.width / 2
+//         else {
+//            assignButton.frame.size.height = 30
+//            assignButton.imageView?.image = nil
+//        }
         
-        assignButton.layer.cornerRadius = assignButton.frame.size.width / 2
     }
 
     @IBAction func assignButtonTapped(_ sender: Any) {
