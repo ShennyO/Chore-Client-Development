@@ -66,45 +66,43 @@ class UserTasksViewController: UIViewController {
 
 extension UserTasksViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        
-        
-        let imgURL = URL(string: self.group.image_file)
-        if self.group.image_file != "/image_files/original/missing.png" {
-            KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
-                DispatchQueue.main.async {
-                    self.myCustomView.image = image
-                }
-            }
-        } else {
-            self.myCustomView.image = UIImage(named: "AccountIcon")
-        }
-        
-        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-        header.addSubview(myCustomView)
-        return header
-    }
+//    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//
+//
+//        let imgURL = URL(string: self.group.image_file)
+//        if self.group.image_file != "/image_files/original/missing.png" {
+//            KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
+//                DispatchQueue.main.async {
+//                    self.myCustomView.image = image
+//                }
+//            }
+//        } else {
+//            self.myCustomView.image = UIImage(named: "AccountIcon")
+//        }
+//
+//        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+//        header.addSubview(myCustomView)
+//        return header
+//    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 2
     }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 {
+        if section == 0 {
             if self.group.userInProgressTasks(userId: self.user.id).count != 0 {
                 return self.progressTasks.count
             } else {
                 return 0
             }
             
-        } else if section == 2 {
+        } else {
             if self.group.userCompletedTasks(userId: self.user.id).count != 0 {
                 return self.completedTasks.count
             } else {
                 return 0
             }
-        } else {
-            return 0
         }
     
     }
@@ -140,27 +138,27 @@ extension UserTasksViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            let imgURL = URL(string: self.group.image_file)
-            if self.group.image_file != "/image_files/original/missing.png" {
-                KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
-                    DispatchQueue.main.async {
-                        self.myCustomView.image = image
-                    }
-                }
-            } else {
-                self.myCustomView.image = UIImage(named: "AccountIcon")
-            }
-            
-            let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
-            header.addSubview(myCustomView)
-            return header
-//            if self.progressTasks.count != 0{
-//            let header = HeaderViewHelper.createTitleHeaderView(title: "In Progress Tasks", fontSize: 20, frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70))
+//            let imgURL = URL(string: self.group.image_file)
+//            if self.group.image_file != "/image_files/original/missing.png" {
+//                KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
+//                    DispatchQueue.main.async {
+//                        self.myCustomView.image = image
+//                    }
+//                }
+//            } else {
+//                self.myCustomView.image = UIImage(named: "AccountIcon")
+//            }
+//
+//            let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+//            header.addSubview(myCustomView)
 //            return header
-//            }
-//            else{
-//                return nil
-//            }
+        if self.progressTasks.count != 0{
+        let header = HeaderViewHelper.createTitleHeaderView(title: "In Progress Tasks", fontSize: 20, frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70))
+        return header
+        }
+        else{
+            return nil
+        }
         } else {
             if self.completedTasks.count != 0{
             let header = HeaderViewHelper.createTitleHeaderView(title: "Completed Tasks", fontSize: 20, frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70))
