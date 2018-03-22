@@ -332,6 +332,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         if tableView == groupDetailTableView {
             if indexPath.section == 2 {
                 let cell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "groupChoreCell") as! GroupChoreTableViewCell
+                cell.chore = self.chores[indexPath.row]
                 cell.selectionStyle = .none
                 cell.choreNameLabel.text = self.chores[indexPath.row].name
                 cell.choreDescriptionLabel.text = self.chores[indexPath.row].description
