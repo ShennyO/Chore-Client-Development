@@ -48,6 +48,7 @@ class CompletedGroupChoresViewController: UIViewController, UITableViewDelegate,
         let cell = self.completedGroupChoresTableView.dequeueReusableCell(withIdentifier: "completedGroupChoreCell") as! CompletedGroupChoreCell
         cell.selectionStyle = .none
         cell.choreNameLabel.text = self.chores[indexPath.row].name
+        cell.choreDescriptionLabel.text = self.chores[indexPath.row].description
         cell.dateLabel.text = self.chores[indexPath.row].due_date
         let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
         cell.userImageView.kf.setImage(with: imageURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)

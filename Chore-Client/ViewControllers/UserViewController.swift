@@ -105,7 +105,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 80
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -123,10 +123,12 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         cell.selectionStyle = .none
         if self.userChores[indexPath.row].pending {
             cell.completeButton.setTitle("Pending", for: .normal)
+            cell.completeButton.backgroundColor = UIColor(rgb: 0xEDE041)
             cell.completeButton.isUserInteractionEnabled = false
             
         } else if self.userChores[indexPath.row].pending == false {
             cell.completeButton.setTitle("Complete", for: .normal)
+            cell.completeButton.backgroundColor = UIColor(rgb: 0x55C529)
             cell.completeButton.isUserInteractionEnabled = true
         }
         cell.completeButton.configureButton()

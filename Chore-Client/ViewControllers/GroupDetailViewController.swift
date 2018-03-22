@@ -341,6 +341,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 cell.delegate = self
                 if self.chores[indexPath.row].assigned {
 //                    cell.assignButtonHeight.constant = 45
+//                    cell.assignButton.frame.size.height = 45
                     cell.assignButton.isUserInteractionEnabled = false
                     if self.chores[indexPath.row].user.image_file != "/image_files/original/missing.png" {
                         let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
@@ -357,7 +358,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                     
                 } else {
                     cell.assignButton.setImage(nil, for: .normal)
-//                    cell.assignButtonHeight.constant = 30
+//                    cell.assignButton.frame.size.height = 40
+//                    cell.assignButton.frame.size.width = 100
                     cell.assignButton.layer.cornerRadius = 30 * 0.455
                     cell.assignButton.clipsToBounds = true
                     cell.assignButton.isUserInteractionEnabled = true

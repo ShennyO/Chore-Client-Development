@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import Kingfisher
 
 struct HeaderViewHelper
 {
@@ -28,17 +29,80 @@ struct HeaderViewHelper
         vw.addSubview(titleLabel)
         // Constraints
         titleLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(30)
+            make.left.equalToSuperview().offset(15)
             //            make.centerX.equalTo(vw)
             make.centerY.equalTo(vw)
         }
         
-//        titleLabel.snp.makeConstraints { (make) in
-//            make.top.equalTo(descriptionLabel.snp.bottom).offset(20)
-//
-//        }
-        
         
         return vw
     }
+    
+    static  func createTitleImageHeaderView(title: String, fontSize: CGFloat, frame: CGRect, imageURL: String) -> UIView
+    {
+        var myCustomView = UIImageView()
+        let vw = UIView(frame:frame)
+        let darkVw = UIView(frame:frame)
+        let titleLabel = UILabel()
+        titleLabel.clipsToBounds = false
+        titleLabel.textColor = UIColor.white
+        titleLabel.text = title
+        titleLabel.textAlignment = .left
+        titleLabel.font = UIFont(name: "Futura", size: fontSize)
+        titleLabel.bounds.size.width = vw.bounds.width / 3
+        darkVw.backgroundColor = UIColor.black.withAlphaComponent(0.3)
+        vw.backgroundColor = UIColor.white
+        
+        
+        if imageURL != "/image_files/original/missing.png" {
+            let imgURL = URL(string: imageURL)
+            KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
+                DispatchQueue.main.async {
+                   myCustomView.image = image
+                
+                vw.addSubview(myCustomView)
+                vw.addSubview(darkVw)
+                vw.addSubview(titleLabel)
+                
+                darkVw.snp.makeConstraints({ (make) in
+                    make.right.equalToSuperview()
+                    make.left.equalToSuperview()
+                    make.bottom.equalToSuperview()
+                    make.top.equalToSuperview()
+                })
+                    
+                myCustomView.snp.makeConstraints { (make) in
+//                make.height.equalTo(100)
+//                make.width.equalTo(100)
+                make.right.equalToSuperview()
+                make.bottom.equalToSuperview()
+                make.left.equalToSuperview()
+                make.top.equalToSuperview()
+               
+                    }
+                    
+                    titleLabel.snp.makeConstraints({ (make) in
+                        make.left.equalToSuperview().offset(15)
+                        make.bottom.equalToSuperview().offset(-20)
+                    })
+                    
+                myCustomView.contentMode = UIViewContentMode.scaleAspectFill
+                    myCustomView.clipsToBounds = true
+                }
+            }
+        } else {
+            myCustomView.image = UIImage(named: "AccountIcon")
+            myCustomView.snp.makeConstraints { (make) in
+                make.left.equalToSuperview().offset(15)
+                //            make.centerX.equalTo(vw)
+                make.centerY.equalTo(vw)
+        }
+        
+        }
+       return vw
+        
+        // Constraints
+        
+    }
+
 }

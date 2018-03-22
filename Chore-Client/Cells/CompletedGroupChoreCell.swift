@@ -11,6 +11,7 @@ import UIKit
 class CompletedGroupChoreCell: UITableViewCell {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var choreNameLabel: UILabel!
+    @IBOutlet weak var choreDescriptionLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     
     override func awakeFromNib() {
