@@ -24,7 +24,10 @@ class LoginViewController: UIViewController {
 //        self.hideKeyboardWhenTappedAround()
         loginButton.configureButton()
         registerButton.configureButton()
-        
+        self.usernameTextField.autocorrectionType = .no
+        self.passwordTextField.autocorrectionType = .no
+        self.usernameTextField.autocapitalizationType = .none
+        self.usernameTextField.autocapitalizationType = .none
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
