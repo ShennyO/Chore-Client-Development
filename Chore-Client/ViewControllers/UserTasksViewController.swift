@@ -142,7 +142,7 @@ extension UserTasksViewController: UITableViewDelegate, UITableViewDataSource {
             return header
         } else if section == 1 {
             if self.progressTasks.count != 0{
-                let header = HeaderViewHelper.createTitleHeaderView(title: "In Progress Tasks", fontSize: 20, frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70))
+                let header = HeaderViewHelper.createTitleHeaderView(title: "In Progress Tasks", fontSize: 20, frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70), color: UIColor.white)
                 return header
             }
             else{
@@ -151,7 +151,7 @@ extension UserTasksViewController: UITableViewDelegate, UITableViewDataSource {
             
         } else {
             if self.completedTasks.count != 0{
-            let header = HeaderViewHelper.createTitleHeaderView(title: "Completed Tasks", fontSize: 20, frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70))
+                let header = HeaderViewHelper.createTitleHeaderView(title: "Completed Tasks", fontSize: 20, frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70), color: UIColor.white)
             return header
         }
         else{

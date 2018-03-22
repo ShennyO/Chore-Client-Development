@@ -922,21 +922,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="HJL-AP-f6K">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="HJL-AP-f6K">
                                 <rect key="frame" x="0.0" y="113" width="320" height="455"/>
-                                <color key="backgroundColor" white="1" alpha="0.5" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <gestureRecognizers/>
+                                <color key="separatorColor" red="0.88740488054735178" green="0.89373219784706215" blue="0.91271414974619292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileTableViewCell" rowHeight="170" id="e1b-aJ-apS" customClass="ProfileTableViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="320" height="170"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e1b-aJ-apS" id="tJf-Bm-I1R">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="169.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Q4k-FT-MiQ">
                                                     <rect key="frame" x="15" y="11" width="290" height="148"/>
-                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="4" minimumInteritemSpacing="15" id="03I-xt-fDA">
                                                         <size key="itemSize" width="159" height="150"/>
                                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -989,69 +990,84 @@
                                                 <constraint firstItem="Q4k-FT-MiQ" firstAttribute="top" secondItem="tJf-Bm-I1R" secondAttribute="topMargin" id="enS-8Y-4Bm"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="profileCollectionView" destination="Q4k-FT-MiQ" id="uRh-nL-W2K"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="choreCompletionRequestCell" rowHeight="120" id="hhi-lH-QNl" customClass="ChoreCompletionRequestTableViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="198" width="320" height="120"/>
+                                        <rect key="frame" x="0.0" y="225.5" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hhi-lH-QNl" id="BDe-1C-Aoe">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3In-r0-cNK">
-                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="119.5"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uPm-lK-Nxs">
+                                                    <rect key="frame" x="0.0" y="10" width="0.0" height="100"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6k5-G7-glF">
-                                                            <rect key="frame" x="15" y="10" width="290" height="54.5"/>
-                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Bq9-Yx-9fo" userLabel="Action Buttons">
-                                                            <rect key="frame" x="15" y="69.5" width="290" height="40"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3In-r0-cNK">
+                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="100"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMI-8x-sOJ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="130" height="40"/>
-                                                                    <color key="backgroundColor" red="0.28202340522679681" green="0.82318765862944165" blue="0.083297010783290951" alpha="0.90694563360000002" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="40" id="10h-jB-LL1"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                                                    <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
-                                                                    <state key="normal" title="Accept">
-                                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                                    </state>
-                                                                    <connections>
-                                                                        <action selector="acceptButtonTapped:" destination="hhi-lH-QNl" eventType="touchUpInside" id="E6z-Jv-Un8"/>
-                                                                    </connections>
-                                                                </button>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7Q-Qt-z0z">
-                                                                    <rect key="frame" x="160" y="0.0" width="130" height="40"/>
-                                                                    <color key="backgroundColor" red="0.92196695064447098" green="0.93109533629441621" blue="0.93109533629441621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
-                                                                    <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
-                                                                    <state key="normal" title="Deny">
-                                                                        <color key="titleColor" red="0.13225729695431476" green="0.13225729695431476" blue="0.13225729695431476" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                    </state>
-                                                                    <connections>
-                                                                        <action selector="denyButtonTapped:" destination="hhi-lH-QNl" eventType="touchUpInside" id="jof-1q-lyU"/>
-                                                                    </connections>
-                                                                </button>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6k5-G7-glF">
+                                                                    <rect key="frame" x="0.0" y="10" width="0.0" height="30"/>
+                                                                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                                    <color key="textColor" red="0.3024072017766497" green="0.30540133248730961" blue="0.30540133248730961" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Bq9-Yx-9fo" userLabel="Action Buttons">
+                                                                    <rect key="frame" x="0.0" y="45" width="0.0" height="45"/>
+                                                                    <subviews>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMI-8x-sOJ">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="45"/>
+                                                                            <color key="backgroundColor" red="0.28202340522679681" green="0.82318765862944165" blue="0.083297010783290951" alpha="0.90694563360000002" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="45" id="10h-jB-LL1"/>
+                                                                            </constraints>
+                                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                                                            <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                                                            <state key="normal" title="Accept">
+                                                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="acceptButtonTapped:" destination="hhi-lH-QNl" eventType="touchUpInside" id="E6z-Jv-Un8"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7Q-Qt-z0z">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="45"/>
+                                                                            <color key="backgroundColor" red="0.92196695064447098" green="0.93109533629441621" blue="0.93109533629441621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
+                                                                            <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                                                            <state key="normal" title="Deny">
+                                                                                <color key="titleColor" red="0.13225729695431476" green="0.13225729695431476" blue="0.13225729695431476" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            </state>
+                                                                            <connections>
+                                                                                <action selector="denyButtonTapped:" destination="hhi-lH-QNl" eventType="touchUpInside" id="jof-1q-lyU"/>
+                                                                            </connections>
+                                                                        </button>
+                                                                    </subviews>
+                                                                </stackView>
                                                             </subviews>
+                                                            <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
                                                         </stackView>
                                                     </subviews>
-                                                    <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
-                                                </stackView>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstItem="3In-r0-cNK" firstAttribute="top" secondItem="uPm-lK-Nxs" secondAttribute="top" id="1bD-JB-sTI"/>
+                                                        <constraint firstAttribute="bottom" secondItem="3In-r0-cNK" secondAttribute="bottom" id="XrP-SA-8EU"/>
+                                                        <constraint firstAttribute="trailing" secondItem="3In-r0-cNK" secondAttribute="trailing" id="fip-Ed-3G0"/>
+                                                        <constraint firstItem="3In-r0-cNK" firstAttribute="leading" secondItem="uPm-lK-Nxs" secondAttribute="leading" id="khA-tV-SNy"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="3In-r0-cNK" secondAttribute="trailing" id="LvQ-Ep-41m"/>
-                                                <constraint firstItem="3In-r0-cNK" firstAttribute="top" secondItem="BDe-1C-Aoe" secondAttribute="top" id="Ygt-M5-wRm"/>
-                                                <constraint firstAttribute="bottom" secondItem="3In-r0-cNK" secondAttribute="bottom" id="gC4-TJ-pwC"/>
-                                                <constraint firstItem="3In-r0-cNK" firstAttribute="leading" secondItem="BDe-1C-Aoe" secondAttribute="leading" id="kpe-eG-Pt4"/>
+                                                <constraint firstAttribute="trailing" secondItem="uPm-lK-Nxs" secondAttribute="trailing" constant="15" id="OS5-VH-Tys"/>
+                                                <constraint firstItem="uPm-lK-Nxs" firstAttribute="leading" secondItem="BDe-1C-Aoe" secondAttribute="leading" constant="15" id="Quk-m8-mal"/>
+                                                <constraint firstItem="uPm-lK-Nxs" firstAttribute="top" secondItem="BDe-1C-Aoe" secondAttribute="top" constant="10" id="YUJ-BS-RKK"/>
+                                                <constraint firstAttribute="bottom" secondItem="uPm-lK-Nxs" secondAttribute="bottom" constant="10" id="t60-zs-jeF"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <connections>
                                             <outlet property="acceptButton" destination="CMI-8x-sOJ" id="lOu-qD-mUL"/>
                                             <outlet property="choreCompletionLabel" destination="6k5-G7-glF" id="wwO-gQ-fu0"/>
@@ -1059,10 +1075,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupChoreCell" rowHeight="85" id="ofG-r8-6M1" customClass="GroupChoreTableViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="318" width="320" height="85"/>
+                                        <rect key="frame" x="0.0" y="345.5" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ofG-r8-6M1" id="aSx-6D-ASc">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="84.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="mVd-Ln-3Xg">
@@ -1074,7 +1090,7 @@
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="task name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIJ-9i-2yI">
                                                                     <rect key="frame" x="0.0" y="0.0" width="225" height="23.5"/>
                                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="19"/>
-                                                                    <nil key="textColor"/>
+                                                                    <color key="textColor" red="0.29706667724196284" green="0.30000793147208127" blue="0.30000793147208127" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgb-qN-aY9">
@@ -1258,7 +1274,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.95001294245642953" green="0.95678666373914956" blue="0.97710782758730963" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="DuC-y1-hw1" firstAttribute="top" secondItem="RaG-66-I3R" secondAttribute="bottom" id="CeQ-zR-kH6"/>
@@ -1424,7 +1440,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9k-s8-MTC">
-                                <rect key="frame" x="0.0" y="333" width="320" height="186"/>
+                                <rect key="frame" x="0.0" y="312" width="320" height="207"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userChoreCell" rowHeight="80" id="eRc-fc-Wwl" customClass="UserChoreTableViewCell" customModule="Chore_Client" customModuleProvider="target">
@@ -1507,16 +1523,16 @@
                                 </connections>
                             </tableView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u30-lm-tts">
-                                <rect key="frame" x="130" y="85" width="61.5" height="32.5"/>
+                                <rect key="frame" x="130" y="64" width="61.5" height="32.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="83f-Wb-3KO">
-                                <rect key="frame" x="77.5" y="127.5" width="165" height="165"/>
+                                <rect key="frame" x="77.5" y="106.5" width="165" height="165"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4v2-iX-AAV">
-                                <rect key="frame" x="77.5" y="127.5" width="165" height="165"/>
+                                <rect key="frame" x="77.5" y="106.5" width="165" height="165"/>
                                 <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="165" id="v7j-dC-bbj"/>
@@ -1527,13 +1543,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Progress Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkZ-PP-Pap">
-                                <rect key="frame" x="95" y="307.5" width="130" height="22.5"/>
+                                <rect key="frame" x="95" y="286.5" width="130" height="22.5"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jqs-OO-ySc">
-                                <rect key="frame" x="50" y="332" width="220" height="1"/>
+                                <rect key="frame" x="50" y="311" width="220" height="1"/>
                                 <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="sIJ-37-dXy"/>
@@ -1548,7 +1564,7 @@
                             <constraint firstItem="L9k-s8-MTC" firstAttribute="top" secondItem="Jqs-OO-ySc" secondAttribute="bottom" id="HH3-hv-fT3"/>
                             <constraint firstItem="fkZ-PP-Pap" firstAttribute="centerX" secondItem="fck-50-SvO" secondAttribute="centerX" id="IM3-Ev-wVp"/>
                             <constraint firstItem="83f-Wb-3KO" firstAttribute="height" secondItem="4v2-iX-AAV" secondAttribute="height" id="KYH-So-qTO"/>
-                            <constraint firstItem="u30-lm-tts" firstAttribute="top" secondItem="ksV-ef-29a" secondAttribute="bottom" constant="21" id="Ne0-2W-Rbo"/>
+                            <constraint firstItem="u30-lm-tts" firstAttribute="top" secondItem="ksV-ef-29a" secondAttribute="bottom" id="Ne0-2W-Rbo"/>
                             <constraint firstItem="L9k-s8-MTC" firstAttribute="leading" secondItem="fck-50-SvO" secondAttribute="leading" id="PNz-Ep-rdh"/>
                             <constraint firstItem="4v2-iX-AAV" firstAttribute="top" secondItem="u30-lm-tts" secondAttribute="bottom" constant="9.9999999999999858" id="Tzl-fh-6Vt"/>
                             <constraint firstItem="Jqs-OO-ySc" firstAttribute="centerX" secondItem="fck-50-SvO" secondAttribute="centerX" id="UXM-YQ-Vgx"/>
@@ -1589,17 +1605,17 @@
         <!--Completed Tasks-->
         <scene sceneID="5Dl-Tv-fZE">
             <objects>
-                <viewController id="yIn-Te-tY7" customClass="UserChoresViewController" customModule="Chore_Client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="yIn-Te-tY7" customClass="UserChoresViewController" customModule="Chore_Client" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Omo-dK-91D"/>
                         <viewControllerLayoutGuide type="bottom" id="Ggj-fK-Qnp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Cwe-Ud-jRy">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="519"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="u5D-1m-q1S">
-                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="completedChoreCell" rowHeight="80" id="3xl-xW-r2E" customClass="UserCompletedChoreTableViewCell" customModule="Chore_Client" customModuleProvider="target">

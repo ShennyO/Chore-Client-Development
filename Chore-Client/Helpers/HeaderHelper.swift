@@ -13,16 +13,43 @@ import Kingfisher
 
 struct HeaderViewHelper
 {
-    static  func createTitleHeaderView(title: String, fontSize: CGFloat, frame: CGRect) -> UIView
+    
+    static  func createTasksTitleHeaderView(title: String, fontSize: CGFloat, frame: CGRect, color: UIColor) -> UIView
     {
         let vw = UIView(frame:frame)
-        vw.backgroundColor = UIColor.white
+        vw.backgroundColor = color
         let titleLabel = UILabel()
         titleLabel.clipsToBounds = false
-        titleLabel.textColor = UIColor(rgb: 0x4734AE)
+        titleLabel.textColor = UIColor.black
         titleLabel.text = title
         titleLabel.textAlignment = .left
-        titleLabel.font = UIFont(name: "Futura", size: fontSize)
+        titleLabel.font = UIFont(name: "System", size: fontSize)
+        titleLabel.bounds.size.width = vw.bounds.width / 3
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
+        
+        
+        vw.addSubview(titleLabel)
+        // Constraints
+        titleLabel.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(10)
+            make.centerY.equalToSuperview().offset(-10)
+        }
+        
+        
+        return vw
+    }
+    
+    static  func createTitleHeaderView(title: String, fontSize: CGFloat, frame: CGRect, color: UIColor) -> UIView
+    {
+        let vw = UIView(frame:frame)
+        vw.backgroundColor = color
+        let titleLabel = UILabel()
+        titleLabel.clipsToBounds = false
+        titleLabel.textColor = UIColor.black
+        titleLabel.text = title
+        titleLabel.textAlignment = .left
+        titleLabel.font = UIFont(name: "System", size: fontSize)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 25)
         titleLabel.bounds.size.width = vw.bounds.width / 3
         
         
@@ -30,7 +57,6 @@ struct HeaderViewHelper
         // Constraints
         titleLabel.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(15)
-            //            make.centerX.equalTo(vw)
             make.centerY.equalTo(vw)
         }
         
@@ -91,13 +117,38 @@ struct HeaderViewHelper
                 }
             }
         } else {
+            
             myCustomView.image = UIImage(named: "AccountIcon")
+            vw.addSubview(myCustomView)
+            vw.addSubview(darkVw)
+            vw.addSubview(titleLabel)
             myCustomView.snp.makeConstraints { (make) in
                 make.left.equalToSuperview().offset(15)
                 //            make.centerX.equalTo(vw)
                 make.centerY.equalTo(vw)
         }
-        
+            darkVw.snp.makeConstraints({ (make) in
+                make.right.equalToSuperview()
+                make.left.equalToSuperview()
+                make.bottom.equalToSuperview()
+                make.top.equalToSuperview()
+            })
+            
+            myCustomView.snp.makeConstraints { (make) in
+                
+                make.right.equalToSuperview()
+                make.bottom.equalToSuperview()
+                make.left.equalToSuperview()
+                make.top.equalToSuperview()
+                
+            }
+            titleLabel.snp.makeConstraints({ (make) in
+                make.left.equalToSuperview().offset(15)
+                make.bottom.equalToSuperview().offset(-20)
+            })
+            
+            myCustomView.contentMode = UIViewContentMode.scaleAspectFill
+            myCustomView.clipsToBounds = true
         }
        return vw
         

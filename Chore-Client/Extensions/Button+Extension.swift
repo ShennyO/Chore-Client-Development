@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    func configureButton() {
-        self.layer.cornerRadius = 0.455 * self.bounds.height
+    func configureButton(cornerRadius: Double = 6) {
+        self.layer.cornerRadius = CGFloat(cornerRadius)
         self.clipsToBounds = true
     }
 }

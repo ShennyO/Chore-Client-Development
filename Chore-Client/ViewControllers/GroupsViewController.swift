@@ -36,6 +36,8 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.navigationBar.prefersLargeTitles = true
         self.loaded = true
     }
    

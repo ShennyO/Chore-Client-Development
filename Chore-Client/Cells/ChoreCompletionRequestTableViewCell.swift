@@ -13,16 +13,21 @@ protocol CompleteChoreCompletionDelegate {
 }
 
 class ChoreCompletionRequestTableViewCell: UITableViewCell {
-
     
     @IBOutlet weak var choreCompletionLabel: UILabel!
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var denyButton: UIButton!
     var delegate: CompleteChoreCompletionDelegate!
     var index: IndexPath!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
     }
 
     @IBAction func acceptButtonTapped(_ sender: Any) {
