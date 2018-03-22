@@ -30,6 +30,15 @@ class RegisterViewController: UIViewController{
      let photoHelper = PhotoHelper()
     
     override func viewDidLoad() {
+        
+        self.usernameTextField.autocorrectionType = .no
+        self.passwordTextField.autocorrectionType = .no
+        
+        self.usernameTextField.autocapitalizationType = .none
+         self.passwordTextField.autocapitalizationType = .none
+        
+        self.usernameTextField.autocapitalizationType = .none
+        self.usernameTextField.autocorrectionType = .no
         super.viewDidLoad()
         self.passwordTextField.delegate = self
 //        self.emailTextField.delegate = self
