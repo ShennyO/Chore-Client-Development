@@ -38,7 +38,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        hideNavigation()
+        hideNavigation(tint: UIColor.black)
     navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.black
     navigationController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
         if loaded == false {

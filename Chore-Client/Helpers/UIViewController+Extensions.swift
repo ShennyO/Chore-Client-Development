@@ -10,15 +10,17 @@ import Foundation
 import UIKit
 
 extension UIViewController {
-    func hideNavigation() {
+    func hideNavigation(tint: UIColor) {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
         navigationController?.navigationBar.barStyle = .default
         navigationController?.navigationBar.barTintColor = UIColor.clear
-        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.tintColor = tint
     }
+    
+    
     
     func showNavigation() {
         navigationController?.navigationBar.setBackgroundImage(nil, for: .default)

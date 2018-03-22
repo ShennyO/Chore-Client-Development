@@ -36,7 +36,7 @@ class UserTasksViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.userProfileImageView.contentMode = .scaleAspectFill
-        hideNavigation()
+        hideNavigation(tint: UIColor.white)
     }
     
     // - MARK: IBACTIONS
@@ -45,6 +45,9 @@ class UserTasksViewController: UIViewController {
         self.usernameLabel.text = self.user.username
         let imageURL = URL(string: self.user.image_file)
         self.userProfileImageView.kf.setImage(with: imageURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
+//        self.userProfileImageView.contentMode = 
+//        self.userProfileImageView.layer.cornerRadius = 0.5 * self.userProfileImageView.bounds.size.width
+//        self.userProfileImageView.clipsToBounds = true
         self.userTaskRecordTableView.dataSource = self
         self.userTaskRecordTableView.delegate = self
         self.progressTasks = group.userInProgressTasks(userId: self.user.id)
@@ -63,29 +66,50 @@ class UserTasksViewController: UIViewController {
 
 extension UserTasksViewController: UITableViewDelegate, UITableViewDataSource {
     
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        
+        
+        let imgURL = URL(string: self.group.image_file)
+        if self.group.image_file != "/image_files/original/missing.png" {
+            KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
+                DispatchQueue.main.async {
+                    self.myCustomView.image = image
+                }
+            }
+        } else {
+            self.myCustomView.image = UIImage(named: "AccountIcon")
+        }
+        
+        let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+        header.addSubview(myCustomView)
+        return header
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
+        if section == 1 {
             if self.group.userInProgressTasks(userId: self.user.id).count != 0 {
                 return self.progressTasks.count
             } else {
                 return 0
             }
             
-        } else {
+        } else if section == 2 {
             if self.group.userCompletedTasks(userId: self.user.id).count != 0 {
                 return self.completedTasks.count
             } else {
                 return 0
             }
-    }
+        } else {
+            return 0
+        }
     
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+       
         return 70
     }
     
@@ -116,13 +140,27 @@ extension UserTasksViewController: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
-            if self.progressTasks.count != 0{
-            let header = HeaderViewHelper.createTitleHeaderView(title: "In Progress Tasks", fontSize: 20, frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70))
+            let imgURL = URL(string: self.group.image_file)
+            if self.group.image_file != "/image_files/original/missing.png" {
+                KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
+                    DispatchQueue.main.async {
+                        self.myCustomView.image = image
+                    }
+                }
+            } else {
+                self.myCustomView.image = UIImage(named: "AccountIcon")
+            }
+            
+            let header: UITableViewHeaderFooterView = view as! UITableViewHeaderFooterView
+            header.addSubview(myCustomView)
             return header
-            }
-            else{
-                return nil
-            }
+//            if self.progressTasks.count != 0{
+//            let header = HeaderViewHelper.createTitleHeaderView(title: "In Progress Tasks", fontSize: 20, frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70))
+//            return header
+//            }
+//            else{
+//                return nil
+//            }
         } else {
             if self.completedTasks.count != 0{
             let header = HeaderViewHelper.createTitleHeaderView(title: "Completed Tasks", fontSize: 20, frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 70))
