@@ -14,7 +14,7 @@ protocol CompleteChoreCompletionDelegate {
 
 class ChoreCompletionRequestTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var choreCompletionCenterConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var choreCompletionLabel: UILabel!
     @IBOutlet weak var acceptButton: UIButton!
     @IBOutlet weak var denyButton: UIButton!

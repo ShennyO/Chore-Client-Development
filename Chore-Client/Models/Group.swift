@@ -22,6 +22,7 @@ struct Group: Codable {
 
 extension Group{
     func userCompletedTasks(userId: Int) -> [Chore]{
+
         
         return self.cleanChore().filter{$0.user_id == userId && $0.completed == true}
     }
@@ -32,5 +33,6 @@ extension Group{
     }
     func cleanChore() -> [Chore]{
         return self.chores.filter{$0.user_id != nil}
+
     }
 }

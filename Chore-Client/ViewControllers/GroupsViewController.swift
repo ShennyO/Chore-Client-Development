@@ -43,7 +43,8 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        
+        navigationItem.largeTitleDisplayMode = .automatic
+        navigationController?.navigationBar.prefersLargeTitles = true
         if self.loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }
@@ -72,6 +73,13 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 
     override func viewDidLoad() {
+        
+//        self.navigationController?.navigationBar.prefersLargeTitles = true
+//        navigationController?.navigationBar.largeTitleTextAttributes = [
+//            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.heavy)
+//        ]
+        
+//        navigationController?.navigationBar.backgroundColor = UIColor.white
         
          IQKeyboardManager.sharedManager().enable = true
     }

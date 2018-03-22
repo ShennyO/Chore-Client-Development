@@ -14,11 +14,14 @@ class AddNewGroupUserViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     var userID: Int!
     var selectedGroup: Group!
+    @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         self.newUserView.layer.cornerRadius = 10
         self.newUserView.layer.masksToBounds = true
-
+        addButton.configureButton()
+        cancelButton.configureButton()
         // Do any additional setup after loading the view.
     }
 

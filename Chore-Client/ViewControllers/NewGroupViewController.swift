@@ -12,12 +12,15 @@ class NewGroupViewController: UIViewController {
 
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addNewGroupView: UIView!
     var accepted = false
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addNewGroupView.layer.cornerRadius = 10
         self.addNewGroupView.layer.masksToBounds = true
+        addButton.configureButton()
+        cancelButton.configureButton()
         // Do any additional setup after loading the view.
     }
     
