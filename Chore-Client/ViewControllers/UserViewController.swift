@@ -58,10 +58,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         
         navigationItem.largeTitleDisplayMode = .never
         hideNavigation(tint: UIColor.white)
-        navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.black
-        navigationController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
         
-
         if loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }
@@ -162,7 +159,15 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         return cell
     }
     
-
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = HeaderViewHelper.createTitleHeaderView(title: "In Progress", fontSize: 25, frame: CGRect(x: 0, y: 0, width: self.choreRecordTableView.frame.width, height: 50), color: UIColor.white)
+        return header
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 70
+    }
+    
 }
 
 extension UserViewController {
@@ -173,10 +178,13 @@ extension UserViewController {
     
     func setUpEditButton() {
         let editButton = UIButton(frame: CGRect(x: self.view.frame.width - 55, y: self.view.frame.height * 0.6 - 50, width: 50, height: 30))
+        let heightDistance = self.view.frame.height * 0.6 - 50
+        self.view.addSubview(editButton)
+        
         editButton.setTitle("Edit", for: .normal)
         editButton.tintColor = UIColor.white
         editButton.addTarget(self, action: #selector(accessPhotoHelper), for: .touchUpInside)
-        self.view.addSubview(editButton)
+        
     }
     
     func getUser(completion: @escaping()->()) {
