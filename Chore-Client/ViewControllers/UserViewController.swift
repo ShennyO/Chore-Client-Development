@@ -56,6 +56,40 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        getUser {
+            
+            self.photoHelper.completionHandler = { (image) in
+                guard let imageData = UIImageJPEGRepresentation(image, 1)
+                    else {return}
+                DispatchQueue.main.async {
+                    if self.Uploaded == false {
+                        let header = HeaderViewHelper.uploadTitleImageHeaderView(title: self.currentUser.username, fontSize: 30, frame: CGRect(x: 0, y: -100, width: 50, height: 100), image: image)
+                        header.frame.size.height = self.view.frame.height * 0.6
+                        self.choreRecordTableView.tableHeaderView = header
+                        self.Uploaded = true
+                    }
+                }
+                Network.instance.imageUpload(route: .userUpload, imageData: imageData)
+                
+            }
+            
+            if self.Uploaded == false {
+                DispatchQueue.main.async {
+                    let header = HeaderViewHelper.createTitleImageHeaderView(title: self.currentUser.username, fontSize: 30, frame: CGRect(x: 0, y: -100, width: 50, height: 100), imageURL: self.currentUser.image_file)
+                    header.frame.size.height = self.view.frame.height * 0.6
+                    self.choreRecordTableView.tableHeaderView = header
+                    self.setUpEditButton()
+                    
+                    
+                    
+                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+                    //
+                }
+                
+            }
+            
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,41 +98,16 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         navigationItem.largeTitleDisplayMode = .never
         hideNavigation(tint: UIColor.white)
         
-        
-        getUser() {
-            self.getUserChores {
-                DispatchQueue.main.async {
-                    
-                    if self.Uploaded == false {
-                        let header = HeaderViewHelper.createTitleImageHeaderView(title: self.currentUser.username, fontSize: 30, frame: CGRect(x: 0, y: -100, width: 50, height: 100), imageURL: self.currentUser.image_file)
-                        header.frame.size.height = self.view.frame.height * 0.6
-                        self.choreRecordTableView.tableHeaderView = header
-                        self.setUpEditButton()
-                        ViewControllerUtils().hideActivityIndicator(uiView: self.view)
-//
-                    }
-                    
-                    self.choreRecordTableView.reloadData()
-                    
-                    
-                }
-            }
-        }
-        
-        photoHelper.completionHandler = { (image) in
-            guard let imageData = UIImageJPEGRepresentation(image, 1)
-                else {return}
+        getUserChores {
             DispatchQueue.main.async {
-                if self.Uploaded == false {
-                    let header = HeaderViewHelper.uploadTitleImageHeaderView(title: self.currentUser.username, fontSize: 30, frame: CGRect(x: 0, y: -100, width: 50, height: 100), image: image)
-                    header.frame.size.height = self.view.frame.height * 0.6
-                    self.choreRecordTableView.tableHeaderView = header
-                    self.Uploaded = true
-                }
+                self.choreRecordTableView.reloadData()
             }
-            Network.instance.imageUpload(route: .userUpload, imageData: imageData)
-
         }
+        
+        
+        
+        
+        
         
     }
     /// logout user
