@@ -821,7 +821,7 @@
                                 <color key="separatorColor" red="0.88740488054735178" green="0.89373219784706215" blue="0.91271414974619292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="profileTableViewCell" rowHeight="170" id="e1b-aJ-apS" customClass="ProfileTableViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="56" width="320" height="170"/>
+                                        <rect key="frame" x="0.0" y="55.5" width="320" height="170"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e1b-aJ-apS" id="tJf-Bm-I1R">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="170"/>
@@ -888,7 +888,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="choreCompletionRequestCell" rowHeight="120" id="hhi-lH-QNl" customClass="ChoreCompletionRequestTableViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="226" width="320" height="120"/>
+                                        <rect key="frame" x="0.0" y="225.5" width="320" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hhi-lH-QNl" id="BDe-1C-Aoe">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="120"/>
@@ -967,7 +967,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="groupChoreCell" rowHeight="85" id="ofG-r8-6M1" customClass="GroupChoreTableViewCell" customModule="Chore_Client" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="346" width="320" height="85"/>
+                                        <rect key="frame" x="0.0" y="345.5" width="320" height="85"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ofG-r8-6M1" id="aSx-6D-ASc">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
@@ -1332,7 +1332,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="L9k-s8-MTC">
-                                <rect key="frame" x="0.0" y="312" width="320" height="207"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userChoreCell" rowHeight="80" id="eRc-fc-Wwl" customClass="UserChoreTableViewCell" customModule="Chore_Client" customModuleProvider="target">
@@ -1414,60 +1414,13 @@
                                     <outlet property="delegate" destination="zcB-kl-gsw" id="5mI-mq-g8D"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u30-lm-tts">
-                                <rect key="frame" x="130" y="64" width="61.5" height="32.5"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="83f-Wb-3KO">
-                                <rect key="frame" x="77.5" y="106.5" width="165" height="165"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4v2-iX-AAV">
-                                <rect key="frame" x="77.5" y="106.5" width="165" height="165"/>
-                                <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="0.0" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="165" id="v7j-dC-bbj"/>
-                                    <constraint firstAttribute="height" constant="165" id="y63-U6-Ixx"/>
-                                </constraints>
-                                <connections>
-                                    <action selector="imageButtonTapped:" destination="zcB-kl-gsw" eventType="touchUpInside" id="DoV-6g-aaA"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In Progress Tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fkZ-PP-Pap">
-                                <rect key="frame" x="95" y="286.5" width="130" height="22.5"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jqs-OO-ySc">
-                                <rect key="frame" x="50" y="311" width="220" height="1"/>
-                                <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="sIJ-37-dXy"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="L9k-s8-MTC" firstAttribute="bottom" secondItem="qGv-3D-fe2" secondAttribute="top" id="1Af-Ii-7ad"/>
-                            <constraint firstItem="Jqs-OO-ySc" firstAttribute="leading" secondItem="fck-50-SvO" secondAttribute="leading" constant="50" id="3Nb-Fa-Gqe"/>
-                            <constraint firstAttribute="trailing" secondItem="Jqs-OO-ySc" secondAttribute="trailing" constant="50" id="5v3-Md-rIU"/>
-                            <constraint firstItem="L9k-s8-MTC" firstAttribute="top" secondItem="Jqs-OO-ySc" secondAttribute="bottom" id="HH3-hv-fT3"/>
-                            <constraint firstItem="fkZ-PP-Pap" firstAttribute="centerX" secondItem="fck-50-SvO" secondAttribute="centerX" id="IM3-Ev-wVp"/>
-                            <constraint firstItem="83f-Wb-3KO" firstAttribute="height" secondItem="4v2-iX-AAV" secondAttribute="height" id="KYH-So-qTO"/>
-                            <constraint firstItem="u30-lm-tts" firstAttribute="top" secondItem="ksV-ef-29a" secondAttribute="bottom" id="Ne0-2W-Rbo"/>
                             <constraint firstItem="L9k-s8-MTC" firstAttribute="leading" secondItem="fck-50-SvO" secondAttribute="leading" id="PNz-Ep-rdh"/>
-                            <constraint firstItem="4v2-iX-AAV" firstAttribute="top" secondItem="u30-lm-tts" secondAttribute="bottom" constant="9.9999999999999858" id="Tzl-fh-6Vt"/>
-                            <constraint firstItem="Jqs-OO-ySc" firstAttribute="centerX" secondItem="fck-50-SvO" secondAttribute="centerX" id="UXM-YQ-Vgx"/>
-                            <constraint firstItem="u30-lm-tts" firstAttribute="centerX" secondItem="fck-50-SvO" secondAttribute="centerX" id="X9U-be-bzP"/>
-                            <constraint firstItem="4v2-iX-AAV" firstAttribute="centerX" secondItem="fck-50-SvO" secondAttribute="centerX" id="dMr-Fc-lQm"/>
-                            <constraint firstItem="83f-Wb-3KO" firstAttribute="centerX" secondItem="fck-50-SvO" secondAttribute="centerX" id="eH0-2Y-In0"/>
-                            <constraint firstItem="Jqs-OO-ySc" firstAttribute="top" secondItem="fkZ-PP-Pap" secondAttribute="bottom" constant="2" id="hCv-mh-Qcd"/>
-                            <constraint firstItem="fkZ-PP-Pap" firstAttribute="top" secondItem="4v2-iX-AAV" secondAttribute="bottom" constant="15" id="oB0-NE-7Q5"/>
                             <constraint firstItem="L9k-s8-MTC" firstAttribute="trailing" secondItem="fck-50-SvO" secondAttribute="trailing" id="odZ-9c-hoi"/>
-                            <constraint firstItem="83f-Wb-3KO" firstAttribute="top" secondItem="u30-lm-tts" secondAttribute="bottom" constant="10" id="rBJ-4t-5M9"/>
-                            <constraint firstItem="83f-Wb-3KO" firstAttribute="width" secondItem="4v2-iX-AAV" secondAttribute="width" id="y84-xe-qlV"/>
+                            <constraint firstItem="L9k-s8-MTC" firstAttribute="top" secondItem="ksV-ef-29a" secondAttribute="bottom" id="r9t-Zn-cGf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MuI-0Q-BPK">
@@ -1484,15 +1437,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="choreRecordTableView" destination="L9k-s8-MTC" id="EM3-oy-TiC"/>
-                        <outlet property="imageButton" destination="4v2-iX-AAV" id="H9d-lU-Ii2"/>
-                        <outlet property="profileImage" destination="83f-Wb-3KO" id="ePP-3B-ZQb"/>
                         <outlet property="settingsBarButton" destination="qBt-tP-b7a" id="zKy-fz-MyX"/>
-                        <outlet property="userNameLabel" destination="u30-lm-tts" id="6Qt-AY-Gqy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tC8-en-f3b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1860" y="1293"/>
+            <point key="canvasLocation" x="1860" y="1292.9577464788733"/>
         </scene>
         <!--Completed Tasks-->
         <scene sceneID="5Dl-Tv-fZE">
