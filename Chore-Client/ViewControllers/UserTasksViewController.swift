@@ -162,7 +162,7 @@ extension UserTasksViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0 {
-            return self.view.frame.height * 0.5
+            return self.view.frame.height * 0.6
         } else if section == 1 {
             if self.progressTasks.count == 0 {
                 return 0

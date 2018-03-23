@@ -29,62 +29,90 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     //This checks if we are opening the view normally, or right after we uploaded an image
     var Uploaded = false
     var loaded = false
+    override var additionalSafeAreaInsets: UIEdgeInsets {
+        // Since its a read-write property and we are only interested in reading
+        // we will return only the value that we are interesting in. Setter
+        // here is redundant.
+        set {
+            super.additionalSafeAreaInsets = UIEdgeInsetsMake(-100.0, 100.0, 100.0, 100.0)
+        }
+        
+        get {
+            return UIEdgeInsetsMake(-100.0, 0.0, 0.0, 0.0)
+        }
+    }
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.loaded = true
+        
         showNavigation()
         navigationItem.largeTitleDisplayMode = .always
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        navigationItem.largeTitleDisplayMode = .never
-        hideNavigation(tint: UIColor.black)
-        navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.black
-        navigationController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
-        if loaded == false {
-            ViewControllerUtils().showActivityIndicator(uiView: self.view)
-        }
-        
-        self.navigationController?.navigationBar.tintAdjustmentMode = .normal
-        self.navigationController?.navigationBar.tintAdjustmentMode = .automatic
-        
-        getUser() {
-            self.getUserChores {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        getUser {
+            
+            self.photoHelper.completionHandler = { (image) in
+                guard let imageData = UIImageJPEGRepresentation(image, 1)
+                    else {return}
                 DispatchQueue.main.async {
-                    let imageUrl = URL(string: self.currentUser.image_file)
                     if self.Uploaded == false {
-                    self.profileImage.kf.setImage(with: imageUrl!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
-                    }
-                    self.profileImage.contentMode = .scaleAspectFill
-                    self.profileImage.layer.cornerRadius = 0.5 * self.imageButton.bounds.size.width
-                    self.profileImage.clipsToBounds = true
-                    self.userNameLabel.text = self.currentUser.username
-                    self.choreRecordTableView.reloadData()
-                    if self.loaded == false {
-                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+                        let header = HeaderViewHelper.uploadTitleImageHeaderView(title: self.currentUser.username, fontSize: 30, frame: CGRect(x: 0, y: -100, width: 50, height: 100), image: image)
+                        header.frame.size.height = self.view.frame.height * 0.6
+                        self.choreRecordTableView.tableHeaderView = header
+                        self.Uploaded = true
                     }
                 }
+                Network.instance.imageUpload(route: .userUpload, imageData: imageData)
+                
+            }
+            
+            if self.Uploaded == false {
+                DispatchQueue.main.async {
+                    let header = HeaderViewHelper.createTitleImageHeaderView(title: self.currentUser.username, fontSize: 30, frame: CGRect(x: 0, y: -100, width: 50, height: 100), imageURL: self.currentUser.image_file)
+                    header.frame.size.height = self.view.frame.height * 0.6
+                    self.choreRecordTableView.tableHeaderView = header
+                    self.setUpEditButton()
+                    
+                    
+                    
+                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+                    //
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationItem.largeTitleDisplayMode = .never
+        hideNavigation(tint: UIColor.white)
+        
+        getUserChores {
+            DispatchQueue.main.async {
+                self.choreRecordTableView.reloadData()
             }
         }
         
-        photoHelper.completionHandler = { (image) in
-            guard let imageData = UIImageJPEGRepresentation(image, 1)
-                else {return}
-            DispatchQueue.main.async {
-                self.Uploaded = true
-                self.profileImage.image = image
-                self.profileImage.setNeedsDisplay()
-            }
-            Network.instance.imageUpload(route: .userUpload, imageData: imageData)
-
-        }
+        
+        
+        
+        
         
     }
     /// logout user
     @IBAction func settingsButtonTapped(_ sender: Any) {
+        
         
         let alert = UIAlertController(title: "Log out", message: "Are you sure you want to log out?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "No", style: .default, handler: nil)
@@ -140,19 +168,33 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         return cell
     }
     
-
-
-    @IBAction func imageButtonTapped(_ sender: Any) {
-        
-        photoHelper.presentActionSheet(from: self)
-        
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = HeaderViewHelper.createTitleHeaderView(title: "In Progress", fontSize: 25, frame: CGRect(x: 0, y: 0, width: self.choreRecordTableView.frame.width, height: 50), color: UIColor.white)
+        return header
     }
-
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 70
+    }
+    
 }
 
 extension UserViewController {
     
+    @objc func accessPhotoHelper() {
+        photoHelper.presentActionSheet(from: self)
+    }
     
+    func setUpEditButton() {
+        let editButton = UIButton(frame: CGRect(x: self.view.frame.width - 55, y: self.view.frame.height * 0.6 - 50, width: 50, height: 30))
+        let heightDistance = self.view.frame.height * 0.6 - 50
+        self.view.addSubview(editButton)
+        
+        editButton.setTitle("Edit", for: .normal)
+        editButton.tintColor = UIColor.white
+        editButton.addTarget(self, action: #selector(accessPhotoHelper), for: .touchUpInside)
+        
+    }
     
     func getUser(completion: @escaping()->()) {
         let username = KeychainSwift().get("username")
