@@ -34,13 +34,16 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         super.viewWillDisappear(animated)
         self.loaded = true
         showNavigation()
+        navigationItem.largeTitleDisplayMode = .always
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationItem.largeTitleDisplayMode = .never
         hideNavigation(tint: UIColor.black)
-    navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.black
-    navigationController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
+        navigationController?.navigationItem.rightBarButtonItem?.tintColor = UIColor.black
+        navigationController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.black
         if loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }
@@ -82,14 +85,13 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     }
     /// logout user
     @IBAction func settingsButtonTapped(_ sender: Any) {
-        UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
-        UserDefaults.standard.synchronize()
-
         
         let alert = UIAlertController(title: "Log out", message: "Are you sure you want to log out?", preferredStyle: .alert)
         let cancel = UIAlertAction(title: "No", style: .default, handler: nil)
         let logOut = UIAlertAction(title: "Yes", style: .default) { (logout) in
             Network.instance.fetch(route: .logoutUser) { (data, resp) in
+                UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+                UserDefaults.standard.synchronize()
                 DispatchQueue.main.async {
                     let mainStoryboard = UIStoryboard(name: "Main", bundle: Bundle.main)
                     let loginVC = mainStoryboard.instantiateViewController(withIdentifier: "newLoginVC")
@@ -105,7 +107,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70
+        return 80
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -123,10 +125,12 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         cell.selectionStyle = .none
         if self.userChores[indexPath.row].pending {
             cell.completeButton.setTitle("Pending", for: .normal)
+            cell.completeButton.backgroundColor = UIColor(rgb: 0xE0D400)
             cell.completeButton.isUserInteractionEnabled = false
             
         } else if self.userChores[indexPath.row].pending == false {
             cell.completeButton.setTitle("Complete", for: .normal)
+            cell.completeButton.backgroundColor = UIColor(rgb: 0x55C529)
             cell.completeButton.isUserInteractionEnabled = true
         }
         cell.completeButton.configureButton()

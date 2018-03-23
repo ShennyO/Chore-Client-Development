@@ -71,12 +71,14 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationController?.navigationBar.backgroundColor = UIColor.clear
         title = "\(self.group.name)"
+        groupDetailTableView.separatorInset = UIEdgeInsets(top: 5, left: 15, bottom: 5, right: 15)
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.loaded = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -247,21 +249,27 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     @IBAction func leaveGroupTapped(_ sender: Any) {
-        let currentGroupID = Int(KeychainSwift().get("groupID")!)!
-        let userID = Int(KeychainSwift().get("id")!)!
-        Network.instance.fetch(route: .removeMember(group_id: currentGroupID, user_id: userID)) { (data, resp) in
-            print("Member removed")
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "groupDetailToGroups", sender: self)
+        
+        let alert = UIAlertController(title: "Leave Group", message: "Are you sure you want to leave?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "No", style: .default, handler: nil)
+        let logOut = UIAlertAction(title: "Yes", style: .default) { (logout) in
+            let currentGroupID = Int(KeychainSwift().get("groupID")!)!
+            let userID = Int(KeychainSwift().get("id")!)!
+            Network.instance.fetch(route: .removeMember(group_id: currentGroupID, user_id: userID)) { (data, resp) in
+                print("Member removed")
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "groupDetailToGroups", sender: self)
+                }
             }
+            
         }
+        alert.addAction(cancel)
+        alert.addAction(logOut)
+        self.present(alert, animated: true, completion: nil)
+        
         
         
     }
-    
-    
-   
-    
     
     @objc func ButtonClick(_ sender: UIButton){
         self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
@@ -286,12 +294,29 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     
     
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if section == 1 {
+            if self.requests.count != 0 {
+                let header = HeaderViewHelper.createTitleHeaderView(title: "Requests", fontSize: 25, frame: CGRect(x: 0,y: 0,width: groupDetailTableView.frame.width, height: 30), color: UIColor.clear)
+                return header
+            }
+            
+        } else if section == 2 {
+            if self.chores.count != 0 {
+                let header = HeaderViewHelper.createTasksTitleHeaderView(title: "Tasks", fontSize: 25, frame: CGRect(x: 0, y: 0, width: groupDetailTableView.frame.width, height: 30), color: UIColor.clear)
+                return header
+            }
+            
+        }
+        return nil
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == self.groupDetailTableView {
             if indexPath.section == 0 {
                 return 170
             } else if indexPath.section == 1 {
-                return 110
+                return 150
             } else {
                 return 80
             }
@@ -299,6 +324,15 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             return 55
         }
 
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if tableView == self.groupDetailTableView {
+            return 15
+        } else {
+            return 0
+        }
+        
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -341,6 +375,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 cell.delegate = self
                 if self.chores[indexPath.row].assigned {
 //                    cell.assignButtonHeight.constant = 45
+//                    cell.assignButton.frame.size.height = 45
                     cell.assignButton.isUserInteractionEnabled = false
                     if self.chores[indexPath.row].user.image_file != "/image_files/original/missing.png" {
                         let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
@@ -357,7 +392,6 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                     
                 } else {
                     cell.assignButton.setImage(nil, for: .normal)
-//                    cell.assignButtonHeight.constant = 30
                     cell.assignButton.layer.cornerRadius = 30 * 0.455
                     cell.assignButton.clipsToBounds = true
                     cell.assignButton.isUserInteractionEnabled = true

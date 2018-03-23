@@ -18,12 +18,13 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        hideNavigation(tint: UIColor.black)
         self.loaded = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-       
+        navigationController?.navigationBar.prefersLargeTitles = true
         if loaded == false {
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }

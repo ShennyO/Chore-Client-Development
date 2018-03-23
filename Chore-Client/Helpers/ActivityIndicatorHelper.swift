@@ -23,7 +23,7 @@ class ViewControllerUtils {
      @param uiView - add activity indicator to this view
      */
     func showActivityIndicator(uiView: UIView) {
-        container.frame.size.height = uiView.frame.height + 100
+        container.frame.size.height = uiView.frame.height + 200
         container.frame.size.width = uiView.frame.width
         
         container.center.y = uiView.center.y - 100
@@ -32,7 +32,7 @@ class ViewControllerUtils {
         container.tag = 100
 
         loadingView.frame = CGRect(x: 0.0, y: 0.0, width: 80.0, height: 80.0)
-        loadingView.center.y = uiView.center.y - 100
+        loadingView.center.y = uiView.center.y + 100
         loadingView.center.x = uiView.center.x
         loadingView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         loadingView.clipsToBounds = true
