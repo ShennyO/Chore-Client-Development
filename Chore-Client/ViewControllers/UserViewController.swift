@@ -12,7 +12,9 @@ import Alamofire
 import Kingfisher
 
 
-class UserViewController: UIViewController, ChoreCompletionDelegate, UITableViewDelegate, UITableViewDataSource{
+class UserViewController: UIViewController, ChoreCompletionDelegate, UITableViewDelegate, UITableViewDataSource, UserHeaderDelegate{
+    
+    
 
     @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     @IBOutlet weak var profileImage: UIImageView!
@@ -26,13 +28,12 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     var imageData: NSData?
     var userChores: [Chore] = []
     var currentUser: User!
+    var userImage = UIImage()
+    var tableViewHeader: UserHeaderView!
     //This checks if we are opening the view normally, or right after we uploaded an image
     var Uploaded = false
     var loaded = false
     override var additionalSafeAreaInsets: UIEdgeInsets {
-        // Since its a read-write property and we are only interested in reading
-        // we will return only the value that we are interesting in. Setter
-        // here is redundant.
         set {
             super.additionalSafeAreaInsets = UIEdgeInsetsMake(-100.0, 100.0, 100.0, 100.0)
         }
@@ -41,6 +42,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
             return UIEdgeInsetsMake(-100.0, 0.0, 0.0, 0.0)
         }
     }
+    
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -53,40 +55,35 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        
         getUser {
+            let imageURL = URL(string: self.currentUser.image_file)
+            KingfisherManager.shared.retrieveImage(with: imageURL!, options: nil, progressBlock: nil, completionHandler: { (image, _, _, _) in
+               
+                    DispatchQueue.main.async {
+                        self.tableViewHeader = UserHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height * 0.6), user: self.currentUser, userImage: image!)
+                        self.tableViewHeader.userHeaderDelegate = self
+                        self.choreRecordTableView.tableHeaderView = self.tableViewHeader
+                        ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+                        
+                    }
+                    
+                
+            })
             
             self.photoHelper.completionHandler = { (image) in
+                self.tableViewHeader.imageView.image = image
                 guard let imageData = UIImageJPEGRepresentation(image, 1)
                     else {return}
-                DispatchQueue.main.async {
-                    if self.Uploaded == false {
-                        let header = HeaderViewHelper.uploadTitleImageHeaderView(title: self.currentUser.username, fontSize: 30, frame: CGRect(x: 0, y: -100, width: 50, height: 100), image: image)
-                        header.frame.size.height = self.view.frame.height * 0.6
-                        self.choreRecordTableView.tableHeaderView = header
-                        self.Uploaded = true
-                    }
-                }
                 Network.instance.imageUpload(route: .userUpload, imageData: imageData)
-                
+
             }
+
             
-            if self.Uploaded == false {
-                DispatchQueue.main.async {
-                    let header = HeaderViewHelper.createTitleImageHeaderView(title: self.currentUser.username, fontSize: 30, frame: CGRect(x: 0, y: -100, width: 50, height: 100), imageURL: self.currentUser.image_file)
-                    header.frame.size.height = self.view.frame.height * 0.6
-                    self.choreRecordTableView.tableHeaderView = header
-                    self.setUpEditButton()
-                    
-                    
-                    
-                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
-                    //
-                }
-                
-            }
             
         }
         
@@ -103,11 +100,6 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
                 self.choreRecordTableView.reloadData()
             }
         }
-        
-        
-        
-        
-        
         
     }
     /// logout user
@@ -181,20 +173,10 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
 
 extension UserViewController {
     
-    @objc func accessPhotoHelper() {
+    func editButton() {
         photoHelper.presentActionSheet(from: self)
     }
     
-    func setUpEditButton() {
-        let editButton = UIButton(frame: CGRect(x: self.view.frame.width - 55, y: self.view.frame.height * 0.6 - 50, width: 50, height: 30))
-        let heightDistance = self.view.frame.height * 0.6 - 50
-        self.view.addSubview(editButton)
-        
-        editButton.setTitle("Edit", for: .normal)
-        editButton.tintColor = UIColor.white
-        editButton.addTarget(self, action: #selector(accessPhotoHelper), for: .touchUpInside)
-        
-    }
     
     func getUser(completion: @escaping()->()) {
         let username = KeychainSwift().get("username")

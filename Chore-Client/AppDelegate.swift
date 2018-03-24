@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         center.delegate = self
         center.removeAllDeliveredNotifications()
-        
+        UIApplication.shared.applicationIconBadgeNumber = 0
         UINavigationBar.appearance().tintColor = UIColor.black
         let offset = UIOffset(horizontal: -300, vertical: 0)
         UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(offset, for: .default)
@@ -135,11 +135,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate{
-
+    
      func userNotificationCenter(_ center: UNUserNotificationCenter,
                                          didReceive response: UNNotificationResponse,
                                          withCompletionHandler completionHandler: @escaping () -> Void){
-
+      
       center.removeAllDeliveredNotifications()
     }
 }

@@ -57,11 +57,6 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.getRequests {
                 DispatchQueue.main.async {
                     self.groupsTableView.reloadData()
-
-
-                   // self.activity.alpha = 0.0
-
-
                     if self.loaded == false {
                      ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                     }
@@ -76,12 +71,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         
-//        self.navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationController?.navigationBar.largeTitleTextAttributes = [
-//            NSAttributedStringKey.font: UIFont.systemFont(ofSize: 30, weight: UIFont.Weight.heavy)
-//        ]
-        
-//        navigationController?.navigationBar.backgroundColor = UIColor.white
+
         
          IQKeyboardManager.sharedManager().enable = true
     }
@@ -128,7 +118,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let members = self.groups[indexPath.row].members.count
             let chores = self.groups[indexPath.row].chores.count
             cell.membersCountLabel.text = (members == 1) ? "\(members) member" : "\(members) members"
-            cell.choresCountLabel.text = (chores == 1) ? "\(chores) chore" : "\(chores) tasks"
+            cell.choresCountLabel.text = (chores == 1) ? "\(chores) task" : "\(chores) tasks"
             return cell
         }
         
