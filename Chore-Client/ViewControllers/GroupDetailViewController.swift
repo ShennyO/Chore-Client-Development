@@ -403,11 +403,12 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                     if self.chores[indexPath.row].user.image_file != "/image_files/original/missing.png" {
                         let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
                         cell.assignButton.kf.setImage(with: imageURL!, for: .normal)
-                        cell.assignButton.layer.cornerRadius = 0.5 * cell.assignButton.bounds.width
+                        cell.assignButton.layer.cornerRadius = 0.5 * cell.buttonWidth.constant
+//                        cell.assignButton.layer.cornerRadius = 30 * 0.455
                         cell.assignButton.clipsToBounds = true
                     } else {
                         cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
-                        cell.assignButton.layer.cornerRadius = 0.5 * cell.assignButton.bounds.width
+                        cell.assignButton.layer.cornerRadius = 0.5 * cell.buttonWidth.constant
                         cell.assignButton.clipsToBounds = true
                     }
                     
@@ -421,6 +422,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                     cell.assignButton.clipsToBounds = true
                     cell.assignButton.isUserInteractionEnabled = true
                 }
+                cell.layoutIfNeeded()
                 return cell
             } else if indexPath.section == 0 {
                 let tableViewCell = self.groupDetailTableView.dequeueReusableCell(withIdentifier: "profileTableViewCell") as! ProfileTableViewCell

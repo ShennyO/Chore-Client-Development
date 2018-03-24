@@ -29,7 +29,7 @@ class GroupChoreTableViewCell: UITableViewCell {
         super.awakeFromNib()
 //        if chore.assigned {
             assignButton.imageView?.contentMode = .scaleAspectFill
-            assignButton.layer.cornerRadius = assignButton.frame.size.width / 2
+//            assignButton.layer.cornerRadius = assignButton.frame.size.width / 2
 
         
     }
