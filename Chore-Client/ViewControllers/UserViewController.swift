@@ -93,7 +93,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         super.viewWillAppear(animated)
         
         navigationItem.largeTitleDisplayMode = .never
-        hideNavigation(tint: UIColor.white)
+        hideNavigation(tint: UIColor(rgb: 0xEEF0F0))
         
         getUserChores {
             DispatchQueue.main.async {

@@ -18,7 +18,9 @@ class GroupChoreTableViewCell: UITableViewCell {
    
     @IBOutlet weak var dueDateLabel: UILabel!
     @IBOutlet weak var assignButton: UIButton!
-//    @IBOutlet weak var assignButtonHeight: NSLayoutConstraint!
+    @IBOutlet weak var buttonHeight: NSLayoutConstraint!
+    @IBOutlet weak var buttonWidth: NSLayoutConstraint!
+    
     var delegate: assignButtonDelegate!
     var currentIndex: IndexPath!
     var chore: Chore!
@@ -26,14 +28,9 @@ class GroupChoreTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
 //        if chore.assigned {
-            assignButton.frame.size.height = 45
             assignButton.imageView?.contentMode = .scaleAspectFill
-            
             assignButton.layer.cornerRadius = assignButton.frame.size.width / 2
-//         else {
-//            assignButton.frame.size.height = 30
-//            assignButton.imageView?.image = nil
-//        }
+
         
     }
 

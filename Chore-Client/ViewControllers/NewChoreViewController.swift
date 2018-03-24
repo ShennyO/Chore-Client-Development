@@ -33,13 +33,13 @@ class NewChoreViewController: UIViewController, UITextFieldDelegate {
                    replacementString string: String) -> Bool
     {
         if textField == choreDescriptionTextField {
-            let maxLength = 40
+            let maxLength = 60
             let currentString: NSString = textField.text as! NSString
             let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString
             return newString.length <= maxLength
         } else if textField == choreNameLabel {
-            let maxLength = 15
+            let maxLength = 30
             let currentString: NSString = textField.text as! NSString
             let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString

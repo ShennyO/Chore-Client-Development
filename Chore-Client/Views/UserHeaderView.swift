@@ -41,7 +41,7 @@ class UserHeaderView: UIView {
         
         
         titleLabel.clipsToBounds = false
-        titleLabel.textColor = UIColor.white
+        titleLabel.textColor = UIColor(rgb: 0xEEF0F0)
         titleLabel.text = user.username
         titleLabel.textAlignment = .left
         titleLabel.font = UIFont(name: "Futura", size: 25)
@@ -54,6 +54,7 @@ class UserHeaderView: UIView {
         editButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         editButton.addTarget(self, action: #selector(editButtonPressed), for: .touchUpInside)
         editButton.setTitle("Edit", for: .normal)
+        editButton.tintColor = UIColor(rgb: 0xEEF0F0)
         self.addSubview(imageView)
         imageView.addSubview(darkVw)
         imageView.addSubview(editButton)

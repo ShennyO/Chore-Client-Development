@@ -144,7 +144,6 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 }
             })
         }
-//        self.setUpSideMenuButton()
         sideMenuNewUserButton.configureButton()
         sideMenuNewChoreButton.configureButton()
         sideMenuLeaveButton.configureButton()
@@ -392,13 +391,15 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 cell.selectionStyle = .none
                 cell.choreNameLabel.text = self.chores[indexPath.row].name
                 cell.choreDescriptionLabel.text = self.chores[indexPath.row].description
+                
                 cell.dueDateLabel.text = self.chores[indexPath.row].due_date
                 cell.currentIndex = indexPath
                 cell.delegate = self
                 if self.chores[indexPath.row].assigned {
-//                    cell.assignButtonHeight.constant = 45
-//                    cell.assignButton.frame.size.height = 45
+
                     cell.assignButton.isUserInteractionEnabled = false
+                    cell.buttonWidth.constant = 45
+                    cell.buttonHeight.constant = 45
                     if self.chores[indexPath.row].user.image_file != "/image_files/original/missing.png" {
                         let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
                         cell.assignButton.kf.setImage(with: imageURL!, for: .normal)
@@ -413,6 +414,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                    
                     
                 } else {
+                    cell.buttonHeight.constant = 30
+                    cell.buttonWidth.constant = 60
                     cell.assignButton.setImage(nil, for: .normal)
                     cell.assignButton.layer.cornerRadius = 30 * 0.455
                     cell.assignButton.clipsToBounds = true
@@ -556,13 +559,6 @@ extension GroupDetailViewController: assignButtonDelegate {
         
     }
     
-    
-
-    
-//    func configureButton(button: UIButton) {
-//        button.layer.cornerRadius = 0.155 * button.bounds.size.width
-//        button.clipsToBounds = true
-//    }
     
     func deleteChore(chore: Chore) {
         let groupID = Int(KeychainSwift().get("groupID")!)!
