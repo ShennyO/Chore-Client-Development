@@ -486,11 +486,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNJ-RM-due">
                                                             <rect key="frame" x="68" y="0.0" width="52" height="36"/>
-                                                            <color key="backgroundColor" red="0.97825103998184204" green="0.33372730016708374" blue="0.30986666679382324" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                             <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                             <state key="normal" title="No">
-                                                                <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="declineButtonTapped:" destination="4Vt-PL-rMY" eventType="touchUpInside" id="hkq-er-4to"/>
@@ -659,11 +659,11 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNl-Qk-lLg">
                                                 <rect key="frame" x="110" y="0.0" width="97" height="36"/>
-                                                <color key="backgroundColor" red="0.97825103998184204" green="0.33372730016708374" blue="0.30986666679382324" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <inset key="contentEdgeInsets" minX="25" minY="8" maxX="25" maxY="8"/>
                                                 <state key="normal" title="Cancel">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="cancelButtonTapped:" destination="lii-5F-Zex" eventType="touchUpInside" id="cEq-wv-8GW"/>
@@ -678,7 +678,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.97999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="HPN-fn-Gbb" firstAttribute="top" secondItem="JKF-AY-Z9R" secondAttribute="bottom" constant="40" id="0dL-Mc-dJJ"/>
                                     <constraint firstItem="JKF-AY-Z9R" firstAttribute="centerX" secondItem="bKB-tw-bJ4" secondAttribute="centerX" id="3xn-QY-sup"/>
@@ -745,11 +745,11 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpI-eU-UN3">
                                                 <rect key="frame" x="110" y="0.0" width="97" height="36"/>
-                                                <color key="backgroundColor" red="0.97830277681350708" green="0.33751612901687622" blue="0.31405830383300781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <inset key="contentEdgeInsets" minX="25" minY="8" maxX="25" maxY="8"/>
                                                 <state key="normal" title="Cancel">
-                                                    <color key="titleColor" red="0.93333333333333335" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="cancelButtonTapped:" destination="61o-lc-HGn" eventType="touchUpInside" id="2WA-zT-DZe"/>
@@ -758,7 +758,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.97999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="2Gx-z7-OBr" firstAttribute="centerX" secondItem="8pg-Ax-EO8" secondAttribute="centerX" id="d9k-Rb-OUq"/>
                                     <constraint firstAttribute="height" constant="250" id="ero-8T-o2g"/>
@@ -928,11 +928,11 @@
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7Q-Qt-z0z">
                                                                             <rect key="frame" x="0.0" y="0.0" width="0.0" height="45"/>
-                                                                            <color key="backgroundColor" red="0.92196695064447098" green="0.93109533629441621" blue="0.93109533629441621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                                             <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                                             <state key="normal" title="Deny">
-                                                                                <color key="titleColor" red="0.13225729695431476" green="0.13225729695431476" blue="0.13225729695431476" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.89089255136986301" colorSpace="calibratedRGB"/>
                                                                             </state>
                                                                             <connections>
                                                                                 <action selector="denyButtonTapped:" destination="hhi-lH-QNl" eventType="touchUpInside" id="jof-1q-lyU"/>
@@ -1117,11 +1117,11 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCs-eF-SDt">
                                                 <rect key="frame" x="0.0" y="102" width="162" height="36"/>
-                                                <color key="backgroundColor" red="1" green="0.33333333333333331" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                 <state key="normal" title="Leave Group">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.91954730308219179" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.88398972602739723" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="leaveGroupTapped:" destination="sPM-2H-Wo2" eventType="touchUpInside" id="EqK-Cn-Id5"/>
