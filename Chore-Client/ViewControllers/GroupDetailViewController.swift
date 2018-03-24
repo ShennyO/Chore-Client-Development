@@ -392,7 +392,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 cell.choreNameLabel.text = self.chores[indexPath.row].name
                 cell.choreDescriptionLabel.text = self.chores[indexPath.row].description
                 
-                cell.dueDateLabel.text = self.chores[indexPath.row].due_date
+                cell.dueDateLabel.text = self.chores[indexPath.row].getDate()
                 cell.currentIndex = indexPath
                 cell.delegate = self
                 if self.chores[indexPath.row].assigned {

@@ -154,7 +154,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
             cell.completeButton.isUserInteractionEnabled = true
         }
         cell.completeButton.configureButton()
-        cell.choreDateLabel.text = self.userChores[indexPath.row].due_date
+        cell.choreDateLabel.text = self.userChores[indexPath.row].getDate()
         cell.delegate = self as ChoreCompletionDelegate
         cell.index = indexPath
         return cell

@@ -634,7 +634,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKB-tw-bJ4">
-                                <rect key="frame" x="36" y="134" width="248" height="300"/>
+                                <rect key="frame" x="36" y="159" width="248" height="250"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HPN-fn-Gbb">
                                         <rect key="frame" x="20" y="95" width="208" height="30"/>
@@ -672,8 +672,8 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKF-AY-Z9R">
-                                        <rect key="frame" x="32.5" y="25" width="183" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                        <rect key="frame" x="36" y="25" width="176.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -682,7 +682,7 @@
                                 <constraints>
                                     <constraint firstItem="HPN-fn-Gbb" firstAttribute="top" secondItem="JKF-AY-Z9R" secondAttribute="bottom" constant="40" id="0dL-Mc-dJJ"/>
                                     <constraint firstItem="JKF-AY-Z9R" firstAttribute="centerX" secondItem="bKB-tw-bJ4" secondAttribute="centerX" id="3xn-QY-sup"/>
-                                    <constraint firstAttribute="height" constant="300" id="4VP-cw-pgU"/>
+                                    <constraint firstAttribute="height" constant="250" id="4VP-cw-pgU"/>
                                     <constraint firstItem="JKF-AY-Z9R" firstAttribute="top" secondItem="bKB-tw-bJ4" secondAttribute="top" constant="25" id="8KE-3E-seQ"/>
                                     <constraint firstItem="fxO-OA-EbS" firstAttribute="centerX" secondItem="bKB-tw-bJ4" secondAttribute="centerX" id="8v3-fP-Ofu"/>
                                     <constraint firstItem="HPN-fn-Gbb" firstAttribute="leading" secondItem="bKB-tw-bJ4" secondAttribute="leading" constant="20" id="ial-XB-hZM"/>
@@ -726,7 +726,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8pg-Ax-EO8">
-                                <rect key="frame" x="36" y="134" width="248" height="300"/>
+                                <rect key="frame" x="36" y="159" width="248" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="2Gx-z7-OBr">
                                         <rect key="frame" x="20.5" y="183" width="207" height="36"/>
@@ -761,17 +761,17 @@
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="2Gx-z7-OBr" firstAttribute="centerX" secondItem="8pg-Ax-EO8" secondAttribute="centerX" id="d9k-Rb-OUq"/>
-                                    <constraint firstAttribute="height" constant="300" id="ero-8T-o2g"/>
+                                    <constraint firstAttribute="height" constant="250" id="ero-8T-o2g"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fn-Ru-kCv">
-                                <rect key="frame" x="74.5" y="157" width="171" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                <rect key="frame" x="77" y="182" width="166" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dze-4u-EfZ">
-                                <rect key="frame" x="55" y="227" width="210" height="30"/>
+                                <rect key="frame" x="55" y="252" width="210" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="210" id="RiB-8H-qhK"/>
                                 </constraints>
@@ -1046,7 +1046,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RaG-66-I3R">
-                                <rect key="frame" x="328" y="113" width="192" height="455"/>
+                                <rect key="frame" x="128" y="113" width="192" height="455"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="AccountIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Qj2-aG-yuz">
                                         <rect key="frame" x="20.5" y="15" width="150" height="150"/>
@@ -1097,7 +1097,7 @@
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                 <state key="normal" title="Add Task">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.89873180650684936" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="NewChoreTapped:" destination="sPM-2H-Wo2" eventType="touchUpInside" id="ixZ-Tc-UaM"/>
@@ -1109,7 +1109,7 @@
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                 <state key="normal" title="Add User">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.86108732876712324" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.89747431506849318" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="newUserTapped:" destination="sPM-2H-Wo2" eventType="touchUpInside" id="bBL-ca-QB2"/>
@@ -1180,7 +1180,7 @@
                             <constraint firstItem="RaG-66-I3R" firstAttribute="top" secondItem="Bul-M3-z9z" secondAttribute="bottom" id="Fbh-vO-1ka"/>
                             <constraint firstAttribute="trailing" secondItem="HJL-AP-f6K" secondAttribute="trailing" id="Gtg-s7-Z0s"/>
                             <constraint firstItem="RaG-66-I3R" firstAttribute="width" secondItem="Iij-o6-kR4" secondAttribute="width" multiplier="0.6" id="IYs-3J-tXC"/>
-                            <constraint firstAttribute="trailing" secondItem="RaG-66-I3R" secondAttribute="trailing" constant="-200" id="RLe-NQ-1TA"/>
+                            <constraint firstAttribute="trailing" secondItem="RaG-66-I3R" secondAttribute="trailing" id="RLe-NQ-1TA"/>
                             <constraint firstItem="DuC-y1-hw1" firstAttribute="top" secondItem="HJL-AP-f6K" secondAttribute="bottom" id="ZPq-k9-Lzr"/>
                             <constraint firstItem="HJL-AP-f6K" firstAttribute="top" secondItem="Bul-M3-z9z" secondAttribute="bottom" id="bbe-d1-ACg"/>
                             <constraint firstItem="HJL-AP-f6K" firstAttribute="leading" secondItem="Iij-o6-kR4" secondAttribute="leading" id="zXd-Sd-Zfr"/>
