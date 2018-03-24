@@ -11,7 +11,7 @@ import KeychainSwift
 import Kingfisher
 
 
-class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CompleteChoreCompletionDelegate{
+class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CompleteChoreCompletionDelegate, UIGestureRecognizerDelegate{
     
     // - MARK: IBOULET
     
@@ -111,8 +111,10 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         edgePan.edges = .right
         view.addGestureRecognizer(edgePan)
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight(swipe:)))
+        let tapToClose = UITapGestureRecognizer(target: self, action: #selector(tapToClose(tap:)))
         swipeRight.direction = .right
         view.addGestureRecognizer(swipeRight)
+        view.addGestureRecognizer(tapToClose)
         
         
         self.groupDetailTableView.separatorInset = UIEdgeInsets.zero
@@ -219,6 +221,25 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
             }
             
         }
+    }
+    
+    @objc func tapToClose(tap: UITapGestureRecognizer) {
+        let touchPoint = tap.location(in: self.view).x
+        let tappableLocation = view.bounds.width - self.sideMenuView.bounds.width
+        if touchPoint < tappableLocation {
+            let sideMenuStartingPoint = self.view.frame.width * -0.7
+            //if it's not at the starting point
+            if self.sideMenuTrailingConstraint.constant > sideMenuStartingPoint {
+                self.menuShowing = true
+                UIView.animate(withDuration: 0.125, animations: {
+                    self.sideMenuTrailingConstraint.constant = sideMenuStartingPoint
+                    self.view.layoutIfNeeded()
+                })
+                darkenScreen(darken: .normal)
+                
+            }
+        }
+        
     }
     
     @objc func swipeRight(swipe: UISwipeGestureRecognizer) {
@@ -534,31 +555,12 @@ extension GroupDetailViewController: assignButtonDelegate {
     }
     
     
-//    func setUpSideMenuButton() {
-//        let sideMenuButton = UIButton(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
-//        sideMenuButton.widthAnchor.constraint(equalToConstant: 32.0).isActive = true
-//        sideMenuButton.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
-//        let imgURL = URL(string: self.group.image_file)
-//        if self.group.image_file != "/image_files/original/missing.png" {
-//            KingfisherManager.shared.retrieveImage(with: imgURL!, options: nil, progressBlock: nil) { (image, _, _, _) in
-//                DispatchQueue.main.async {
-//                    sideMenuButton.setBackgroundImage(image!, for: .normal)
-//                    sideMenuButton.addTarget(self, action: #selector(self.sideMenuButtonTapped), for: .touchUpInside)
-//                    self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
-//                }
-//            }
-//        } else {
-//            sideMenuButton.setBackgroundImage(UIImage(named: "AccountIcon"), for: .normal)
-//            sideMenuButton.addTarget(self, action: #selector(self.sideMenuButtonTapped), for: .touchUpInside)
-//            self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: sideMenuButton)
-//        }
-//
-//    }
+
     
-    func configureButton(button: UIButton) {
-        button.layer.cornerRadius = 0.155 * button.bounds.size.width
-        button.clipsToBounds = true
-    }
+//    func configureButton(button: UIButton) {
+//        button.layer.cornerRadius = 0.155 * button.bounds.size.width
+//        button.clipsToBounds = true
+//    }
     
     func deleteChore(chore: Chore) {
         let groupID = Int(KeychainSwift().get("groupID")!)!

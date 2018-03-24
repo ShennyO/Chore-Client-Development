@@ -113,14 +113,6 @@ struct HeaderViewHelper
         myCustomView.contentMode = UIViewContentMode.scaleAspectFill
         myCustomView.clipsToBounds = true
         
-        
-        
-        
-        
-            
-        
-
-
     return vw
 
         // Constraints
