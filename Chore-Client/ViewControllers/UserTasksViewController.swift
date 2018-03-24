@@ -117,7 +117,7 @@ extension UserTasksViewController: UITableViewDelegate, UITableViewDataSource {
             let progressTask = progressTasks[indexPath.row]
             cell.choreNameLabel.text = progressTask.name
             cell.choreDescriptionLabel.text = progressTask.description
-            cell.choreDateLabel.text = progressTask.due_date
+            cell.choreDateLabel.text = progressTask.getDate()
             return cell
             
         } else if indexPath.section == 2{
@@ -127,7 +127,7 @@ extension UserTasksViewController: UITableViewDelegate, UITableViewDataSource {
             let completedTask = completedTasks[indexPath.row]
             cell.choreNameLabel.text = completedTask.name
             cell.choreDescriptionLabel.text = completedTask.description
-            cell.choreDateLabel.text = completedTask.due_date
+            cell.choreDateLabel.text = completedTask.getDate()
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "placeHolderCell")

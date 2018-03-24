@@ -486,11 +486,11 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNJ-RM-due">
                                                             <rect key="frame" x="68" y="0.0" width="52" height="36"/>
-                                                            <color key="backgroundColor" red="0.97825103998184204" green="0.33372730016708374" blue="0.30986666679382324" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                             <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                             <state key="normal" title="No">
-                                                                <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                                <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                             </state>
                                                             <connections>
                                                                 <action selector="declineButtonTapped:" destination="4Vt-PL-rMY" eventType="touchUpInside" id="hkq-er-4to"/>
@@ -551,7 +551,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="JhV-jc-wyI">
                                                                     <rect key="frame" x="0.0" y="50.5" width="192" height="34"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmI-Vz-Bks">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YmI-Vz-Bks">
                                                                             <rect key="frame" x="0.0" y="0.0" width="192" height="19.5"/>
                                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                                                             <color key="textColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -634,16 +634,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKB-tw-bJ4">
-                                <rect key="frame" x="40" y="134" width="240" height="300"/>
+                                <rect key="frame" x="36" y="159" width="248" height="250"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Group Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HPN-fn-Gbb">
-                                        <rect key="frame" x="10" y="95" width="220" height="30"/>
+                                        <rect key="frame" x="20" y="95" width="208" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="fxO-OA-EbS">
-                                        <rect key="frame" x="16.5" y="185" width="207" height="36"/>
+                                        <rect key="frame" x="20.5" y="185" width="207" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ktx-lM-FP4">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="36"/>
@@ -659,11 +659,11 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uNl-Qk-lLg">
                                                 <rect key="frame" x="110" y="0.0" width="97" height="36"/>
-                                                <color key="backgroundColor" red="0.97825103998184204" green="0.33372730016708374" blue="0.30986666679382324" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <inset key="contentEdgeInsets" minX="25" minY="8" maxX="25" maxY="8"/>
                                                 <state key="normal" title="Cancel">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="cancelButtonTapped:" destination="lii-5F-Zex" eventType="touchUpInside" id="cEq-wv-8GW"/>
@@ -672,30 +672,31 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new group" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JKF-AY-Z9R">
-                                        <rect key="frame" x="28.5" y="25" width="183" height="30"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                        <rect key="frame" x="36" y="25" width="176.5" height="30"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.97999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="HPN-fn-Gbb" firstAttribute="top" secondItem="JKF-AY-Z9R" secondAttribute="bottom" constant="40" id="0dL-Mc-dJJ"/>
                                     <constraint firstItem="JKF-AY-Z9R" firstAttribute="centerX" secondItem="bKB-tw-bJ4" secondAttribute="centerX" id="3xn-QY-sup"/>
-                                    <constraint firstAttribute="height" constant="300" id="4VP-cw-pgU"/>
+                                    <constraint firstAttribute="height" constant="250" id="4VP-cw-pgU"/>
                                     <constraint firstItem="JKF-AY-Z9R" firstAttribute="top" secondItem="bKB-tw-bJ4" secondAttribute="top" constant="25" id="8KE-3E-seQ"/>
                                     <constraint firstItem="fxO-OA-EbS" firstAttribute="centerX" secondItem="bKB-tw-bJ4" secondAttribute="centerX" id="8v3-fP-Ofu"/>
-                                    <constraint firstItem="HPN-fn-Gbb" firstAttribute="leading" secondItem="bKB-tw-bJ4" secondAttribute="leading" constant="10" id="ial-XB-hZM"/>
-                                    <constraint firstAttribute="trailing" secondItem="HPN-fn-Gbb" secondAttribute="trailing" constant="10" id="lAZ-i9-Lbc"/>
+                                    <constraint firstItem="HPN-fn-Gbb" firstAttribute="leading" secondItem="bKB-tw-bJ4" secondAttribute="leading" constant="20" id="ial-XB-hZM"/>
+                                    <constraint firstAttribute="trailing" secondItem="HPN-fn-Gbb" secondAttribute="trailing" constant="20" id="lAZ-i9-Lbc"/>
                                     <constraint firstItem="fxO-OA-EbS" firstAttribute="top" secondItem="HPN-fn-Gbb" secondAttribute="bottom" constant="60" id="rgu-hs-f6X"/>
-                                    <constraint firstAttribute="width" constant="240" id="ze0-Ru-LX8"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.75315710616438358" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bKB-tw-bJ4" firstAttribute="centerY" secondItem="2L5-YX-2lO" secondAttribute="centerY" id="Ghw-dd-BwP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bKB-tw-bJ4" secondAttribute="trailing" constant="20" id="PYn-If-Bck"/>
                             <constraint firstItem="bKB-tw-bJ4" firstAttribute="centerX" secondItem="2L5-YX-2lO" secondAttribute="centerX" id="aK7-gi-Xbe"/>
+                            <constraint firstItem="bKB-tw-bJ4" firstAttribute="leading" secondItem="2L5-YX-2lO" secondAttribute="leadingMargin" constant="20" id="d0I-gd-EVb"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="New Group" id="rjv-0g-YzV"/>
@@ -725,10 +726,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8pg-Ax-EO8">
-                                <rect key="frame" x="40" y="134" width="240" height="300"/>
+                                <rect key="frame" x="36" y="159" width="248" height="250"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="2Gx-z7-OBr">
-                                        <rect key="frame" x="16.5" y="203" width="207" height="36"/>
+                                        <rect key="frame" x="20.5" y="183" width="207" height="36"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qn0-zp-TJB">
                                                 <rect key="frame" x="0.0" y="0.0" width="80" height="36"/>
@@ -744,11 +745,11 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zpI-eU-UN3">
                                                 <rect key="frame" x="110" y="0.0" width="97" height="36"/>
-                                                <color key="backgroundColor" red="0.97830277681350708" green="0.33751612901687622" blue="0.31405830383300781" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <inset key="contentEdgeInsets" minX="25" minY="8" maxX="25" maxY="8"/>
                                                 <state key="normal" title="Cancel">
-                                                    <color key="titleColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.90000000000000002" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="cancelButtonTapped:" destination="61o-lc-HGn" eventType="touchUpInside" id="2WA-zT-DZe"/>
@@ -757,21 +758,20 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.97999999999999998" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="2Gx-z7-OBr" firstAttribute="centerX" secondItem="8pg-Ax-EO8" secondAttribute="centerX" id="d9k-Rb-OUq"/>
-                                    <constraint firstAttribute="height" constant="300" id="ero-8T-o2g"/>
-                                    <constraint firstAttribute="width" constant="240" id="ium-ma-AVo"/>
+                                    <constraint firstAttribute="height" constant="250" id="ero-8T-o2g"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fn-Ru-kCv">
-                                <rect key="frame" x="74.5" y="157" width="171" height="30"/>
-                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
+                                <rect key="frame" x="77" y="182" width="166" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <color key="textColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dze-4u-EfZ">
-                                <rect key="frame" x="55" y="237" width="210" height="30"/>
+                                <rect key="frame" x="55" y="252" width="210" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="210" id="RiB-8H-qhK"/>
                                 </constraints>
@@ -784,11 +784,13 @@
                         <constraints>
                             <constraint firstItem="8pg-Ax-EO8" firstAttribute="centerX" secondItem="CwX-W5-vfl" secondAttribute="centerX" id="O71-ds-zbr"/>
                             <constraint firstItem="8pg-Ax-EO8" firstAttribute="top" secondItem="7fn-Ru-kCv" secondAttribute="bottom" constant="-53" id="RQu-TQ-wGu"/>
-                            <constraint firstItem="2Gx-z7-OBr" firstAttribute="top" secondItem="dze-4u-EfZ" secondAttribute="bottom" constant="70" id="UwW-Jm-TOY"/>
+                            <constraint firstItem="8pg-Ax-EO8" firstAttribute="leading" secondItem="CwX-W5-vfl" secondAttribute="leadingMargin" constant="20" id="Stm-kQ-ZHT"/>
+                            <constraint firstItem="2Gx-z7-OBr" firstAttribute="top" secondItem="dze-4u-EfZ" secondAttribute="bottom" constant="60" id="UwW-Jm-TOY"/>
                             <constraint firstItem="7fn-Ru-kCv" firstAttribute="centerX" secondItem="CwX-W5-vfl" secondAttribute="centerX" id="V2Z-pR-C1L"/>
                             <constraint firstItem="dze-4u-EfZ" firstAttribute="centerX" secondItem="CwX-W5-vfl" secondAttribute="centerX" id="bR0-7Q-luo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8pg-Ax-EO8" secondAttribute="trailing" constant="20" id="imT-hC-CZK"/>
                             <constraint firstItem="8pg-Ax-EO8" firstAttribute="centerY" secondItem="CwX-W5-vfl" secondAttribute="centerY" id="ndb-fR-DdQ"/>
-                            <constraint firstItem="dze-4u-EfZ" firstAttribute="top" secondItem="7fn-Ru-kCv" secondAttribute="bottom" constant="50" id="suY-QY-Ase"/>
+                            <constraint firstItem="dze-4u-EfZ" firstAttribute="top" secondItem="7fn-Ru-kCv" secondAttribute="bottom" constant="40" id="suY-QY-Ase"/>
                         </constraints>
                     </view>
                     <connections>
@@ -926,11 +928,11 @@
                                                                         </button>
                                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V7Q-Qt-z0z">
                                                                             <rect key="frame" x="0.0" y="0.0" width="0.0" height="45"/>
-                                                                            <color key="backgroundColor" red="0.92196695064447098" green="0.93109533629441621" blue="0.93109533629441621" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                            <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                                             <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                                             <state key="normal" title="Deny">
-                                                                                <color key="titleColor" red="0.13225729695431476" green="0.13225729695431476" blue="0.13225729695431476" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                                <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.89089255136986301" colorSpace="calibratedRGB"/>
                                                                             </state>
                                                                             <connections>
                                                                                 <action selector="denyButtonTapped:" destination="hhi-lH-QNl" eventType="touchUpInside" id="jof-1q-lyU"/>
@@ -985,7 +987,7 @@
                                                                     <color key="textColor" red="0.29706667724196284" green="0.30000793147208127" blue="0.30000793147208127" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgb-qN-aY9">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dgb-qN-aY9">
                                                                     <rect key="frame" x="0.0" y="28.5" width="225" height="17.5"/>
                                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                                     <color key="textColor" red="0.40000000600000002" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -1004,7 +1006,7 @@
                                                             <color key="backgroundColor" red="0.33356615900993347" green="0.77407294511795044" blue="0.15957346558570862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="45" id="4Zm-Fd-Fn4"/>
-                                                                <constraint firstAttribute="width" secondItem="dIz-12-jLx" secondAttribute="height" id="GX1-dz-2J9"/>
+                                                                <constraint firstAttribute="width" constant="45" id="tAf-ak-OZZ"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="14"/>
                                                             <state key="normal" title="Take" image="AccountIcon">
@@ -1015,6 +1017,9 @@
                                                             </connections>
                                                         </button>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="dIz-12-jLx" secondAttribute="trailing" constant="5" id="2nW-vP-efU"/>
+                                                    </constraints>
                                                     <edgeInsets key="layoutMargins" top="0.0" left="5" bottom="0.0" right="5"/>
                                                 </stackView>
                                             </subviews>
@@ -1027,6 +1032,8 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="assignButton" destination="dIz-12-jLx" id="dlz-a6-pxb"/>
+                                            <outlet property="buttonHeight" destination="4Zm-Fd-Fn4" id="rAK-es-f8a"/>
+                                            <outlet property="buttonWidth" destination="tAf-ak-OZZ" id="73j-0X-Css"/>
                                             <outlet property="choreDescriptionLabel" destination="Dgb-qN-aY9" id="P7Z-bG-Y8j"/>
                                             <outlet property="choreNameLabel" destination="gIJ-9i-2yI" id="H8V-WJ-uJS"/>
                                             <outlet property="dueDateLabel" destination="qUu-GC-tMh" id="cjE-XK-B62"/>
@@ -1090,7 +1097,7 @@
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                 <state key="normal" title="Add Task">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.89873180650684936" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="NewChoreTapped:" destination="sPM-2H-Wo2" eventType="touchUpInside" id="ixZ-Tc-UaM"/>
@@ -1102,7 +1109,7 @@
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                 <state key="normal" title="Add User">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.86108732876712324" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.89747431506849318" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="newUserTapped:" destination="sPM-2H-Wo2" eventType="touchUpInside" id="bBL-ca-QB2"/>
@@ -1110,11 +1117,11 @@
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCs-eF-SDt">
                                                 <rect key="frame" x="0.0" y="102" width="162" height="36"/>
-                                                <color key="backgroundColor" red="1" green="0.33333333333333331" blue="0.30980392156862746" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
                                                 <state key="normal" title="Leave Group">
-                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.91954730308219179" colorSpace="calibratedRGB"/>
+                                                    <color key="titleColor" red="0.098039217289999994" green="0.098039217289999994" blue="0.098039217289999994" alpha="0.88398972602739723" colorSpace="calibratedRGB"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="leaveGroupTapped:" destination="sPM-2H-Wo2" eventType="touchUpInside" id="EqK-Cn-Id5"/>
@@ -1232,7 +1239,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ioj-bg-ejh">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ioj-bg-ejh">
                                                 <rect key="frame" x="0.0" y="45" width="160" height="30"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="12"/>
@@ -1342,7 +1349,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7Z-Qm-2t4">
+                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="255" verticalHuggingPriority="255" horizontalCompressionResistancePriority="755" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7Z-Qm-2t4">
                                                     <rect key="frame" x="218" y="23.5" width="87" height="33"/>
                                                     <color key="backgroundColor" red="0.33333333333333331" green="0.77254901960784317" blue="0.16078431372549018" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>

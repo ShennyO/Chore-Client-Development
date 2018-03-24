@@ -113,14 +113,6 @@ struct HeaderViewHelper
         myCustomView.contentMode = UIViewContentMode.scaleAspectFill
         myCustomView.clipsToBounds = true
         
-        
-        
-        
-        
-            
-        
-
-
     return vw
 
         // Constraints
@@ -128,8 +120,11 @@ struct HeaderViewHelper
     }
     
     
-    static  func createTitleImageHeaderView(title: String, fontSize: CGFloat, frame: CGRect, imageURL: String) -> UIView
+    static  func createTitleImageHeaderView(title: String, fontSize: CGFloat, frame: CGRect, imageURL: String, vw: UIViewController? = nil) -> UIView
     {
+        
+        
+        
         let myCustomView = UIImageView()
         let vw = UIView(frame:frame)
         let darkVw = UIView(frame:frame)

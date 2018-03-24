@@ -15,9 +15,22 @@ extension Date {
         let day2 = calendar.startOfDay(for: day)
         return calendar.dateComponents([.day], from: today, to: day2)
     }
+    
 }
 
 extension String {
+    
+    static func getFormattedDate(string: String) -> String{
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM dd,yyyy"
+        let date = dateFormatterGet.date(from: string)
+        return dateFormatter.string(from: date!)
+    }
+    
+    
     func toBool() -> Bool? {
         switch self {
         case "True", "true", "yes", "1":

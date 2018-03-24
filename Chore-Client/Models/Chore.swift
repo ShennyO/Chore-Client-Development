@@ -22,4 +22,10 @@ struct Chore: Codable {
     let groupname: String!
     let description: String!
     let group_image: String!
+    
+    func getDate() -> String {
+        let date = String.getFormattedDate(string: due_date)
+        return date
+    }
+    
 }

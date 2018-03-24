@@ -49,7 +49,7 @@ class CompletedGroupChoresViewController: UIViewController, UITableViewDelegate,
         cell.selectionStyle = .none
         cell.choreNameLabel.text = self.chores[indexPath.row].name
         cell.choreDescriptionLabel.text = self.chores[indexPath.row].description
-        cell.dateLabel.text = self.chores[indexPath.row].due_date
+        cell.dateLabel.text = self.chores[indexPath.row].getDate()
         let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
         cell.userImageView.kf.setImage(with: imageURL!, placeholder: UIImage(named: "AccountIcon"), options: nil, progressBlock: nil, completionHandler: nil)
         cell.userImageView.layer.cornerRadius = 0.5 * cell.userImageView.bounds.size.width
