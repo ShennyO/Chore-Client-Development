@@ -11,7 +11,7 @@ import KeychainSwift
 import Kingfisher
 
 
-class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CompleteChoreCompletionDelegate, UIGestureRecognizerDelegate{
+class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CompleteChoreCompletionDelegate {
     
     // - MARK: IBOULET
     
@@ -112,6 +112,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         view.addGestureRecognizer(edgePan)
         let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(swipeRight(swipe:)))
         let tapToClose = UITapGestureRecognizer(target: self, action: #selector(tapToClose(tap:)))
+        tapToClose.cancelsTouchesInView = false
         swipeRight.direction = .right
         view.addGestureRecognizer(swipeRight)
         view.addGestureRecognizer(tapToClose)
@@ -524,6 +525,7 @@ enum darkenScreen {
 }
 
 extension GroupDetailViewController: assignButtonDelegate {
+    
     
     func darkenScreen(darken: darkenScreen) {
         let grayView = UIView()
