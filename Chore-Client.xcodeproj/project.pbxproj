@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		209634422067658C00F93768 /* LaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209634412067658C00F93768 /* LaunchPageViewController.swift */; };
 		20AD4E1F20609D480012B881 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AD4E1E20609D480012B881 /* ViewController+Extension.swift */; };
 		20AD4E21206225E50012B881 /* UserTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AD4E20206225E50012B881 /* UserTasksViewController.swift */; };
 		20B99AE0205F241C00076C1F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B99ADF205F241C00076C1F /* Notification.swift */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		1DB9AEFA9463BF187BEF51F6 /* Pods-Chore-ClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-ClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-ClientTests/Pods-Chore-ClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		209634412067658C00F93768 /* LaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPageViewController.swift; sourceTree = "<group>"; };
 		20AD4E1E20609D480012B881 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		20AD4E20206225E50012B881 /* UserTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTasksViewController.swift; sourceTree = "<group>"; };
 		20B99ADF205F241C00076C1F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -301,6 +303,7 @@
 				84576D6820394EE70014DDD4 /* RegisterViewController.swift */,
 				84C5949E2058F04800525246 /* CompletedGroupChoresViewController.swift */,
 				20AD4E20206225E50012B881 /* UserTasksViewController.swift */,
+				209634412067658C00F93768 /* LaunchPageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -637,6 +640,7 @@
 				849B44D420606BFD00400549 /* UIColorExtension.swift in Sources */,
 				84DEEDF8203667B400FAAA6B /* NewChoreViewController.swift in Sources */,
 				8490637B202BAA28008BFDF7 /* LoginViewController.swift in Sources */,
+				209634422067658C00F93768 /* LaunchPageViewController.swift in Sources */,
 				84906377202A859C008BFDF7 /* Request.swift in Sources */,
 				8401A18D203E11C30038A864 /* ProfileCollectionViewCell.swift in Sources */,
 				84906437202CD570008BFDF7 /* GroupTableViewCell.swift in Sources */,

@@ -34,7 +34,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8H-C2-0Cr">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange bg" translatesAutoresizingMaskIntoConstraints="NO" id="cl2-k2-OMW">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg2" translatesAutoresizingMaskIntoConstraints="NO" id="cl2-k2-OMW">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qfk-Ud-7I3">
@@ -43,20 +43,16 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VF-8l-3ob">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H6l-80-7Zf">
-                                                                <rect key="frame" x="104" y="64" width="120" height="182"/>
-                                                                <state key="normal" image="icon"/>
-                                                                <connections>
-                                                                    <action selector="addProfilePicButtonTapped:" destination="nTb-uM-Stj" eventType="touchUpInside" id="dLz-eV-P8F"/>
-                                                                </connections>
-                                                            </button>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="ufi-aj-IP2">
+                                                                <rect key="frame" x="80" y="85" width="160" height="114"/>
+                                                            </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                         <constraints>
-                                                            <constraint firstItem="H6l-80-7Zf" firstAttribute="width" secondItem="3VF-8l-3ob" secondAttribute="width" multiplier="0.35" constant="8" id="3Sa-K2-U3W"/>
-                                                            <constraint firstItem="H6l-80-7Zf" firstAttribute="centerX" secondItem="3VF-8l-3ob" secondAttribute="centerX" constant="4" id="LG9-XS-SqS"/>
-                                                            <constraint firstItem="H6l-80-7Zf" firstAttribute="height" secondItem="3VF-8l-3ob" secondAttribute="height" multiplier="0.55" constant="26.224999999999994" id="fxn-zb-cX3"/>
-                                                            <constraint firstItem="H6l-80-7Zf" firstAttribute="centerY" secondItem="3VF-8l-3ob" secondAttribute="centerY" constant="13.25" id="s4E-UM-WcZ"/>
+                                                            <constraint firstItem="ufi-aj-IP2" firstAttribute="width" secondItem="3VF-8l-3ob" secondAttribute="width" multiplier="0.5" id="AId-eH-bF6"/>
+                                                            <constraint firstItem="ufi-aj-IP2" firstAttribute="height" secondItem="3VF-8l-3ob" secondAttribute="height" multiplier="0.4" id="KlE-hz-7nF"/>
+                                                            <constraint firstItem="ufi-aj-IP2" firstAttribute="centerY" secondItem="3VF-8l-3ob" secondAttribute="centerY" id="MHT-tC-EXF"/>
+                                                            <constraint firstItem="ufi-aj-IP2" firstAttribute="centerX" secondItem="3VF-8l-3ob" secondAttribute="centerX" id="gH0-RS-p6D"/>
                                                         </constraints>
                                                     </view>
                                                 </subviews>
@@ -245,7 +241,6 @@
                         <outlet property="cancelButton" destination="fuE-Uo-aSV" id="u3s-Xa-Kaz"/>
                         <outlet property="emailTextField" destination="Y1q-z2-T9N" id="gha-oU-9YB"/>
                         <outlet property="firstNameTextField" destination="u0Q-6r-6Ks" id="34u-ya-pBb"/>
-                        <outlet property="imagePlaceHolderButton" destination="H6l-80-7Zf" id="gyY-d5-rgh"/>
                         <outlet property="lastNameTextField" destination="LzM-eC-YkW" id="bzd-az-ziw"/>
                         <outlet property="mainStack" destination="O1h-Ko-pkq" id="Xgy-wf-ZQq"/>
                         <outlet property="moveTheViewUpAndDown" destination="4lc-DU-sxF" id="anH-6Y-eVL"/>
@@ -272,7 +267,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="orange bg" translatesAutoresizingMaskIntoConstraints="NO" id="dyn-e1-QpK">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg2" translatesAutoresizingMaskIntoConstraints="NO" id="dyn-e1-QpK">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wr3-lY-dhN">
@@ -281,16 +276,16 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-70" translatesAutoresizingMaskIntoConstraints="NO" id="2lo-5G-ZR8">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHY-s1-8gN">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trask" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHY-s1-8gN">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="98.5"/>
-                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="35"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYu-pg-VOD">
                                                 <rect key="frame" x="0.0" y="28.5" width="320" height="255.5"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="trask logo" translatesAutoresizingMaskIntoConstraints="NO" id="Ke4-St-H3u">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="Ke4-St-H3u">
                                                         <rect key="frame" x="48" y="64" width="224" height="127.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -308,13 +303,13 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="kQp-nM-cPy">
-                                        <rect key="frame" x="0.0" y="284" width="320" height="85"/>
+                                        <rect key="frame" x="0.0" y="284" width="320" height="113.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Se6-vx-FtW">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="57"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="center" minimumFontSize="17" background="Username" translatesAutoresizingMaskIntoConstraints="NO" id="S8g-E2-zL8">
-                                                        <rect key="frame" x="24" y="11" width="272" height="21"/>
+                                                        <rect key="frame" x="24" y="14.5" width="272" height="28"/>
                                                         <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits"/>
@@ -334,10 +329,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AoJ-ZD-mZg">
-                                                <rect key="frame" x="0.0" y="42.5" width="320" height="42.5"/>
+                                                <rect key="frame" x="0.0" y="57" width="320" height="56.5"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" background="Password" translatesAutoresizingMaskIntoConstraints="NO" id="BOy-uK-tbr">
-                                                        <rect key="frame" x="24" y="11.5" width="272" height="20.5"/>
+                                                        <rect key="frame" x="24" y="15" width="272" height="27.5"/>
                                                         <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
@@ -359,13 +354,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cng-kW-qSM">
-                                        <rect key="frame" x="0.0" y="369" width="320" height="199"/>
+                                        <rect key="frame" x="0.0" y="397.5" width="320" height="170.5"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDJ-Vq-AVD">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="99.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="85.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPi-tb-8LQ">
-                                                        <rect key="frame" x="63.5" y="61.5" width="192" height="35.5"/>
+                                                        <rect key="frame" x="63.5" y="57" width="192" height="30.5"/>
                                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                         <state key="normal" title="Login"/>
@@ -383,16 +378,16 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-120" translatesAutoresizingMaskIntoConstraints="NO" id="89P-Gi-r5q">
-                                                <rect key="frame" x="0.0" y="99.5" width="320" height="99.5"/>
+                                                <rect key="frame" x="0.0" y="85.5" width="320" height="85"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not registered yet?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7H-bI-dDu">
-                                                        <rect key="frame" x="0.0" y="0.0" width="220" height="99.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="220" height="85"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                                         <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo8-3r-eq3">
-                                                        <rect key="frame" x="100" y="0.0" width="220" height="99.5"/>
+                                                        <rect key="frame" x="100" y="0.0" width="220" height="85"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
                                                         <state key="normal" title="Sign Up">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -407,7 +402,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="kQp-nM-cPy" firstAttribute="height" secondItem="wr3-lY-dhN" secondAttribute="height" multiplier="0.15" id="F86-hx-VSq"/>
+                                    <constraint firstItem="kQp-nM-cPy" firstAttribute="height" secondItem="wr3-lY-dhN" secondAttribute="height" multiplier="0.2" id="F86-hx-VSq"/>
                                     <constraint firstItem="2lo-5G-ZR8" firstAttribute="height" secondItem="wr3-lY-dhN" secondAttribute="height" multiplier="0.5" id="wJ9-u1-NUc"/>
                                 </constraints>
                             </stackView>
@@ -1890,19 +1885,18 @@
     <resources>
         <image name="AccountIcon" width="100" height="100"/>
         <image name="Email" width="375" height="33"/>
+        <image name="Group" width="833" height="833"/>
         <image name="Menu" width="25" height="15"/>
         <image name="Password" width="375" height="32"/>
         <image name="Password-1" width="375" height="35"/>
         <image name="Username" width="375" height="31"/>
         <image name="Username Copy 2" width="374" height="33"/>
-        <image name="icon" width="70" height="70"/>
+        <image name="bg2" width="454" height="716"/>
         <image name="icons8-cancel" width="51" height="51"/>
         <image name="ios7-home-outline" width="25" height="25"/>
         <image name="line-1" width="374" height="38"/>
-        <image name="orange bg" width="934" height="1074"/>
         <image name="orange for button" width="2178" height="1082"/>
         <image name="personal" width="29" height="29"/>
-        <image name="trask logo" width="280" height="280"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="R7x-MU-pG9"/>
