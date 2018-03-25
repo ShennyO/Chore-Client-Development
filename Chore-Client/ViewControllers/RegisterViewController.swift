@@ -46,7 +46,7 @@ class RegisterViewController: UIViewController{
         self.emailTextField.tag = 1
 //        self.usernameTextField.tag = 1
         self.passwordTextField.tag = 1
-        self.imagePlaceHolderButton.isUserInteractionEnabled = false
+        //self.imagePlaceHolderButton.isUserInteractionEnabled = false
         self.signUpButton.configureButton()
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
