@@ -23,7 +23,7 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var imagePlaceHolderButton: UIButton!
+    //@IBOutlet weak var imagePlaceHolderButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var mainStack: UIStackView!
     var user: User!
