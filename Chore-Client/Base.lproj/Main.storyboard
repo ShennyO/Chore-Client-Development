@@ -360,7 +360,7 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="85.5"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPi-tb-8LQ">
-                                                        <rect key="frame" x="64" y="46.5" width="192" height="51"/>
+                                                        <rect key="frame" x="64" y="48.5" width="192" height="47"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                                                         <state key="normal" title="Login">
@@ -376,7 +376,7 @@
                                                     <constraint firstItem="qPi-tb-8LQ" firstAttribute="centerX" secondItem="sDJ-Vq-AVD" secondAttribute="centerX" id="JzI-SH-BQJ"/>
                                                     <constraint firstItem="qPi-tb-8LQ" firstAttribute="width" secondItem="sDJ-Vq-AVD" secondAttribute="width" multiplier="0.6" id="T1s-Yk-6Vr"/>
                                                     <constraint firstItem="qPi-tb-8LQ" firstAttribute="centerY" secondItem="sDJ-Vq-AVD" secondAttribute="centerY" constant="30" id="XuJ-tg-p8M"/>
-                                                    <constraint firstItem="qPi-tb-8LQ" firstAttribute="height" secondItem="sDJ-Vq-AVD" secondAttribute="height" multiplier="0.6" id="xNv-06-Ib5"/>
+                                                    <constraint firstItem="qPi-tb-8LQ" firstAttribute="height" secondItem="sDJ-Vq-AVD" secondAttribute="height" multiplier="0.55" id="xNv-06-Ib5"/>
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-120" translatesAutoresizingMaskIntoConstraints="NO" id="89P-Gi-r5q">
@@ -2002,6 +2002,6 @@
         <image name="vrBg" width="508" height="545"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L6J-99-97s"/>
+        <segue reference="R7x-MU-pG9"/>
     </inferredMetricsTieBreakers>
 </document>
