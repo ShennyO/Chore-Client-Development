@@ -17,16 +17,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="YYi-gv-uaQ">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vrBg" translatesAutoresizingMaskIntoConstraints="NO" id="e4d-xe-3mo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TraskLogo" translatesAutoresizingMaskIntoConstraints="NO" id="YYi-gv-uaQ">
                                 <rect key="frame" x="75" y="200" width="225" height="266.5"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="e4d-xe-3mo" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="54n-PC-zwy"/>
+                            <constraint firstItem="e4d-xe-3mo" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AVr-gA-zxH"/>
                             <constraint firstItem="YYi-gv-uaQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="180" id="OjZ-Gn-M3i"/>
                             <constraint firstItem="YYi-gv-uaQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="V6b-ye-Dme"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="e4d-xe-3mo" secondAttribute="trailing" id="cjq-m0-vcJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YYi-gv-uaQ" secondAttribute="trailing" constant="75" id="lnN-0l-NMw"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YYi-gv-uaQ" secondAttribute="bottom" constant="200.5" id="t4g-Hv-gNS"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="e4d-xe-3mo" secondAttribute="bottom" id="t6l-Sd-MpS"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,6 +44,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Group" width="833" height="833"/>
+        <image name="TraskLogo" width="558" height="615"/>
+        <image name="vrBg" width="508" height="545"/>
     </resources>
 </document>
