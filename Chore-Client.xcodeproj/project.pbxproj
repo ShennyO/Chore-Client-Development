@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		208DE0632067B59300292D75 /* ChoreRecordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208DE0622067B59300292D75 /* ChoreRecordCollectionViewCell.swift */; };
 		209634422067658C00F93768 /* LaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209634412067658C00F93768 /* LaunchPageViewController.swift */; };
 		20AD4E1F20609D480012B881 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AD4E1E20609D480012B881 /* ViewController+Extension.swift */; };
 		20AD4E21206225E50012B881 /* UserTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AD4E20206225E50012B881 /* UserTasksViewController.swift */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		1DB9AEFA9463BF187BEF51F6 /* Pods-Chore-ClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-ClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-ClientTests/Pods-Chore-ClientTests.release.xcconfig"; sourceTree = "<group>"; };
+		208DE0622067B59300292D75 /* ChoreRecordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreRecordCollectionViewCell.swift; sourceTree = "<group>"; };
 		209634412067658C00F93768 /* LaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPageViewController.swift; sourceTree = "<group>"; };
 		20AD4E1E20609D480012B881 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		20AD4E20206225E50012B881 /* UserTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTasksViewController.swift; sourceTree = "<group>"; };
@@ -206,6 +208,7 @@
 		84906335202A3AE7008BFDF7 = {
 			isa = PBXGroup;
 			children = (
+				208DE0622067B59300292D75 /* ChoreRecordCollectionViewCell.swift */,
 				84906340202A3AE7008BFDF7 /* Chore-Client */,
 				84906355202A3AE7008BFDF7 /* Chore-ClientTests */,
 				84906360202A3AE7008BFDF7 /* Chore-ClientUITests */,
@@ -650,6 +653,7 @@
 				84DEEDF22034F34D00FAAA6B /* GroupChoreTableViewCell.swift in Sources */,
 				84DEEDF02034F16C00FAAA6B /* GroupDetailViewController.swift in Sources */,
 				84C5949F2058F04800525246 /* CompletedGroupChoresViewController.swift in Sources */,
+				208DE0632067B59300292D75 /* ChoreRecordCollectionViewCell.swift in Sources */,
 				84C5949B2057963200525246 /* SideBarMenuTableViewCell.swift in Sources */,
 				84906342202A3AE7008BFDF7 /* AppDelegate.swift in Sources */,
 				84906375202A84C8008BFDF7 /* Chore.swift in Sources */,

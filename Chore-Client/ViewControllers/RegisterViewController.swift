@@ -23,7 +23,7 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
-    @IBOutlet weak var imagePlaceHolderButton: UIButton!
+    //@IBOutlet weak var imagePlaceHolderButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var mainStack: UIStackView!
     var user: User!
@@ -46,7 +46,7 @@ class RegisterViewController: UIViewController{
         self.emailTextField.tag = 1
 //        self.usernameTextField.tag = 1
         self.passwordTextField.tag = 1
-        self.imagePlaceHolderButton.isUserInteractionEnabled = false
+        //self.imagePlaceHolderButton.isUserInteractionEnabled = false
         self.signUpButton.configureButton()
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
