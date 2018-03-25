@@ -45,9 +45,10 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VF-8l-3ob">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="ufi-aj-IP2">
-                                                                <rect key="frame" x="102.5" y="85" width="115" height="114"/>
-                                                                <color key="backgroundColor" red="0.22915676236152649" green="0.26084578037261963" blue="0.48493772745132446" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TraskLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ufi-aj-IP2">
+                                                                <rect key="frame" x="80" y="85" width="160" height="114"/>
+
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -283,7 +284,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-70" translatesAutoresizingMaskIntoConstraints="NO" id="2lo-5G-ZR8">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trask" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHY-s1-8gN">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHY-s1-8gN">
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="98.5"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="35"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -292,7 +293,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYu-pg-VOD">
                                                 <rect key="frame" x="0.0" y="28.5" width="320" height="255.5"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="Ke4-St-H3u">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="traskWithShadow" translatesAutoresizingMaskIntoConstraints="NO" id="Ke4-St-H3u">
                                                         <rect key="frame" x="48" y="64" width="224" height="127.5"/>
                                                         <color key="backgroundColor" red="0.22915676236152649" green="0.26084578037261963" blue="0.48493772745132446" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
@@ -1996,11 +1997,12 @@
         <image name="AccountIcon" width="100" height="100"/>
         <image name="Button" width="212" height="124"/>
         <image name="Email" width="375" height="33"/>
-        <image name="Group" width="853" height="853"/>
+
         <image name="Menu" width="25" height="15"/>
         <image name="Password" width="375" height="32"/>
         <image name="Password-1" width="375" height="35"/>
-        <image name="Sign In" width="212" height="124"/>
+        <image name="TraskLogo" width="558" height="615"/>
+
         <image name="Username" width="375" height="31"/>
         <image name="Username Copy 2" width="374" height="33"/>
 
@@ -2010,9 +2012,10 @@
         <image name="ios7-home-outline" width="25" height="25"/>
         <image name="line-1" width="374" height="38"/>
         <image name="personal" width="29" height="29"/>
+        <image name="traskWithShadow" width="548" height="633"/>
         <image name="vrBg" width="508" height="545"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="L6J-99-97s"/>
+        <segue reference="R7x-MU-pG9"/>
     </inferredMetricsTieBreakers>
 </document>
