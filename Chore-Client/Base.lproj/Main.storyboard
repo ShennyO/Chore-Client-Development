@@ -2013,7 +2013,6 @@
         <image name="personal" width="29" height="29"/>
         <image name="traskWithShadow" width="548" height="633"/>
 
-
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="R7x-MU-pG9"/>
