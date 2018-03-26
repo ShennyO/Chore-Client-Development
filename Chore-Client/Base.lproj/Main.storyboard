@@ -34,7 +34,9 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t8H-C2-0Cr">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="hoBg" translatesAutoresizingMaskIntoConstraints="NO" id="cl2-k2-OMW">
+
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg3" translatesAutoresizingMaskIntoConstraints="NO" id="cl2-k2-OMW">
+
                                                 <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="qfk-Ud-7I3">
@@ -43,8 +45,10 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VF-8l-3ob">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="TraskLogo" translatesAutoresizingMaskIntoConstraints="NO" id="ufi-aj-IP2">
-                                                                <rect key="frame" x="102.5" y="85" width="115" height="114"/>
+
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="traskWithShadow" translatesAutoresizingMaskIntoConstraints="NO" id="ufi-aj-IP2">
+                                                                <rect key="frame" x="80" y="85" width="160" height="114"/>
+
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -180,7 +184,9 @@
                                                         <rect key="frame" x="64.5" y="36" width="192" height="49"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                                         <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
-                                                        <state key="normal" title="Sign In" backgroundImage="vrBg"/>
+
+                                                        <state key="normal" title="Sign In" backgroundImage="bg3"/>
+
                                                         <connections>
                                                             <action selector="signUpTapped:" destination="nTb-uM-Stj" eventType="touchUpInside" id="5DQ-md-FQw"/>
                                                         </connections>
@@ -267,7 +273,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vrBg" translatesAutoresizingMaskIntoConstraints="NO" id="dyn-e1-QpK">
+
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg4" translatesAutoresizingMaskIntoConstraints="NO" id="dyn-e1-QpK">
+
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="wr3-lY-dhN">
@@ -385,7 +393,9 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Not registered yet?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e7H-bI-dDu">
                                                         <rect key="frame" x="0.0" y="0.0" width="220" height="85"/>
                                                         <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="13"/>
-                                                        <color key="textColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+
+                                                        <color key="textColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bo8-3r-eq3">
@@ -1993,13 +2003,17 @@
         <image name="TraskLogo" width="558" height="615"/>
         <image name="Username" width="375" height="31"/>
         <image name="Username Copy 2" width="374" height="33"/>
-        <image name="hoBg" width="1076" height="559"/>
+
+        <image name="bg3" width="1076" height="559"/>
+        <image name="bg4" width="508" height="545"/>
+
         <image name="icons8-cancel" width="51" height="51"/>
         <image name="ios7-home-outline" width="25" height="25"/>
         <image name="line-1" width="374" height="38"/>
         <image name="personal" width="29" height="29"/>
         <image name="traskWithShadow" width="548" height="633"/>
-        <image name="vrBg" width="508" height="545"/>
+
+
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="R7x-MU-pG9"/>
