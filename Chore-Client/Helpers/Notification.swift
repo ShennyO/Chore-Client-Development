@@ -68,7 +68,7 @@ struct Notification{
             let content = UNMutableNotificationContent()
             content.title = "Chores Due"
                 
-                content.body = ( dueChores.count == 1) ? "Hi, \(dueChores.count) chore is due today" : "Hi, \(dueChores.count) chores are due today"
+                content.body = ( dueChores.count == 1) ? "Hi, \(dueChores.count) task is due today" : "Hi, \(dueChores.count) tasks are due today"
             content.sound = UNNotificationSound.default()
             content.badge =  chores?.count as NSNumber?
             

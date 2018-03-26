@@ -31,14 +31,15 @@ class RegisterViewController: UIViewController{
     
     override func viewDidLoad() {
         
-        self.usernameTextField.autocorrectionType = .no
-        self.passwordTextField.autocorrectionType = .no
+        self.usernameTextField.desActivateAutoCorrectAndCap()
+        self.passwordTextField.desActivateAutoCorrectAndCap()
+        self.firstNameTextField.desActivateAutoCorrectAndCap()
+        self.lastNameTextField.desActivateAutoCorrectAndCap()
+        self.emailTextField.desActivateAutoCorrectAndCap()
         
-        self.usernameTextField.autocapitalizationType = .none
-         self.passwordTextField.autocapitalizationType = .none
         
-        self.usernameTextField.autocapitalizationType = .none
-        self.usernameTextField.autocorrectionType = .no
+        
+       
         super.viewDidLoad()
         self.passwordTextField.delegate = self
 //        self.emailTextField.delegate = self
