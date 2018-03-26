@@ -17,16 +17,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group" translatesAutoresizingMaskIntoConstraints="NO" id="YYi-gv-uaQ">
-                                <rect key="frame" x="75" y="200" width="225" height="266.5"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg3" translatesAutoresizingMaskIntoConstraints="NO" id="CCO-Ak-0AG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YYi-gv-uaQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="180" id="OjZ-Gn-M3i"/>
-                            <constraint firstItem="YYi-gv-uaQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="75" id="V6b-ye-Dme"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YYi-gv-uaQ" secondAttribute="trailing" constant="75" id="lnN-0l-NMw"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="YYi-gv-uaQ" secondAttribute="bottom" constant="200.5" id="t4g-Hv-gNS"/>
+                            <constraint firstItem="CCO-Ak-0AG" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="0Ee-5g-hQK"/>
+                            <constraint firstItem="CCO-Ak-0AG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="L4C-cK-kLm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CCO-Ak-0AG" secondAttribute="trailing" id="XXt-Wl-ZlN"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="CCO-Ak-0AG" secondAttribute="bottom" id="jFz-cs-ShR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -37,6 +37,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Group" width="833" height="833"/>
+        <image name="bg3" width="1076" height="559"/>
     </resources>
 </document>
