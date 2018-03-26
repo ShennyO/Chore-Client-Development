@@ -41,8 +41,10 @@ class RegisterViewController: UIViewController{
         
        
         super.viewDidLoad()
+        self.firstNameTextField.delegate = self
+        self.lastNameTextField.delegate = self
         self.passwordTextField.delegate = self
-//        self.emailTextField.delegate = self
+
         self.usernameTextField.delegate = self
         self.emailTextField.tag = 1
 //        self.usernameTextField.tag = 1
@@ -227,6 +229,12 @@ extension RegisterViewController: UITextFieldDelegate{
                 textField.text = ""
             }
         }
+        self.emailTextField.placeholder = "Email"
+        self.firstNameTextField.placeholder = "First name"
+        self.lastNameTextField.placeholder = "Last name"
+        self.passwordTextField.placeholder = "Password"
+        self.usernameTextField.placeholder = " Username"
+        
         
     }
     
@@ -242,6 +250,10 @@ extension RegisterViewController: UITextFieldDelegate{
         // Do not add a line break
         return false
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.placeholder = nil
+    }
+    
 }
 
 
