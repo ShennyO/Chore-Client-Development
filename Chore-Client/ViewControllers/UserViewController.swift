@@ -70,7 +70,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
                         self.tableViewHeader = UserHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height * 0.6), user: self.currentUser, userImage: image!)
                         self.choreRecordTableView.tableHeaderView = self.tableViewHeader
                         self.tableViewHeader.userHeaderDelegate = self
-                        
+                        ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                         
                     }
                     
@@ -86,13 +86,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
                 }
             }
             
-            self.photoHelper.completionHandler = { (image) in
-                self.tableViewHeader.imageView.image = image
-                guard let imageData = UIImageJPEGRepresentation(image, 1)
-                    else {return}
-                Network.instance.imageUpload(route: .userUpload, imageData: imageData)
-                
-            }
+           
             
             
             
@@ -108,6 +102,13 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         
         getUserChores {
             DispatchQueue.main.async {
+                self.photoHelper.completionHandler = { (image) in
+                    self.tableViewHeader.imageView.image = image
+                    guard let imageData = UIImageJPEGRepresentation(image, 1)
+                        else {return}
+                    Network.instance.imageUpload(route: .userUpload, imageData: imageData)
+                    
+                }
                 self.choreRecordTableView.reloadData()
             }
         }

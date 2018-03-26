@@ -74,91 +74,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Chore-Client/ViewControllers/UserViewController.swift"
-            timestampString = "543719793.233829"
+            timestampString = "543720635.505187"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "187"
-            endingLineNumber = "187"
-            landmarkName = "editButton()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Chore-Client/Views/UserHeaderView.swift"
-            timestampString = "543626862.689806"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "100"
-            endingLineNumber = "100"
-            landmarkName = "editButtonPressed()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Chore-Client/ViewControllers/UserViewController.swift"
-            timestampString = "543719793.234242"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "188"
-            endingLineNumber = "188"
-            landmarkName = "editButton()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Chore-Client/Views/UserHeaderView.swift"
-            timestampString = "543626862.690015"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "95"
-            endingLineNumber = "95"
-            landmarkName = "setupConstraints()"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Chore_Client.UserHeaderView.setupConstraints() -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in Chore_Client.UserViewController.viewWillAppear(Swift.Bool) -&gt; ()"
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/Views/UserHeaderView.swift"
-                  timestampString = "543544596.354127"
+                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/UserViewController.swift"
+                  timestampString = "543720635.732936"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "101"
-                  endingLineNumber = "101"
-                  offsetFromSymbolStart = "484">
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "36">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #5 (SnapKit.ConstraintMaker) -&gt; () in Chore_Client.UserHeaderView.setupConstraints() -&gt; ()"
+                  symbolName = "closure #1 (__ObjC.UIImage) -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in Chore_Client.UserViewController.viewWillAppear(Swift.Bool) -&gt; ()"
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/Views/UserHeaderView.swift"
-                  timestampString = "543544596.358337"
+                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/UserViewController.swift"
+                  timestampString = "543720635.7354209"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "102"
-                  endingLineNumber = "102"
-                  offsetFromSymbolStart = "20">
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
