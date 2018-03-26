@@ -61,19 +61,30 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
         
         getUser {
-            let imageURL = URL(string: self.currentUser.image_file)
-            KingfisherManager.shared.retrieveImage(with: imageURL!, options: nil, progressBlock: nil, completionHandler: { (image, _, _, _) in
-                
-                DispatchQueue.main.async {
-                    self.tableViewHeader = UserHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height * 0.6), user: self.currentUser, userImage: image!)
-                    self.tableViewHeader.userHeaderDelegate = self
-                    self.choreRecordTableView.tableHeaderView = self.tableViewHeader
-                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+            
+            if self.currentUser.image_file != "/image_files/original/missing.png" {
+                let imageURL = URL(string: self.currentUser.image_file)
+                KingfisherManager.shared.retrieveImage(with: imageURL!, options: nil, progressBlock: nil, completionHandler: { (image, _, _, _) in
                     
+                    DispatchQueue.main.async {
+                        self.tableViewHeader = UserHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height * 0.6), user: self.currentUser, userImage: image!)
+                        self.choreRecordTableView.tableHeaderView = self.tableViewHeader
+                        self.tableViewHeader.userHeaderDelegate = self
+                        
+                        
+                    }
+                    
+                    
+                })
+            } else {
+                DispatchQueue.main.async {
+                    let placeHolderImage = UIImage(named: "AccountIcon")
+                    self.tableViewHeader = UserHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height * 0.6), user: self.currentUser, userImage: placeHolderImage!)
+                    self.choreRecordTableView.tableHeaderView = self.tableViewHeader
+                    self.tableViewHeader.userHeaderDelegate = self
+                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                 }
-                
-                
-            })
+            }
             
             self.photoHelper.completionHandler = { (image) in
                 self.tableViewHeader.imageView.image = image
