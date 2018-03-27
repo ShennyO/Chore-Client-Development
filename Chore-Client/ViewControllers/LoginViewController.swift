@@ -24,10 +24,10 @@ class LoginViewController: UIViewController {
 //        self.hideKeyboardWhenTappedAround()
         loginButton.configureButton()
         registerButton.configureButton()
-        self.usernameTextField.autocorrectionType = .no
-        self.passwordTextField.autocorrectionType = .no
-        self.usernameTextField.autocapitalizationType = .none
-        self.usernameTextField.autocapitalizationType = .none
+        self.usernameTextField.desActivateAutoCorrectAndCap()
+        self.passwordTextField.desActivateAutoCorrectAndCap()
+        self.usernameTextField.tag = 1
+       
          self.usernameTextField.delegate = self
         self.passwordTextField.delegate = self
     }
@@ -82,15 +82,17 @@ class LoginViewController: UIViewController {
 
 extension LoginViewController: UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
+       textField.placeholder = nil
+       
         
-        self.usernameTextField.placeholder = nil
-        self.passwordTextField.placeholder = nil
+      
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.usernameTextField.placeholder = "Email"
         self.usernameTextField.placeHolderColor = UIColor.white
-        self.passwordTextField.placeHolderColor = UIColor.white
+       
         self.passwordTextField.placeholder = "Password"
+         self.passwordTextField.placeHolderColor = UIColor.white
     }
 }
 

@@ -17,6 +17,7 @@ class NewGroupViewController: UIViewController {
     var accepted = false
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.groupNameTextField.desActivateAutoCorrectAndCap()
         self.addNewGroupView.layer.cornerRadius = 10
         self.addNewGroupView.layer.masksToBounds = true
         addButton.configureButton()

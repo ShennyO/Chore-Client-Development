@@ -31,17 +31,20 @@ class RegisterViewController: UIViewController{
     
     override func viewDidLoad() {
         
-        self.usernameTextField.autocorrectionType = .no
-        self.passwordTextField.autocorrectionType = .no
+        self.usernameTextField.desActivateAutoCorrectAndCap()
+        self.passwordTextField.desActivateAutoCorrectAndCap()
+        self.firstNameTextField.desActivateAutoCorrectAndCap()
+        self.lastNameTextField.desActivateAutoCorrectAndCap()
+        self.emailTextField.desActivateAutoCorrectAndCap()
         
-        self.usernameTextField.autocapitalizationType = .none
-         self.passwordTextField.autocapitalizationType = .none
         
-        self.usernameTextField.autocapitalizationType = .none
-        self.usernameTextField.autocorrectionType = .no
+        
+       
         super.viewDidLoad()
+        self.firstNameTextField.delegate = self
+        self.lastNameTextField.delegate = self
         self.passwordTextField.delegate = self
-//        self.emailTextField.delegate = self
+
         self.usernameTextField.delegate = self
         self.emailTextField.tag = 1
 //        self.usernameTextField.tag = 1
@@ -226,6 +229,12 @@ extension RegisterViewController: UITextFieldDelegate{
                 textField.text = ""
             }
         }
+        self.emailTextField.placeholder = "Email"
+        self.firstNameTextField.placeholder = "First name"
+        self.lastNameTextField.placeholder = "Last name"
+        self.passwordTextField.placeholder = "Password"
+        self.usernameTextField.placeholder = " Username"
+        
         
     }
     
@@ -241,6 +250,10 @@ extension RegisterViewController: UITextFieldDelegate{
         // Do not add a line break
         return false
     }
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.placeholder = nil
+    }
+    
 }
 
 
