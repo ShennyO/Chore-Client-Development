@@ -34,8 +34,8 @@ struct HeaderViewHelper
         vw.addSubview(titleLabel)
         // Constraints
         titleLabel.snp.makeConstraints { (make) in
-            make.left.equalToSuperview().offset(10)
-            make.centerY.equalToSuperview().offset(-10)
+            make.left.equalToSuperview().offset(15)
+            make.centerY.equalToSuperview().offset(-13)
         }
         
         

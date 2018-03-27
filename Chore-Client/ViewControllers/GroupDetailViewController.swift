@@ -335,7 +335,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if tableView == self.groupDetailTableView {
             if indexPath.section == 0 {
-                return 170
+                return 150
             } else if indexPath.section == 1 {
                 return 150
             } else {
@@ -344,12 +344,16 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         } else {
             return 55
         }
-
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if tableView == self.groupDetailTableView {
-            return 15
+            if section != 0 {
+                return 65
+            } else {
+                return 0
+            }
+            
         } else {
             return 0
         }
