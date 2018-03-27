@@ -1,0 +1,31 @@
+//
+//  Chore.swift
+//  Chore-Client
+//
+//  Created by Sunny Ouyang on 2/6/18.
+//  Copyright © 2018 Sunny Ouyang. All rights reserved.
+//
+
+import Foundation
+
+struct Chore: Codable {
+    let id: Int
+    let name: String
+    let penalty: String!
+    let due_date: String
+    let reward: String!
+    let completed: Bool
+    let assigned: Bool
+    let user_id: Int!
+    let pending: Bool!
+    let user: User!
+    let groupname: String!
+    let description: String!
+    let group_image: String!
+    
+    func getDate() -> String {
+        let date = String.getFormattedDate(string: due_date)
+        return date
+    }
+    
+}

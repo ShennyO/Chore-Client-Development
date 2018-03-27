@@ -7,15 +7,105 @@
 //
 
 import UIKit
+import IQKeyboardManagerSwift
+import UserNotifications
+import KeychainSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var center = UNUserNotificationCenter.current()
+    
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        center.delegate = self
+        center.removeAllDeliveredNotifications()
+        UIApplication.shared.applicationIconBadgeNumber = 0
+        UINavigationBar.appearance().tintColor = UIColor.black
+        let offset = UIOffset(horizontal: -300, vertical: 0)
+        UIBarButtonItem.appearance().setBackButtonTitlePositionAdjustment(offset, for: .default)
+//
+//        UINavigationBar.appearance().prefersLargeTitles = true
+//        UINavigationBar.appearance().largeTitleTextAttributes =
+//            [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 35, weight: UIFont.Weight.black)]
+
+        
+        IQKeyboardManager.sharedManager().enable = true
+//        UIApplication.shared.statusBarStyle = .default
+//        let navigationBarAppearance = UINavigationBar.appearance()
+        
+//        navigationBarAppearance.isTranslucent = false
+//        navigationBarAppearance.barTintColor = UIColor(rgb: 0xFFB131)
+        
+        
+//        navigationBarAppearance.tintColor = UIColor.white
+        
+//        navigationBarAppearance.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+            //Change status bar color
+//            UIApplication.shared.statusBarStyle = .lightContent
+        
+        // check notification
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (permitionGranted, error) in
+            
+            // generate notification if condition meet
+            Notification.generateNotification()
+        }
+        
+        
+        IQKeyboardManager.sharedManager().enable = true
+        
+
         // Override point for customization after application launch.
+        let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
+        if(userLoginStatus)
+        {
+            let username:String = KeychainSwift().get("username")!
+            let token: String = KeychainSwift().get("token")!
+            Network.instance.fetch(route: .getUser(username: username), completion: { (data, resp) in
+
+                
+            
+
+                DispatchQueue.main.async {
+                    if let user = try? JSONDecoder().decode(User.self, from: data){
+                        if user.authentication_token != token {
+                            
+                            let alert = UIAlertController(title: "Log Out", message: "you have been logged out because your account was logIn in different device", preferredStyle: .alert)
+                            let done = UIAlertAction(title: "Return", style: .default, handler: { (done) in
+                                let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                                let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "newLoginVC")
+                                self.window?.rootViewController = loginVC
+                                self.window?.makeKeyAndVisible()
+                            })
+                            alert.addAction(done)
+                            let alertWindow = UIWindow(frame: UIScreen.main.bounds)
+                            
+                            alertWindow.rootViewController = UIViewController()
+                            alertWindow.windowLevel = UIWindowLevelAlert + 1
+                            alertWindow.makeKeyAndVisible()
+                            UserDefaults.standard.set(false, forKey: "isUserLoggedIn")
+                            alertWindow.rootViewController?.present(alert, animated: true, completion: nil)
+
+                        }
+                    }
+                    
+                }
+            })
+            
+            let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let rootController = mainStoryBoard.instantiateViewController(withIdentifier: "MainTab") 
+            
+            // Because self.window is an optional you should check it's value first and assign your rootViewController
+            if let window = self.window {
+                window.rootViewController = rootController
+            }
+            
+            window?.makeKeyAndVisible()
+        }
         return true
     }
 
@@ -44,3 +134,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate{
+    
+     func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                         didReceive response: UNNotificationResponse,
+                                         withCompletionHandler completionHandler: @escaping () -> Void){
+      
+      center.removeAllDeliveredNotifications()
+    }
+}
