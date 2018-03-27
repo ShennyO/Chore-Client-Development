@@ -349,7 +349,19 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if tableView == self.groupDetailTableView {
             if section != 0 {
-                return 65
+                if section == 1 {
+                    if self.requests.count == 0 {
+                        return 0
+                    } else {
+                        return 65
+                    }
+                } else {
+                    if self.chores.count == 0 {
+                        return 0
+                    } else {
+                        return 65
+                    }
+                }
             } else {
                 return 0
             }
@@ -394,8 +406,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                 cell.chore = self.chores[indexPath.row]
                 cell.selectionStyle = .none
                 cell.choreNameLabel.text = self.chores[indexPath.row].name
-                cell.choreDescriptionLabel.text = self.chores[indexPath.row].description
-                
+                cell.choreDescriptionLabel.text = self.chores[indexPath.row].description ?? ""
                 cell.dueDateLabel.text = self.chores[indexPath.row].getDate()
                 cell.currentIndex = indexPath
                 cell.delegate = self
@@ -408,7 +419,6 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
                         let imageURL = URL(string: self.chores[indexPath.row].user.image_file)
                         cell.assignButton.kf.setImage(with: imageURL!, for: .normal)
                         cell.assignButton.layer.cornerRadius = 0.5 * cell.buttonWidth.constant
-//                        cell.assignButton.layer.cornerRadius = 30 * 0.455
                         cell.assignButton.clipsToBounds = true
                     } else {
                         cell.assignButton.setImage(UIImage(named: "AccountIcon"), for: .normal)
