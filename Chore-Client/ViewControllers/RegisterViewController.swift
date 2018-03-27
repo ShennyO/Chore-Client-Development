@@ -44,7 +44,7 @@ class RegisterViewController: UIViewController{
         self.firstNameTextField.delegate = self
         self.lastNameTextField.delegate = self
         self.passwordTextField.delegate = self
-
+        self.emailTextField.delegate = self
         self.usernameTextField.delegate = self
         self.emailTextField.tag = 1
 //        self.usernameTextField.tag = 1

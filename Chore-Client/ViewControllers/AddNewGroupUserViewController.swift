@@ -18,12 +18,15 @@ class AddNewGroupUserViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.usernameTextField.desActivateAutoCorrectAndCap()
         self.newUserView.layer.cornerRadius = 10
         self.newUserView.layer.masksToBounds = true
         addButton.configureButton()
         cancelButton.configureButton()
         // Do any additional setup after loading the view.
     }
+    
 
     @IBAction func addButtonTapped(_ sender: Any) {
         //In here, we first have to preform a find Request to get the User associated with the username, then we can affirm that the user exists, and get the User ID, and then perform the send Request route
@@ -88,4 +91,8 @@ extension AddNewGroupUserViewController {
             completion()
         }
     }
+    
 }
+
+
+
