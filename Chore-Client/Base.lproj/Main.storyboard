@@ -43,7 +43,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3VF-8l-3ob">
                                                         <rect key="frame" x="0.0" y="0.0" width="320" height="284"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="traskWithShadow" translatesAutoresizingMaskIntoConstraints="NO" id="ufi-aj-IP2">
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="T" translatesAutoresizingMaskIntoConstraints="NO" id="ufi-aj-IP2">
                                                                 <rect key="frame" x="102.5" y="85" width="115" height="114"/>
                                                             </imageView>
                                                         </subviews>
@@ -253,7 +253,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WjO-iy-rv3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2458.125" y="744.71830985915494"/>
+            <point key="canvasLocation" x="-538" y="868"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="dj3-mG-iLU">
@@ -285,7 +285,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MYu-pg-VOD">
                                                 <rect key="frame" x="0.0" y="28.5" width="320" height="255.5"/>
                                                 <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="traskWithShadow" translatesAutoresizingMaskIntoConstraints="NO" id="Ke4-St-H3u">
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="T" translatesAutoresizingMaskIntoConstraints="NO" id="Ke4-St-H3u">
                                                         <rect key="frame" x="48" y="64" width="224" height="127.5"/>
                                                     </imageView>
                                                 </subviews>
@@ -432,7 +432,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h7j-LT-dYL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2457" y="-47"/>
+            <point key="canvasLocation" x="-538" y="-48"/>
         </scene>
         <!--Groups-->
         <scene sceneID="bqR-u5-ujW">
@@ -1890,14 +1890,14 @@
         <image name="Menu" width="25" height="15"/>
         <image name="Password" width="375" height="32"/>
         <image name="Password-1" width="375" height="35"/>
+        <image name="T" width="1278" height="1677"/>
         <image name="Username" width="375" height="31"/>
         <image name="Username Copy 2" width="374" height="33"/>
         <image name="icons8-cancel" width="51" height="51"/>
         <image name="ios7-home-outline" width="25" height="25"/>
         <image name="line-1" width="374" height="38"/>
         <image name="personal" width="29" height="29"/>
-        <image name="traskWithShadow" width="548" height="633"/>
-        <image name="traskback" width="2500" height="2500"/>
+        <image name="traskback" width="2334" height="2389"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="L6J-99-97s"/>
