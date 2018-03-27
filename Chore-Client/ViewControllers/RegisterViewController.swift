@@ -27,7 +27,10 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var mainStack: UIStackView!
     var user: User!
-     let photoHelper = PhotoHelper()
+    let photoHelper = PhotoHelper()
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewDidLoad() {
         
