@@ -23,7 +23,7 @@ class RegisterViewController: UIViewController{
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
-    //@IBOutlet weak var imagePlaceHolderButton: UIButton!
+   
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var mainStack: UIStackView!
     var user: User!
@@ -50,9 +50,9 @@ class RegisterViewController: UIViewController{
         self.emailTextField.delegate = self
         self.usernameTextField.delegate = self
         self.emailTextField.tag = 1
-//        self.usernameTextField.tag = 1
+
         self.passwordTextField.tag = 1
-        //self.imagePlaceHolderButton.isUserInteractionEnabled = false
+       
         self.signUpButton.configureButton()
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(RegisterViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
@@ -66,69 +66,27 @@ class RegisterViewController: UIViewController{
         self.buttonConstraint.constant = (self.view.frame.height - 50)
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        photoHelper.completionHandler = {(image) in
-//            //guard let image = image
-//            DispatchQueue.main.async {
-//                self.imagePlaceHolderButton.setImage(image, for: UIControlState.normal)
-//                self.imagePlaceHolderButton.imageView?.setNeedsDisplay()
-//                self.imagePlaceHolderButton.imageView?.layer.cornerRadius = 0.5 * (self.imagePlaceHolderButton.imageView?.bounds.size.width)!
-//                self.imagePlaceHolderButton.imageView?.clipsToBounds = true
-//            }
-//        }
-//    }
+
 
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-//            if self.view.frame.origin.y == 0{
-//                self.view.frame.origin.y -= keyboardSize.height
-//            }
+
             UIView.animate(withDuration: 1.5, animations: {
                  self.moveTheViewUpAndDown.constant = -(keyboardSize.height)/2
-                //self.mainStack.center.y -= keyboardSize.height
-                //self.textFieldStack.center.y -= 50
-//                self.imagePlaceHolderButton.imageView?.frame.size.height = 90
-//                self.imagePlaceHolderButton.imageView?.frame.size.width = 90
-                //self.moveTheViewUpAndDown.setMultiplier(multiplier: 0.3)
-            })
+                           })
            
         }
     }
 //
     @objc func keyboardWillHide(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-//            if self.view.frame.origin.y != 0{
-//                //self.view.frame.origin.y += keyboardSize.height
-//            }
+
             UIView.animate(withDuration: 1.5, animations: {
                 self.moveTheViewUpAndDown.constant = 0
-                 //self.mainStack.center.y += keyboardSize.height
-//                self.imagePlaceHolderButton.imageView?.frame.size.height = 120
-//                self.imagePlaceHolderButton.imageView?.frame.size.width = 120
-                 //self.moveTheViewUpAndDown.setMultiplier(multiplier: 0.4)
-                 //self.textFieldStack.center.y += 50
+          
             })
         }
     }
-
-//    @IBAction func addProfilePicButtonTapped(_ sender: Any){
-//
-////        photoHelper.completionHandler = { (image) in
-////            guard let imageData = UIImageJPEGRepresentation(image, 1)
-////                else {return}
-////            DispatchQueue.main.async {
-////                self.Uploaded = true
-////                self.profileImage.image = image
-////                self.profileImage.setNeedsDisplay()
-////            }
-////            Network.instance.imageUpload(route: .userUpload, imageData: imageData)
-////
-////        }
-//
-//
-//        photoHelper.presentActionSheet(from: self)
-//    }
-    
     
     @IBAction func signUpTapped(_ sender: Any) {
         self.signUpButton.zoomInWithEasing()
@@ -141,9 +99,6 @@ class RegisterViewController: UIViewController{
             keychain.set(self.user.email, forKey: "email")
             keychain.set(self.user.username, forKey: "username")
             keychain.set(String(self.user.id), forKey: "id")
-            
-            // add userImage
-//            self.setProfilePic()
             
             DispatchQueue.main.async {
                 ViewControllerUtils().hideActivityIndicator(uiView: self.view)
@@ -194,9 +149,16 @@ extension RegisterViewController {
                 
                 return
             }
-            self.getUser(username: username) {
-                completion()
+            else if resp.statusCode == 200{
+                let jsonUser = try? JSONDecoder().decode(User.self, from: data)
+                if let loggedUser = jsonUser {
+                    self.user = loggedUser
+                    
+                    completion()
+                }
+                
             }
+            
         }
     }
 }
@@ -211,13 +173,6 @@ extension RegisterViewController {
             }
         }
     }
-    
-//    func setProfilePic() {
-//        if let image: UIImage = self.imagePlaceHolderButton.imageView?.image{
-//        let imageData = UIImageJPEGRepresentation(image, 1)
-//            Network.instance.imageUpload(route: .userUpload, imageData: imageData!)
-//    }
-//  }
 }
 
 // - MARK: TEXTFIELD LIFE CYCLE
