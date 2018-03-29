@@ -66,7 +66,7 @@ struct Notification{
             // content
             
             let content = UNMutableNotificationContent()
-            content.title = "Chores Due"
+            content.title = "Tasks Due"
                 
                 content.body = ( dueChores.count == 1) ? "Hi, \(dueChores.count) task is due today" : "Hi, \(dueChores.count) tasks are due today"
             content.sound = UNNotificationSound.default()
