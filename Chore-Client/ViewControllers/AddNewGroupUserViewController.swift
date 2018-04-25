@@ -19,7 +19,7 @@ class AddNewGroupUserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.usernameTextField.desActivateAutoCorrectAndCap()
+        self.usernameTextField.deactivateAutoCorrectAndCap()
         self.newUserView.layer.cornerRadius = 10
         self.newUserView.layer.masksToBounds = true
         addButton.configureButton()

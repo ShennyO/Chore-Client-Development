@@ -34,11 +34,11 @@ class RegisterViewController: UIViewController{
     
     override func viewDidLoad() {
         
-        self.usernameTextField.desActivateAutoCorrectAndCap()
-        self.passwordTextField.desActivateAutoCorrectAndCap()
-        self.firstNameTextField.desActivateAutoCorrectAndCap()
-        self.lastNameTextField.desActivateAutoCorrectAndCap()
-        self.emailTextField.desActivateAutoCorrectAndCap()
+        self.usernameTextField.deactivateAutoCorrectAndCap()
+        self.passwordTextField.deactivateAutoCorrectAndCap()
+        self.firstNameTextField.deactivateAutoCorrectAndCap()
+        self.lastNameTextField.deactivateAutoCorrectAndCap()
+        self.emailTextField.deactivateAutoCorrectAndCap()
         
         
         

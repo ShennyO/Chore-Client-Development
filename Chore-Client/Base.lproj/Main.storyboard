@@ -1451,7 +1451,7 @@
         <!--Completed Tasks-->
         <scene sceneID="5Dl-Tv-fZE">
             <objects>
-                <viewController hidesBottomBarWhenPushed="YES" id="yIn-Te-tY7" customClass="UserChoresViewController" customModule="Chore_Client" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="yIn-Te-tY7" customClass="UserCompletedTasksViewController" customModule="Chore_Client" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Omo-dK-91D"/>
                         <viewControllerLayoutGuide type="bottom" id="Ggj-fK-Qnp"/>

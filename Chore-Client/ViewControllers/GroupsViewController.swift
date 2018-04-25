@@ -14,9 +14,11 @@ import IQKeyboardManagerSwift
 
 class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestDelegate{
     
-    
+    //MARK: OUTLETS
     @IBOutlet weak var groupsTableView: UITableView!
     
+    
+    //MARK: VARIABLES
     var groups: [Group] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -25,15 +27,12 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
         }
     }
-    
-   // var activity :  UIActivityIndicatorView!
-    
     var requests: [Request] = []
     var shown: Bool = false
     var loaded: Bool = false
     
 
-    
+    //TODO: Check if I still use ViewWillDisappear
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationItem.largeTitleDisplayMode = .automatic
@@ -51,7 +50,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }
 
-        
+        //Get the current user's groups and also their group requests
         self.getGroups {
             
             self.getRequests {
@@ -70,9 +69,6 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 
     override func viewDidLoad() {
-        
-
-        
          IQKeyboardManager.sharedManager().enable = true
     }
 
@@ -81,6 +77,9 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     @IBAction func unwindToGroupsVC(segue:UIStoryboardSegue) { }
+    
+    
+    //MARK: TABLEVIEW FUNCTIONS
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 115
@@ -138,6 +137,8 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 extension GroupsViewController {
     
+    
+    //MARK: NETWORKING FUNCTIONS
     
     func completeRequest(indexPath: IndexPath, answer: Bool) {
         let groupID = self.requests[indexPath.row].group_id!

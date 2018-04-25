@@ -23,8 +23,8 @@ class NewChoreViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        choreNameLabel.desActivateAutoCorrectAndCap()
-        choreDescriptionTextField.desActivateAutoCorrectAndCap()
+        choreNameLabel.deactivateAutoCorrectAndCap()
+        choreDescriptionTextField.deactivateAutoCorrectAndCap()
         addButton.configureButton()
         choreNameLabel.delegate = self
         choreDescriptionTextField.delegate = self

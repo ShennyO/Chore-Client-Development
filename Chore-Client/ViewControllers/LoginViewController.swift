@@ -12,10 +12,14 @@ import IQKeyboardManagerSwift
 
 class LoginViewController: UIViewController {
     //USE EMAIL, NOT USERNAME
+    //TODO: change username to email
+    //MARK: OUTLETS
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
+    
+    //Variables
     let keychain = KeychainSwift()
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -27,8 +31,8 @@ class LoginViewController: UIViewController {
 //        self.hideKeyboardWhenTappedAround()
         loginButton.configureButton()
         registerButton.configureButton()
-        self.usernameTextField.desActivateAutoCorrectAndCap()
-        self.passwordTextField.desActivateAutoCorrectAndCap()
+        self.usernameTextField.deactivateAutoCorrectAndCap()
+        self.passwordTextField.deactivateAutoCorrectAndCap()
         self.usernameTextField.tag = 1
        
          self.usernameTextField.delegate = self
