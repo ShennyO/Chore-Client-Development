@@ -14,7 +14,7 @@ import Kingfisher
 
 class UserViewController: UIViewController, ChoreCompletionDelegate, UITableViewDelegate, UITableViewDataSource, UserHeaderDelegate{
     
-    //MARK: OUTLETS
+    // - MARK: OUTLETS
     
     @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     @IBOutlet weak var profileImage: UIImageView!
@@ -23,7 +23,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     @IBOutlet weak var imageButton: UIButton!
     
     
-    //MARK: PROPERTIES
+    // - MARK: PROPERTIES
     
     let photoHelper = PhotoHelper()
     var imageData: NSData?
@@ -35,7 +35,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     var Uploaded = false
     var loaded = false
     
-    //MARK: INSET
+    // - MARK: INSET
     // Add additional insets so the ImageView starts from the top of the screen
     override var additionalSafeAreaInsets: UIEdgeInsets {
         set {
@@ -65,7 +65,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         super.viewDidLoad()
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
         
-        //MARK: GETUSER
+        // - MARK: GETUSER
         //Grabs the current logged In user, and sets up the tableviewheader
         
         getUser {
@@ -98,7 +98,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         navigationItem.largeTitleDisplayMode = .never
         hideNavigation(tint: UIColor(rgb: 0xEEF0F0))
         
-        //MARK: GET USER CHORES
+        // - MARK: GET USER CHORES
         getUserChores {
             DispatchQueue.main.async {
                 //Resets the imageView if the user updates their image
@@ -137,7 +137,7 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         self.present(alert, animated: true, completion: nil)
     }
     
-    //MARK: TABLEVIEW FUNCTIONS
+    // - MARK: TABLEVIEW FUNCTIONS
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -193,6 +193,7 @@ extension UserViewController {
         photoHelper.presentActionSheet(from: self)
     }
     
+    // - MARK: NETWORKING FUNCTIONS
     
     func getUser(completion: @escaping()->()) {
         let username = KeychainSwift().get("username")

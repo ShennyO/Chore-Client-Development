@@ -14,11 +14,11 @@ import IQKeyboardManagerSwift
 
 class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, RequestDelegate{
     
-    //MARK: OUTLETS
+    // - MARK: OUTLETS
     @IBOutlet weak var groupsTableView: UITableView!
     
     
-    //MARK: VARIABLES
+    // - MARK: VARIABLES
     var groups: [Group] = [] {
         didSet {
             DispatchQueue.main.async {
@@ -79,7 +79,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func unwindToGroupsVC(segue:UIStoryboardSegue) { }
     
     
-    //MARK: TABLEVIEW FUNCTIONS
+    // - MARK: TABLEVIEW FUNCTIONS
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 115
@@ -138,7 +138,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 extension GroupsViewController {
     
     
-    //MARK: NETWORKING FUNCTIONS
+    // - MARK: NETWORKING FUNCTIONS
     
     func completeRequest(indexPath: IndexPath, answer: Bool) {
         let groupID = self.requests[indexPath.row].group_id!

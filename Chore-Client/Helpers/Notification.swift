@@ -11,7 +11,7 @@ import UserNotifications
 import KeychainSwift
 
 struct Notification{
-    //MARK: Explanation
+    // - MARK: Explanation
     //Used to create local notifications in the app delegate
     static func getUserChores(completion: @escaping ([Chore]?)->()) {
         Network.instance.fetch(route: .getUserChores) { (data, resp) in

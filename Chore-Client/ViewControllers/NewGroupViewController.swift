@@ -10,14 +10,14 @@ import UIKit
 
 class NewGroupViewController: UIViewController {
 
-    //MARK: IBOUTLETS
+    // - MARK: IBOUTLETS
     
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addNewGroupView: UIView!
     
-    //MARK: VARIABLES
+    // - MARK: VARIABLES
     
     var accepted = false
     override func viewDidLoad() {
@@ -47,7 +47,7 @@ class NewGroupViewController: UIViewController {
         }
     }
     
-    //MARK: IBACTIONS
+    // - MARK: IBACTIONS
 
     @IBAction func addButtonTapped(_ sender: Any) {
         

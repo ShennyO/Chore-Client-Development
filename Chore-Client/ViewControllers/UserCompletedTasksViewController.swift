@@ -10,10 +10,10 @@ import UIKit
 
 class UserCompletedTasksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    //MARK: OUTLETS
+    // - MARK: OUTLETS
     @IBOutlet weak var choresTableView: UITableView!
     
-    //MARK: VARIABLES
+    // - MARK: VARIABLES
     
     var userChores: [Chore] = []
     var loaded: Bool = false
@@ -41,6 +41,9 @@ class UserCompletedTasksViewController: UIViewController, UITableViewDelegate, U
         }
     }
     
+    
+    // - MARK: TABLEVIEW FUNCTIONS
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
     }
@@ -65,6 +68,9 @@ class UserCompletedTasksViewController: UIViewController, UITableViewDelegate, U
 }
 
 extension UserCompletedTasksViewController {
+    
+    // - MARK: NETWORKING FUNCTIONS
+    
     func getUserCompletedChores(completion: @escaping ()->()) {
         Network.instance.fetch(route: .getUserCompletedChores) { (data, resp) in
             let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)

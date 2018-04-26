@@ -12,20 +12,23 @@ import IQKeyboardManagerSwift
 
 class RegisterViewController: UIViewController{
 
+    // - MARK: IBOUTLETS
+    
     @IBOutlet weak var buttonConstraint: NSLayoutConstraint!
     @IBOutlet weak var titleLabelUpAndDown: NSLayoutConstraint!
-    
-    @IBOutlet weak var textFieldStack: UIStackView!
     @IBOutlet weak var moveTheViewUpAndDown: NSLayoutConstraint!
+    @IBOutlet weak var textFieldStack: UIStackView!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var signUpButton: UIButton!
-   
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var mainStack: UIStackView!
+    
+    // - MARK: VARIABLES
+    
     var user: User!
     let photoHelper = PhotoHelper()
     override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -34,16 +37,14 @@ class RegisterViewController: UIViewController{
     
     override func viewDidLoad() {
         
+        
+        super.viewDidLoad()
+        
         self.usernameTextField.deactivateAutoCorrectAndCap()
         self.passwordTextField.deactivateAutoCorrectAndCap()
         self.firstNameTextField.deactivateAutoCorrectAndCap()
         self.lastNameTextField.deactivateAutoCorrectAndCap()
         self.emailTextField.deactivateAutoCorrectAndCap()
-        
-        
-        
-       
-        super.viewDidLoad()
         self.firstNameTextField.delegate = self
         self.lastNameTextField.delegate = self
         self.passwordTextField.delegate = self
@@ -66,7 +67,7 @@ class RegisterViewController: UIViewController{
         self.buttonConstraint.constant = (self.view.frame.height - 50)
     }
     
-
+    // - MARK: OBJC FUNCTIONS
 
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
@@ -87,6 +88,8 @@ class RegisterViewController: UIViewController{
             })
         }
     }
+    
+    // - MARK: IBACTIONS
     
     @IBAction func signUpTapped(_ sender: Any) {
         self.signUpButton.zoomInWithEasing()
@@ -115,6 +118,22 @@ class RegisterViewController: UIViewController{
 }
 
 extension RegisterViewController {
+    
+    // - MARK: NETWORKING FUNCTIONS
+    
+    //grabs a user based on the username
+    func getUser(username: String, completion: @escaping()->()) {
+        Network.instance.fetch(route: .getUser(username: username)) { (data, resp)  in
+            let jsonUser = try? JSONDecoder().decode(User.self, from: data)
+            if let loggedUser = jsonUser {
+                self.user = loggedUser
+                
+                completion()
+            }
+        }
+    }
+    
+    //checks if all textfields are filled in, and checks to see if username/ email is available before creating a user
     func createUser(completion: @escaping ()->()) {
         guard let firstName = self.firstNameTextField.text, !firstName.isEmpty, let lastName = self.lastNameTextField.text, !lastName.isEmpty, let username = self.usernameTextField.text, !username.isEmpty, let email = self.emailTextField.text, !email.isEmpty, let password = self.passwordTextField.text, !password.isEmpty else {
             DispatchQueue.main.async {
@@ -159,18 +178,6 @@ extension RegisterViewController {
                 
             }
             
-        }
-    }
-}
-extension RegisterViewController {
-    func getUser(username: String, completion: @escaping()->()) {
-        Network.instance.fetch(route: .getUser(username: username)) { (data, resp)  in
-            let jsonUser = try? JSONDecoder().decode(User.self, from: data)
-            if let loggedUser = jsonUser {
-                self.user = loggedUser
-                
-                completion()
-            }
         }
     }
 }

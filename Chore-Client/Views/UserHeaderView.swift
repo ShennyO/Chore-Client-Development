@@ -51,18 +51,18 @@ class UserHeaderView: UIView {
         titleLabel.font = UIFont(name: "Futura", size: 25)
         titleLabel.bounds.size.width = self.bounds.width / 3
         
-        //MARK: Darkened View
+        // - MARK: Darkened View
         
         darkVw.backgroundColor = UIColor.black.withAlphaComponent(0.3)
         
-        //MARK: ImageView
+        // - MARK: ImageView
         
         self.imageView.image = userImage
         imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
         
-        //MARK: EDIT BUTTON
+        // - MARK: EDIT BUTTON
         
         editButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
         editButton.addTarget(self, action: #selector(editButtonPressed), for: .touchUpInside)
@@ -76,7 +76,7 @@ class UserHeaderView: UIView {
         self.setupConstraints()
     }
     
-    //MARK: CONSTRAINTS
+    // - MARK: CONSTRAINTS
     
     func setupConstraints() {
         

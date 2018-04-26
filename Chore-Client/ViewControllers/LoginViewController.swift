@@ -13,7 +13,7 @@ import IQKeyboardManagerSwift
 class LoginViewController: UIViewController {
     //USE EMAIL, NOT USERNAME
     //TODO: change username to email
-    //MARK: OUTLETS
+    // - MARK: OUTLETS
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!

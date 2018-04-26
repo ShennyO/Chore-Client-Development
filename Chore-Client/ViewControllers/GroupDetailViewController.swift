@@ -13,7 +13,7 @@ import Kingfisher
 
 class GroupDetailViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, CompleteChoreCompletionDelegate {
     
-    // - MARK: IBOULET
+    // - MARK: IBOUTLETS
     
     @IBOutlet weak var sideMenuTrailingConstraint: NSLayoutConstraint!
     @IBOutlet weak var sideMenuView: UIView!
@@ -27,7 +27,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var groupDetailTableView: UITableView!
     
     
-    // - MARK: PROPERTIES
+    // - MARK: VARIABLES
     
     let sideMenuCellLabels = ["Completed Tasks"]
     let photoHelper = PhotoHelper()
@@ -41,33 +41,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var menuShowing = true
     var loaded: Bool = false
    
-    @IBAction func categoryButtonTapped(_ sender: Any) {
-        if (menuShowing) {
-            
-            UIView.animate(withDuration: 0.3, animations: {
-                self.sideMenuTrailingConstraint.constant = 0
-                self.view.layoutIfNeeded()
-                
-            })
-            let deadlineTime = DispatchTime.now() + .milliseconds(200) // 0.3 seconds
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
-                self.darkenScreen(darken: .dark)
-                
-            })
-            
-            
-        } else {
-            let sideMenuStartingPoint = self.view.frame.width * -0.7
-            sideMenuTrailingConstraint.constant = sideMenuStartingPoint
-            darkenScreen(darken: .normal)
-            UIView.animate(withDuration: 0.125, animations: {
-                self.view.layoutIfNeeded()
-            })
-            
-        }
-        menuShowing = !menuShowing
-    }
-    @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
+   
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -149,38 +123,25 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         sideMenuLeaveButton.configureButton()
     }
     
-    @IBAction func sideMenuButtonTapped(_ sender: Any) {
-        if (menuShowing) {
-            
-            UIView.animate(withDuration: 0.3, animations: {
-                self.sideMenuTrailingConstraint.constant = 0
-                self.view.layoutIfNeeded()
-                
-            })
-            let deadlineTime = DispatchTime.now() + .milliseconds(200) // 0.3 seconds
-            DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
-                self.darkenScreen(darken: .dark)
-                
-            })
-            
-            
-        } else {
-            let sideMenuStartingPoint = self.view.frame.width * -0.7
-            sideMenuTrailingConstraint.constant = sideMenuStartingPoint
-            darkenScreen(darken: .normal)
-            UIView.animate(withDuration: 0.125, animations: {
-                self.view.layoutIfNeeded()
-            })
-            
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let identifier = segue.identifier {
+            if identifier == "toAddNewGroupUser" {
+                let addNewGroupUserVC = segue.destination as! AddNewGroupUserViewController
+                addNewGroupUserVC.selectedGroup = self.group
+            } else if identifier == "toCompletedGroupChores" {
+                let CompletedGroupChoresVC = segue.destination as! CompletedGroupChoresViewController
+                CompletedGroupChoresVC.group = self.group
+            } else if identifier == "userDetail"{
+                let user = sender as! User
+                let userTaskVC = segue.destination as! UserTasksViewController
+                userTaskVC.group = group
+                userTaskVC.user = user
+            }
         }
-        menuShowing = !menuShowing
     }
     
-    
-    @IBAction func sideMenuProfileButtonTapped(_ sender: Any) {
-        photoHelper.presentActionSheet(from: self)
-    }
-    
+    // - MARK: OBJC FUNCTIONS
     
     
     @objc func screenEdgeSwiped(_ recognizer: UIScreenEdgePanGestureRecognizer) {
@@ -261,59 +222,17 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         }
     }
     
-    @IBAction func NewChoreTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "toNewChore", sender: self)
-    }
     
-    @IBAction func newUserTapped(_ sender: Any) {
-        self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
-    }
-    
-    @IBAction func leaveGroupTapped(_ sender: Any) {
-        
-        let alert = UIAlertController(title: "Leave Group", message: "Are you sure you want to leave?", preferredStyle: .alert)
-        let cancel = UIAlertAction(title: "No", style: .default, handler: nil)
-        let logOut = UIAlertAction(title: "Yes", style: .default) { (logout) in
-            let currentGroupID = Int(KeychainSwift().get("groupID")!)!
-            let userID = Int(KeychainSwift().get("id")!)!
-            Network.instance.fetch(route: .removeMember(group_id: currentGroupID, user_id: userID)) { (data, resp) in
-                print("Member removed")
-                DispatchQueue.main.async {
-                    self.performSegue(withIdentifier: "groupDetailToGroups", sender: self)
-                }
-            }
-            
-        }
-        alert.addAction(cancel)
-        alert.addAction(logOut)
-        self.present(alert, animated: true, completion: nil)
-        
-        
-        
-    }
     
     @objc func ButtonClick(_ sender: UIButton){
         self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let identifier = segue.identifier {
-            if identifier == "toAddNewGroupUser" {
-                let addNewGroupUserVC = segue.destination as! AddNewGroupUserViewController
-                addNewGroupUserVC.selectedGroup = self.group
-            } else if identifier == "toCompletedGroupChores" {
-                let CompletedGroupChoresVC = segue.destination as! CompletedGroupChoresViewController
-                CompletedGroupChoresVC.group = self.group
-            } else if identifier == "userDetail"{
-                let user = sender as! User
-                let userTaskVC = segue.destination as! UserTasksViewController
-                userTaskVC.group = group
-                userTaskVC.user = user
-            }
-        }
-    }
     
     
+    
+    
+    // - MARK: TABLEVIEW DELEGATE FUNCTIONS
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
@@ -503,6 +422,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     }
     
     
+    // - MARK: COLLECTIONVIEW DELEGATE FUNCTIONS
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.users.count
@@ -536,6 +456,101 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         let user = group.members[indexPath.row]
         self.performSegue(withIdentifier: "userDetail", sender: user)
     }
+    
+    // - MARK: IBACTIONS
+    
+    @IBAction func categoryButtonTapped(_ sender: Any) {
+        if (menuShowing) {
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.sideMenuTrailingConstraint.constant = 0
+                self.view.layoutIfNeeded()
+                
+            })
+            let deadlineTime = DispatchTime.now() + .milliseconds(200) // 0.3 seconds
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+                self.darkenScreen(darken: .dark)
+                
+            })
+            
+            
+        } else {
+            let sideMenuStartingPoint = self.view.frame.width * -0.7
+            sideMenuTrailingConstraint.constant = sideMenuStartingPoint
+            darkenScreen(darken: .normal)
+            UIView.animate(withDuration: 0.125, animations: {
+                self.view.layoutIfNeeded()
+            })
+            
+        }
+        menuShowing = !menuShowing
+    }
+    @IBAction func unwindToGroupDetailVC(segue:UIStoryboardSegue) { }
+    
+    @IBAction func sideMenuButtonTapped(_ sender: Any) {
+        if (menuShowing) {
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.sideMenuTrailingConstraint.constant = 0
+                self.view.layoutIfNeeded()
+                
+            })
+            let deadlineTime = DispatchTime.now() + .milliseconds(200) // 0.3 seconds
+            DispatchQueue.main.asyncAfter(deadline: deadlineTime, execute: {
+                self.darkenScreen(darken: .dark)
+                
+            })
+            
+            
+        } else {
+            let sideMenuStartingPoint = self.view.frame.width * -0.7
+            sideMenuTrailingConstraint.constant = sideMenuStartingPoint
+            darkenScreen(darken: .normal)
+            UIView.animate(withDuration: 0.125, animations: {
+                self.view.layoutIfNeeded()
+            })
+            
+        }
+        menuShowing = !menuShowing
+    }
+    
+    
+    @IBAction func sideMenuProfileButtonTapped(_ sender: Any) {
+        photoHelper.presentActionSheet(from: self)
+    }
+    
+    
+    @IBAction func NewChoreTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "toNewChore", sender: self)
+    }
+    
+    @IBAction func newUserTapped(_ sender: Any) {
+        self.performSegue(withIdentifier: "toAddNewGroupUser", sender: self)
+    }
+    
+    @IBAction func leaveGroupTapped(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Leave Group", message: "Are you sure you want to leave?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "No", style: .default, handler: nil)
+        let logOut = UIAlertAction(title: "Yes", style: .default) { (logout) in
+            let currentGroupID = Int(KeychainSwift().get("groupID")!)!
+            let userID = Int(KeychainSwift().get("id")!)!
+            Network.instance.fetch(route: .removeMember(group_id: currentGroupID, user_id: userID)) { (data, resp) in
+                print("Member removed")
+                DispatchQueue.main.async {
+                    self.performSegue(withIdentifier: "groupDetailToGroups", sender: self)
+                }
+            }
+            
+        }
+        alert.addAction(cancel)
+        alert.addAction(logOut)
+        self.present(alert, animated: true, completion: nil)
+        
+        
+        
+    }
+    
 
 }
 
@@ -545,7 +560,7 @@ enum darkenScreen {
 
 extension GroupDetailViewController: assignButtonDelegate {
     
-    
+    //darken the screen once the hamburger screen is popped out
     func darkenScreen(darken: darkenScreen) {
         let grayView = UIView()
         grayView.tag = 1
@@ -575,6 +590,7 @@ extension GroupDetailViewController: assignButtonDelegate {
         
     }
     
+    // - MARK: NETWORKING FUNCTIONS
     
     func deleteChore(chore: Chore) {
         let groupID = Int(KeychainSwift().get("groupID")!)!

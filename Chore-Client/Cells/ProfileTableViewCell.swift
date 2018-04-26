@@ -16,7 +16,7 @@ class ProfileTableViewCell: UITableViewCell {
         // Initialization code
     }
     
-    
+    //setting up the collection view data source and delegate to be the view controller
     func setCollectionViewDataSourceDelegate
         <D: UICollectionViewDataSource & UICollectionViewDelegate>
         (dataSourceDelegate: D, forRow row: Int) {

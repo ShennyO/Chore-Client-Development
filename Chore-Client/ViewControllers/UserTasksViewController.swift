@@ -11,7 +11,9 @@ import Kingfisher
 
 class UserTasksViewController: UIViewController {
 
-    // - MARK: IBOUTLET
+    //PURPOSE: THE User's task view controller, seguewayed from the group detail page
+    
+    // - MARK: IBOUTLETS
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var userTaskRecordTableView: UITableView!
@@ -53,10 +55,7 @@ class UserTasksViewController: UIViewController {
         self.userTaskRecordTableView.delegate = self
         self.progressTasks = group.userInProgressTasks(userId: self.user.id)
         self.completedTasks = group.userCompletedTasks(userId: self.user.id)
-//        let header = HeaderViewHelper.createTitleImageHeaderView(title: userName, fontSize: 30, frame: CGRect(x: 0, y: -100, width: 50, height: 100), imageURL: self.user.image_file)
-//        self.userTaskRecordTableView.tableFooterView = header
-        
-        // Do any additional setup after loading the view.
+
     }
 
     override var additionalSafeAreaInsets: UIEdgeInsets {
@@ -77,7 +76,7 @@ class UserTasksViewController: UIViewController {
 
 extension UserTasksViewController: UITableViewDelegate, UITableViewDataSource {
     
-
+    // - MARK: TABLEVIEW FUNCTIONS
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 3

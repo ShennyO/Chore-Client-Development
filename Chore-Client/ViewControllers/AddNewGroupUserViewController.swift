@@ -10,12 +10,17 @@ import UIKit
 
 class AddNewGroupUserViewController: UIViewController {
 
+    // - MARK: IBOUTLETS
+    
     @IBOutlet weak var newUserView: UIView!
     @IBOutlet weak var usernameTextField: UITextField!
-    var userID: Int!
-    var selectedGroup: Group!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
+    
+    // - MARK: VARIABLES
+    var userID: Int!
+    var selectedGroup: Group!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +33,8 @@ class AddNewGroupUserViewController: UIViewController {
     }
     
 
+    // - MARK: IBACTIONS
+    
     @IBAction func addButtonTapped(_ sender: Any) {
         //In here, we first have to preform a find Request to get the User associated with the username, then we can affirm that the user exists, and get the User ID, and then perform the send Request route
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
@@ -49,11 +56,16 @@ class AddNewGroupUserViewController: UIViewController {
 }
 
 extension AddNewGroupUserViewController {
+    
+    // - MARK: NETWORKING FUNCTIONS
+    
     func getUser(completion: @escaping ()->()) {
         Network.instance.fetch(route: .getUser(username: usernameTextField.text!)) { (data, resp) in
             var runnable = true
             let jsonUser = try? JSONDecoder().decode(User.self, from: data)
+            //check to see if the user we fetched exist
             if let user = jsonUser {
+                //check to see if the user exists in our group
                 self.selectedGroup.members.forEach{
                     if $0.id == user.id {
                         runnable = false
@@ -73,7 +85,8 @@ extension AddNewGroupUserViewController {
                     return
                 }
                 
-            } else {
+            } else { //if the user doesn't exist
+                
                 DispatchQueue.main.async {
                     let alert = UIAlertController(title: "Error", message: "User doesn't exist", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Return", style: UIAlertActionStyle.default, handler: nil))
@@ -84,7 +97,7 @@ extension AddNewGroupUserViewController {
             }
         }
     }
-    
+    //This function will only be called if the getUser function will work
     func sendGroupRequest(completion: @escaping ()->()) {
         
         Network.instance.fetch(route: .sendGroupRequest(receiver_id: self.userID, group_id: self.selectedGroup.id, group_name: self.selectedGroup.name)) { (data, resp) in

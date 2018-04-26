@@ -13,7 +13,7 @@ import Kingfisher
 
 
 
-//MARK: PURPOSE
+// - MARK: PURPOSE
 // The headerview that's used in the GroupDetail User page
 struct HeaderViewHelper
 {
@@ -161,7 +161,6 @@ struct HeaderViewHelper
         }
        return vw
         
-        // Constraints
         
     }
 
