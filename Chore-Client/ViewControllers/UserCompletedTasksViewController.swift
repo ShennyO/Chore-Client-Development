@@ -1,20 +1,23 @@
 //
-//  UserChoresViewController.swift
+//  UserCompletedTasksViewController.swift
 //  Chore-Client
 //
-//  Created by Sunny Ouyang on 2/13/18.
+//  Created by Sunny Ouyang on 4/25/18.
 //  Copyright © 2018 Sunny Ouyang. All rights reserved.
 //
 
 import UIKit
 
-class UserChoresViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+class UserCompletedTasksViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
+    // - MARK: OUTLETS
     @IBOutlet weak var choresTableView: UITableView!
+    
+    // - MARK: VARIABLES
+    
     var userChores: [Chore] = []
     var loaded: Bool = false
-   
+    
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -26,17 +29,20 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
         super.viewDidAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
         if loaded == false {
-        ViewControllerUtils().showActivityIndicator(uiView: self.view)
+            ViewControllerUtils().showActivityIndicator(uiView: self.view)
         }
         getUserCompletedChores {
             DispatchQueue.main.async {
                 self.choresTableView.reloadData()
                 if self.loaded == false {
-                ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+                    ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                 }
             }
         }
     }
+    
+    
+    // - MARK: TABLEVIEW FUNCTIONS
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 70
@@ -58,10 +64,13 @@ class UserChoresViewController: UIViewController, UITableViewDataSource, UITable
     }
     
 
-    
+
 }
 
-extension UserChoresViewController {
+extension UserCompletedTasksViewController {
+    
+    // - MARK: NETWORKING FUNCTIONS
+    
     func getUserCompletedChores(completion: @escaping ()->()) {
         Network.instance.fetch(route: .getUserCompletedChores) { (data, resp) in
             let jsonChores = try? JSONDecoder().decode([Chore].self, from: data)

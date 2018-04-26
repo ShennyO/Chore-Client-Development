@@ -14,16 +14,17 @@ import Kingfisher
 
 class UserViewController: UIViewController, ChoreCompletionDelegate, UITableViewDelegate, UITableViewDataSource, UserHeaderDelegate{
     
-    
+    // - MARK: OUTLETS
     
     @IBOutlet weak var settingsBarButton: UIBarButtonItem!
     @IBOutlet weak var profileImage: UIImageView!
-    
     @IBOutlet weak var userNameLabel: UILabel!
-    
     @IBOutlet weak var choreRecordTableView: UITableView!
-    
     @IBOutlet weak var imageButton: UIButton!
+    
+    
+    // - MARK: PROPERTIES
+    
     let photoHelper = PhotoHelper()
     var imageData: NSData?
     var userChores: [Chore] = []
@@ -33,6 +34,9 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     //This checks if we are opening the view normally, or right after we uploaded an image
     var Uploaded = false
     var loaded = false
+    
+    // - MARK: INSET
+    // Add additional insets so the ImageView starts from the top of the screen
     override var additionalSafeAreaInsets: UIEdgeInsets {
         set {
             super.additionalSafeAreaInsets = UIEdgeInsetsMake(-100.0, 100.0, 100.0, 100.0)
@@ -56,16 +60,19 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
     }
     
     
+    //We only want to set up the tableviewheader once when the view loads up.
     override func viewDidLoad() {
         super.viewDidLoad()
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        
+        // - MARK: GETUSER
+        //Grabs the current logged In user, and sets up the tableviewheader
         
         getUser {
             
             if self.currentUser.image_file != "/image_files/original/missing.png" {
                 let imageURL = URL(string: self.currentUser.image_file)
                 KingfisherManager.shared.retrieveImage(with: imageURL!, options: nil, progressBlock: nil, completionHandler: { (image, _, _, _) in
-                    
                     DispatchQueue.main.async {
                         self.tableViewHeader = UserHeaderView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height * 0.6), user: self.currentUser, userImage: image!)
                         self.choreRecordTableView.tableHeaderView = self.tableViewHeader
@@ -73,8 +80,6 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
                         ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                         
                     }
-                    
-                    
                 })
             } else {
                 DispatchQueue.main.async {
@@ -85,23 +90,18 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
                     ViewControllerUtils().hideActivityIndicator(uiView: self.view)
                 }
             }
-            
-           
-            
-            
-            
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         navigationItem.largeTitleDisplayMode = .never
         hideNavigation(tint: UIColor(rgb: 0xEEF0F0))
         
+        // - MARK: GET USER CHORES
         getUserChores {
             DispatchQueue.main.async {
+                //Resets the imageView if the user updates their image
                 self.photoHelper.completionHandler = { (image) in
                     self.tableViewHeader.imageView.image = image
                     guard let imageData = UIImageJPEGRepresentation(image, 1)
@@ -136,6 +136,8 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
         alert.addAction(logOut)
         self.present(alert, animated: true, completion: nil)
     }
+    
+    // - MARK: TABLEVIEW FUNCTIONS
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -185,10 +187,13 @@ class UserViewController: UIViewController, ChoreCompletionDelegate, UITableView
 
 extension UserViewController {
     
+    //For photohelper and networking functions
+    
     func editButton() {
         photoHelper.presentActionSheet(from: self)
     }
     
+    // - MARK: NETWORKING FUNCTIONS
     
     func getUser(completion: @escaping()->()) {
         let username = KeychainSwift().get("username")

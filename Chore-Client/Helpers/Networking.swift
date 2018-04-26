@@ -10,7 +10,7 @@ import Foundation
 import KeychainSwift
 import Alamofire
 
-
+// We use enums so we can customize the functions depending on which upload route we're using
 enum imageUploadRoute {
     case userUpload
     case groupUpload
@@ -48,6 +48,7 @@ enum imageUploadRoute {
     
 }
 
+//Routes for the the networking layer
 enum Route {
     
     case loginUser(email: String, password: String)

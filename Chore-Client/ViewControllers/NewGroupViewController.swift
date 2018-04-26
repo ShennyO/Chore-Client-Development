@@ -10,14 +10,19 @@ import UIKit
 
 class NewGroupViewController: UIViewController {
 
+    // - MARK: IBOUTLETS
+    
     @IBOutlet weak var groupNameTextField: UITextField!
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var addNewGroupView: UIView!
+    
+    // - MARK: VARIABLES
+    
     var accepted = false
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.groupNameTextField.desActivateAutoCorrectAndCap()
+        self.groupNameTextField.deactivateAutoCorrectAndCap()
         self.addNewGroupView.layer.cornerRadius = 10
         self.addNewGroupView.layer.masksToBounds = true
         addButton.configureButton()
@@ -27,6 +32,7 @@ class NewGroupViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let _ = segue.identifier {
+            //if accepted, reset our groupVC's groups so it will be updated 
             if accepted {
                 Network.instance.fetch(route: .getUserGroups, completion: { (data, resp) in
                     let jsonGroups = try? JSONDecoder().decode(Groups.self, from: data)
@@ -40,6 +46,8 @@ class NewGroupViewController: UIViewController {
             }
         }
     }
+    
+    // - MARK: IBACTIONS
 
     @IBAction func addButtonTapped(_ sender: Any) {
         

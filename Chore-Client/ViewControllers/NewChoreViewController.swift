@@ -11,6 +11,8 @@ import KeychainSwift
 
 class NewChoreViewController: UIViewController, UITextFieldDelegate {
 
+    // - MARK: IBOUTLETS
+    
     @IBOutlet weak var choreNameLabel: UITextField!
     @IBOutlet weak var choreDescriptionTextField: UITextField!
     @IBOutlet weak var choreDatePicker: UIDatePicker!
@@ -23,13 +25,15 @@ class NewChoreViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        choreNameLabel.desActivateAutoCorrectAndCap()
-        choreDescriptionTextField.desActivateAutoCorrectAndCap()
+        choreNameLabel.deactivateAutoCorrectAndCap()
+        choreDescriptionTextField.deactivateAutoCorrectAndCap()
         addButton.configureButton()
         choreNameLabel.delegate = self
         choreDescriptionTextField.delegate = self
         // Do any additional setup after loading the view.
     }
+    
+    //TEXTFIELD DELEGATE FUNCTION
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool
@@ -51,6 +55,8 @@ class NewChoreViewController: UIViewController, UITextFieldDelegate {
         }
         
     }
+    
+    // - MARK: IBACTION
 
     @IBAction func addButtonTapped(_ sender: Any) {
         if self.choreNameLabel.text != ""{

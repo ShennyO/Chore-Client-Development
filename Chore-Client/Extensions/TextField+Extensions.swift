@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 extension UITextField{
-    func desActivateAutoCorrectAndCap(){
+    func deactivateAutoCorrectAndCap(){
         self.autocorrectionType = .no
        
         self.autocapitalizationType = .none

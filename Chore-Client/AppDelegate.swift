@@ -74,7 +74,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     if let user = try? JSONDecoder().decode(User.self, from: data){
                         if user.authentication_token != token {
                             
-                            let alert = UIAlertController(title: "Log Out", message: "you have been logged out because your account was logIn in different device", preferredStyle: .alert)
+                            let alert = UIAlertController(title: "Log Out", message: "you have been logged out because your account was logged in a different device", preferredStyle: .alert)
                             let done = UIAlertAction(title: "Return", style: .default, handler: { (done) in
                                 let mainStoryBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                                 let loginVC = mainStoryBoard.instantiateViewController(withIdentifier: "newLoginVC")

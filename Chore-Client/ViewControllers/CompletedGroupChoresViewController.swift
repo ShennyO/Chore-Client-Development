@@ -11,9 +11,12 @@ import Kingfisher
 
 class CompletedGroupChoresViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    
+    // - MARK: IBOUTLETS
 
     @IBOutlet weak var completedGroupChoresTableView: UITableView!
+    
+    // - MARK: VARIABLES
+    
     var chores: [Chore] = []
     var group: Group!
     var loaded: Bool = false
@@ -25,6 +28,7 @@ class CompletedGroupChoresViewController: UIViewController, UITableViewDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         getCompletedGroupChores {
             DispatchQueue.main.async {
                 if self.loaded == false {
@@ -35,6 +39,8 @@ class CompletedGroupChoresViewController: UIViewController, UITableViewDelegate,
         }
         // Do any additional setup after loading the view.
     }
+    
+    // - MARK: TABLEVIEW FUNCTIONS
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 75
@@ -60,6 +66,9 @@ class CompletedGroupChoresViewController: UIViewController, UITableViewDelegate,
 }
 
 extension CompletedGroupChoresViewController {
+    
+    // - MARK: NETWORK FUNCTIONS
+    
     func getCompletedGroupChores(completion: @escaping ()->()) {
         if loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)

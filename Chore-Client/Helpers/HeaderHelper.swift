@@ -13,10 +13,12 @@ import Kingfisher
 
 
 
-
+// - MARK: PURPOSE
+// The headerview that's used in the GroupDetail User page
 struct HeaderViewHelper
 {
-    
+    //In Progress Title Header
+    //TODO: create enum so we only need one titleHeaderView
     static  func createTasksTitleHeaderView(title: String, fontSize: CGFloat, frame: CGRect, color: UIColor) -> UIView
     {
         let vw = UIView(frame:frame)
@@ -41,7 +43,7 @@ struct HeaderViewHelper
         
         return vw
     }
-    
+    //for Completed Title Header
     static  func createTitleHeaderView(title: String, fontSize: CGFloat, frame: CGRect, color: UIColor) -> UIView
     {
         let vw = UIView(frame:frame)
@@ -67,59 +69,7 @@ struct HeaderViewHelper
         return vw
     }
     
-    static  func uploadTitleImageHeaderView(title: String, fontSize: CGFloat, frame: CGRect, image: UIImage) -> UIView
-    {
-        
-        let myCustomView = UIImageView()
-        let vw = UIView(frame:frame)
-        let darkVw = UIView(frame:frame)
-        let titleLabel = UILabel()
-        titleLabel.clipsToBounds = false
-        titleLabel.textColor = UIColor.white
-        titleLabel.text = title
-        titleLabel.textAlignment = .left
-        titleLabel.font = UIFont(name: "Futura", size: fontSize)
-        titleLabel.bounds.size.width = vw.bounds.width / 3
-        darkVw.backgroundColor = UIColor.black.withAlphaComponent(0.3)
-        vw.backgroundColor = UIColor.white
-        
-        myCustomView.image = image
-        
-        vw.addSubview(myCustomView)
-        vw.addSubview(darkVw)
-        vw.addSubview(titleLabel)
-        
-        darkVw.snp.makeConstraints({ (make) in
-            make.right.equalToSuperview()
-            make.left.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.top.equalToSuperview()
-        })
-        
-        myCustomView.snp.makeConstraints { (make) in
-            
-            make.right.equalToSuperview()
-            make.bottom.equalToSuperview()
-            make.left.equalToSuperview()
-            make.top.equalToSuperview()
-            
-        }
-        
-        titleLabel.snp.makeConstraints({ (make) in
-            make.left.equalToSuperview().offset(15)
-            make.bottom.equalToSuperview().offset(-20)
-        })
-        
-        myCustomView.contentMode = UIViewContentMode.scaleAspectFill
-        myCustomView.clipsToBounds = true
-        
-    return vw
-
-        // Constraints
-        
-    }
-    
-    
+    //For the imageView in the tableviewheader
     static  func createTitleImageHeaderView(title: String, fontSize: CGFloat, frame: CGRect, imageURL: String, vw: UIViewController? = nil) -> UIView
     {
         
@@ -211,7 +161,6 @@ struct HeaderViewHelper
         }
        return vw
         
-        // Constraints
         
     }
 

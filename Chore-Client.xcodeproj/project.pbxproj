@@ -41,12 +41,12 @@
 		84AD4475205483AE0015ECB2 /* UserCompletedChoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84AD4474205483AE0015ECB2 /* UserCompletedChoreTableViewCell.swift */; };
 		84B30FC0204517FA00B2C34B /* photoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B30FBF204517FA00B2C34B /* photoHelper.swift */; };
 		84BC189E2038E5BF000E2984 /* GroupRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84BC189D2038E5BF000E2984 /* GroupRequestTableViewCell.swift */; };
+		84C22C1620910DDA0098F297 /* UserCompletedTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C22C1520910DDA0098F297 /* UserCompletedTasksViewController.swift */; };
 		84C5949B2057963200525246 /* SideBarMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5949A2057963200525246 /* SideBarMenuTableViewCell.swift */; };
 		84C5949D2058EFC300525246 /* CompletedGroupChoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5949C2058EFC300525246 /* CompletedGroupChoreCell.swift */; };
 		84C5949F2058F04800525246 /* CompletedGroupChoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C5949E2058F04800525246 /* CompletedGroupChoresViewController.swift */; };
 		84DEEDE52032570400FAAA6B /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDE42032570400FAAA6B /* Networking.swift */; };
 		84DEEDEA2033BD7600FAAA6B /* NewGroupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDE92033BD7600FAAA6B /* NewGroupViewController.swift */; };
-		84DEEDEC2034014400FAAA6B /* UserChoresViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDEB2034014400FAAA6B /* UserChoresViewController.swift */; };
 		84DEEDEE203402F300FAAA6B /* UserChoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDED203402F300FAAA6B /* UserChoreTableViewCell.swift */; };
 		84DEEDF02034F16C00FAAA6B /* GroupDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDEF2034F16C00FAAA6B /* GroupDetailViewController.swift */; };
 		84DEEDF22034F34D00FAAA6B /* GroupChoreTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDF12034F34D00FAAA6B /* GroupChoreTableViewCell.swift */; };
@@ -122,12 +122,12 @@
 		84AD4474205483AE0015ECB2 /* UserCompletedChoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCompletedChoreTableViewCell.swift; sourceTree = "<group>"; };
 		84B30FBF204517FA00B2C34B /* photoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoHelper.swift; sourceTree = "<group>"; };
 		84BC189D2038E5BF000E2984 /* GroupRequestTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupRequestTableViewCell.swift; sourceTree = "<group>"; };
+		84C22C1520910DDA0098F297 /* UserCompletedTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCompletedTasksViewController.swift; sourceTree = "<group>"; };
 		84C5949A2057963200525246 /* SideBarMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarMenuTableViewCell.swift; sourceTree = "<group>"; };
 		84C5949C2058EFC300525246 /* CompletedGroupChoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedGroupChoreCell.swift; sourceTree = "<group>"; };
 		84C5949E2058F04800525246 /* CompletedGroupChoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedGroupChoresViewController.swift; sourceTree = "<group>"; };
 		84DEEDE42032570400FAAA6B /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		84DEEDE92033BD7600FAAA6B /* NewGroupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGroupViewController.swift; sourceTree = "<group>"; };
-		84DEEDEB2034014400FAAA6B /* UserChoresViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChoresViewController.swift; sourceTree = "<group>"; };
 		84DEEDED203402F300FAAA6B /* UserChoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserChoreTableViewCell.swift; sourceTree = "<group>"; };
 		84DEEDEF2034F16C00FAAA6B /* GroupDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupDetailViewController.swift; sourceTree = "<group>"; };
 		84DEEDF12034F34D00FAAA6B /* GroupChoreTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupChoreTableViewCell.swift; sourceTree = "<group>"; };
@@ -301,7 +301,7 @@
 				8490637A202BAA28008BFDF7 /* LoginViewController.swift */,
 				84906433202CD538008BFDF7 /* GroupsViewController.swift */,
 				84DEEDE92033BD7600FAAA6B /* NewGroupViewController.swift */,
-				84DEEDEB2034014400FAAA6B /* UserChoresViewController.swift */,
+				84C22C1520910DDA0098F297 /* UserCompletedTasksViewController.swift */,
 				84DEEDEF2034F16C00FAAA6B /* GroupDetailViewController.swift */,
 				8401A190203E7EC90038A864 /* AddNewGroupUserViewController.swift */,
 				84DEEDF5203647FA00FAAA6B /* UserViewController.swift */,
@@ -630,8 +630,8 @@
 			files = (
 				845FA3672065AA6A005D1A89 /* UserHeaderView.swift in Sources */,
 				20AD4E1F20609D480012B881 /* ViewController+Extension.swift in Sources */,
+				84C22C1620910DDA0098F297 /* UserCompletedTasksViewController.swift in Sources */,
 				84DEEDEE203402F300FAAA6B /* UserChoreTableViewCell.swift in Sources */,
-				84DEEDEC2034014400FAAA6B /* UserChoresViewController.swift in Sources */,
 				20B99AE5205F8C4900076C1F /* HeaderHelper.swift in Sources */,
 				845FA32820630C61005D1A89 /* UIViewController+Extensions.swift in Sources */,
 				84DEEDEA2033BD7600FAAA6B /* NewGroupViewController.swift in Sources */,
