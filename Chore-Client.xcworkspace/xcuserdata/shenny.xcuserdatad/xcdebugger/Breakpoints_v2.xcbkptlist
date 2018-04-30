@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Chore-Client/GroupsViewController.swift"
-            timestampString = "540258928.678655"
+            filePath = "Chore-Client/ViewControllers/GroupDetailViewController.swift"
+            timestampString = "546377955.2781039"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "getGroups(completion:)"
+            startingLineNumber = "192"
+            endingLineNumber = "192"
+            landmarkName = "tapToClose(tap:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -25,13 +25,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Chore-Client/GroupsViewController.swift"
-            timestampString = "540258928.678789"
+            filePath = "Chore-Client/ViewControllers/RegisterViewController.swift"
+            timestampString = "546377955.278584"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "69"
-            endingLineNumber = "69"
-            landmarkName = "getGroups(completion:)"
+            startingLineNumber = "215"
+            endingLineNumber = "215"
+            landmarkName = "textFieldShouldReturn(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Chore-Client/GroupsViewController.swift"
-            timestampString = "540258928.678864"
+            filePath = "Chore-Client/ViewControllers/RegisterViewController.swift"
+            timestampString = "546377955.27864"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "getGroups(completion:)"
+            startingLineNumber = "214"
+            endingLineNumber = "214"
+            landmarkName = "textFieldShouldReturn(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,44 +57,60 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Chore-Client/GroupsViewController.swift"
-            timestampString = "540258928.678928"
+            filePath = "Chore-Client/ViewControllers/UserTasksViewController.swift"
+            timestampString = "543626862.689587"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "24"
-            endingLineNumber = "24"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Chore-Client/ViewControllers/UserViewController.swift"
+            timestampString = "546377955.278728"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
+            landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in Chore_Client.GroupsViewController.viewDidLoad() -&gt; ()"
+                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in Chore_Client.UserViewController.viewWillAppear(Swift.Bool) -&gt; ()"
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/GroupsViewController.swift"
-                  timestampString = "540256799.460035"
+                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/UserViewController.swift"
+                  timestampString = "543872908.274822"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "24"
-                  endingLineNumber = "24"
-                  offsetFromSymbolStart = "14">
+                  startingLineNumber = "105"
+                  endingLineNumber = "105"
+                  offsetFromSymbolStart = "36">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; () in closure #1 () -&gt; () in Chore_Client.GroupsViewController.viewDidLoad() -&gt; ()"
+                  symbolName = "closure #1 (__ObjC.UIImage) -&gt; () in closure #1 () -&gt; () in closure #1 () -&gt; () in Chore_Client.UserViewController.viewWillAppear(Swift.Bool) -&gt; ()"
                   moduleName = "Chore-Client"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/GroupsViewController.swift"
-                  timestampString = "540256799.463295"
+                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/UserViewController.swift"
+                  timestampString = "543872908.277186"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "25"
-                  endingLineNumber = "25"
-                  offsetFromSymbolStart = "21">
+                  startingLineNumber = "106"
+                  endingLineNumber = "106"
+                  offsetFromSymbolStart = "32">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -105,14 +121,46 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Chore-Client/GroupsViewController.swift"
-            timestampString = "540258928.678991"
+            filePath = "Chore-Client/ViewControllers/GroupDetailViewController.swift"
+            timestampString = "546377955.27878"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "324"
+            endingLineNumber = "324"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Chore_Client.GroupDetailViewController.tableView(__ObjC.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __ObjC.UITableViewCell"
+                  moduleName = "Chore-Client"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/GroupDetailViewController.swift"
+                  timestampString = "543872908.283071"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "409"
+                  endingLineNumber = "409"
+                  offsetFromSymbolStart = "2240">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 : @autoclosure () throws -&gt; Swift.String in Chore_Client.GroupDetailViewController.tableView(__ObjC.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __ObjC.UITableViewCell"
+                  moduleName = "Chore-Client"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/shenny/Desktop/Chore-Client/Chore-Client/ViewControllers/GroupDetailViewController.swift"
+                  timestampString = "543872908.285581"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "409"
+                  endingLineNumber = "409"
+                  offsetFromSymbolStart = "12">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

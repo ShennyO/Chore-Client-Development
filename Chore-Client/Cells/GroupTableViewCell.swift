@@ -11,6 +11,10 @@ import UIKit
 class GroupTableViewCell: UITableViewCell {
 
     @IBOutlet weak var groupNameLabel: UILabel!
+    @IBOutlet weak var groupProfileImage: UIImageView!
+    @IBOutlet weak var choresCountLabel: UILabel!
+    @IBOutlet weak var membersCountLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

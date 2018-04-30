@@ -8,17 +8,30 @@
 
 import UIKit
 
+protocol ChoreCompletionDelegate {
+    func createChoreCompletionRequests(index: IndexPath)
+}
+
+
 class UserChoreTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var choreGroupImage: UIImageView!
     @IBOutlet weak var choreNameLabel: UILabel!
-    @IBOutlet weak var chorePenaltyLabel: UILabel!
-    @IBOutlet weak var dueDate: UILabel!
-    @IBOutlet weak var choreDescription: UITextView!
+    @IBOutlet weak var choreDescriptionLabel: UILabel!
+    @IBOutlet weak var choreDateLabel: UILabel!
+    @IBOutlet weak var completeButton: UIButton!
+    
+    var delegate: ChoreCompletionDelegate!
+    var index: IndexPath!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func completeButtonTapped(_ sender: Any) {
+        self.delegate.createChoreCompletionRequests(index: self.index)
+    }
     
 
 }
