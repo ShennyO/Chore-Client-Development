@@ -25,6 +25,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var sideMenuLeaveButton: UIButton!
     @IBOutlet weak var sideMenuProfileButton: UIButton!
     @IBOutlet weak var groupDetailTableView: UITableView!
+    @IBOutlet weak var previewPage: UIView!
     
     
     // - MARK: VARIABLES
@@ -41,7 +42,8 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     var menuShowing = true
     var loaded: Bool = false
    
-   
+    @IBOutlet weak var textPreview: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +60,14 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
+        
+//        if self.group.chores.isEmpty{
+//            self.previewPage.frame = self.groupDetailTableView
+//            //self.view.addSubview(self.textPreview)
+//    self.groupDetailTableView.backgroundView?.addSubview(self.previewPage)
+//        
+//    }
+        
         
         if loaded == false {
             ViewControllerUtils().showActivityIndicator(uiView: self.view)

@@ -16,18 +16,50 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     // - MARK: OUTLETS
     @IBOutlet weak var groupsTableView: UITableView!
-    
+   
+    /// view to show message when there's no group yet
+    @IBOutlet weak var messageView: UIView!
     
     // - MARK: VARIABLES
     var groups: [Group] = [] {
         didSet {
             DispatchQueue.main.async {
+                
+                if self.groups.count > 0{
+                     self.messageView.center.x += 1000
+                }
+                
                 self.groupsTableView.reloadData()
+                
             }
             
         }
     }
-    var requests: [Request] = []
+    var requests: [Request] = []{
+        didSet{
+            if groups.count == 0 && requests.count == 0{
+            DispatchQueue.main.async {
+                
+                //self.messageView.frame = self.view.frame
+                self.view.addSubview(self.messageView)
+                //self.groupsTableView
+                self.messageView.translatesAutoresizingMaskIntoConstraints = false
+                self.messageView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: 0).isActive = true
+                self.messageView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 0).isActive = true
+                self.messageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0).isActive = true
+                self.messageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
+                self.groupsTableView.separatorStyle = .none
+            }
+            }
+            else{
+                DispatchQueue.main.async {
+                     //self.view.willRemoveSubview(self.messageView)
+                    self.messageView.center.x += 1000
+                }
+               
+        }
+    }
+}
     var shown: Bool = false
     var loaded: Bool = false
     
@@ -53,7 +85,14 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         //Get the current user's groups and also their group requests
         self.getGroups {
             
+           
+            
             self.getRequests {
+                // add Message vie if there's no group
+                if self.groups.isEmpty && self.requests.isEmpty{
+                    
+                }
+                
                 DispatchQueue.main.async {
                     self.groupsTableView.reloadData()
                     if self.loaded == false {
@@ -69,7 +108,9 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
 
     override func viewDidLoad() {
+        
          IQKeyboardManager.sharedManager().enable = true
+        self.messageView.tag = 100
     }
 
 

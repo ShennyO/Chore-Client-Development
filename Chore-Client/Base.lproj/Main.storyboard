@@ -612,9 +612,29 @@
                     </navigationItem>
                     <connections>
                         <outlet property="groupsTableView" destination="5vJ-Is-NfE" id="QDA-pB-2an"/>
+                        <outlet property="messageView" destination="Ojp-Tb-HUo" id="JaA-81-fHv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zao-Jo-w9I" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="Ojp-Tb-HUo">
+                    <rect key="frame" x="0.0" y="0.0" width="312" height="206"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="There's Nothing yet? Dont worry, all groups you'll create or be invited will show here" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ryR-wG-Cjb">
+                            <rect key="frame" x="10" y="0.0" width="292" height="206"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="ryR-wG-Cjb" secondAttribute="trailing" constant="10" id="B2J-L6-tmA"/>
+                        <constraint firstItem="ryR-wG-Cjb" firstAttribute="top" secondItem="Ojp-Tb-HUo" secondAttribute="top" id="WoG-fB-X6f"/>
+                        <constraint firstItem="ryR-wG-Cjb" firstAttribute="leading" secondItem="Ojp-Tb-HUo" secondAttribute="leading" constant="10" id="X0h-Li-oPV"/>
+                        <constraint firstAttribute="bottom" secondItem="ryR-wG-Cjb" secondAttribute="bottom" id="jPc-p7-rQB"/>
+                    </constraints>
+                </view>
             </objects>
             <point key="canvasLocation" x="2780" y="-162.5615763546798"/>
         </scene>
@@ -1192,6 +1212,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="groupDetailTableView" destination="HJL-AP-f6K" id="AEv-Hy-2gT"/>
+                        <outlet property="previewPage" destination="edB-JR-klb" id="5Bb-GS-Xbf"/>
                         <outlet property="sideMenuGroupImageView" destination="Qj2-aG-yuz" id="EGw-ja-fU1"/>
                         <outlet property="sideMenuLeaveButton" destination="GCs-eF-SDt" id="8wR-1f-Xxk"/>
                         <outlet property="sideMenuNewChoreButton" destination="ejm-HM-7K4" id="kuw-4y-Rvi"/>
@@ -1200,6 +1221,7 @@
                         <outlet property="sideMenuTableView" destination="Raw-Xe-487" id="Sa1-Mv-z5g"/>
                         <outlet property="sideMenuTrailingConstraint" destination="RLe-NQ-1TA" id="LCA-yx-rx4"/>
                         <outlet property="sideMenuView" destination="RaG-66-I3R" id="vI3-Qe-tDy"/>
+                        <outlet property="textPreview" destination="XQq-W2-Qcf" id="pXb-pV-HHO"/>
                         <segue destination="61o-lc-HGn" kind="presentation" identifier="toAddNewGroupUser" id="Vuw-fd-Xcf"/>
                         <segue destination="t6M-lI-lMh" kind="show" identifier="toNewChore" id="8QV-9f-GFE"/>
                         <segue destination="Ylc-Zp-dug" kind="show" identifier="toCompletedGroupChores" id="9qa-lM-lb5"/>
@@ -1208,6 +1230,25 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mh9-t9-zzT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="edB-JR-klb">
+                    <rect key="frame" x="0.0" y="0.0" width="318" height="164"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All new task created will be show here." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQq-W2-Qcf">
+                            <rect key="frame" x="20" y="20" width="278" height="124"/>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="XQq-W2-Qcf" firstAttribute="leading" secondItem="edB-JR-klb" secondAttribute="leading" constant="20" id="CQh-6c-Yx2"/>
+                        <constraint firstAttribute="trailing" secondItem="XQq-W2-Qcf" secondAttribute="trailing" constant="20" id="QwV-7D-tTM"/>
+                        <constraint firstItem="XQq-W2-Qcf" firstAttribute="top" secondItem="edB-JR-klb" secondAttribute="top" constant="20" id="kLr-SQ-Ubc"/>
+                        <constraint firstAttribute="bottom" secondItem="XQq-W2-Qcf" secondAttribute="bottom" constant="20" id="sln-ZN-Ly8"/>
+                    </constraints>
+                </view>
                 <exit id="3lG-q2-KvC" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2778.75" y="719.36619718309862"/>
