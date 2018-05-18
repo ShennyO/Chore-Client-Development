@@ -235,6 +235,7 @@ class Network {
         session.dataTask(with: request) { (data, resp, err) in
             
             if let data = data, let resp = resp {
+                
                 completion(data, resp as! HTTPURLResponse)
                
             }

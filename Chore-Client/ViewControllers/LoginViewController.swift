@@ -53,11 +53,30 @@ class LoginViewController: UIViewController {
         self.loginButton.zoomInWithEasing()
         let trimmedUsernameText = self.usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedPasswordText = self.passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        do{
+            try self.checkLoginCorrect(email: usernameTextField.text!, password: passwordTextField.text!)
+        }
+        catch LoginEroor.emailIncorect{
+            LoginEroor.emailIncorect.errorMesage(self)
+        }
+        catch LoginEroor.imcompletForm{
+            LoginEroor.imcompletForm.errorMesage(self)
+        }
+        catch LoginEroor.passwordShort{
+            LoginEroor.passwordShort.errorMesage(self)
+        }
+        catch{
+            self.presentLoginErrorMessage(title: "Unexpected Error", message: " An Unexpected error happend, please try again")
+        }
+        
+        
         
         ViewControllerUtils().showActivityIndicator(uiView: self.view)
         
         
         Network.instance.fetch(route: Route.loginUser(email: trimmedUsernameText!, password: trimmedPasswordText!)) { (data, resp) in
+            
+            
             let jsonUser = try? JSONDecoder().decode(User.self, from: data)
             
             if let user = jsonUser {
@@ -90,9 +109,6 @@ class LoginViewController: UIViewController {
 extension LoginViewController: UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
        textField.placeholder = nil
-       
-        
-      
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         self.usernameTextField.placeholder = "Email"
@@ -101,7 +117,46 @@ extension LoginViewController: UITextFieldDelegate{
         self.passwordTextField.placeholder = "Password"
          self.passwordTextField.placeHolderColor = UIColor.white
     }
+    func checkLoginCorrect(email: String, password: String)throws{
+        
+       
+        if email.isEmpty || password.isEmpty{
+        throw LoginEroor.imcompletForm
+        }
+        if !email.isValidEmail{
+           throw LoginEroor.emailIncorect
+        }
+        if password.count < 6{
+            throw LoginEroor.passwordShort
+        }
+    }
 }
+
+enum LoginEroor: Error{
+    case passwordShort
+    case emailIncorect
+    case imcompletForm
+    
+    
+    
+    func errorMesage(_ viewController: UIViewController){
+        switch self{
+        case .emailIncorect:
+            let title = "Incorrect Email"
+            let message = "Make sure that the email is well formatted"
+            viewController.presentLoginErrorMessage(title: title, message: message)
+        case .passwordShort:
+            let title = "SHort Password"
+            let message = "password has to be more than 6 character"
+            viewController.presentLoginErrorMessage(title: title, message: message)
+        case .imcompletForm:
+            let title = "Incompleted Form"
+            let message = "No field should be empty"
+            viewController.presentLoginErrorMessage(title: title, message: message)
+        }
+    }
+}
+
 
 
 

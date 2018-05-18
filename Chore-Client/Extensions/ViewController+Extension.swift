@@ -19,5 +19,12 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    func presentLoginErrorMessage(title: String,message: String){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
