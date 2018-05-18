@@ -93,7 +93,35 @@ class RegisterViewController: UIViewController{
     
     @IBAction func signUpTapped(_ sender: Any) {
         self.signUpButton.zoomInWithEasing()
-        ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        
+        // check if all field are correctly formated
+        
+        do{
+        try self.checkRegistration(emailTextField.text!, passwordTextField.text!, firstNameTextField.text!, lastNameTextField.text!, usernameTextField.text!)
+             ViewControllerUtils().showActivityIndicator(uiView: self.view)
+        }
+        catch LoginEroor.emailIncorect{
+            ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+            LoginEroor.emailIncorect.errorMesage(self)
+            
+        }
+        catch LoginEroor.imcompletForm{
+            ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+            LoginEroor.imcompletForm.errorMesage(self)
+            
+        }
+        catch LoginEroor.passwordShort{
+            ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+            LoginEroor.passwordShort.errorMesage(self)
+            
+        }
+        catch{
+            ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+            self.presentLoginErrorMessage(title: "Unexpected Error", message: " An unexpected error happend, please try again")
+        }
+        
+        
+       
         let keychain = KeychainSwift()
         createUser {
             UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
@@ -146,12 +174,12 @@ extension RegisterViewController {
             return
         }
         
-        if password.count < 6 {
-            let alert = UIAlertController(title: "Invalid Sign Up", message: "Password must be at least 6 characters", preferredStyle: UIAlertControllerStyle.alert)
-            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
-            ViewControllerUtils().hideActivityIndicator(uiView: self.view)
-        }
+//        if password.count < 6 {
+//            let alert = UIAlertController(title: "Invalid Sign Up", message: "Password must be at least 6 characters", preferredStyle: UIAlertControllerStyle.alert)
+//            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+//            self.present(alert, animated: true, completion: nil)
+//            ViewControllerUtils().hideActivityIndicator(uiView: self.view)
+//        }
         
         let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedPassword = password.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -186,14 +214,14 @@ extension RegisterViewController {
 extension RegisterViewController: UITextFieldDelegate{
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        if textField.tag == 1 {
-            if (textField.text?.count)! < 6 {
-                let alert = UIAlertController(title: "Invalid", message: "Minimum of 6 characters required", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                textField.text = ""
-            }
-        }
+//        if textField.tag == 1 {
+//            if (textField.text?.count)! < 6 {
+//                let alert = UIAlertController(title: "Invalid", message: "Minimum of 6 characters required", preferredStyle: UIAlertControllerStyle.alert)
+//                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+//                self.present(alert, animated: true, completion: nil)
+//                textField.text = ""
+//            }
+//        }
         self.emailTextField.placeholder = "Email"
         self.firstNameTextField.placeholder = "First name"
         self.lastNameTextField.placeholder = "Last name"
@@ -217,6 +245,18 @@ extension RegisterViewController: UITextFieldDelegate{
     }
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.placeholder = nil
+    }
+    func checkRegistration(_ email: String,_ password: String,_ firstName: String,_ lastName: String, _ username: String) throws{
+    
+        if email.isEmpty || password.isEmpty || firstName.isEmpty || lastName.isEmpty || username.isEmpty{
+            throw LoginEroor.imcompletForm
+        }
+        if !email.isValidEmail{
+            throw LoginEroor.emailIncorect
+        }
+        if password.count < 6{
+            throw LoginEroor.passwordShort
+        }
     }
     
 }
