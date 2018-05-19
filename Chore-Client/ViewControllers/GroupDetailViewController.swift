@@ -22,6 +22,7 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
     @IBOutlet weak var sideMenuTableView: UITableView!
     @IBOutlet weak var sideMenuNewChoreButton: UIButton!
     @IBOutlet weak var sideMenuNewUserButton: UIButton!
+    @IBOutlet weak var sideMenuShareGroupButton: UIButton!
     @IBOutlet weak var sideMenuLeaveButton: UIButton!
     @IBOutlet weak var sideMenuProfileButton: UIButton!
     @IBOutlet weak var groupDetailTableView: UITableView!
@@ -131,6 +132,9 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         sideMenuNewUserButton.configureButton()
         sideMenuNewChoreButton.configureButton()
         sideMenuLeaveButton.configureButton()
+        sideMenuShareGroupButton.configureButton()
+        sideMenuShareGroupButton.titleLabel?.text = "Share Group"
+        sideMenuShareGroupButton.frame.size = sideMenuNewChoreButton.frame.size
     }
     
     
@@ -523,7 +527,16 @@ class GroupDetailViewController: UIViewController, UITableViewDataSource, UITabl
         }
         menuShowing = !menuShowing
     }
-    
+   
+    @IBAction func shareGroupButtonTapped(_ sender: UIButton){
+        
+        let message = "Hi, Download Trasks and join my task group \(self.group.name)"
+        let link = URL(string: "https://itunes.apple.com/us/app/trask/id1364258920?mt=8")
+        let share = [message,link!] as [Any]
+        let activityVC = UIActivityViewController(activityItems: share, applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
     
     @IBAction func sideMenuProfileButtonTapped(_ sender: Any) {
         photoHelper.presentActionSheet(from: self)

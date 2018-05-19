@@ -53,17 +53,20 @@ class LoginViewController: UIViewController {
         self.loginButton.zoomInWithEasing()
         let trimmedUsernameText = self.usernameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
         let trimmedPasswordText = self.passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        /// ensure all field have been correctly taped
         do{
             try self.checkLoginCorrect(email: usernameTextField.text!, password: passwordTextField.text!)
         }
-        catch LoginEroor.emailIncorect{
-            LoginEroor.emailIncorect.errorMesage(self)
-        }
-        catch LoginEroor.imcompletForm{
-            LoginEroor.imcompletForm.errorMesage(self)
-        }
-        catch LoginEroor.passwordShort{
-            LoginEroor.passwordShort.errorMesage(self)
+        catch let error as LoginEroor{
+            switch error{
+            case .emailIncorect: fallthrough
+                
+            case .passwordShort: fallthrough
+                
+            case .imcompletForm: error.errorMesage(self)
+                
+            }
         }
         catch{
             self.presentLoginErrorMessage(title: "Unexpected Error", message: " An Unexpected error happend, please try again")

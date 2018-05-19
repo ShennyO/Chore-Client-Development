@@ -27,10 +27,9 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 
                 if self.groups.count > 0{
                      self.messageView.center.x += 1000
+                    self.groupsTableView.reloadData()
                 }
-                
-                self.groupsTableView.reloadData()
-                
+        
             }
             
         }
@@ -50,7 +49,7 @@ class GroupsViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 self.messageView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 0).isActive = true
                 self.groupsTableView.separatorStyle = .none
             }
-            }
+        }
             else{
                 DispatchQueue.main.async {
                      //self.view.willRemoveSubview(self.messageView)

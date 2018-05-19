@@ -1106,7 +1106,7 @@
                                         </prototypes>
                                     </tableView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="aAA-Mw-hXR">
-                                        <rect key="frame" x="15" y="256" width="162" height="138"/>
+                                        <rect key="frame" x="15" y="256" width="162" height="189"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejm-HM-7K4">
                                                 <rect key="frame" x="0.0" y="0.0" width="162" height="36"/>
@@ -1132,8 +1132,20 @@
                                                     <action selector="newUserTapped:" destination="sPM-2H-Wo2" eventType="touchUpInside" id="bBL-ca-QB2"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCs-eF-SDt">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CW8-di-GXb" userLabel="share Button">
                                                 <rect key="frame" x="0.0" y="102" width="162" height="36"/>
+                                                <color key="backgroundColor" red="0.33356615899999997" green="0.77407294510000002" blue="0.15957346559999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
+                                                <state key="normal" title="Share Group">
+                                                    <color key="titleColor" red="1" green="1" blue="1" alpha="0.89747431509999998" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="shareGroupButtonTapped:" destination="sPM-2H-Wo2" eventType="touchUpInside" id="cqm-mS-nTL"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GCs-eF-SDt">
+                                                <rect key="frame" x="0.0" y="153" width="162" height="36"/>
                                                 <color key="backgroundColor" red="0.92156862745098034" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
                                                 <inset key="contentEdgeInsets" minX="15" minY="8" maxX="15" maxY="8"/>
@@ -1147,6 +1159,7 @@
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="LxE-Yt-jqb" secondAttribute="trailing" id="7k9-yt-Z2K"/>
+                                            <constraint firstItem="CW8-di-GXb" firstAttribute="width" secondItem="aAA-Mw-hXR" secondAttribute="width" id="Lz7-wi-SPl"/>
                                             <constraint firstItem="GCs-eF-SDt" firstAttribute="leading" secondItem="aAA-Mw-hXR" secondAttribute="leading" id="RVJ-6R-iNS"/>
                                             <constraint firstItem="ejm-HM-7K4" firstAttribute="leading" secondItem="aAA-Mw-hXR" secondAttribute="leading" id="ZTf-WZ-XfC"/>
                                             <constraint firstItem="LxE-Yt-jqb" firstAttribute="leading" secondItem="aAA-Mw-hXR" secondAttribute="leading" id="ak3-Uo-epl"/>
@@ -1218,6 +1231,7 @@
                         <outlet property="sideMenuNewChoreButton" destination="ejm-HM-7K4" id="kuw-4y-Rvi"/>
                         <outlet property="sideMenuNewUserButton" destination="LxE-Yt-jqb" id="R1L-uI-nva"/>
                         <outlet property="sideMenuProfileButton" destination="Bae-12-5xW" id="Vtc-Ip-zcL"/>
+                        <outlet property="sideMenuShareGroupButton" destination="CW8-di-GXb" id="jaJ-iB-Wto"/>
                         <outlet property="sideMenuTableView" destination="Raw-Xe-487" id="Sa1-Mv-z5g"/>
                         <outlet property="sideMenuTrailingConstraint" destination="RLe-NQ-1TA" id="LCA-yx-rx4"/>
                         <outlet property="sideMenuView" destination="RaG-66-I3R" id="vI3-Qe-tDy"/>

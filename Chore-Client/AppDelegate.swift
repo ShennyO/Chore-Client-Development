@@ -63,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let userLoginStatus = UserDefaults.standard.bool(forKey: "isUserLoggedIn")
         if(userLoginStatus)
         {
-            let username:String = KeychainSwift().get("username")!
+            guard let username:String = KeychainSwift().get("username") else {return true}
             let token: String = KeychainSwift().get("token")!
             Network.instance.fetch(route: .getUser(username: username), completion: { (data, resp) in
 
