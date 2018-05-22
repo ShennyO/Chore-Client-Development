@@ -9,6 +9,21 @@
 /* Begin PBXBuildFile section */
 		208DE0632067B59300292D75 /* ChoreRecordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 208DE0622067B59300292D75 /* ChoreRecordCollectionViewCell.swift */; };
 		209634422067658C00F93768 /* LaunchPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 209634412067658C00F93768 /* LaunchPageViewController.swift */; };
+		2099135B20B37B2F00A0E9A4 /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2099135A20B37B2F00A0E9A4 /* NotificationCenter.framework */; };
+		2099135E20B37B3000A0E9A4 /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2099135D20B37B3000A0E9A4 /* TodayViewController.swift */; };
+		2099136120B37B3000A0E9A4 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2099135F20B37B3000A0E9A4 /* MainInterface.storyboard */; };
+		2099136520B37B3000A0E9A4 /* myTasks.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2099135920B37B2F00A0E9A4 /* myTasks.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2099136C20B387DE00A0E9A4 /* MyTasksReminderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2099136B20B387DE00A0E9A4 /* MyTasksReminderTableViewCell.swift */; };
+		2099136E20B3890300A0E9A4 /* Xketchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2099136D20B3890300A0E9A4 /* Xketchable.swift */; };
+		2099136F20B3943300A0E9A4 /* Xketchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2099136D20B3890300A0E9A4 /* Xketchable.swift */; };
+		2099137020B39CAB00A0E9A4 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906370202A8287008BFDF7 /* User.swift */; };
+		2099137120B39CAE00A0E9A4 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906372202A844B008BFDF7 /* Group.swift */; };
+		2099137220B39CB100A0E9A4 /* Chore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906374202A84C8008BFDF7 /* Chore.swift */; };
+		2099137320B39CB500A0E9A4 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84906376202A859C008BFDF7 /* Request.swift */; };
+		2099137420B39EA700A0E9A4 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84DEEDE42032570400FAAA6B /* Networking.swift */; };
+		2099137520B39EAC00A0E9A4 /* photoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84B30FBF204517FA00B2C34B /* photoHelper.swift */; };
+		2099137620B39EB500A0E9A4 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849B44D320606BFD00400549 /* UIColorExtension.swift */; };
+		2099137720B39EC500A0E9A4 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845FA32720630C61005D1A89 /* UIViewController+Extensions.swift */; };
 		20AD4E1F20609D480012B881 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AD4E1E20609D480012B881 /* ViewController+Extension.swift */; };
 		20AD4E21206225E50012B881 /* UserTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AD4E20206225E50012B881 /* UserTasksViewController.swift */; };
 		20B99AE0205F241C00076C1F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B99ADF205F241C00076C1F /* Notification.swift */; };
@@ -59,6 +74,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2099136320B37B3000A0E9A4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84906336202A3AE7008BFDF7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2099135820B37B2F00A0E9A4;
+			remoteInfo = myTasks;
+		};
 		84906353202A3AE7008BFDF7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84906336202A3AE7008BFDF7 /* Project object */;
@@ -75,10 +97,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		2099136920B37B3000A0E9A4 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2099136520B37B3000A0E9A4 /* myTasks.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1DB9AEFA9463BF187BEF51F6 /* Pods-Chore-ClientTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chore-ClientTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chore-ClientTests/Pods-Chore-ClientTests.release.xcconfig"; sourceTree = "<group>"; };
 		208DE0622067B59300292D75 /* ChoreRecordCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoreRecordCollectionViewCell.swift; sourceTree = "<group>"; };
 		209634412067658C00F93768 /* LaunchPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPageViewController.swift; sourceTree = "<group>"; };
+		2099135920B37B2F00A0E9A4 /* myTasks.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = myTasks.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		2099135A20B37B2F00A0E9A4 /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
+		2099135D20B37B3000A0E9A4 /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
+		2099136020B37B3000A0E9A4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		2099136220B37B3000A0E9A4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2099136B20B387DE00A0E9A4 /* MyTasksReminderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTasksReminderTableViewCell.swift; sourceTree = "<group>"; };
+		2099136D20B3890300A0E9A4 /* Xketchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Xketchable.swift; sourceTree = "<group>"; };
 		20AD4E1E20609D480012B881 /* ViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Extension.swift"; sourceTree = "<group>"; };
 		20AD4E20206225E50012B881 /* UserTasksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTasksViewController.swift; sourceTree = "<group>"; };
 		20B99ADF205F241C00076C1F /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
@@ -140,6 +183,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2099135620B37B2F00A0E9A4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2099135B20B37B2F00A0E9A4 /* NotificationCenter.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8490633B202A3AE7008BFDF7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,8 +224,28 @@
 				5EEAD19F591532395304131E /* Pods_Chore_Client.framework */,
 				380F1B8917556C1E547BAA4C /* Pods_Chore_ClientTests.framework */,
 				738E6384CFDCCD20836F4D77 /* Pods_Chore_ClientUITests.framework */,
+				2099135A20B37B2F00A0E9A4 /* NotificationCenter.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2099135C20B37B3000A0E9A4 /* myTasks */ = {
+			isa = PBXGroup;
+			children = (
+				2099136A20B387AB00A0E9A4 /* Views */,
+				2099135D20B37B3000A0E9A4 /* TodayViewController.swift */,
+				2099135F20B37B3000A0E9A4 /* MainInterface.storyboard */,
+				2099136220B37B3000A0E9A4 /* Info.plist */,
+			);
+			path = myTasks;
+			sourceTree = "<group>";
+		};
+		2099136A20B387AB00A0E9A4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2099136B20B387DE00A0E9A4 /* MyTasksReminderTableViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		20B99ADE205F23E700076C1F /* Helpers */ = {
@@ -199,6 +270,7 @@
 				20AD4E1E20609D480012B881 /* ViewController+Extension.swift */,
 				20E63999206988D500F9069B /* TextField+Extensions.swift */,
 				20E4EC4520AF872400294F2C /* String+Extension.swift */,
+				2099136D20B3890300A0E9A4 /* Xketchable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -218,6 +290,7 @@
 				84906340202A3AE7008BFDF7 /* Chore-Client */,
 				84906355202A3AE7008BFDF7 /* Chore-ClientTests */,
 				84906360202A3AE7008BFDF7 /* Chore-ClientUITests */,
+				2099135C20B37B3000A0E9A4 /* myTasks */,
 				8490633F202A3AE7008BFDF7 /* Products */,
 				B7D7D8D076B33296089FE009 /* Pods */,
 				0CA63817AAF7CA1F43D1D9DF /* Frameworks */,
@@ -230,6 +303,7 @@
 				8490633E202A3AE7008BFDF7 /* Chore-Client.app */,
 				84906352202A3AE7008BFDF7 /* Chore-ClientTests.xctest */,
 				8490635D202A3AE7008BFDF7 /* Chore-ClientUITests.xctest */,
+				2099135920B37B2F00A0E9A4 /* myTasks.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -333,6 +407,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2099135820B37B2F00A0E9A4 /* myTasks */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2099136820B37B3000A0E9A4 /* Build configuration list for PBXNativeTarget "myTasks" */;
+			buildPhases = (
+				2099135520B37B2F00A0E9A4 /* Sources */,
+				2099135620B37B2F00A0E9A4 /* Frameworks */,
+				2099135720B37B2F00A0E9A4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = myTasks;
+			productName = myTasks;
+			productReference = 2099135920B37B2F00A0E9A4 /* myTasks.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		8490633D202A3AE7008BFDF7 /* Chore-Client */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84906366202A3AE7008BFDF7 /* Build configuration list for PBXNativeTarget "Chore-Client" */;
@@ -343,10 +434,12 @@
 				8490633C202A3AE7008BFDF7 /* Resources */,
 				644F92680E5B5B6EBFBCFBCC /* [CP] Embed Pods Frameworks */,
 				2ED3CF3BFB0E52C037611A0B /* [CP] Copy Pods Resources */,
+				2099136920B37B3000A0E9A4 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2099136420B37B3000A0E9A4 /* PBXTargetDependency */,
 			);
 			name = "Chore-Client";
 			productName = "Chore-Client";
@@ -401,10 +494,14 @@
 		84906336202A3AE7008BFDF7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0920;
+				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Sunny Ouyang";
 				TargetAttributes = {
+					2099135820B37B2F00A0E9A4 = {
+						CreatedOnToolsVersion = 9.3.1;
+						ProvisioningStyle = Automatic;
+					};
 					8490633D202A3AE7008BFDF7 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
@@ -437,11 +534,20 @@
 				8490633D202A3AE7008BFDF7 /* Chore-Client */,
 				84906351202A3AE7008BFDF7 /* Chore-ClientTests */,
 				8490635C202A3AE7008BFDF7 /* Chore-ClientUITests */,
+				2099135820B37B2F00A0E9A4 /* myTasks */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2099135720B37B2F00A0E9A4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2099136120B37B3000A0E9A4 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8490633C202A3AE7008BFDF7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -627,12 +733,31 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2099135520B37B2F00A0E9A4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2099137020B39CAB00A0E9A4 /* User.swift in Sources */,
+				2099136C20B387DE00A0E9A4 /* MyTasksReminderTableViewCell.swift in Sources */,
+				2099135E20B37B3000A0E9A4 /* TodayViewController.swift in Sources */,
+				2099137420B39EA700A0E9A4 /* Networking.swift in Sources */,
+				2099137220B39CB100A0E9A4 /* Chore.swift in Sources */,
+				2099137320B39CB500A0E9A4 /* Request.swift in Sources */,
+				2099137720B39EC500A0E9A4 /* UIViewController+Extensions.swift in Sources */,
+				2099137120B39CAE00A0E9A4 /* Group.swift in Sources */,
+				2099137620B39EB500A0E9A4 /* UIColorExtension.swift in Sources */,
+				2099136F20B3943300A0E9A4 /* Xketchable.swift in Sources */,
+				2099137520B39EAC00A0E9A4 /* photoHelper.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8490633A202A3AE7008BFDF7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				845FA3672065AA6A005D1A89 /* UserHeaderView.swift in Sources */,
 				20AD4E1F20609D480012B881 /* ViewController+Extension.swift in Sources */,
+				2099136E20B3890300A0E9A4 /* Xketchable.swift in Sources */,
 				84C22C1620910DDA0098F297 /* UserCompletedTasksViewController.swift in Sources */,
 				84DEEDEE203402F300FAAA6B /* UserChoreTableViewCell.swift in Sources */,
 				20B99AE5205F8C4900076C1F /* HeaderHelper.swift in Sources */,
@@ -694,6 +819,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2099136420B37B3000A0E9A4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2099135820B37B2F00A0E9A4 /* myTasks */;
+			targetProxy = 2099136320B37B3000A0E9A4 /* PBXContainerItemProxy */;
+		};
 		84906354202A3AE7008BFDF7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8490633D202A3AE7008BFDF7 /* Chore-Client */;
@@ -707,6 +837,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2099135F20B37B3000A0E9A4 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2099136020B37B3000A0E9A4 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
 		84906345202A3AE7008BFDF7 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -726,6 +864,44 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2099136620B37B3000A0E9A4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K7R433H2CL;
+				INFOPLIST_FILE = myTasks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.trask.myTasks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2099136720B37B3000A0E9A4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K7R433H2CL;
+				INFOPLIST_FILE = myTasks/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.trask.myTasks;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		84906364202A3AE7008BFDF7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -837,6 +1013,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5BB2FEE31FBC6FF76A2343E7 /* Pods-Chore-Client.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K7R433H2CL;
@@ -854,6 +1031,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 841F29657676D2B99D41653F /* Pods-Chore-Client.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = K7R433H2CL;
@@ -940,6 +1118,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2099136820B37B3000A0E9A4 /* Build configuration list for PBXNativeTarget "myTasks" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2099136620B37B3000A0E9A4 /* Debug */,
+				2099136720B37B3000A0E9A4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		84906339202A3AE7008BFDF7 /* Build configuration list for PBXProject "Chore-Client" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
