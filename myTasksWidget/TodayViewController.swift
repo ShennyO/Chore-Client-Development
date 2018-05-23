@@ -9,6 +9,7 @@
 import UIKit
 import NotificationCenter
 
+
 class TodayViewController: UIViewController, NCWidgetProviding {
     
     // - MARK: IBOUTLETS
@@ -31,7 +32,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         DispatchQueue.global().async {
             self.retrieveTasks(completionHandler: { (tasks) in
                 DispatchQueue.main.async {
-                    userTasks = tasks
+                    self.self.userTasks = tasks
                 }
             })
         }
@@ -54,8 +55,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     func retrieveTasks(completionHandler:@escaping([Chore])->()){
         Network.instance.fetch(route: .getUserChores) { (data, resp) in
-            let tasks = JSONDecoder().decode([Chore].self, from: data)
+            do{
+            let tasks = try JSONDecoder().decode([Chore].self, from: data)
             completionHandler(tasks)
+            }
+            catch{}
         }
     }
     
@@ -74,9 +78,10 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource{
         let tasks = self.userTasks[indexPath.row]
         cell.groupName.text = tasks.groupname
         cell.taskLabel.text = tasks.description
+        //cell.taskDueDateLabel.text =
         DispatchQueue.global().async {
             let imageURL = URL(string: tasks.group_image)
-            let imageData = Data(contentsOf: imageURL!)
+            let imageData = try! Data(contentsOf: imageURL!)
             let image = UIImage(data: imageData)
             DispatchQueue.main.async {
                 cell.groupProfileImage.image = image
@@ -85,6 +90,9 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource{
        
         
         return cell
+    }
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
     }
     
     
