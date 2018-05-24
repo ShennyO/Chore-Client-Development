@@ -32,7 +32,6 @@
 		20AD4E1F20609D480012B881 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AD4E1E20609D480012B881 /* ViewController+Extension.swift */; };
 		20AD4E21206225E50012B881 /* UserTasksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AD4E20206225E50012B881 /* UserTasksViewController.swift */; };
 		20B82D3F20B6226300B04333 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2099136220B37B3000A0E9A4 /* Info.plist */; };
-		20B82D4120B6227000B04333 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8490634D202A3AE7008BFDF7 /* Info.plist */; };
 		20B82D4220B6247800B04333 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8490634D202A3AE7008BFDF7 /* Info.plist */; };
 		20B82D4820B62CA700B04333 /* KeychainSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B82D4720B62CA700B04333 /* KeychainSwift.framework */; };
 		20B82D4A20B62DDA00B04333 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20B82D4920B62DDA00B04333 /* Alamofire.framework */; };
@@ -41,7 +40,6 @@
 		20B82D4D20B62E2100B04333 /* ViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20AD4E1E20609D480012B881 /* ViewController+Extension.swift */; };
 		20B82D4E20B62E2100B04333 /* TextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E63999206988D500F9069B /* TextField+Extensions.swift */; };
 		20B82D4F20B62E2100B04333 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E4EC4520AF872400294F2C /* String+Extension.swift */; };
-		20B82D5020B62EF800B04333 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2099136220B37B3000A0E9A4 /* Info.plist */; };
 		20B82D5720B663DA00B04333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84906348202A3AE7008BFDF7 /* Assets.xcassets */; };
 		20B99AE0205F241C00076C1F /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B99ADF205F241C00076C1F /* Notification.swift */; };
 		20B99AE3205F2CDC00076C1F /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20B99AE2205F2CDC00076C1F /* Date+Extension.swift */; };
@@ -586,7 +584,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Sunny Ouyang";
 				TargetAttributes = {
 					2084445620B6D3D4003F3C50 = {
@@ -660,7 +658,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				20B82D5020B62EF800B04333 /* Info.plist in Resources */,
 				20B82D4220B6247800B04333 /* Info.plist in Resources */,
 				20B82D5720B663DA00B04333 /* Assets.xcassets in Resources */,
 				2099136120B37B3000A0E9A4 /* MainInterface.storyboard in Resources */,
@@ -674,7 +671,6 @@
 				20B82D3F20B6226300B04333 /* Info.plist in Resources */,
 				8490634C202A3AE7008BFDF7 /* LaunchScreen.storyboard in Resources */,
 				84906349202A3AE7008BFDF7 /* Assets.xcassets in Resources */,
-				20B82D4120B6227000B04333 /* Info.plist in Resources */,
 				84906347202A3AE7008BFDF7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1125,6 +1121,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1132,6 +1129,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -1183,6 +1181,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -1190,6 +1189,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
