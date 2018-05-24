@@ -35,20 +35,17 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         DispatchQueue.global().async {
             self.retrieveTasks(completionHandler: { (tasks) in
                 DispatchQueue.main.async {
-                    self.self.userTasks = tasks
+                   var task = tasks
+                    task.sort{return self.dueDay($0.due_date) < self.dueDay($1.due_date)}
+                    self.self.userTasks = task.filter{$0.pending == false}
                 }
             })
         }
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
+
+
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
         // Perform any setup necessary in order to update the view.
-        
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
@@ -147,6 +144,7 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource{
         return 70
     }
     
+    // cresize the widget based on the number of row in the table view
     func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
         if activeDisplayMode == .compact {
             self.preferredContentSize = maxSize
@@ -160,7 +158,6 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource{
             self.preferredContentSize = CGSize(width: maxSize.width, height: tableHeight)
         }
     }
-
 }
 
 
