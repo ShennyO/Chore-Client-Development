@@ -40,6 +40,7 @@ class RegisterViewController: UIViewController{
         
         super.viewDidLoad()
         
+       
         self.usernameTextField.deactivateAutoCorrectAndCap()
         self.passwordTextField.deactivateAutoCorrectAndCap()
         self.firstNameTextField.deactivateAutoCorrectAndCap()
@@ -119,6 +120,7 @@ class RegisterViewController: UIViewController{
         
        
         let keychain = KeychainSwift()
+         keychain.accessGroup = "K7R433H2CL.com.trasks.development"
         createUser {
             UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
             UserDefaults.standard.synchronize()

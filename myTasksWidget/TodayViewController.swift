@@ -26,6 +26,9 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+         self.extensionContext?.widgetLargestAvailableDisplayMode = .expanded
+        reminderTableView.dataSource = self
+        reminderTableView.delegate = self
         // Do any additional setup after loading the view from its nib.
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -63,6 +66,20 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
+    // function to return how many date left before due date
+    func dueDay(_ dueDate: String) -> Int{
+        let date = dueDate.toDate()
+        let dayLeft = Date.dayLeft(day: date!).day
+        return dayLeft!
+    }
+    // function to animate the view
+    func animateView(_ viewToanimate: UIView, _ duration: Double, _ alpha: CGFloat){
+        let fadeAnimatrion = {
+            viewToanimate.alpha = alpha
+        }
+       UIView.animate(withDuration: duration, delay: 0, options: [.repeat, .autoreverse], animations: fadeAnimatrion, completion: nil)
+       
+    }
 }
 
 // - MARK: TABLE VIEW LIFE CYCLE
@@ -76,9 +93,37 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource{
         
         let cell = reminderTableView.dequeueReusableCell(withIdentifier: "cell") as! MyTasksReminderTableViewCell
         let tasks = self.userTasks[indexPath.row]
-        cell.groupName.text = tasks.groupname
-        cell.taskLabel.text = tasks.description
-        //cell.taskDueDateLabel.text =
+        cell.groupName.text = tasks.name
+        cell.taskLabel.text = tasks.groupname
+        cell.taskDueDateLabel.text = "Due:"
+        let numberOfDayLeft = self.dueDay(tasks.due_date)
+        
+        switch numberOfDayLeft > 0{
+        
+        // make animatable view green
+        case true: cell.animatedView.backgroundColor = UIColor.init(red: 24/225, green: 118/225, blue: 80/225, alpha: 1)
+            self.animateView(cell.animatedView, 3, 0.5)
+            
+        // make animatable view blue
+        case false: switch numberOfDayLeft == 0{
+        case true: cell.animatedView.backgroundColor = UIColor.init(red: 44/225, green: 87/225, blue: 80/132, alpha: 1)
+            
+             self.animateView(cell.animatedView, 2, 0.2)
+            
+        // make animatable view red
+        case false: cell.animatedView.backgroundColor = .red
+             self.animateView(cell.animatedView, 0.3, 0.1)
+            }
+        }
+        
+        cell.numberOfDayLeft.text = "\(self.dueDay(tasks.due_date))"
+        cell.animatedView.layer.masksToBounds = true
+        cell.animatedView.layer.cornerRadius = cell.animatedView.frame.width / 2
+        
+        
+        
+        
+        if tasks.group_image != "/image_files/original/missing.png"{
         DispatchQueue.global().async {
             let imageURL = URL(string: tasks.group_image)
             let imageData = try! Data(contentsOf: imageURL!)
@@ -86,16 +131,36 @@ extension TodayViewController: UITableViewDelegate, UITableViewDataSource{
             DispatchQueue.main.async {
                 cell.groupProfileImage.image = image
             }
+        }  
+    }
+        else{
+            let image = UIImage(named: "groups")
+            cell.groupProfileImage.image = image!
         }
-       
+        
+        //self.animateView(cell.animatedView)
+        
         
         return cell
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 70
     }
     
-    
+    func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize) {
+        if activeDisplayMode == .compact {
+            self.preferredContentSize = maxSize
+        } else if activeDisplayMode == .expanded {
+            var tableHeight = CGFloat(70.0 * Double(self.userTasks.count))
+            
+            switch tableHeight > 440{
+            case true: tableHeight = 440
+            case false: break
+            }
+            self.preferredContentSize = CGSize(width: maxSize.width, height: tableHeight)
+        }
+    }
+
 }
 
 

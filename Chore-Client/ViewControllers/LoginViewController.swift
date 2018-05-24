@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        keychain.accessGroup = "K7R433H2CL.com.trasks.development"
 //        self.hideKeyboardWhenTappedAround()
         loginButton.configureButton()
         registerButton.configureButton()
@@ -86,6 +87,7 @@ class LoginViewController: UIViewController {
                 print("Login successful")
                 UserDefaults.standard.set(true, forKey: "isUserLoggedIn")
                 UserDefaults.standard.synchronize()
+                
                 self.keychain.set(user.authentication_token, forKey: "token")
                 self.keychain.set(user.email, forKey: "email")
                 self.keychain.set(user.username, forKey: "username")

@@ -203,11 +203,16 @@ enum Route {
        
         default:
             let keychain = KeychainSwift()
+             keychain.accessGroup = "K7R433H2CL.com.trasks.development"
             let token = keychain.get("token")
             let email = keychain.get("email")
+            if token != nil{
             return ["Content-Type": "application/json",
-                    "x-User-Token": "\(token!)",
+                    "x-User-Token": "\(token ?? "")",
                     "x-User-Email": email!]
+            }else{
+                return ["":""]
+            }
         }
         
     }

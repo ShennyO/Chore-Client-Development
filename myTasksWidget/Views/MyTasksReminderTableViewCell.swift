@@ -10,15 +10,18 @@ import UIKit
 
 class MyTasksReminderTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var groupProfileImage: Xketchable!
+    @IBOutlet weak var groupProfileImage: UIImageView!
     @IBOutlet weak var groupName: UILabel!
     @IBOutlet weak var taskLabel: UILabel!
+    @IBOutlet weak var numberOfDayLeft: UILabel!
     @IBOutlet weak var taskDueDateLabel: UILabel!
-    
+    @IBOutlet weak var animatedView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -26,6 +29,9 @@ class MyTasksReminderTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+//    override func layoutSubviews() {
+//        animatedView.layer.masksToBounds = true
+//        animatedView.layer.cornerRadius = animatedView.frame.width / 2
+//    }
 }
 
