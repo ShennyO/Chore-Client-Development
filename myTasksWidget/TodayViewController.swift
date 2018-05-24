@@ -32,10 +32,11 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // Do any additional setup after loading the view from its nib.
     }
     override func viewDidAppear(_ animated: Bool) {
+        
         DispatchQueue.global().async {
             self.retrieveTasks(completionHandler: { (tasks) in
                 DispatchQueue.main.async {
-                   var task = tasks
+                    var task = tasks
                     task.sort{return self.dueDay($0.due_date) < self.dueDay($1.due_date)}
                     self.self.userTasks = task.filter{$0.pending == false}
                 }
@@ -49,7 +50,6 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         // If an error is encountered, use NCUpdateResult.Failed
         // If there's no update required, use NCUpdateResult.NoData
         // If there's an update, use NCUpdateResult.NewData
-        
         completionHandler(NCUpdateResult.newData)
     }
     
